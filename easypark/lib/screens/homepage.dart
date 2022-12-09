@@ -142,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: Row(
                         children: [
-                          Image.asset('assets/detect.png', height: 30),
+                          Image.asset('assets/detection.png', height: 30),
                           const SizedBox(
                             width: 10,
                           ),
@@ -179,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         //  Navigator.pushNamed(context, ''),
                         children: [
-                          Image.asset('assets/questionnaire.jpg', height: 30),
+                          Image.asset('assets/online-survey.png', height: 30),
                           const SizedBox(
                             width: 10,
                           ),
@@ -197,7 +197,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: Row(
                         children: [
-                          Image.asset('assets/doctor.png', height: 30),
+                          Image.asset('assets/contact.png', height: 30),
                           // ignore: prefer_const_constructors
                           SizedBox(
                             width: 10,
