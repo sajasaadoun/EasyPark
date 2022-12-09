@@ -1,3 +1,4 @@
+import 'package:easypark/screens/test_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/homepage.dart';
 
@@ -11,10 +12,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, initialRoute: '/',
+    return MaterialApp(debugShowCheckedModeBanner: false, initialRoute: '/test',
         //home: Welcome(),
         routes: {
           '/': (context) => const HomePage(),
+          '/test': (context) => const TestPage(),
         });
   }
 }
