@@ -251,7 +251,7 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Image.asset(
-                          'assets/doctor.png',
+                          'assets/doctor1.jpg',
                           height: 40,
                         ),
                         Row(
@@ -277,7 +277,7 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Image.asset(
-                          'assets/doctor.png',
+                          'assets/doctor2.jpg',
                           height: 40,
                         ),
                         Row(
