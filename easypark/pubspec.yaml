@@ -67,6 +67,12 @@ flutter:
     - assets/questionnaire.jpg
     - assets/doctor.png
     - assets/question.jpg
+    - assets/healthcare.jpg
+    - assets/contact.png
+    - assets/detection.png
+    - assets/online-survey.png
+    - assets/rating.png
+    - assets/rating_1.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
