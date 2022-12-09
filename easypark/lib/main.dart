@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'homepage.dart';
+import 'speechDetection.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const HomePage(),
-      theme: ThemeData(primarySwatch: Colors.deepPurple),
-    );
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(primarySwatch: Colors.deepPurple),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const HomePage(),
+          'speech': (context) => speechPage(),
+        });
   }
 }
