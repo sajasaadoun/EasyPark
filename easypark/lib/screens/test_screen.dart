@@ -204,6 +204,7 @@ class _TestPageState extends State<TestPage> {
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          // ignore: prefer_const_literals_to_create_immutables
                           children: [
                             Text(
                               "Tests",
@@ -215,25 +216,28 @@ class _TestPageState extends State<TestPage> {
                             Icon(Icons.more_horiz)
                           ],
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 20,
                         ),
                         // list view of excercices
                         Expanded(
                           child: ListView(
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
-                              TestOptions(
+                              const TestOptions(
                                 icon: Icons.favorite,
                                 option: 'Hand-drawn Test',
                                 numberofoptions: 2,
                                 Color: Colors.blue,
                               ),
+                              // ignore: prefer_const_constructors
                               TestOptions(
                                 icon: Icons.favorite,
                                 option: 'Voice speech Test',
                                 numberofoptions: 2,
                                 Color: Colors.pink,
                               ),
+                              // ignore: prefer_const_constructors
                               TestOptions(
                                 icon: Icons.favorite,
                                 option: 'Face Picture Test',
