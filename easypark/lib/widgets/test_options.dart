@@ -60,8 +60,8 @@ class TestOptions extends StatelessWidget {
                   option1 + ' Test',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    color: Colors.grey,
-                    fontSize: 16,
+                    color: Colors.black45,
+                    fontSize: 20,
                   ),
                 ),
               ],
