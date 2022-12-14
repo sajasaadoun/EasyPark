@@ -14,12 +14,14 @@ class EmotionFace extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.blue[600],
-        borderRadius: BorderRadius.circular(12),
+    return ElevatedButton(
+      onPressed: () {},
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.blue[600],
+        shape: const BeveledRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10))),
       ),
-      padding: EdgeInsets.all(16),
+      //padding: EdgeInsets.all(16),
       child: Center(
         child: Text(
           emtionFace,
