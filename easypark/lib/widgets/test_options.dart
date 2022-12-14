@@ -5,38 +5,42 @@ import 'package:flutter/src/widgets/framework.dart';
 class TestOptions extends StatelessWidget {
   final icon;
   final String option;
-  final int numberofoptions;
+  final String option1;
   final Color;
   const TestOptions({
     Key? key,
     required this.icon,
     required this.option,
-    required this.numberofoptions,
+    required this.option1,
     required this.Color,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 12.0),
-      child: Container(
-          padding: EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
+      padding: const EdgeInsets.only(bottom: 15.0),
+      child: ElevatedButton(
+          onPressed: () {},
+          // padding: const EdgeInsets.all(16),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.white,
+            textStyle: const TextStyle(
+                color: Colors.white, fontSize: 10, fontStyle: FontStyle.normal),
+            shape: const BeveledRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(12))),
           ),
           child: Row(children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Container(
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   color: Color,
                   child: Icon(
                     icon,
                     color: Colors.white,
                   )),
             ),
-            SizedBox(
+            const SizedBox(
               width: 12,
             ),
             Column(
@@ -46,14 +50,14 @@ class TestOptions extends StatelessWidget {
                   option,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16,
+                    fontSize: 10,
                   ),
                 ),
                 SizedBox(
                   height: 5,
                 ),
                 Text(
-                  numberofoptions.toString() + ' Methods',
+                  option1 + ' Test',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.grey,
