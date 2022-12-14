@@ -227,21 +227,21 @@ class _TestPageState extends State<TestPage> {
                               const TestOptions(
                                 icon: Icons.favorite,
                                 option: 'Hand-drawn Test',
-                                numberofoptions: 2,
+                                option1: 'Hand-drawn',
                                 Color: Colors.blue,
                               ),
                               // ignore: prefer_const_constructors
                               TestOptions(
                                 icon: Icons.favorite,
                                 option: 'Voice speech Test',
-                                numberofoptions: 2,
+                                option1: 'Voice speech',
                                 Color: Colors.pink,
                               ),
                               // ignore: prefer_const_constructors
                               TestOptions(
                                 icon: Icons.favorite,
                                 option: 'Face Picture Test',
-                                numberofoptions: 2,
+                                option1: 'Face Picture',
                                 Color: Colors.green,
                               ),
                             ],
