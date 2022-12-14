@@ -13,14 +13,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        initialRoute: 'speech',
+    return MaterialApp(debugShowCheckedModeBanner: false, initialRoute: '/',
         //home: Welcome(),
         routes: {
           '/': (context) => const HomePage(),
           '/test': (context) => const TestPage(),
-          'speech': (context) => speechPage(),
+          'speech': (context) => const speechPage(),
         });
   }
 }
