@@ -102,7 +102,7 @@ class _speechPageState extends State<speechPage> {
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                    color: Colors.pink[100],
+                    color: Colors.blue[600],
                     borderRadius: BorderRadius.circular(12)),
                 child: Row(
                   children: [
