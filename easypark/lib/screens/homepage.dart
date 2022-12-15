@@ -190,6 +190,9 @@ class _HomePageState extends State<HomePage> {
                           ),
                           ElevatedButton(
                               onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.deepPurple[100],
+                              ),
                               child: const Text('Questionnaire')),
                         ],
                       ),
