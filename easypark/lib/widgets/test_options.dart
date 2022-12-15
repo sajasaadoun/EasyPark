@@ -20,7 +20,15 @@ class TestOptions extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 15.0),
       child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            if (option1 == 'Hand-drawn') {
+              Navigator.pushNamed(context, '/');
+            } else if (option1 == 'Voice speech') {
+              Navigator.pushNamed(context, '/speech');
+            } else if (option1 == 'Face Picture') {
+              Navigator.pushNamed(context, '/');
+            }
+          },
           // padding: const EdgeInsets.all(16),
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.white,
