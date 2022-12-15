@@ -69,11 +69,14 @@ class _speechPageState extends State<speechPage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
-                      Text(
-                        'Hello,',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                      Padding(
+                        padding: EdgeInsets.only(top: 17.0),
+                        child: Text(
+                          'Hello,',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                       SizedBox(height: 8),
