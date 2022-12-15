@@ -26,8 +26,8 @@ class TestOptions extends StatelessWidget {
             backgroundColor: Colors.white,
             textStyle: const TextStyle(
                 color: Colors.white, fontSize: 10, fontStyle: FontStyle.normal),
-            shape: const BeveledRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(12))),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0)),
           ),
           child: Row(children: [
             ClipRRect(
