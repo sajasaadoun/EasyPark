@@ -164,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.deepPurple[100],
+                        color: Colors.blue[600],
                       ),
                       child: Row(
                         children: [
@@ -172,7 +172,12 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(
                             width: 10,
                           ),
-                          const Text('Severity level'),
+                          ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue[600],
+                              ),
+                              child: const Text('Severity level')),
                         ],
                       ),
                     ),
