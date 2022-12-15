@@ -74,7 +74,7 @@ class _speechPageState extends State<speechPage> {
           label: '',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.backspace),
+          icon: Icon(Icons.arrow_circle_left),
           label: '',
         )
       ]),
