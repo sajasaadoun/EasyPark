@@ -22,22 +22,25 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        'Hello,',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
+                  Padding(
+                    padding: const EdgeInsets.only(top: 17.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          'Hello,',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        'Jerome Bell',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ],
+                        SizedBox(height: 8),
+                        Text(
+                          'Jerome Bell',
+                          style: TextStyle(fontSize: 20),
+                        ),
+                      ],
+                    ),
                   ),
                   Container(
                     decoration: BoxDecoration(
@@ -55,7 +58,7 @@ class _HomePageState extends State<HomePage> {
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                    color: Colors.pink[100],
+                    color: Colors.blue[600],
                     borderRadius: BorderRadius.circular(12)),
                 child: Row(
                   children: [
@@ -98,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                         Container(
                           padding: const EdgeInsets.all(12),
                           decoration: BoxDecoration(
-                            color: Colors.deepPurple[300],
+                            color: Colors.white,
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: const Center(
@@ -139,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.deepPurple[100],
+                        color: Colors.blue[600],
                       ),
                       child: Row(
                         children: [
@@ -147,7 +150,14 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(
                             width: 10,
                           ),
-                          const Text('Detect Parkinson'),
+                          ElevatedButton(
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/test');
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue[600],
+                              ),
+                              child: const Text('Detect Parkinson')),
                         ],
                       ),
                     ),
@@ -157,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.deepPurple[100],
+                        color: Colors.blue[600],
                       ),
                       child: Row(
                         children: [
@@ -165,7 +175,12 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(
                             width: 10,
                           ),
-                          const Text('Severity level'),
+                          ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue[600],
+                              ),
+                              child: const Text('Severity level')),
                         ],
                       ),
                     ),
@@ -175,7 +190,7 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.deepPurple[100],
+                        color: Colors.blue[600],
                       ),
                       child: Row(
                         //  Navigator.pushNamed(context, ''),
@@ -184,7 +199,12 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(
                             width: 10,
                           ),
-                          const Text('Questionnaire'),
+                          ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue[600],
+                              ),
+                              child: const Text('Questionnaire')),
                         ],
                       ),
                     ),
@@ -194,7 +214,7 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.deepPurple[100],
+                        color: Colors.blue[600],
                       ),
                       child: Row(
                         children: [
@@ -203,7 +223,12 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(
                             width: 10,
                           ),
-                          const Text('Contact Doctors'),
+                          ElevatedButton(
+                              onPressed: () {},
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.blue[600],
+                              ),
+                              child: const Text('Contact Doctors')),
                         ],
                       ),
                     ),

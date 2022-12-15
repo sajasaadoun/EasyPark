@@ -17,16 +17,17 @@ class _TestPageState extends State<TestPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue[800],
+      // ignore: prefer_const_literals_to_create_immutables
       bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: '',
         ),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.message),
           label: '',
         ),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.assistant),
           label: '',
         )
@@ -46,9 +47,9 @@ class _TestPageState extends State<TestPage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.only(top: 20.0),
-                            child: const Text(
+                          const Padding(
+                            padding: EdgeInsets.only(top: 20.0),
+                            child: Text(
                               'Hi Jared',
                               style: TextStyle(
                                 color: Colors.white,
@@ -57,7 +58,7 @@ class _TestPageState extends State<TestPage> {
                               ),
                             ),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 8,
                           ),
                           Text('23 Kan, 2022',
@@ -70,15 +71,15 @@ class _TestPageState extends State<TestPage> {
                         decoration: BoxDecoration(
                             color: Colors.blue[600],
                             borderRadius: BorderRadius.circular(12)),
-                        padding: EdgeInsets.all(12),
-                        child: Icon(
+                        padding: const EdgeInsets.all(12),
+                        child: const Icon(
                           Icons.notifications,
                           color: Colors.white,
                         ),
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20.0,
                   ),
                   //Search Row
@@ -86,14 +87,15 @@ class _TestPageState extends State<TestPage> {
                     decoration: BoxDecoration(
                         color: Colors.blue[600],
                         borderRadius: BorderRadius.circular(12)),
-                    padding: EdgeInsets.all(12),
+                    padding: const EdgeInsets.all(12),
                     child: Row(
+                      // ignore: prefer_const_literals_to_create_immutables
                       children: [
-                        Icon(Icons.search),
-                        SizedBox(
+                        const Icon(Icons.search),
+                        const SizedBox(
                           width: 10.0,
                         ),
-                        Text(
+                        const Text(
                           'Search',
                           style: TextStyle(
                             color: Colors.white,
@@ -102,14 +104,15 @@ class _TestPageState extends State<TestPage> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
                   // how do you feel?
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      Text(
+                      const Text(
                         'How do you feel today?',
                         style: TextStyle(
                           color: Colors.white,
@@ -117,13 +120,13 @@ class _TestPageState extends State<TestPage> {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Icon(
+                      const Icon(
                         Icons.more_horiz,
                         color: Colors.white,
                       )
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
 
@@ -132,12 +135,14 @@ class _TestPageState extends State<TestPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Column(
+                        // ignore: prefer_const_literals_to_create_immutables
                         children: [
+                          // ignore: prefer_const_constructors
                           EmotionFace(emtionFace: '🥲'),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text(
+                          const Text(
                             'Bad',
                             style: TextStyle(
                               color: Colors.white,
@@ -146,12 +151,14 @@ class _TestPageState extends State<TestPage> {
                         ],
                       ),
                       Column(
+                        // ignore: prefer_const_literals_to_create_immutables
                         children: [
+                          // ignore: prefer_const_constructors
                           EmotionFace(emtionFace: ' 😅'),
-                          SizedBox(
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text(
+                          const Text(
                             'Fine',
                             style: TextStyle(
                               color: Colors.white,
@@ -161,11 +168,11 @@ class _TestPageState extends State<TestPage> {
                       ),
                       Column(
                         children: [
-                          EmotionFace(emtionFace: '😃'),
-                          SizedBox(
+                          const EmotionFace(emtionFace: '😃'),
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text(
+                          const Text(
                             'Well',
                             style: TextStyle(
                               color: Colors.white,
@@ -175,11 +182,11 @@ class _TestPageState extends State<TestPage> {
                       ),
                       Column(
                         children: [
-                          EmotionFace(emtionFace: '😁'),
-                          SizedBox(
+                          const EmotionFace(emtionFace: '😁'),
+                          const SizedBox(
                             height: 10,
                           ),
-                          Text(
+                          const Text(
                             'Excellent',
                             style: TextStyle(
                               color: Colors.white,
@@ -192,12 +199,12 @@ class _TestPageState extends State<TestPage> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Expanded(
               child: Container(
-                  padding: EdgeInsets.all(25),
+                  padding: const EdgeInsets.all(25),
                   color: Colors.grey[200],
                   child: Center(
                     child: Column(
@@ -206,14 +213,14 @@ class _TestPageState extends State<TestPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           // ignore: prefer_const_literals_to_create_immutables
                           children: [
-                            Text(
+                            const Text(
                               "Tests",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 fontSize: 20,
                               ),
                             ),
-                            Icon(Icons.more_horiz)
+                            const Icon(Icons.more_horiz)
                           ],
                         ),
                         const SizedBox(

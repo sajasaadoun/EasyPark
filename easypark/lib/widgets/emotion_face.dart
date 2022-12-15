@@ -18,8 +18,8 @@ class EmotionFace extends StatelessWidget {
       onPressed: () {},
       style: ElevatedButton.styleFrom(
         backgroundColor: Colors.blue[600],
-        shape: const BeveledRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(10))),
+        shape:
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
       ),
       //padding: EdgeInsets.all(16),
       child: Center(

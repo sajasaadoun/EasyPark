@@ -20,14 +20,22 @@ class TestOptions extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 15.0),
       child: ElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            if (option1 == 'Hand-drawn') {
+              Navigator.pushNamed(context, '/');
+            } else if (option1 == 'Voice speech') {
+              Navigator.pushNamed(context, '/speech');
+            } else if (option1 == 'Face Picture') {
+              Navigator.pushNamed(context, '/');
+            }
+          },
           // padding: const EdgeInsets.all(16),
           style: ElevatedButton.styleFrom(
             backgroundColor: Colors.white,
             textStyle: const TextStyle(
                 color: Colors.white, fontSize: 10, fontStyle: FontStyle.normal),
-            shape: const BeveledRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(12))),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.0)),
           ),
           child: Row(children: [
             ClipRRect(
