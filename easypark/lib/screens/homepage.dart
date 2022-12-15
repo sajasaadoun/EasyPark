@@ -188,7 +188,9 @@ class _HomePageState extends State<HomePage> {
                           const SizedBox(
                             width: 10,
                           ),
-                          const Text('Questionnaire'),
+                          ElevatedButton(
+                              onPressed: () {},
+                              child: const Text('Questionnaire')),
                         ],
                       ),
                     ),
