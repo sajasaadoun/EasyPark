@@ -209,7 +209,9 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(
                             width: 10,
                           ),
-                          const Text('Contact Doctors'),
+                          ElevatedButton(
+                              onPressed: () {},
+                              child: const Text('Contact Doctors')),
                         ],
                       ),
                     ),
