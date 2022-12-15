@@ -150,7 +150,9 @@ class _HomePageState extends State<HomePage> {
                             width: 10,
                           ),
                           ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, '/test');
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
                               ),
@@ -187,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                     child: Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
-                        color: Colors.deepPurple[100],
+                        color: Colors.blue[600],
                       ),
                       child: Row(
                         //  Navigator.pushNamed(context, ''),
@@ -199,7 +201,7 @@ class _HomePageState extends State<HomePage> {
                           ElevatedButton(
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.deepPurple[100],
+                                backgroundColor: Colors.blue[600],
                               ),
                               child: const Text('Questionnaire')),
                         ],
