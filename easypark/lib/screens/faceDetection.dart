@@ -20,47 +20,6 @@ class _facePageState extends State<facePage> {
     "Start talking about anything for 30 seconds",
     "Click again on the button to stop recording",
   ];
-  final recorder = FlutterSoundRecorder();
-  bool isRecorderReady = false;
-  @override
-  void initState() {
-    super.initState();
-    initRecorder();
-  }
-
-  @override
-  void dispose() {
-    recorder.closeRecorder();
-    super.dispose();
-  }
-
-  Future initRecorder() async {
-    final status = await Permission.microphone.request();
-
-    if (status != PermissionStatus.granted) {
-      throw 'microphone permission not granted';
-    }
-
-    await recorder.openRecorder();
-    isRecorderReady = true;
-
-    recorder.setSubscriptionDuration(
-      const Duration(microseconds: 500),
-    );
-  }
-
-  Future record() async {
-    if (!isRecorderReady) return;
-    await recorder.startRecorder(toFile: 'audio');
-  }
-
-  Future stop() async {
-    if (!isRecorderReady) return;
-    final path = await recorder.stopRecorder();
-    final audioFile = File(path!);
-    print('recorded audio :$audioFile');
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -127,7 +86,6 @@ class _facePageState extends State<facePage> {
                 decoration: BoxDecoration(
                     color: Colors.blue[600],
                     borderRadius: BorderRadius.circular(12)),
-              
               ),
             ),
             const SizedBox(
