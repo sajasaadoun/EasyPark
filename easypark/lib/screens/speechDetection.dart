@@ -64,16 +64,17 @@ class _speechPageState extends State<speechPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
+      // ignore: prefer_const_literals_to_create_immutables
       bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: '',
         ),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.message),
           label: '',
         ),
-        BottomNavigationBarItem(
+        const BottomNavigationBarItem(
           icon: Icon(Icons.arrow_circle_left),
           label: '',
         )
@@ -186,14 +187,14 @@ class _speechPageState extends State<speechPage> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               width: 50,
             ),
             Padding(
               padding: const EdgeInsets.all(5),
               child: Row(
                 children: [
-                  Text(
+                  const Text(
                     'Instructions',
                     style: TextStyle(
                       fontSize: 18,
@@ -204,24 +205,24 @@ class _speechPageState extends State<speechPage> {
               ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 25),
+              padding: const EdgeInsets.symmetric(vertical: 25),
               decoration: BoxDecoration(
                   color: Colors.pink[100],
                   borderRadius: BorderRadius.circular(20)),
               child: Column(
                 children: str.map((strone) {
                   return Row(children: [
-                    Text(
+                    const Text(
                       "\u2022",
                       style: TextStyle(fontSize: 15),
                     ), //bullet text
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ), //space between bullet and text
                     Expanded(
                       child: Text(
                         strone,
-                        style: TextStyle(fontSize: 15),
+                        style: const TextStyle(fontSize: 15),
                       ), //text
                     )
                   ]);
