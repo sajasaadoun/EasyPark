@@ -129,10 +129,11 @@ Widget buildSignBtn() {
             fontWeight: FontWeight.w500,
           )),
       TextSpan(
-          text: 'Sign Up',
+          text: ' Sign Up',
           style: TextStyle(
             color: Colors.white,
             fontSize: 18,
+            fontWeight: FontWeight.bold,
           ))
     ])),
   );
@@ -191,6 +192,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         height: 30,
                       ),
                       buildLoginBtn(),
+                      buildSignBtn(),
                     ],
                   ),
                 ),
