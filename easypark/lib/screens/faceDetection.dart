@@ -104,7 +104,7 @@ class _facePageState extends State<facePage> {
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'Jerome Bell',
+                        'EasyPark Patient',
                         style: TextStyle(fontSize: 20),
                       ),
                     ],
@@ -127,7 +127,6 @@ class _facePageState extends State<facePage> {
                 decoration: BoxDecoration(
                     color: Colors.blue[600],
                     borderRadius: BorderRadius.circular(12)),
-              
               ),
             ),
             const SizedBox(
