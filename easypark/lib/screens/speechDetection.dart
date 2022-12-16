@@ -1,8 +1,10 @@
-import 'dart:ffi';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 
 class speechPage extends StatefulWidget {
   const speechPage({super.key});
@@ -12,6 +14,11 @@ class speechPage extends StatefulWidget {
 }
 
 class _speechPageState extends State<speechPage> {
+  List<String> str = [
+    "Click on the record button",
+    "Start talking about anything for 30 seconds",
+    "Click again on the button to stop recording",
+  ];
   final recorder = FlutterSoundRecorder();
   bool isRecorderReady = false;
   @override
@@ -57,6 +64,20 @@ class _speechPageState extends State<speechPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.message),
+          label: '',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.arrow_circle_left),
+          label: '',
+        )
+      ]),
       body: SafeArea(
         child: Column(
           children: [
@@ -125,10 +146,7 @@ class _speechPageState extends State<speechPage> {
                                 return Text('$twoDigitMin:$twoDigitSec',
                                     style: const TextStyle(
                                       fontSize: 40,
-                                      // fontWeight: FontWeight.bold,
-                                    )
-                                    // '${duration.inSeconds}s'
-                                    );
+                                    ));
                               },
                             ),
                             ElevatedButton(
@@ -144,45 +162,70 @@ class _speechPageState extends State<speechPage> {
                                   }
                                   setState(() {});
                                 })
-                          ]
-                          // decoration: const BoxDecoration(
-                          //   image: DecorationImage(
-                          //     image: AssetImage('assets/doc.jpg'),
-                          //     fit: BoxFit.fill,
-                          //   ),
-                          //   shape: BoxShape.circle,
-                          // ),
-
-                          // // color: Colors.deepPurple[600],
-                          ),
+                          ]),
                     ),
                     const SizedBox(
                       width: 20,
                     ),
                     Expanded(
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.center,
                         // ignore: prefer_const_literals_to_create_immutables
                         children: [
                           const Text(
-                            'click the button to record your voice record ',
+                            'CLICK TO RECORD ',
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
                             ),
                           ),
-                          // const SizedBox(height: 8),
-                          // const Text(
-                          //   'Detect wether you have Parkinson disease',
-                          //   style: TextStyle(
-                          //     fontSize: 16,
-                          //   ),
-                          // ),
                         ],
                       ),
                     ),
                   ],
                 ),
+              ),
+            ),
+            SizedBox(
+              width: 50,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5),
+              child: Row(
+                children: [
+                  Text(
+                    'Instructions',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 25),
+              decoration: BoxDecoration(
+                  color: Colors.pink[100],
+                  borderRadius: BorderRadius.circular(20)),
+              child: Column(
+                children: str.map((strone) {
+                  return Row(children: [
+                    Text(
+                      "\u2022",
+                      style: TextStyle(fontSize: 15),
+                    ), //bullet text
+                    SizedBox(
+                      width: 10,
+                    ), //space between bullet and text
+                    Expanded(
+                      child: Text(
+                        strone,
+                        style: TextStyle(fontSize: 15),
+                      ), //text
+                    )
+                  ]);
+                }).toList(),
               ),
             ),
           ],
