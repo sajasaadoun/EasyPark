@@ -1,3 +1,4 @@
+import 'package:easypark/screens/login_page.dart';
 import 'package:easypark/screens/test_screen.dart';
 import 'package:flutter/material.dart';
 import 'screens/homepage.dart';
@@ -16,13 +17,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'speech',
+        initialRoute: '/login',
         //home: Welcome(),
         routes: {
           '/': (context) => const HomePage(),
           '/test': (context) => const TestPage(),
           'speech': (context) => const speechPage(),
           'face': (context) => const facePage(),
+          '/speech': (context) => const speechPage(),
+          '/login': (context) => const LoginScreen(),
         });
   }
 }
