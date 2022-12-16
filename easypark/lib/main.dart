@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
           '/test': (context) => const TestPage(),
           'speech': (context) => const speechPage(),
           'face': (context) => const facePage(),
-          '/speech': (context) => const speechPage(),
           '/login': (context) => const LoginScreen(),
         });
   }
