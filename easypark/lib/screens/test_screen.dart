@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:easypark/widgets/emotion_face.dart';
 import 'package:easypark/widgets/test_options.dart';
 import 'package:flutter/material.dart';
@@ -167,12 +169,12 @@ class _TestPageState extends State<TestPage> {
                         ],
                       ),
                       Column(
-                        children: [
-                          const EmotionFace(emtionFace: '😃'),
-                          const SizedBox(
+                        children: const [
+                          EmotionFace(emtionFace: '😃'),
+                          SizedBox(
                             height: 10,
                           ),
-                          const Text(
+                          Text(
                             'Well',
                             style: TextStyle(
                               color: Colors.white,
@@ -181,12 +183,12 @@ class _TestPageState extends State<TestPage> {
                         ],
                       ),
                       Column(
-                        children: [
-                          const EmotionFace(emtionFace: '😁'),
-                          const SizedBox(
+                        children: const [
+                          EmotionFace(emtionFace: '😁'),
+                          SizedBox(
                             height: 10,
                           ),
-                          const Text(
+                          Text(
                             'Excellent',
                             style: TextStyle(
                               color: Colors.white,

@@ -103,7 +103,7 @@ class _speechPageState extends State<speechPage> {
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'Jerome Bell',
+                        'EasyPark Patient',
                         style: TextStyle(fontSize: 20),
                       ),
                     ],

@@ -63,7 +63,7 @@ class _facePageState extends State<facePage> {
                       ),
                       SizedBox(height: 8),
                       Text(
-                        'Jerome Bell',
+                        'EasyPark Patient',
                         style: TextStyle(fontSize: 20),
                       ),
                     ],
