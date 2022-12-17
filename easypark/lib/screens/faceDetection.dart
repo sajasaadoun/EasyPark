@@ -71,7 +71,7 @@ class _facePageState extends State<facePage> {
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.deepPurple[100],
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: const Icon(Icons.person),
                   )
