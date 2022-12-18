@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'screens/homepage.dart';
 import 'screens/speechDetection.dart';
 import 'screens/faceDetection.dart';
+import 'screens/question_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
           'speech': (context) => const speechPage(),
           'face': (context) => const facePage(),
           '/login': (context) => const LoginScreen(),
+          'question': (context) => const QuestionsScreen(),
         });
   }
 }
