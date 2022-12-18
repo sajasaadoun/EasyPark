@@ -139,6 +139,22 @@ Widget buildSignBtn() {
   );
 }
 
+Widget buildForgetBtn() {
+  return Container(
+    alignment: Alignment.centerRight,
+    child: TextButton(
+      onPressed: () => print('Forget Password pressed'),
+      child: Text(
+        'Forget Password?',
+        style: TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
+    ),
+  );
+}
+
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
@@ -191,6 +207,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(
                         height: 30,
                       ),
+                      buildForgetBtn(),
                       buildLoginBtn(),
                       buildSignBtn(),
                     ],
