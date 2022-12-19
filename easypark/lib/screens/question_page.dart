@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:easypark/question_model.dart';
 
-class QuizScreen extends StatefulWidget {
-  const QuizScreen({super.key});
+class QuestionsScreen extends StatefulWidget {
+  const QuestionsScreen({super.key});
 
   @override
-  State<QuizScreen> createState() => _QuizScreenState();
+  State<QuestionsScreen> createState() => _QuestionsScreenState();
 }
 
-class _QuizScreenState extends State<QuizScreen> {
+class _QuestionsScreenState extends State<QuestionsScreen> {
   List<Question> questionlist = getQuestions();
   int currentQuestionIndex = 0;
   int score = 0;
