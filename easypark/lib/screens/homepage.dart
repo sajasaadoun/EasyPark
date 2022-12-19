@@ -10,7 +10,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.grey[200],
       body: SafeArea(
@@ -36,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         SizedBox(height: 8),
                         Text(
-                          'Jerome Bell',
+                          'EasyPark Patient',
                           style: TextStyle(fontSize: 20),
                         ),
                       ],

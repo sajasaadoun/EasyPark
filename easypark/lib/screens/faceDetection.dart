@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
@@ -6,60 +7,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class speechPage extends StatefulWidget {
-  const speechPage({super.key});
+class facePage extends StatefulWidget {
+  const facePage({super.key});
 
   @override
-  State<speechPage> createState() => _speechPageState();
+  State<facePage> createState() => _facePageState();
 }
 
-class _speechPageState extends State<speechPage> {
+class _facePageState extends State<facePage> {
   List<String> str = [
     "Click on the record button",
     "Start talking about anything for 30 seconds",
     "Click again on the button to stop recording",
   ];
-  final recorder = FlutterSoundRecorder();
-  bool isRecorderReady = false;
-  @override
-  void initState() {
-    super.initState();
-    initRecorder();
-  }
-
-  @override
-  void dispose() {
-    recorder.closeRecorder();
-    super.dispose();
-  }
-
-  Future initRecorder() async {
-    final status = await Permission.microphone.request();
-
-    if (status != PermissionStatus.granted) {
-      throw 'microphone permission not granted';
-    }
-
-    await recorder.openRecorder();
-    isRecorderReady = true;
-
-    recorder.setSubscriptionDuration(
-      const Duration(microseconds: 500),
-    );
-  }
-
-  Future record() async {
-    if (!isRecorderReady) return;
-    await recorder.startRecorder(toFile: 'audio');
-  }
-
-  Future stop() async {
-    if (!isRecorderReady) return;
-    final path = await recorder.stopRecorder();
-    final audioFile = File(path!);
-    print('recorded audio :$audioFile');
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -111,7 +71,7 @@ class _speechPageState extends State<speechPage> {
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.deepPurple[100],
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(20),
                     ),
                     child: const Icon(Icons.person),
                   )
@@ -126,65 +86,6 @@ class _speechPageState extends State<speechPage> {
                 decoration: BoxDecoration(
                     color: Colors.blue[600],
                     borderRadius: BorderRadius.circular(12)),
-                child: Row(
-                  children: [
-                    Center(
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            StreamBuilder<RecordingDisposition>(
-                              stream: recorder.onProgress,
-                              builder: (context, snapshot) {
-                                final duration = snapshot.hasData
-                                    ? snapshot.data!.duration
-                                    : Duration.zero;
-                                String twoDigits(int n) =>
-                                    n.toString().padLeft(2, '');
-                                final twoDigitMin =
-                                    twoDigits(duration.inMinutes.remainder(60));
-                                final twoDigitSec =
-                                    twoDigits(duration.inSeconds.remainder(60));
-                                return Text('$twoDigitMin:$twoDigitSec',
-                                    style: const TextStyle(
-                                      fontSize: 40,
-                                    ));
-                              },
-                            ),
-                            ElevatedButton(
-                                child: Icon(
-                                  recorder.isRecording ? Icons.stop : Icons.mic,
-                                  size: 80,
-                                ),
-                                onPressed: () async {
-                                  if (recorder.isRecording) {
-                                    await stop();
-                                  } else {
-                                    await record();
-                                  }
-                                  setState(() {});
-                                })
-                          ]),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        // ignore: prefer_const_literals_to_create_immutables
-                        children: [
-                          const Text(
-                            'CLICK TO RECORD ',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
               ),
             ),
             const SizedBox(
