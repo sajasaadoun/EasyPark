@@ -5,6 +5,8 @@ import 'screens/homepage.dart';
 import 'screens/speechDetection.dart';
 import 'screens/faceDetection.dart';
 import 'screens/question_page.dart';
+import 'screens/doctor_page.dart';
+import 'screens/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +17,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, initialRoute: 'face',
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: 'doctor',
         //home: Welcome(),
         routes: {
           '/': (context) => const HomePage(),
@@ -24,6 +28,8 @@ class MyApp extends StatelessWidget {
           'face': (context) => const facePage(),
           '/login': (context) => const LoginScreen(),
           'question': (context) => const QuestionsScreen(),
+          'doctor': (context) => const DoctorPage(),
+          'profile': (context) => ProfilePage(),
         });
   }
 }
