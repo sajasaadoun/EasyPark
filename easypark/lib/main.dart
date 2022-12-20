@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'screens/homepage.dart';
 import 'screens/speechDetection.dart';
 import 'screens/faceDetection.dart';
-import 'screens/question_page.dart';
+import 'screens/question_model.dart';
 import 'screens/doctor_page.dart';
 import 'screens/profile_page.dart';
 import 'screens/sketch_page.dart';
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'sketch',
+        initialRoute: 'speech',
         routes: {
           '/': (context) => const HomePage(),
           '/test': (context) => const TestPage(),
