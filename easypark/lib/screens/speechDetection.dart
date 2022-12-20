@@ -225,7 +225,7 @@ class _speechPageState extends State<speechPage> {
                       Expanded(
                         child: Text(
                           strone,
-                          style: const TextStyle(fontSize: 15),
+                          style: const TextStyle(fontSize: 18),
                         ), //text
                       )
                     ]);
