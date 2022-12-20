@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:scribble/scribble.dart';
 
-
 class sketchPage extends StatefulWidget {
   const sketchPage({super.key});
   @override
@@ -22,7 +21,8 @@ class _sketchPageState extends State<sketchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Please draw a spiral or a normal wave'),
+        title: Text('Draw a spiral or a normal wave'),
+        backgroundColor: Colors.deepPurple[100],
         leading: IconButton(
           icon: const Icon(Icons.save),
           tooltip: "Save to Image",
