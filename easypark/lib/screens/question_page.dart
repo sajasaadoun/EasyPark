@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:easypark/question_model.dart';
+import 'package:easypark/model/question_model.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
