@@ -216,7 +216,8 @@ class _speechPageState extends State<speechPage> {
                     return Row(children: [
                       const Text(
                         "\u2022",
-                        style: TextStyle(fontSize: 15),
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold),
                       ), //bullet text
                       const SizedBox(
                         width: 10,
