@@ -53,7 +53,7 @@ class _QuizScreenState extends State<QuizScreen> {
           width: double.infinity,
           padding: const EdgeInsets.all(32),
           decoration: BoxDecoration(
-            color: Colors.orangeAccent,
+            color: Colors.deepPurple[100],
             borderRadius: BorderRadius.circular(16),
           ),
           child: Text(
@@ -91,7 +91,7 @@ class _QuizScreenState extends State<QuizScreen> {
           child: Text(answer.answerText),
           style: ElevatedButton.styleFrom(
             shape: const StadiumBorder(),
-            primary: isSelected ? Colors.orangeAccent : Colors.white,
+            primary: isSelected ? Colors.deepPurple[100] : Colors.white,
             onPrimary: isSelected ? Colors.white : Colors.black,
           ),
           onPressed: () {
