@@ -191,7 +191,7 @@ class _speechPageState extends State<speechPage> {
               width: 50,
             ),
             Padding(
-              padding: const EdgeInsets.all(5),
+              padding: const EdgeInsets.all(10),
               child: Row(
                 children: [
                   const Text(
@@ -204,29 +204,33 @@ class _speechPageState extends State<speechPage> {
                 ],
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 25),
-              decoration: BoxDecoration(
-                  color: Colors.pink[100],
-                  borderRadius: BorderRadius.circular(20)),
-              child: Column(
-                children: str.map((strone) {
-                  return Row(children: [
-                    const Text(
-                      "\u2022",
-                      style: TextStyle(fontSize: 15),
-                    ), //bullet text
-                    const SizedBox(
-                      width: 10,
-                    ), //space between bullet and text
-                    Expanded(
-                      child: Text(
-                        strone,
-                        style: const TextStyle(fontSize: 15),
-                      ), //text
-                    )
-                  ]);
-                }).toList(),
+            Padding(
+              padding: const EdgeInsets.all(25),
+              child: Container(
+                padding: const EdgeInsets.symmetric(vertical: 25),
+                decoration: BoxDecoration(
+                    color: Colors.blue[600],
+                    borderRadius: BorderRadius.circular(20)),
+                child: Column(
+                  children: str.map((strone) {
+                    return Row(children: [
+                      const Text(
+                        "\u2022",
+                        style: TextStyle(
+                            fontSize: 15, fontWeight: FontWeight.bold),
+                      ), //bullet text
+                      const SizedBox(
+                        width: 10,
+                      ), //space between bullet and text
+                      Expanded(
+                        child: Text(
+                          strone,
+                          style: const TextStyle(fontSize: 18),
+                        ), //text
+                      )
+                    ]);
+                  }).toList(),
+                ),
               ),
             ),
           ],
