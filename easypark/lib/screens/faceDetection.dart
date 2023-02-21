@@ -1,24 +1,16 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
-import 'package:flutter/material.dart';
-import 'package:flutter_sound/flutter_sound.dart';
-import 'package:permission_handler/permission_handler.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
-class facePage extends StatefulWidget {
-  const facePage({super.key});
+class FacePage extends StatefulWidget {
+  const FacePage({super.key});
 
   @override
-  State<facePage> createState() => _facePageState();
+  State<FacePage> createState() => _FacePageState();
 }
 
-class _facePageState extends State<facePage> {
+class _FacePageState extends State<FacePage> {
   List<String> str = [
-    "Click on the record button",
-    "Start talking about anything for 30 seconds",
-    "Click again on the button to stop recording",
+    "Click on the Upload button",
+    "Choose the photo of your drawing ",
   ];
   @override
   Widget build(BuildContext context) {
@@ -78,27 +70,21 @@ class _facePageState extends State<facePage> {
                 ],
               ),
             ),
-            const SizedBox(height: 25),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                    color: Colors.blue[600],
-                    borderRadius: BorderRadius.circular(12)),
-              ),
-            ),
-            const SizedBox(
-              width: 50,
-            ),
+          const SizedBox(height: 30),
+          ElevatedButton(
+            onPressed: () {},
+            child: const Text('Upload Image'),
+          ),
+
             Padding(
               padding: const EdgeInsets.all(5),
               child: Row(
+                // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   const Text(
                     'Instructions',
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold,
                     ),
                   )
@@ -136,3 +122,5 @@ class _facePageState extends State<facePage> {
     );
   }
 }
+
+//elevated button in container?  
