@@ -1,3 +1,4 @@
+import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/login_page.dart';
 import 'package:easypark/screens/register_page.dart';
 import 'package:easypark/screens/test_screen.dart';
@@ -21,17 +22,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'speech',
+        initialRoute: '/',
         routes: {
           '/': (context) => const HomePage(),
-          '/test': (context) => const TestPage(),
-          'speech': (context) => const speechPage(),
-          // 'face': (context) => const facePage(),
-          '/login': (context) => const LoginScreen(),
+          'test': (context) => const TestPage(),
+          'speech': (context) => const SpeechPage(),
+          'face': (context) => const FacePage(),
+          'login': (context) => const LoginScreen(),
           'question': (context) => const QuestionsScreen(),
           'doctor': (context) => const DoctorPage(),
           'profile': (context) => ProfilePage(),
           'sketch': (context) => const sketchPage(),
+          'admin': (context) => const MyAdmin(),
+          'facepg': (context) => const FacePage(),
         });
   }
 }
