@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../widgets/admin_model.dart';
 
-class myadmin extends StatelessWidget {
-  const myadmin({super.key, required String title});
+class MyAdmin extends StatelessWidget {
+  const MyAdmin({super.key});
 
   @override
   Widget build(BuildContext context) {
