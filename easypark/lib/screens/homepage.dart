@@ -244,20 +244,20 @@ class _HomePageState extends State<HomePage> {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   // ignore: prefer_const_constructors
-                  Text('Detection List',
+                  Text('Doctors List',
                       // ignore: prefer_const_constructors
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       )),
-                  Text(
-                    'See all',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey[500],
-                    ),
-                  )
+                  // Text(
+                  //   'See all',
+                  //   style: TextStyle(
+                  //     fontSize: 16,
+                  //     fontWeight: FontWeight.bold,
+                  //     color: Colors.grey[500],
+                  //   ),
+                  // )
                 ],
               ),
             ),
