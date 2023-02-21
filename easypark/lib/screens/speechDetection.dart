@@ -2,18 +2,15 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
-class speechPage extends StatefulWidget {
-  const speechPage({super.key});
+class SpeechPage extends StatefulWidget {
+  const SpeechPage({super.key});
 
   @override
-  State<speechPage> createState() => _speechPageState();
+  State<SpeechPage> createState() => _SpeechPageState();
 }
 
-class _speechPageState extends State<speechPage> {
+class _SpeechPageState extends State<SpeechPage> {
   List<String> str = [
     "Click on the record button",
     "Start talking about anything for 30 seconds",
