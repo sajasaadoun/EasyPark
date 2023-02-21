@@ -1,11 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
 import 'package:easypark/model/user.dart';
 import 'package:easypark/utils/user_preferences.dart';
 import 'package:easypark/widgets/appbar_widget.dart';
-import 'package:easypark/widgets/button_widget.dart';
 import 'package:easypark/widgets/profile_widget.dart';
 import 'package:easypark/widgets/textfield_widget.dart';
 
