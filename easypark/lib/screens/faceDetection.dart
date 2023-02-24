@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:file_picker/file_picker.dart';
 
 class FacePage extends StatefulWidget {
   const FacePage({super.key});
@@ -8,6 +10,16 @@ class FacePage extends StatefulWidget {
 }
 
 class _FacePageState extends State<FacePage> {
+  // File? selectedImage;
+  // String? message = "";
+
+  // Future getImage() async {
+  //   final pickedImage =
+  //       await ImagePicker().getImage(source: ImageSource.gallery);
+  //   selectedImage = File(pickedImage!.path);
+  //   setState(() {});
+  // }
+
   List<String> str = [
     "Click on the Upload button",
     "Choose the photo of your drawing ",
@@ -70,12 +82,11 @@ class _FacePageState extends State<FacePage> {
                 ],
               ),
             ),
-          const SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Upload Image'),
-          ),
-
+            const SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Upload Image'),
+            ),
             Padding(
               padding: const EdgeInsets.all(5),
               child: Row(
