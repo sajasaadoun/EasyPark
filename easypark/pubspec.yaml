@@ -42,6 +42,9 @@ dependencies:
   permission_handler: ^9.2.0
   scribble: ^0.9.1
   image_picker: ^0.8.6
+  file_picker: ^5.2.5
+  http: ^0.13.5
+
 
 dev_dependencies:
   flutter_test:
