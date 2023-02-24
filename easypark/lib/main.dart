@@ -1,4 +1,5 @@
 import 'package:easypark/screens/admin_screen.dart';
+import 'package:easypark/screens/handwrittingDetection.dart';
 import 'package:easypark/screens/login_page.dart';
 import 'package:easypark/screens/register_page.dart';
 import 'package:easypark/screens/test_screen.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: 'spiralwave',
         routes: {
           '/': (context) => const HomePage(),
           'test': (context) => const TestPage(),
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
           'sketch': (context) => const sketchPage(),
           'admin': (context) => const MyAdmin(),
           'facepg': (context) => const FacePage(),
+          'spiralwave': (context) => const HandwrittingDetection()
         });
   }
 }
