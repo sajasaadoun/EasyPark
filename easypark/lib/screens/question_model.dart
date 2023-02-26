@@ -89,7 +89,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         child: ElevatedButton(
           child: Text(answer.answerText),
           style: ElevatedButton.styleFrom(
-            shape: const StadiumBorder(),
+            shape: StadiumBorder(),
             primary: isSelected ? Colors.orangeAccent : Colors.white,
             onPrimary: isSelected ? Colors.white : Colors.black,
           ),
