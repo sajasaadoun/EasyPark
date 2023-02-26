@@ -17,13 +17,13 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 5, 50, 80),
+      backgroundColor: Colors.grey[200],
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
         child: Column(children: [
           const Text(
             "Questionnaire",
-            style: TextStyle(color: Colors.white, fontSize: 24),
+            style: TextStyle(color: Colors.black, fontSize: 24),
           ),
           _questionWidget(),
           _answerList(),
@@ -41,7 +41,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         Text(
           "questions ${currentQuestionIndex + 1}/${questionlist.length.toString()}",
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontSize: 20,
             fontWeight: FontWeight.w600,
           ),
@@ -52,7 +52,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           width: double.infinity,
           padding: const EdgeInsets.all(32),
           decoration: BoxDecoration(
-            color: Colors.orangeAccent,
+            color: Colors.blue[600],
             borderRadius: BorderRadius.circular(16),
           ),
           child: Text(
@@ -90,7 +90,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           child: Text(answer.answerText),
           style: ElevatedButton.styleFrom(
             shape: StadiumBorder(),
-            primary: isSelected ? Colors.orangeAccent : Colors.white,
+            primary: isSelected ? Colors.blue[600] : Colors.white,
             onPrimary: isSelected ? Colors.white : Colors.black,
           ),
           onPressed: () {
