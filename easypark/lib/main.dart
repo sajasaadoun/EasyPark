@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'question',
+        initialRoute: 'spiralwave',
         routes: {
           '/': (context) => const HomePage(),
           'test': (context) => const TestPage(),
