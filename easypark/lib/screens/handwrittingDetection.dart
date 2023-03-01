@@ -64,7 +64,8 @@ class _HandwrittingDetectionState extends State<HandwrittingDetection> {
                 : Image.file(selectedImage!),
             TextButton.icon(
                 style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all(Colors.blue)),
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.blue[600])),
                 onPressed: () {
                   uploadImage();
                 },
