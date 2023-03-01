@@ -31,9 +31,15 @@ class _HandwrittingDetectionState extends State<HandwrittingDetection> {
     request.headers.addAll(headers);
     final response = await request.send();
     http.Response res = await http.Response.fromStream(response);
-    final resJson = jsonDecode(res.body);
-    message = resJson['message'];
-    setState(() {});
+    if (response.statusCode == 200) {
+      final resJson = jsonDecode(res.body);
+      message = resJson['message'].toString();
+      setState(() {});
+      print('here');
+    } else {
+      print('Failed ${response.statusCode}');
+      message = 'failed';
+    }
   }
 
   Future getImage() async {
@@ -69,7 +75,8 @@ class _HandwrittingDetectionState extends State<HandwrittingDetection> {
                 label: const Text(
                   "upload",
                   style: TextStyle(color: Colors.white),
-                ))
+                )),
+            Text('. $message'),
           ],
         ),
       ),
