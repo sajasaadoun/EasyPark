@@ -249,5 +249,127 @@ List<Question> getQuestions() {
     ],
   ));
 
+  list.add(Question(
+    "2.1-Over the past week, have you had problems with your speech?",
+    [
+      Answer("0: Normal: Not at all (no problems).", true),
+      Answer(
+          "1: Slight: My speech is soft, slurred or uneven, but it does not cause others to ask me to repeat myself.",
+          true),
+      Answer(
+          "2: Mild: My speech causes people to ask me to occasionally repeat myself, but not every day.",
+          true),
+      Answer(
+          "3: Moderate: My speech is unclear enough that others ask me to repeat myself every day even though most of my speech is understood.",
+          true),
+      Answer("4: Severe: Most or all of my speech cannot be understood.", true),
+    ],
+  ));
+
+  list.add(Question(
+    "2.2-Over the past week, have you usually had too much saliva during when you are awake or when you sleep?",
+    [
+      Answer("0: Normal: Not at all (no problems).", true),
+      Answer("1: Slight: I have too much saliva, but do not drool", true),
+      Answer(
+          "2: Mild: I have some drooling during sleep, but none when I am awake.",
+          true),
+      Answer(
+          "3: Moderate: I have some drooling when I am awake, but I usually do not need tissues or a handkerchief",
+          true),
+      Answer(
+          "4: Severe: I have so much drooling that I regularly need to use tissues or a handkerchief to protect my clothes.",
+          true),
+    ],
+  ));
+  list.add(Question(
+    "2.3-Over the past week, have you usually had problems swallowing pills or eating meals? Do you need your pills cut or crushed or your meals to be made soft, chopped, or blended to avoid choking?",
+    [
+      Answer("0: Normal: Not at all (no problems).", true),
+      Answer(
+          "1: Slight: I am aware of slowness in my chewing or increased effort at swallowing, but I do not choke or need to have my food specially prepared.",
+          true),
+      Answer(
+          "2: Mild: I need to have my pills cut or my food specially prepared because of chewing or swallowing problems, but I have not choked over the past week.",
+          true),
+      Answer("3: Moderate. I choked at least once in the past week", true),
+      Answer(
+          "4: Severe: Because of chewing and swallowing problems, I need a feeding tube.",
+          true),
+    ],
+  ));
+
+  list.add(Question(
+    "2.4-Over the past week, have you usually had troubles handling your food and using eating utensils? For example, do you have trouble handling finger foods or using forks, knives, spoons, chopsticks?",
+    [
+      Answer("0: Normal: Not at all (no problems).", true),
+      Answer(
+          "1: Slight: I am slow, but I do not need any help handling my food and have not had food spills while eating.",
+          true),
+      Answer(
+          "2: Mild: I am slow with my eating and have occasional food spills. I may need help with a few tasks such as cutting meat",
+          true),
+      Answer(
+          "3: Moderate: I need help with many eating tasks but can manage some alone",
+          true),
+      Answer("4: Severe: I need help for most or all eating tasks.", true),
+    ],
+  ));
+  list.add(Question(
+    "2.5-Over the past week, have you usually had problems dressing? For example, are you slow or do you need help with buttoning, using zippers, putting on or taking off your clothes or jewelry?",
+    [
+      Answer("0: Normal: Not at all (no problems).", true),
+      Answer("1: Slight: I am slow, but I do not need help.", true),
+      Answer(
+          "2: Mild: I am slow and need help for a few dressing tasks (buttons, bracelets).",
+          true),
+      Answer("3: Moderate: I need help for many dressing tasks.", true),
+      Answer("4: Severe: I need help for most or all dressing tasks.", true),
+    ],
+  ));
+  list.add(Question(
+    "2.6-Over the past week, have you usually been slow or do you need help with washing, bathing, shaving, brushing teeth, combing your hair, or with other personal hygiene?",
+    [
+      Answer("0: Normal: Not at all (no problems).", true),
+      Answer("1: Slight: I am slow, but I do not need any help.", true),
+      Answer("2: Mild: I need someone else to help me with some hygiene tasks.",
+          true),
+      Answer("3: Moderate: I need help for many hygiene tasks.", true),
+      Answer(
+          "4: Severe: I need help for most or all of my hygiene tasks.", true),
+    ],
+  ));
+
+  list.add(Question(
+    "2.7-Over the past week, have people usually had trouble reading your handwriting?",
+    [
+      Answer("0: Normal: Not at all (no problems).", true),
+      Answer(
+          "1: Slight: My writing is slow, clumsy or uneven, but all words are clear.",
+          true),
+      Answer("2: Mild: Some words are unclear and difficult to read.", true),
+      Answer(
+          "3: Moderate: Many words are unclear and difficult to read.", true),
+      Answer("4: Severe: Most or all words cannot be read.", true),
+    ],
+  ));
+
+  list.add(Question(
+    "Over the past week, have you usually had trouble doing your hobbies or other things that you like to do?",
+    [
+      Answer("0: Normal: Not at all (no problems).", true),
+      Answer(
+          "1: Slight: I am a bit slow but do these activities easily.", true),
+      Answer("2: Mild: I have some difficulty doing these activities.", true),
+      Answer(
+          "3: Moderate: I have major problems doing these activities, but still do most",
+          true),
+      Answer("4: Severe: I am unable to do most or all of these activities.",
+          true),
+    ],
+  ));
+
+  //part2
+
   return list;
 }
