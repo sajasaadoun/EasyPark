@@ -1,8 +1,11 @@
 import 'package:easypark/screens/admin_screen.dart';
+import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/handwrittingDetection.dart';
-import 'package:easypark/screens/login_page.dart';
+import 'package:easypark/screens/home_page.dart';
+import 'package:easypark/screens/login_screen.dart';
 import 'package:easypark/screens/register_page.dart';
 import 'package:easypark/screens/test_screen.dart';
+import 'package:easypark/screens/wave-detection.dart';
 import 'package:flutter/material.dart';
 import 'screens/homepage.dart';
 import 'screens/speechDetection.dart';
@@ -11,6 +14,8 @@ import 'screens/question_model.dart';
 import 'screens/doctor_page.dart';
 import 'screens/profile_page.dart';
 import 'screens/sketch_page.dart';
+import 'screens/splash_screen.dart';
+import 'widgets/login_content.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,9 +28,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'spiralwave',
+        initialRoute: '/home',
         routes: {
           '/': (context) => const HomePage(),
+          '/home': (context) => const HomePagee(),
           'test': (context) => const TestPage(),
           'speech': (context) => const SpeechPage(),
           'face': (context) => const FacePage(),
@@ -36,7 +42,12 @@ class MyApp extends StatelessWidget {
           'sketch': (context) => const sketchPage(),
           'admin': (context) => const MyAdmin(),
           'facepg': (context) => const FacePage(),
-          'spiralwave': (context) => const HandwrittingDetection()
+          'spiralwave': (context) => const HandwrittingDetection(),
+          'waveDetection': (context) => const WaveDetection(),
+          'loginn': (context) => const LoginScreen(),
+          'camera': (context) => const CameraScreen(),
+
+          // 'splash': (context) => Splash()
         });
   }
 }
