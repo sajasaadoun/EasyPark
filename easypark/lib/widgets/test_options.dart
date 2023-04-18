@@ -41,7 +41,7 @@ class TestOptions extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Container(
-                  padding: const EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(18),
                   color: Color,
                   child: Icon(
                     icon,
@@ -55,21 +55,26 @@ class TestOptions extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
+                  textAlign: TextAlign.center,
                   option,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 10,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
-                Text(
-                  option1 + ' Test',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black45,
-                    fontSize: 20,
+                Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    textAlign: TextAlign.center,
+                    option1 + ' Test',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black45,
+                      fontSize: 20,
+                    ),
                   ),
                 ),
               ],
