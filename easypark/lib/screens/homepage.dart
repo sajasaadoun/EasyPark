@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                     padding: const EdgeInsets.only(left: 25.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(7),
                         color: Colors.blue[600],
                       ),
                       child: Row(
@@ -155,6 +155,7 @@ class _HomePageState extends State<HomePage> {
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
+                                elevation: 0,
                               ),
                               child: const Text('Detect Parkinson')),
                         ],
@@ -178,6 +179,7 @@ class _HomePageState extends State<HomePage> {
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
+                                elevation: 0,
                               ),
                               child: const Text('Severity level')),
                         ],
@@ -202,6 +204,7 @@ class _HomePageState extends State<HomePage> {
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
+                                elevation: 0,
                               ),
                               child: const Text('Questionnaire')),
                         ],
@@ -226,6 +229,7 @@ class _HomePageState extends State<HomePage> {
                               onPressed: () {},
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
+                                elevation: 0,
                               ),
                               child: const Text('Contact Doctors')),
                         ],
