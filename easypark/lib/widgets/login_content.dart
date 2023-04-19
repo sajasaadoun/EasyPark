@@ -1,7 +1,9 @@
 import 'package:easypark/screens/home_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import '../../../utils/constants.dart';
+import '../model/login_model.dart';
 import '../utils/helper_functions.dart';
 import 'bottom_text.dart';
 import 'change_screen_animation.dart';
@@ -23,8 +25,12 @@ class _LoginContentState extends State<LoginContent>
     with TickerProviderStateMixin {
   late final List<Widget> createAccountContent;
   late final List<Widget> loginContent;
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
 
-  Widget inputField(String hint, IconData iconData) {
+  Widget inputField(
+      String hint, IconData iconData, TextEditingController controller) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 36, vertical: 8),
       child: SizedBox(
@@ -34,17 +40,30 @@ class _LoginContentState extends State<LoginContent>
           shadowColor: Colors.black87,
           color: Colors.transparent,
           borderRadius: BorderRadius.circular(30),
-          child: TextField(
-            textAlignVertical: TextAlignVertical.bottom,
-            decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide.none,
+          child: Form(
+            child: TextFormField(
+              controller: controller,
+              textAlignVertical: TextAlignVertical.bottom,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30),
+                  borderSide: BorderSide.none,
+                ),
+                filled: true,
+                fillColor: Colors.white,
+                hintText: hint,
+                prefixIcon: Icon(iconData),
               ),
-              filled: true,
-              fillColor: Colors.white,
-              hintText: hint,
-              prefixIcon: Icon(iconData),
+              validator: (value) {
+                if (hint == 'Email' &&
+                    (value == null || value.isEmpty || !value.contains('@'))) {
+                  return 'Please enter a valid email address';
+                } else if (hint == 'Password' &&
+                    (value == null || value.isEmpty || value.length < 6)) {
+                  return 'Password must be at least 6 characters long';
+                }
+                return null;
+              },
             ),
           ),
         ),
@@ -56,9 +75,17 @@ class _LoginContentState extends State<LoginContent>
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 135, vertical: 16),
       child: ElevatedButton(
-        onPressed: () {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const HomePagee()));
+        onPressed: () async {
+          try {
+            await SignIn(emailController.text, passwordController.text);
+            Navigator.pushNamed(context, '/home');
+          } on FirebaseAuthException catch (e) {
+            if (e.code == 'user-not-found') {
+              print('No user found for that email.');
+            } else if (e.code == 'wrong-password') {
+              print('Wrong password provided for that user.');
+            }
+          }
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 14),
@@ -143,18 +170,20 @@ class _LoginContentState extends State<LoginContent>
 
   @override
   void initState() {
+    emailController.text = '';
+    passwordController.text = '';
     createAccountContent = [
-      inputField('Name', Ionicons.person_outline),
-      inputField('Email', Ionicons.mail_outline),
-      inputField('Password', Ionicons.lock_closed_outline),
+      inputField('Name', Ionicons.person_outline, TextEditingController()),
+      inputField('Email', Ionicons.mail_outline, emailController),
+      inputField('Password', Ionicons.lock_closed_outline, passwordController),
       loginButton('Sign Up'),
       orDivider(),
       logos(),
     ];
 
     loginContent = [
-      inputField('Email', Ionicons.mail_outline),
-      inputField('Password', Ionicons.lock_closed_outline),
+      inputField('Email', Ionicons.mail_outline, emailController),
+      inputField('Password', Ionicons.lock_closed_outline, passwordController),
       loginButton('Log In'),
       forgotPassword(),
     ];
@@ -185,6 +214,8 @@ class _LoginContentState extends State<LoginContent>
   @override
   void dispose() {
     ChangeScreenAnimation.dispose();
+    emailController.dispose();
+    passwordController.dispose();
 
     super.dispose();
   }
