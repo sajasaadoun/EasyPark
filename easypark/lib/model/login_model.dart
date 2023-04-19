@@ -6,8 +6,8 @@ String userId = user.uid;
 
 // class UserData {
 Future SignIn(String email, String password) async {
-  final User? user = (await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password))
+  final User? user = (await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: email.trim(), password: password.trim()))
       .user;
 
   userId = user!.uid;
