@@ -6,6 +6,7 @@ import 'package:easypark/screens/login_screen.dart';
 import 'package:easypark/screens/register_page.dart';
 import 'package:easypark/screens/test_screen.dart';
 import 'package:easypark/screens/wave-detection.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'screens/homepage.dart';
 import 'screens/speechDetection.dart';
@@ -16,9 +17,16 @@ import 'screens/profile_page.dart';
 import 'screens/sketch_page.dart';
 import 'screens/splash_screen.dart';
 import 'widgets/login_content.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(
+    const ProviderScope(
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -42,7 +50,7 @@ class MyApp extends StatelessWidget {
           'sketch': (context) => const sketchPage(),
           'admin': (context) => const MyAdmin(),
           'facepg': (context) => const FacePage(),
-          'spiralwave': (context) => const HandwrittingDetection(),
+          'spiral': (context) => const HandwrittingDetection(),
           'waveDetection': (context) => const WaveDetection(),
           'loginn': (context) => const LoginScreen(),
           'camera': (context) => const CameraScreen(),
