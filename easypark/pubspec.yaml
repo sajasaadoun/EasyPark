@@ -105,6 +105,8 @@ flutter:
     - assets/hospital.png
     - assets/more.png
     - assets/virus.png
+    - assets/email.png
+    - assets/email1.png
  
 
   # An image asset can refer to one or more resolution-specific "variants", see
