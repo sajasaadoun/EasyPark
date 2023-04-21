@@ -1,5 +1,6 @@
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/camera_screen.dart';
+import 'package:easypark/screens/doctor_info_screen.dart';
 import 'package:easypark/screens/handwrittingDetection.dart';
 import 'package:easypark/screens/home_page.dart';
 import 'package:easypark/screens/login_screen.dart';
@@ -8,6 +9,7 @@ import 'package:easypark/screens/test_screen.dart';
 import 'package:easypark/screens/wave-detection.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'model/data_doctor.dart';
 import 'screens/homepage.dart';
 import 'screens/speechDetection.dart';
 import 'screens/faceDetection.dart';
@@ -54,6 +56,9 @@ class MyApp extends StatelessWidget {
           'waveDetection': (context) => const WaveDetection(),
           'loginn': (context) => const LoginScreen(),
           'camera': (context) => const CameraScreen(),
+          'DoctorsInfo': (context) => DoctorInfo(
+                model: staticModel,
+              ),
 
           // 'splash': (context) => Splash()
         });
