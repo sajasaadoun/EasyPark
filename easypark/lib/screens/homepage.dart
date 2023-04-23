@@ -196,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         //  Navigator.pushNamed(context, ''),
                         children: [
-                          Image.asset('assets/online-survey.png', height: 30),
+                          Image.asset('assets/images/online-survey.png', height: 30),
                           const SizedBox(
                             width: 10,
                           ),
