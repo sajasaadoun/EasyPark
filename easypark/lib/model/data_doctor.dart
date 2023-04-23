@@ -9,7 +9,7 @@ final doctorMapList = [
     "totalScore": 93.2,
     "satisfaction": 85.2,
     "isfavourite": true,
-    "image": "assets/doctor.png",
+    "image": "assets/images/doctor.png",
     "description":
         "A doctor can be found in several settings, including public health organization, group practices and  hospitals They have some of the most diverse and challenging careears available and part of a universally well-respected profession",
   },
