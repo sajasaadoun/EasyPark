@@ -220,7 +220,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: Row(
                         children: [
-                          Image.asset('assets/contact.png', height: 30),
+                          Image.asset('assets/images/contact.png', height: 30),
                           // ignore: prefer_const_constructors
                           SizedBox(
                             width: 10,
