@@ -8,7 +8,7 @@ class HealthNeeds extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<CustomIcon> customIcons = [
-      CustomIcon(name: "Spiral", icon: 'assets/appointment.png'),
+      CustomIcon(name: "Spiral", icon: 'assets/images/appointment.png'),
       CustomIcon(name: "Wave", icon: 'assets/hospital.png'),
       CustomIcon(name: "Voice", icon: 'assets/virus.png'),
       CustomIcon(name: "Face", icon: 'assets/more.png'),
