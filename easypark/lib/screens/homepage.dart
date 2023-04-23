@@ -280,7 +280,7 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Image.asset(
-                          'assets/doctor1.jpg',
+                          'assets/images/doctor1.jpg',
                           height: 40,
                         ),
                         Row(
