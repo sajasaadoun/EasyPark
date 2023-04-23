@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: Row(
                         children: [
-                          Image.asset('assets/detection.png', height: 30),
+                          Image.asset('assets/images/detection.png', height: 30),
                           const SizedBox(
                             width: 10,
                           ),
