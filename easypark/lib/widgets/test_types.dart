@@ -11,7 +11,7 @@ class HealthNeeds extends StatelessWidget {
       CustomIcon(name: "Spiral", icon: 'assets/images/appointment.png'),
       CustomIcon(name: "Wave", icon: 'assets/images/hospital.png'),
       CustomIcon(name: "Voice", icon: 'assets/images/virus.png'),
-      CustomIcon(name: "Face", icon: 'assets/more.png'),
+      CustomIcon(name: "Face", icon: 'assets/images/more.png'),
       CustomIcon(name: "Questionnaire", icon: 'assets/more.png'),
     ];
 
