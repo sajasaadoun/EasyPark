@@ -19,6 +19,7 @@ import 'screens/profile_page.dart';
 import 'screens/sketch_page.dart';
 import 'screens/splash_screen.dart';
 import 'widgets/login_content.dart';
+import 'package:firebase_picture_uploader/firebase_picture_uploader.dart'; 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<void> main() async {
@@ -38,9 +39,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/home',
+        initialRoute: 'face',
         routes: {
-          '/': (context) => const HomePage(),
+          // '/': (context) => const HomePage(),
           '/home': (context) => const HomePagee(),
           'test': (context) => const TestPage(),
           'speech': (context) => const SpeechPage(),
