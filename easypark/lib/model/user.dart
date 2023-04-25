@@ -15,3 +15,8 @@ class User {
     required this.isDarkMode,
   });
 }
+
+// class CurrentUser {
+//   String userId;
+//   CurrentUser({required this.userId});
+// }
