@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
                       width: 100,
                       decoration: const BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('assets/doc.jpg'),
+                          image: AssetImage('assets/images/doc.jpg'),
                           fit: BoxFit.fill,
                         ),
                         shape: BoxShape.circle,
@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: Row(
                         children: [
-                          Image.asset('assets/detection.png', height: 30),
+                          Image.asset('assets/images/detection.png', height: 30),
                           const SizedBox(
                             width: 10,
                           ),
@@ -171,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: Row(
                         children: [
-                          Image.asset('assets/severity.png', height: 30),
+                          Image.asset('assets/images/severity.png', height: 30),
                           const SizedBox(
                             width: 10,
                           ),
@@ -196,7 +196,7 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         //  Navigator.pushNamed(context, ''),
                         children: [
-                          Image.asset('assets/online-survey.png', height: 30),
+                          Image.asset('assets/images/online-survey.png', height: 30),
                           const SizedBox(
                             width: 10,
                           ),
@@ -220,7 +220,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: Row(
                         children: [
-                          Image.asset('assets/contact.png', height: 30),
+                          Image.asset('assets/images/contact.png', height: 30),
                           // ignore: prefer_const_constructors
                           SizedBox(
                             width: 10,
@@ -280,7 +280,7 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Image.asset(
-                          'assets/doctor1.jpg',
+                          'assets/images/doctor1.jpg',
                           height: 40,
                         ),
                         Row(
@@ -306,7 +306,7 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Image.asset(
-                          'assets/doctor2.jpg',
+                          'assets/images/doctor2.jpg',
                           height: 40,
                         ),
                         Row(

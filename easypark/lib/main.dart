@@ -22,6 +22,7 @@ import 'screens/profile_page.dart';
 import 'screens/sketch_page.dart';
 import 'screens/splash_screen.dart';
 import 'widgets/login_content.dart';
+import 'package:firebase_picture_uploader/firebase_picture_uploader.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<void> main() async {
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: 'login',
         routes: {
-          '/': (context) => const HomePage(),
+          // '/': (context) => const HomePage(),
           '/home': (context) => const HomePagee(),
           'test': (context) => const TestPage(),
           'speech': (context) => const SpeechPage(),
@@ -60,8 +61,11 @@ class MyApp extends StatelessWidget {
           'loginn': (context) => const LoginScreen(),
           'camera': (context) => const CameraScreen(),
           'DoctorsInfo': (context) => DoctorInfo(model: staticModel),
+
           'OptionsScreen': (context) => MyPlansScreen(),
           'MyAlertDialog': (context) => MyAlertDialog(),
+
+          // 'splash': (context) => Splash()
         });
   }
 }

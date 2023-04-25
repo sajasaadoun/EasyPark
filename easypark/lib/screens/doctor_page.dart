@@ -71,7 +71,8 @@ class _DoctorPageState extends State<DoctorPage> {
                           const SizedBox(
                             width: 25,
                           ),
-                          Image.asset('assets/detection.png', height: 30),
+                          Image.asset('assets/images/detection.png',
+                              height: 30),
                           const SizedBox(
                             width: 25,
                           ),
@@ -99,7 +100,7 @@ class _DoctorPageState extends State<DoctorPage> {
                           const SizedBox(
                             width: 25,
                           ),
-                          Image.asset('assets/severity.png', height: 30),
+                          Image.asset('assets/images/severity.png', height: 30),
                           const SizedBox(
                             width: 25,
                           ),
@@ -126,7 +127,8 @@ class _DoctorPageState extends State<DoctorPage> {
                           const SizedBox(
                             width: 25,
                           ),
-                          Image.asset('assets/online-survey.png', height: 30),
+                          Image.asset('assets/images/online-survey.png',
+                              height: 30),
                           const SizedBox(
                             width: 25,
                           ),
