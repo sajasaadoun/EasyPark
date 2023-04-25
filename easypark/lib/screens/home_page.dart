@@ -5,6 +5,7 @@ import 'package:ionicons/ionicons.dart';
 import '../widgets/nearby_doctors.dart';
 import '../widgets/test_types.dart';
 import '../widgets/upcoming_card.dart';
+import 'options_screen.dart';
 
 class HomePagee extends StatefulWidget {
   const HomePagee({Key? key}) : super(key: key);
@@ -25,7 +26,7 @@ class _HomePageeState extends State<HomePagee> {
 
   @override
   Widget build(BuildContext context) {
-    // _context = context; // store context in the variable
+    _context = context; // store context in the variable
 
     return Scaffold(
       appBar: AppBar(
@@ -73,7 +74,7 @@ class _HomePageeState extends State<HomePagee> {
           const HealthNeeds(),
           const SizedBox(height: 25),
           Text(
-            "Nearby Doctors",
+            "Top Rated Doctors",
             style: Theme.of(context).textTheme.headline6,
           ),
           const SizedBox(height: 15),
@@ -126,10 +127,16 @@ class _HomePageeState extends State<HomePagee> {
         Navigator.push(
           _context,
           MaterialPageRoute(
-            builder: (context) => const QuizScreen(),
+            builder: (context) => MyPlansScreen(),
           ),
         );
       } else if (_selectedIndex == 3) {
+        Navigator.push(
+            _context,
+            MaterialPageRoute(
+              builder: (context) => const QuizScreen(),
+            ));
+      } else if (_selectedIndex == 4) {
         Navigator.push(
             _context,
             MaterialPageRoute(
