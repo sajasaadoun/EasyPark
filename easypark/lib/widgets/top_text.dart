@@ -30,13 +30,13 @@ class _TopTextState extends State<TopText> {
     return HelperFunctions.wrapWithAnimatedBuilder(
       animation: ChangeScreenAnimation.topTextAnimation,
       child: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 0, 100, 500),
+        padding: EdgeInsets.only(top: 1, right: 500.0, bottom: 900.0),
         child: Text(
           ChangeScreenAnimation.currentScreen == Screens.createAccount
-              ? 'Create\nAccount'
+              ? 'Create Account'
               : 'Welcome\nBack',
           style: const TextStyle(
-            fontSize: 33,
+            fontSize: 30,
             fontWeight: FontWeight.w600,
           ),
         ),
