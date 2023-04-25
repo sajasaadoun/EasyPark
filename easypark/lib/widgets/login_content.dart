@@ -25,8 +25,13 @@ class _LoginContentState extends State<LoginContent>
     with TickerProviderStateMixin {
   late final List<Widget> createAccountContent;
   late final List<Widget> loginContent;
+  final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final genderController = TextEditingController();
+  final phoneController = TextEditingController();
+  final ageController = TextEditingController();
+
   final formKey = GlobalKey<FormState>();
 
   Widget inputField(
@@ -86,6 +91,46 @@ class _LoginContentState extends State<LoginContent>
               print('Wrong password provided for that user.');
             }
           }
+        },
+        style: ElevatedButton.styleFrom(
+          padding: const EdgeInsets.symmetric(vertical: 14),
+          shape: const StadiumBorder(),
+          primary: kSecondaryColor,
+          elevation: 8,
+          shadowColor: Colors.black87,
+        ),
+        child: Text(
+          title,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget SignUPP(String title) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 135, vertical: 16),
+      child: ElevatedButton(
+        onPressed: () async {
+          await SignUp(emailController, passwordController);
+          saveUser(
+              nameController.text,
+              emailController.text,
+              passwordController.text,
+              genderController.text,
+              phoneController.text,
+              '1',
+              ageController.text,
+              'user');
+          //controller lazm yet7ol text
+          if (formKey.currentState!.validate()) {
+            const snackBar = SnackBar(content: Text('Submitting form'));
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          }
+          Navigator.pushNamed(context, '/home');
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 14),
@@ -171,12 +216,19 @@ class _LoginContentState extends State<LoginContent>
   @override
   void initState() {
     emailController.text = '';
+    nameController.text = '';
     passwordController.text = '';
+    genderController.text = '';
+    ageController.text = '';
+    phoneController.text = '';
     createAccountContent = [
-      inputField('Name', Ionicons.person_outline, TextEditingController()),
+      inputField('Name', Ionicons.person_outline, nameController),
       inputField('Email', Ionicons.mail_outline, emailController),
       inputField('Password', Ionicons.lock_closed_outline, passwordController),
-      loginButton('Sign Up'),
+      inputField('Age', Ionicons.calendar_clear_outline, ageController),
+      inputField('Phone Number', Ionicons.call_outline, phoneController),
+      inputField('Gender', Ionicons.female_outline, genderController),
+      SignUPP('Sign Up'),
       orDivider(),
       logos(),
     ];
