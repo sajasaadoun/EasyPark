@@ -2,7 +2,7 @@ import 'package:easypark/model/data_doctor.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
-import '../model/doctor_model.dart';
+import '../model/doctor_static_model.dart';
 // import '../screens/doctor_info.dart';
 import '../screens/doctor_info_screen.dart';
 
