@@ -4,13 +4,16 @@ import 'package:easypark/screens/doctor_info_screen.dart';
 import 'package:easypark/screens/handwrittingDetection.dart';
 import 'package:easypark/screens/home_page.dart';
 import 'package:easypark/screens/login_screen.dart';
+import 'package:easypark/screens/options_screen.dart';
 import 'package:easypark/screens/register_page.dart';
 import 'package:easypark/screens/test_screen.dart';
 import 'package:easypark/screens/wave-detection.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'model/data_doctor.dart';
+import 'screens/dialog_message.dart';
 import 'screens/homepage.dart';
+// import 'screens/results_schedule_screen.dart';
 import 'screens/speechDetection.dart';
 import 'screens/faceDetection.dart';
 import 'screens/question_model.dart';
@@ -38,7 +41,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/home',
+        initialRoute: 'login',
         routes: {
           '/': (context) => const HomePage(),
           '/home': (context) => const HomePagee(),
@@ -56,11 +59,9 @@ class MyApp extends StatelessWidget {
           'waveDetection': (context) => const WaveDetection(),
           'loginn': (context) => const LoginScreen(),
           'camera': (context) => const CameraScreen(),
-          'DoctorsInfo': (context) => DoctorInfo(
-                model: staticModel,
-              ),
-
-          // 'splash': (context) => Splash()
+          'DoctorsInfo': (context) => DoctorInfo(model: staticModel),
+          'OptionsScreen': (context) => MyPlansScreen(),
+          'MyAlertDialog': (context) => MyAlertDialog(),
         });
   }
 }
