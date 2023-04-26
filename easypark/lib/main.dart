@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'login',
+        initialRoute: '/home',
         routes: {
           // '/': (context) => const HomePage(),
           '/home': (context) => const HomePagee(),
@@ -61,10 +61,8 @@ class MyApp extends StatelessWidget {
           'loginn': (context) => const LoginScreen(),
           'camera': (context) => const CameraScreen(),
           'DoctorsInfo': (context) => DoctorInfo(model: staticModel),
-
           'OptionsScreen': (context) => MyPlansScreen(),
           'MyAlertDialog': (context) => MyAlertDialog(),
-
           // 'splash': (context) => Splash()
         });
   }
