@@ -92,34 +92,35 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/doc.jpg
-    - assets/detect.png
-    - assets/severity.png
-    - assets/questionnaire.jpg
-    - assets/doctor.png
-    - assets/question.jpg
-    - assets/healthcare.jpg
-    - assets/contact.png
-    - assets/detection.png
-    - assets/online-survey.png
-    - assets/rating.png
-    - assets/rating_1.png
-    - assets/doctor1.jpg
-    - assets/doctor2.jpg
-    - assets/facebook.png
-    - assets/google.png
-    - assets/appointment.png
-    - assets/doctor_1.jpg
-    - assets/doctor_2.jpg
-    - assets/doctor_3.jpg
-    - assets/hospital.png
-    - assets/more.png
-    - assets/virus.png
-    - assets/email.png
-    - assets/email1.png
-    - assets/spiralApp1.jpg
-    - assets/SLogo.drawio.jpg
-    - assets/WLogo.drawio.jpg
+    - assets/images/
+    # - assets/doc.jpg
+    # - assets/detect.png
+    # - assets/severity.png
+    # - assets/questionnaire.jpg
+    # - assets/doctor.png
+    # - assets/question.jpg
+    # - assets/healthcare.jpg
+    # - assets/contact.png
+    # - assets/detection.png
+    # - assets/online-survey.png
+    # - assets/rating.png
+    # - assets/rating_1.png
+    # - assets/doctor1.jpg
+    # - assets/doctor2.jpg
+    # - assets/facebook.png
+    # - assets/google.png
+    # - assets/appointment.png
+    # - assets/doctor_1.jpg
+    # - assets/doctor_2.jpg
+    # - assets/doctor_3.jpg
+    # - assets/hospital.png
+    # - assets/more.png
+    # - assets/virus.png
+    # - assets/email.png
+    # - assets/email1.png
+    # - assets/spiralApp1.jpg
+    # - assets/SLogo.drawio.jpg
+    # - assets/WLogo.drawio.jpg
  
 
   # An image asset can refer to one or more resolution-specific "variants", see
