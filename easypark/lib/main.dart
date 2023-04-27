@@ -32,6 +32,7 @@ import 'package:easypark/screensar/options_screen.dart';
 import 'screensar/doctor_page.dart';
 import 'screensar/speechDetection.dart';
 import 'package:easypark/screensar/handwrittingDetection.dart';
+import 'package:easypark/opening.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,8 +51,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/ar/home',
+        initialRoute: '/',
         routes: {
+          '/': (context) => const OpeningPage(),
+
           // '/': (context) => const HomePage(),
           '/home': (context) => const HomePagee(),
           'test': (context) => const TestPage(),
@@ -99,7 +102,7 @@ class MyApp extends StatelessWidget {
           // 'OptionsScreen': (context) => MyPlansScreen(),
           // 'MyAlertDialog': (context) => MyAlertDialog(),
 
-          // 'splash': (context) => Splash()
+          //'splash': (context) => Splash()
         });
   }
 }
