@@ -188,29 +188,21 @@ List<Question> getQuestions() {
   list.add(Question(
     "2.4-Over the past week, have you usually had troubles handling your food and using eating utensils? For example, do you have trouble handling finger foods or using forks, knives, spoons, chopsticks?",
     [
-      Answer("0: Normal: Not at all (no problems).", true),
-      Answer(
-          "1: Slight: I am slow, but I do not need any help handling my food and have not had food spills while eating.",
-          true),
-      Answer(
-          "2: Mild: I am slow with my eating and have occasional food spills. I may need help with a few tasks such as cutting meat",
-          true),
-      Answer(
-          "3: Moderate: I need help with many eating tasks but can manage some alone",
-          true),
-      Answer("4: Severe: I need help for most or all eating tasks.", true),
+      Answer("0: Normal.", true),
+      Answer("1: Slight.", true),
+      Answer("2: Mild.", true),
+      Answer("3: Moderate.", true),
+      Answer("4: Severe.", true),
     ],
   ));
   list.add(Question(
     "2.5-Over the past week, have you usually had problems dressing? For example, are you slow or do you need help with buttoning, using zippers, putting on or taking off your clothes or jewelry?",
     [
-      Answer("0: Normal: Not at all (no problems).", true),
-      Answer("1: Slight: I am slow, but I do not need help.", true),
-      Answer(
-          "2: Mild: I am slow and need help for a few dressing tasks (buttons, bracelets).",
-          true),
-      Answer("3: Moderate: I need help for many dressing tasks.", true),
-      Answer("4: Severe: I need help for most or all dressing tasks.", true),
+      Answer("0: Normal.", true),
+      Answer("1: Slight.", true),
+      Answer("2: Mild.", true),
+      Answer("3: Moderate.", true),
+      Answer("4: Severe.", true),
     ],
   ));
   list.add(Question(
