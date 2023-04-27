@@ -263,55 +263,33 @@ List<Question> getQuestions() {
   list.add(Question(
     "2.11-Over the past week, have you usually had trouble getting out of bed, a car seat, or a deep chair?",
     [
-      Answer("0: Normal: Not at all.", true),
-      Answer(
-          "1: Slight: I am slow or awkward, but I usually can do it on my first try.",
-          true),
-      Answer(
-          "2: Mild: I need more than one try to get up or need occasional help",
-          true),
-      Answer(
-          "3: Moderate: I sometimes need help to get up, but most times I can still do it on my own.",
-          true),
-      Answer("4: Severe: I need help most or all of the time.", true),
+      Answer("0: Normal.", true),
+      Answer("1: Slight.", true),
+      Answer("2: Mild.", true),
+      Answer("3: Moderate.", true),
+      Answer("4: Severe.", true),
     ],
   ));
 
   list.add(Question(
     "2.12-Over the past week, have you usually had problems with balance and walking?",
     [
-      Answer("0: Normal: Not at all.", true),
-      Answer(
-          "1: Slight: I am slightly slow or may drag a leg. I never use a walking aid.",
-          true),
-      Answer(
-          "2: Mild: I occasionally use a walking aid, but I do not need any help from another person",
-          true),
-      Answer(
-          "3: Moderate: I usually use a walking aid (cane, walker) to walk safely without falling. However, I do not usually need the support of another person.",
-          true),
-      Answer(
-          "4: Severe: I usually use the support of another person to walk safely without falling.",
-          true),
+      Answer("0: Normal.", true),
+      Answer("1: Slight.", true),
+      Answer("2: Mild.", true),
+      Answer("3: Moderate.", true),
+      Answer("4: Severe.", true),
     ],
   ));
 
   list.add(Question(
     "2.13-Over the past week, on your usual day when walking, do you suddenly stop or freeze as if your feet are stuck to the floor?",
     [
-      Answer("0: Normal: Not at all.", true),
-      Answer(
-          "1: Slight: I briefly freeze, but I can easily start walking again. I do not need help from someone else or a walking aid (cane or walker) because of freezing.",
-          true),
-      Answer(
-          "2: Mild: I freeze and have trouble starting to walk again, but I do not need someone’s help or a walking aid (cane or walker) because of freezing.",
-          true),
-      Answer(
-          "3: Moderate: When I freeze I have a lot of trouble starting to walk again and, because of freezing, I sometimes need to use a walking aid or need someone else’s help.",
-          true),
-      Answer(
-          "4: Severe: Because of freezing, most or all of the time, I need to use a walking aid or someone’s help.",
-          true),
+      Answer("0: Normal.", true),
+      Answer("1: Slight.", true),
+      Answer("2: Mild.", true),
+      Answer("3: Moderate.", true),
+      Answer("4: Severe.", true),
     ],
   ));
 
