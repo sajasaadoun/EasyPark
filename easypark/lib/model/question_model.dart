@@ -208,79 +208,55 @@ List<Question> getQuestions() {
   list.add(Question(
     "2.6-Over the past week, have you usually been slow or do you need help with washing, bathing, shaving, brushing teeth, combing your hair, or with other personal hygiene?",
     [
-      Answer("0: Normal: Not at all (no problems).", true),
-      Answer("1: Slight: I am slow, but I do not need any help.", true),
-      Answer("2: Mild: I need someone else to help me with some hygiene tasks.",
-          true),
-      Answer("3: Moderate: I need help for many hygiene tasks.", true),
-      Answer(
-          "4: Severe: I need help for most or all of my hygiene tasks.", true),
+      Answer("0: Normal.", true),
+      Answer("1: Slight.", true),
+      Answer("2: Mild.", true),
+      Answer("3: Moderate.", true),
+      Answer("4: Severe.", true),
     ],
   ));
 
   list.add(Question(
     "2.7-Over the past week, have people usually had trouble reading your handwriting?",
     [
-      Answer("0: Normal: Not at all (no problems).", true),
-      Answer(
-          "1: Slight: My writing is slow, clumsy or uneven, but all words are clear.",
-          true),
-      Answer("2: Mild: Some words are unclear and difficult to read.", true),
-      Answer(
-          "3: Moderate: Many words are unclear and difficult to read.", true),
-      Answer("4: Severe: Most or all words cannot be read.", true),
+      Answer("0: Normal.", true),
+      Answer("1: Slight.", true),
+      Answer("2: Mild.", true),
+      Answer("3: Moderate.", true),
+      Answer("4: Severe.", true),
     ],
   ));
 
   list.add(Question(
     "2.8-Over the past week, have you usually had trouble doing your hobbies or other things that you like to do?",
     [
-      Answer("0: Normal: Not at all (no problems).", true),
-      Answer(
-          "1: Slight: I am a bit slow but do these activities easily.", true),
-      Answer("2: Mild: I have some difficulty doing these activities.", true),
-      Answer(
-          "3: Moderate: I have major problems doing these activities, but still do most",
-          true),
-      Answer("4: Severe: I am unable to do most or all of these activities.",
-          true),
+      Answer("0: Normal.", true),
+      Answer("1: Slight.", true),
+      Answer("2: Mild.", true),
+      Answer("3: Moderate.", true),
+      Answer("4: Severe.", true),
     ],
   ));
 
   list.add(Question(
     "2.9-Over the past week, do you usually have trouble turning over in bed?",
     [
-      Answer("0: Normal: Not at all (no problems).", true),
-      Answer(
-          "1: Slight: I have a bit of trouble turning, but I do not need any help.",
-          true),
-      Answer(
-          "2: Mild I have a lot of trouble turning and need occasional help from someone else.",
-          true),
-      Answer("3: Moderate: To turn over I often need help from someone else.",
-          true),
-      Answer(
-          "4: Severe: I am unable to turn over without help from someone else.",
-          true),
+      Answer("0: Normal.", true),
+      Answer("1: Slight.", true),
+      Answer("2: Mild.", true),
+      Answer("3: Moderate.", true),
+      Answer("4: Severe.", true),
     ],
   ));
 
   list.add(Question(
     "2.10-Over the past week, have you usually had shaking or tremor?",
     [
-      Answer("0: Normal: Not at all. I have no shaking or tremor.", true),
-      Answer(
-          "1: Slight: Shaking or tremor occurs but does not cause problems with any activities",
-          true),
-      Answer(
-          "2: Mild: Shaking or tremor causes problems with only a few activities",
-          true),
-      Answer(
-          "3: Moderate: Shaking or tremor causes problems with many of my daily activities.",
-          true),
-      Answer(
-          "4: Severe: Shaking or tremor causes problems with most or all activities.",
-          true),
+      Answer("0: Normal.", true),
+      Answer("1: Slight.", true),
+      Answer("2: Mild.", true),
+      Answer("3: Moderate.", true),
+      Answer("4: Severe.", true),
     ],
   ));
 
