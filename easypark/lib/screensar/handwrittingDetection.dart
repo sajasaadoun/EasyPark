@@ -53,7 +53,7 @@ class _HandwrittingDetectionState extends State<HandwrittingDetectionAr> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("قم بتحميل الصورة "),
+        title: const Text(" قم بتحميل صورة لشكل حلزوني "),
       ),
       body: Center(
         child: Column(
