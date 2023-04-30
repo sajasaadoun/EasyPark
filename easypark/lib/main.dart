@@ -21,7 +21,17 @@ import 'screens/question_model.dart';
 import 'screens/OLDdoctor_page.dart';
 import 'screens/profile_page.dart';
 import 'screens/sketch_page.dart';
+import 'screens/splash_screen.dart';
+import 'widgets/login_content.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:easypark/screens/quiz_screen.dart';
+import 'package:easypark/screensar/home_page.dart';
+import 'package:easypark/screensar/quiz_screen.dart';
+import 'package:easypark/screensar/options_screen.dart';
+import 'screensar/doctor_page.dart';
+import 'screensar/speechDetection.dart';
+import 'package:easypark/screensar/handwrittingDetection.dart';
+import 'package:easypark/opening.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -46,6 +56,10 @@ class MyApp extends StatelessWidget {
           'admin': (context) =>  AdminPanell(),
          'doctor': (context) => const DoctorPage(),
           '/': (context) => const HomePagee(),
+          '/': (context) => const OpeningPage(),
+          // '/': (context) => const HomePage(),
+          '/home': (context) => const HomePagee(),
+          'test': (context) => const TestPage(),
           'speech': (context) => const SpeechPage(),
           'login': (context) => const LoginScreen(),
           'question': (context) => const QuestionsScreen(),
@@ -61,8 +75,33 @@ class MyApp extends StatelessWidget {
           // 'splash': (context) => Splash()
           // 'test': (context) => const TestPage(),
           // 'admin': (context) => const MyAdmin(),
-      
           // 'doctor': (context) => const DoctorPage(),
+          'quiz': (context) => const QuizScreen(),
+          '/ar/home': (context) => const HomePageeAr(),
+          '/ar/quiz': (context) => const QuizScreenAr(),
+          '/ar/OptionsScreen': (context) => MyPlansScreenAr(),
+          '/ar/doctor': (context) => const DoctorPageAr(),
+          '/ar/speech': (context) => const SpeechPageAr(),
+          '/ar/spiral': (context) => const HandwrittingDetectionAr(),
+          // 'loginn': (context) => const LoginScreen(),
+
+          // 'test': (context) => const TestPage(),
+          // 'speech': (context) => const SpeechPage(),
+          // 'face': (context) => const FacePage(),
+          // 'login': (context) => const LoginScreen(),
+          // 'question': (context) => const QuestionsScreen(),
+          // 'doctor': (context) => const DoctorPage(),
+          // 'profile': (context) => ProfilePage(),
+          // 'sketch': (context) => const sketchPage(),
+          // 'admin': (context) => const MyAdmin(),
+          // 'facepg': (context) => const FacePage(),
+          // 'spiral': (context) => const HandwrittingDetection(),
+          // 'waveDetection': (context) => const WaveDetection(),
+          // 'camera': (context) => const CameraScreen(),
+          // 'DoctorsInfo': (context) => DoctorInfo(model: staticModel),
+          // 'OptionsScreen': (context) => MyPlansScreen(),
+          // 'MyAlertDialog': (context) => MyAlertDialog(),
+          //'splash': (context) => Splash()
         });
   }
 }
