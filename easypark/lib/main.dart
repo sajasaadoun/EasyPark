@@ -8,7 +8,7 @@ import 'package:easypark/screens/doctorpage.dart';
 import 'package:easypark/screens/login_screen.dart';
 import 'package:easypark/screens/options_screen.dart';
 import 'package:easypark/screens/test_screen.dart';
-import 'package:easypark/screens/try.dart';
+import 'package:easypark/screens/patientReport.dart';
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/wave-detection.dart';
 import 'package:firebase_core/firebase_core.dart';
