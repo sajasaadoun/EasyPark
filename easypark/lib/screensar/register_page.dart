@@ -254,12 +254,27 @@ Widget buildPassword() {
   );
 }
 
-Widget buildLoginBtn() {
+Widget buildLoginBtn(context) {
   return Container(
-      padding: EdgeInsets.symmetric(vertical: 25),
+      padding: const EdgeInsets.symmetric(vertical: 25),
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () => print('sign up Pressed'),
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                    title:
+                        const Text('سياسة خصوصية المستخدم واستخدام البيانات'),
+                    content: const Text(
+                        'تم تصميم تطبيق الهاتف المحمول الخاص بنا لاكتشاف مرض باركنسون ومتابعته ("EasyPark") لمساعدة المستخدمين على إدارة صحتهم وعافيتهم. بصفتنا مقدمًا لتطبيق طبي ، فإننا نأخذ خصوصية المستخدم واستخدام البيانات على محمل الجد. توضح هذه السياسة كيفية جمع بيانات المستخدم وتخزينها واستخدامها.\nسياسة خصوصية المستخدم واستخدام البيانات: نقوم بجمع المعلومات الشخصية والصحية لتقديم توصيات صحية ، وتحسين التطبيق ، والتواصل مع المستخدمين. نحن لا نشارك بيانات المستخدم إلا بموافقة أو لأسباب بحثية. نحمي بيانات المستخدم بالتشفير والمراقبة. يمكن للمستخدمين الوصول إلى بياناتهم أو تعديلها أو حذفها.'),
+                    actions: [
+                      TextButton(
+                        child: const Text('Agreed'),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ));
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
           textStyle: const TextStyle(
@@ -267,7 +282,7 @@ Widget buildLoginBtn() {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         ),
-        child: Text(
+        child: const Text(
           'Sign Up',
           style: TextStyle(
             color: Colors.blue,
@@ -369,7 +384,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       const SizedBox(
                         height: 30,
                       ),
-                      buildLoginBtn(),
+                      buildLoginBtn(context),
                       buildSignBtn(),
                     ],
                   ),
