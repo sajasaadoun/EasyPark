@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-
 class DoctorForm extends StatefulWidget {
   const DoctorForm({Key? key}) : super(key: key);
 
@@ -18,9 +17,8 @@ class _DoctorFormState extends State<DoctorForm> {
   TextEditingController LastNameController = TextEditingController();
   TextEditingController AgeController = TextEditingController();
   TextEditingController LocationController = TextEditingController();
-  // TextEditingController locationController = TextEditingController();
-  // TextEditingController openingTimeController = TextEditingController();
-  // TextEditingController closingTimeController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +27,12 @@ class _DoctorFormState extends State<DoctorForm> {
     return Scaffold(
         key: scaffoldKey,
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: Colors.white,
           elevation: 0,
           title: Text(
-             style: TextStyle(fontSize: 20, color: Theme.of(context).primaryColor),
-            'Add A New doctor to your application',
-            
+            style:
+                TextStyle(fontSize: 20, color: Theme.of(context).primaryColor),
+            'Add A New doctor to your app',
           ),
           leading: GestureDetector(
             onTap: () {
@@ -42,19 +40,19 @@ class _DoctorFormState extends State<DoctorForm> {
             },
             child: const Icon(
               Icons.arrow_back_ios,
-            size: 20,
+              size: 20,
               color: Colors.black,
             ),
           ),
         ),
         body: Container(
-                  // ignore: prefer_const_constructors
-                  decoration: BoxDecoration(
-          // image: DecorationImage(
-          //   image: const AssetImage("assets/desert.jpg"),
-          //   fit: BoxFit.cover,
-          // ),
-        ),
+          // ignore: prefer_const_constructors
+          decoration: BoxDecoration(
+              // image: DecorationImage(
+              //   image: const AssetImage("assets/desert.jpg"),
+              //   fit: BoxFit.cover,
+              // ),
+              ),
           child: SingleChildScrollView(
               child: Padding(
                   padding: const EdgeInsets.all(10),
@@ -114,7 +112,6 @@ class _DoctorFormState extends State<DoctorForm> {
                                   border: OutlineInputBorder(),
                                   labelText: 'Doctor\'s Location',
                                 ),
-                                
                                 validator: (value) {
                                   if (value!.isEmpty ||
                                       !RegExp('[a-zA-Z]').hasMatch(value)) {
@@ -125,44 +122,81 @@ class _DoctorFormState extends State<DoctorForm> {
                                 }),
                           ),
                           Container(
+                            padding: const EdgeInsets.all(10),
+                            child: TextFormField(
+                                style: TextStyle(color: Colors.black),
+                                controller: emailController,
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  labelText: 'Doctor\'s Email',
+                                ),
+                                validator: (value) {
+                                  if (value!.isEmpty ||
+                                      !RegExp('.+@.+\..+').hasMatch(value)) {
+                                    return "enter a city";
+                                  } else {
+                                    return null;
+                                  }
+                                }),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            child: TextFormField(
+                                style: TextStyle(color: Colors.black),
+                                controller: phoneNumberController,
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  labelText: 'Doctor\'s Phone Number',
+                                ),
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Please enter a phone number';
+                                  } else if (!RegExp(r'^\d{10}$')
+                                      .hasMatch(value)) {
+                                    return 'Please enter a valid 10-digit phone number';
+                                  } else {
+                                    return null;
+                                  }
+                                }),
+                          ),
+                          Container(
                               height: 50,
                               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                               child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: Theme.of(context).primaryColor,
-                                ),
-                                child: const Text('Submit',
-                               style: TextStyle(color: Colors.white)
-                               ),
-                                 onPressed: () {}
-                                //async {
-                                //   if (formkey.currentState!.validate()) {
-                                //     await placeDAta.placeAdded(
-                                //       name: nameController.text,
-                                //       about: aboutController.text,
-                                //       city: cityController.text,
-                                //       price: priceController.text,
-                                //       openingTime: openingTimeController.text,
-                                //       closingTime: closingTimeController.text,
-                                //       location: locationController.text,
-                                //     );
-                                //     ScaffoldMessenger.of(context).showSnackBar(
-                                //       const SnackBar(
-                                //           content: Text('Successfully Added')),
-                                //     );
-                                //     Navigator.pushNamed(context, '/admin');
-                                //   } else {
-                                //     ScaffoldMessenger.of(context).showSnackBar(
-                                //       const SnackBar(
-                                //           content: Text(
-                                //               'Something went Wrong R-enter your data')),
-                                //     );
-                                //   }
-                                // },
-                              )),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor:
+                                        Theme.of(context).primaryColor,
+                                  ),
+                                  child: const Text('Submit',
+                                      style: TextStyle(color: Colors.white)),
+                                  onPressed: () {}
+                                  //async {
+                                  //   if (formkey.currentState!.validate()) {
+                                  //     await placeDAta.placeAdded(
+                                  //       name: nameController.text,
+                                  //       about: aboutController.text,
+                                  //       city: cityController.text,
+                                  //       price: priceController.text,
+                                  //       openingTime: openingTimeController.text,
+                                  //       closingTime: closingTimeController.text,
+                                  //       location: locationController.text,
+                                  //     );
+                                  //     ScaffoldMessenger.of(context).showSnackBar(
+                                  //       const SnackBar(
+                                  //           content: Text('Successfully Added')),
+                                  //     );
+                                  //     Navigator.pushNamed(context, '/admin');
+                                  //   } else {
+                                  //     ScaffoldMessenger.of(context).showSnackBar(
+                                  //       const SnackBar(
+                                  //           content: Text(
+                                  //               'Something went Wrong R-enter your data')),
+                                  //     );
+                                  //   }
+                                  // },
+                                  )),
                         ],
                       )))),
         ));
   }
 }
-
