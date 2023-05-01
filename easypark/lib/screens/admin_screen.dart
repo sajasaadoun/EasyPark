@@ -15,23 +15,13 @@ class AdminPanell extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Welcome, adminName',
+              'Welcome, Saja',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(height: 8.0),
-            Text(
-              '(jobTitle)',
-              style: TextStyle(fontSize: 18, fontStyle: FontStyle.italic),
             ),
             SizedBox(height: 24.0),
             Text(
               ' What would you like to do today?',
               style: TextStyle(fontSize: 18),
-            ),
-            SizedBox(height: 24.0),
-            Text(
-              'Available actions:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 16.0),
             Expanded(
@@ -41,7 +31,7 @@ class AdminPanell extends StatelessWidget {
                     icon: Icons.add,
                     title: 'Add Doctor',
                     onTap: () {
-                      // TODO: Implement the add doctor functionality
+                      Navigator.pushNamed(context, 'form');
                     },
                   ),
                   _buildListTile(
@@ -88,7 +78,10 @@ class AdminPanell extends StatelessWidget {
     );
   }
 
-  Widget _buildListTile({required IconData icon, required String title, required VoidCallback onTap}) {
+  Widget _buildListTile(
+      {required IconData icon,
+      required String title,
+      required VoidCallback onTap}) {
     return ListTile(
       leading: Icon(icon),
       title: Text(title),
