@@ -1,4 +1,5 @@
 import 'package:easypark/screens/OLDadmin_screen.dart';
+import 'package:easypark/screens/addDoctorForm.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/doctor_info_screen.dart';
 import 'package:easypark/screens/handwrittingDetection.dart';
@@ -50,10 +51,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'doctor',
+        initialRoute: 'report',
         routes: {
-          'try': (context) =>  PatientReport(),
+          'report': (context) =>  PatientReport(),
           'admin': (context) =>  AdminPanell(),
+          'form': (context) =>  DoctorForm(),
          'doctor': (context) => const DoctorPage(),
           '/': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
