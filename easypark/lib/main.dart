@@ -7,6 +7,7 @@ import 'package:easypark/screens/home_page.dart';
 import 'package:easypark/screens/doctorpage.dart';
 import 'package:easypark/screens/login_screen.dart';
 import 'package:easypark/screens/options_screen.dart';
+import 'package:easypark/screens/register_page.dart';
 import 'package:easypark/screens/test_screen.dart';
 import 'package:easypark/screens/patientReport.dart';
 import 'package:easypark/screens/admin_screen.dart';
@@ -51,12 +52,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'report',
+        initialRoute: 'register',
         routes: {
-          'report': (context) =>  PatientReport(),
-          'admin': (context) =>  AdminPanell(),
-          'form': (context) =>  DoctorForm(),
-         'doctor': (context) => const DoctorPage(),
+          'report': (context) => PatientReport(),
+          'admin': (context) => AdminPanell(),
+          'form': (context) => DoctorForm(),
+          'doctor': (context) => const DoctorPage(),
           'home': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
           // '/': (context) => const HomePage(),
@@ -78,6 +79,7 @@ class MyApp extends StatelessWidget {
           // 'admin': (context) => const MyAdmin(),
           // 'doctor': (context) => const DoctorPage(),
           'quiz': (context) => const QuizScreen(),
+          'register': (context) => const RegisterScreen(),
           '/ar/home': (context) => const HomePageeAr(),
           '/ar/quiz': (context) => const QuizScreenAr(),
           '/ar/OptionsScreen': (context) => MyPlansScreenAr(),
