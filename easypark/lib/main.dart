@@ -1,4 +1,3 @@
-import 'package:easypark/screens/OLDadmin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/doctor_info_screen.dart';
@@ -20,7 +19,6 @@ import 'screens/dialog_message.dart';
 import 'screens/speechDetection.dart';
 import 'screens/faceDetection.dart';
 import 'screens/question_model.dart';
-import 'screens/OLDdoctor_page.dart';
 import 'screens/profile_page.dart';
 import 'screens/sketch_page.dart';
 import 'screens/splash_screen.dart';
