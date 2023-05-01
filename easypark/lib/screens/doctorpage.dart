@@ -232,7 +232,7 @@ class _DoctorPageState extends State<DoctorPage> {
                                 backgroundColor: Colors.blue[600],
                                 elevation: 0,
                               ),
-                              child: const Text('Contact Doctors')),
+                              child: const Text('Contact patients')),
                         ],
                       ),
                     ),
@@ -284,15 +284,26 @@ class _DoctorPageState extends State<DoctorPage> {
                           'assets/images/doctor1.jpg',
                           height: 40,
                         ),
-                        Row(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          // children: [
-                          //   const Icon(Icons.star),
-                          //   const Text('4'),
-                          // ],
-                        ),
                         const Text('Ahmed Kamal'),
                         const Text('Patient ID:A46'),
+                        const SizedBox(height: 10),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 208, 205, 214),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: TextButton(
+                            onPressed: () {
+                              // Add logic to navigate to the patient details screen
+                            },
+                            child: Text(
+                              'View Patient',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -311,12 +322,12 @@ class _DoctorPageState extends State<DoctorPage> {
                           height: 40,
                         ),
                         Row(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          // children: [
-                          //   const Icon(Icons.star),
-                          //   const Text('4'),
-                          // ],
-                        ),
+                            // ignore: prefer_const_literals_to_create_immutables
+                            // children: [
+                            //   const Icon(Icons.star),
+                            //   const Text('4'),
+                            // ],
+                            ),
                         const Text('Noha Saeed'),
                         const Text('Patient ID:N78'),
                       ],
@@ -337,12 +348,12 @@ class _DoctorPageState extends State<DoctorPage> {
                           height: 40,
                         ),
                         Row(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          // children: [
-                          //   const Icon(Icons.star),
-                          //   const Text('4'),
-                          // ],
-                        ),
+                            // ignore: prefer_const_literals_to_create_immutables
+                            // children: [
+                            //   const Icon(Icons.star),
+                            //   const Text('4'),
+                            // ],
+                            ),
                         const Text('Mary Sameer'),
                         const Text('Patient ID: M80 '),
                       ],
@@ -363,12 +374,12 @@ class _DoctorPageState extends State<DoctorPage> {
                           height: 40,
                         ),
                         Row(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          // children: [
-                          //   const Icon(Icons.star),
-                          //   const Text('4'),
-                          // ],
-                        ),
+                            // ignore: prefer_const_literals_to_create_immutables
+                            // children: [
+                            //   const Icon(Icons.star),
+                            //   const Text('4'),
+                            // ],
+                            ),
                         const Text('Ahmed Marzoaa'),
                         const Text('Patient ID:K12'),
                       ],
