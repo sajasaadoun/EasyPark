@@ -1,5 +1,5 @@
-
 import 'package:easypark/model/chat_user.dart';
+import 'package:easypark/screens/ProfileScreen.dart';
 import 'package:easypark/screens/admin_screen.dart';
 
 import 'package:easypark/screens/addDoctorForm.dart';
@@ -62,9 +62,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/home',
+        initialRoute: '/ProfileScreen',
         routes: {
           'report': (context) => PatientReport(),
+          'ProfileScreen': (context) => profilescreen(),
           'admin': (context) => AdminPanell(),
           'form': (context) => DoctorForm(),
           'doctor': (context) => const DoctorPage(),
@@ -87,7 +88,7 @@ class MyApp extends StatelessWidget {
 
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
-          'ChatFirst': (context) => ChatFirst()
+          'ChatFirst': (context) => ChatFirst(),
 
           // 'splash': (context) => Splash()
           // 'test': (context) => const TestPage(),
@@ -119,7 +120,6 @@ class MyApp extends StatelessWidget {
           // 'OptionsScreen': (context) => MyPlansScreen(),
           // 'MyAlertDialog': (context) => MyAlertDialog(),
           //'splash': (context) => Splash()
-
         });
   }
 }
