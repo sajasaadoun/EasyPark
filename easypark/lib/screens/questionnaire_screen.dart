@@ -17,7 +17,7 @@ class _questionnaireScreenState extends State<questionnaireScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[600],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
@@ -57,7 +57,7 @@ class _questionnaireScreenState extends State<questionnaireScreen> {
         Text(
           "questions ${currentQuestionIndex + 1}/${questionlist.length.toString()}",
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontSize: 20,
             fontWeight: FontWeight.w600,
           ),
