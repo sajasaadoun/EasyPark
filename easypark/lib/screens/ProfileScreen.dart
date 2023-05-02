@@ -73,16 +73,20 @@ class profilescreen extends StatelessWidget {
                 icon: LineAwesomeIcons.cog,
                 onPress: () {},
               ),
+              const Divider(),
               ProfileMenuWidget(
                 title: "details",
                 icon: LineAwesomeIcons.wallet,
                 onPress: () {},
               ),
+              const Divider(),
               ProfileMenuWidget(
                 title: "logout",
                 icon: LineAwesomeIcons.alternate_sign_out,
+                TextColor: Colors.red,
                 onPress: () {},
               ),
+              const Divider(),
               ProfileMenuWidget(
                 title: "information",
                 icon: LineAwesomeIcons.info,
