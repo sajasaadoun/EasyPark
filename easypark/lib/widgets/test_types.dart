@@ -29,7 +29,7 @@ class HealthNeeds extends StatelessWidget {
                     print("You tapped on ${customIcons[index].name} icon");
                     break;
                   case 1:
-                    Navigator.pushNamed(context, 'spiral');
+                    Navigator.pushNamed(context, 'waveDetection');
                     print("You tapped on ${customIcons[index].name} icon");
                     break;
                   case 2:
