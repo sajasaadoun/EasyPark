@@ -16,42 +16,70 @@ List<Question> getQuestions() {
   list.add(Question(
     "1.1Over the past week have you had problems remembering things, following conversations, paying attention, thinking clearly, or finding your way around the house or in town?",
     [
-      Answer("0: Normal", true),
-      Answer("1: Slight", true),
-      Answer("2: Mild.", true),
-      Answer("3: Moderate.", true),
-      Answer("4: Severe.", true),
+      Answer("0: Normal: No cognitive impairment", true),
+      Answer(
+          "1: Slight: Impairment appreciated by patient or caregiver with no concrete interference with the patient’s ability to carry out normal activities and social interactions",
+          true),
+      Answer(
+          "2: Mild: Clinically evident cognitive dysfunction, but only minimal interference with the patient’s ability to carry out normal activities and social interactions.",
+          true),
+      Answer(
+          "3: Moderate: Cognitive deficits interfere with but do not preclude the patient’s ability to carry out normal activities and social interactions.",
+          true),
+      Answer(
+          "4: Severe: Cognitive dysfunction precludes the patient’s ability to carry out normal activities and social interactions.",
+          true),
     ],
   ));
   list.add(Question(
     "1.2 Over the past week have you seen, heard, smelled, or felt things that were not really there?",
     [
-      Answer("0: Normal.", true),
-      Answer("1: Slight.", true),
-      Answer("2: Mild.", true),
-      Answer("3: Moderate.", true),
-      Answer("4: Severe.", true),
+      Answer("0: Normal: No hallucinations or psychotic behavior.", true),
+      Answer(
+          "1: Slight: Illusions or non-formed hallucinations, but patient recognizes them without loss of insight.",
+          true),
+      Answer(
+          "2: Mild: Formed hallucinations independent of environmental stimuli. No loss of insight.",
+          true),
+      Answer("3: Moderate: Formed hallucinations with loss of insight.", true),
+      Answer("4: Severe: Patient has delusions or paranoia", true),
     ],
   ));
   list.add(Question(
     "1.3 Over the past week have you felt low, sad, hopeless, or unable to enjoy things? If yes, was this feeling for longer than one day at a time? Did it make it difficult for you carry out your usual activities or to be with people?",
     [
-      Answer("0: Normal.", true),
-      Answer("1: Slight.", true),
-      Answer("2: Mild.", true),
-      Answer("3: Moderate.", true),
-      Answer("4: Severe.", true),
+      Answer("0: Normal: No depressed mood.", true),
+      Answer(
+          "1: Slight: Episodes of depressed mood that are not sustained for more than one day at a time. No interference with patient’s ability to carry out normal activities and social interactions.",
+          true),
+      Answer(
+          "2: Mild: Depressed mood that is sustained over days, but without interference with normal activities and social interactions.",
+          true),
+      Answer(
+          "3: Moderate: Depressed mood that interferes with, but does not preclude the patient’s ability to carry out normal activities and social interactions.",
+          true),
+      Answer(
+          "4: Severe: Depressed mood precludes patient’s ability to carry out normal activities and social interactions.",
+          true),
     ],
   ));
 
   list.add(Question(
     "1.4 Over the past week have you felt nervous, worried, or tense? If yes, was this feeling for longer than one day at a time? Did it make it difficult for you to follow your usual activities or to be with other people?",
     [
-      Answer("0: Normal.", true),
-      Answer("1: Slight.", true),
-      Answer("2: Mild.", true),
-      Answer("3: Moderate.", true),
-      Answer("4: Severe.", true),
+      Answer("0: Normal: No anxious feelings.", true),
+      Answer(
+          "1: Slight: Anxious feelings present but not sustained for more than one day at a time. No interference with patient’s ability to carry out normal activities and social interactions.",
+          true),
+      Answer(
+          "2: Mild: Anxious feelings are sustained over more than one day at a time, but without interference with patient’s ability to carry out normal activities and social interactions.",
+          true),
+      Answer(
+          "3: Moderate: Anxious feelings interfere with, but do not preclude, the patient’s ability to carry out normal activities and social interactions.",
+          true),
+      Answer(
+          "4: Severe: Anxious feelings preclude patient’s ability to carry out normal activities and social interactions.",
+          true),
     ],
   ));
 
