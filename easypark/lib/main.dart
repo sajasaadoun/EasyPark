@@ -4,9 +4,16 @@ import 'package:easypark/screens/admin_screen.dart';
 
 import 'package:easypark/screens/addDoctorForm.dart';
 
+// import 'package:easypark/screens/OLDadmin_screen.dart';
+import 'package:easypark/model/chat_user.dart';
+
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
+import 'screens/appointment_screen.dart';
+import 'package:easypark/screens/admin_screen.dart';
+import 'package:easypark/screens/addDoctorForm.dart';
+import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/doctor_info_screen.dart';
 import 'package:easypark/screens/handwrittingDetection.dart';
 import 'package:easypark/screens/home_page.dart';
@@ -22,24 +29,24 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'model/data_doctor.dart';
 import 'screens/dialog_message.dart';
-
-import 'screens/appointment_screen.dart';
 // import 'screens/results_schedule_screen.dart';
 import 'screens/speechDetection.dart';
 import 'screens/faceDetection.dart';
 import 'screens/question_model.dart';
+// import 'screens/OLDdoctor_page.dart';
 import 'screens/profile_page.dart';
 import 'screens/sketch_page.dart';
 import 'screens/splash_screen.dart';
 import 'widgets/login_content.dart';
-
-//import 'package:firebase_picture_uploader/firebase_picture_uploader.dart';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:easypark/screens/quiz_screen.dart';
 import 'package:easypark/screensar/home_page.dart';
 import 'package:easypark/screensar/quiz_screen.dart';
 import 'package:easypark/screensar/options_screen.dart';
+import 'package:easypark/screensar/patientReport.dart';
+import 'package:easypark/screensar/admin_screen.dart';
+import 'package:easypark/screensar/addDoctorForm.dart';
+import 'package:easypark/screensar/doctorpage.dart';
 import 'screensar/doctor_page.dart';
 import 'screensar/speechDetection.dart';
 import 'package:easypark/screensar/handwrittingDetection.dart';
@@ -68,10 +75,18 @@ class MyApp extends StatelessWidget {
           'ProfileScreen': (context) => profilescreen(),
           'admin': (context) => AdminPanell(),
           'form': (context) => DoctorForm(),
+
+          'report': (context) => PatientReport(),
+          'admin': (context) => const AdminPanell(),
+          'form': (context) => const DoctorForm(),
+
           'doctor': (context) => const DoctorPage(),
           'home': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
           // '/': (context) => const HomePage(),
+          'appoint': (context) => ReserveScreen(),
+          'ChatScreen': (context) => ChatScreen(user: staticUser),
+          'ChatFirst': (context) => ChatFirst(),
           'test': (context) => const TestPage(),
           'speech': (context) => const SpeechPage(),
           'login': (context) => const LoginScreen(),
@@ -82,7 +97,7 @@ class MyApp extends StatelessWidget {
           'spiral': (context) => const HandwrittingDetection(),
           'waveDetection': (context) => const WaveDetection(),
           'camera': (context) => const CameraScreen(),
-          'DoctorsInfo': (context) => DoctorInfo(model: staticModel),
+          'DoctorsInfo': (context) => DoctorInfo(),
           'OptionsScreen': (context) => MyPlansScreen(),
           'MyAlertDialog': (context) => MyAlertDialog(),
 
@@ -99,10 +114,15 @@ class MyApp extends StatelessWidget {
           '/ar/home': (context) => const HomePageeAr(),
           '/ar/quiz': (context) => const QuizScreenAr(),
           '/ar/OptionsScreen': (context) => MyPlansScreenAr(),
-          '/ar/doctor': (context) => const DoctorPageAr(),
+          //'/ar/doctor': (context) => const DoctorPageAr(),
           '/ar/speech': (context) => const SpeechPageAr(),
           '/ar/spiral': (context) => const HandwrittingDetectionAr(),
+          '/ar/report': (context) => PatientReportAr(),
+          '/ar/admin': (context) => const AdminPanellAr(),
+          '/ar/form': (context) => const DoctorFormAr(),
+          '/ar/doctor': (context) => const DoctorPageArr(),
           // 'loginn': (context) => const LoginScreen(),
+
           // 'test': (context) => const TestPage(),
           // 'speech': (context) => const SpeechPage(),
           // 'face': (context) => const FacePage(),

@@ -52,7 +52,7 @@ class _WaveDetectionState extends State<WaveDetection> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Uploading Image to flask server"),
+        title: const Text("Upload The Wave Image"),
       ),
       body: Center(
         child: Column(

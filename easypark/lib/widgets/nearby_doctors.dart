@@ -1,6 +1,7 @@
 import 'package:easypark/model/data_doctor.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import '../model/doctor_model.dart';
 import '../model/doctor_static_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import '../screens/doctor_info.dart';
@@ -26,12 +27,10 @@ class _NearbyDoctorsScreenState extends ConsumerState<NearbyDoctors> {
                     padding: const EdgeInsets.only(bottom: 18),
                     child: GestureDetector(
                       onTap: () {
-                        Navigator.push(
+                        Navigator.pushNamed(
                           context,
-                          MaterialPageRoute(
-                            builder: (context) => DoctorInfo(
-                                model: staticModel), //nearbyDoctors[index]
-                          ),
+                          'DoctorsInfo',
+                          arguments: index,
                         );
                       },
                       child: Row(
@@ -85,14 +84,8 @@ class _NearbyDoctorsScreenState extends ConsumerState<NearbyDoctors> {
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => DoctorInfo(
-                                      model:
-                                          staticModel), //nearbyDoctors[index]
-                                ),
-                              );
+                              Navigator.pushNamed(context, 'DoctorsInfo',
+                                  arguments: index);
                             },
                             child: Text(
                               "View",
