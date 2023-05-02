@@ -256,23 +256,20 @@ Widget buildPassword() {
 
 Widget buildLoginBtn(context) {
   return Container(
-      padding: EdgeInsets.symmetric(vertical: 25),
+      padding: const EdgeInsets.symmetric(vertical: 25),
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
           showDialog(
               context: context,
               builder: (context) => AlertDialog(
-                    title: const Text('User Privacy and Data Use Policy'),
+                    title:
+                        const Text('سياسة خصوصية المستخدم واستخدام البيانات'),
                     content: const Text(
-                        'Our Parkinson detection and follow up mobile application ("EasyPark") is designed to help users manage their health and wellbeing. As a provider of a medical app, we take user privacy and data use seriously. This policy outlines how we collect, store, and use user data.\nUser Privacy and Data Use Policy: We collect personal and health information to provide health recommendations, improve the app, and communicate with users. We do not share user data except with consent or for research reasons. We protect user data with encryption and monitoring. Users can access, modify, or delete their data.'),
+                        'تم تصميم تطبيق الهاتف المحمول الخاص بنا لاكتشاف مرض باركنسون ومتابعته ("EasyPark") لمساعدة المستخدمين على إدارة صحتهم وعافيتهم. بصفتنا مقدمًا لتطبيق طبي ، فإننا نأخذ خصوصية المستخدم واستخدام البيانات على محمل الجد. توضح هذه السياسة كيفية جمع بيانات المستخدم وتخزينها واستخدامها.\nسياسة خصوصية المستخدم واستخدام البيانات: نقوم بجمع المعلومات الشخصية والصحية لتقديم توصيات صحية ، وتحسين التطبيق ، والتواصل مع المستخدمين. نحن لا نشارك بيانات المستخدم إلا بموافقة أو لأسباب بحثية. نحمي بيانات المستخدم بالتشفير والمراقبة. يمكن للمستخدمين الوصول إلى بياناتهم أو تعديلها أو حذفها.'),
                     actions: [
                       TextButton(
-                        child: const Text('Disagree'),
-                        onPressed: () {},
-                      ),
-                      TextButton(
-                        child: const Text('Agree'),
+                        child: const Text('Agreed'),
                         onPressed: () {},
                       ),
                     ],
@@ -285,7 +282,7 @@ Widget buildLoginBtn(context) {
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
         ),
-        child: Text(
+        child: const Text(
           'Sign Up',
           style: TextStyle(
             color: Colors.blue,

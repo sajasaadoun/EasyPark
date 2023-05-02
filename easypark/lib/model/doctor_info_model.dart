@@ -35,15 +35,15 @@ class DoctorInfoModel {
     required String image,
   }) =>
       DoctorInfoModel(
-        name: name ?? this.name,
-        type: type ?? this.type,
-        description: description ?? this.description,
-        rating: rating ?? this.rating,
-        goodReviews: goodReviews ?? this.goodReviews,
-        totalScore: totalScore ?? this.totalScore,
-        satisfaction: satisfaction ?? this.satisfaction,
-        isfavourite: isfavourite ?? this.isfavourite,
-        image: image ?? this.image,
+        name: name,
+        type: type,
+        description: description,
+        rating: rating,
+        goodReviews: goodReviews,
+        totalScore: totalScore,
+        satisfaction: satisfaction,
+        isfavourite: isfavourite,
+        image: image,
       );
 
   factory DoctorInfoModel.fromRawJson(String str) =>

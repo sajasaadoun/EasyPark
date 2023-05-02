@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class DoctorPage extends StatefulWidget {
-  const DoctorPage({super.key});
+class DoctorPageAr extends StatefulWidget {
+  const DoctorPageAr({super.key});
 
   @override
-  State<DoctorPage> createState() => _DoctorPageState();
+  State<DoctorPageAr> createState() => _DoctorPageState();
 }
 
-class _DoctorPageState extends State<DoctorPage> {
+class _DoctorPageState extends State<DoctorPageAr> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +27,7 @@ class _DoctorPageState extends State<DoctorPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: const [
                         Text(
-                          'Hello,',
+                          'مرحباَ,',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
@@ -35,7 +35,7 @@ class _DoctorPageState extends State<DoctorPage> {
                         ),
                         SizedBox(height: 8),
                         Text(
-                          'EasyPark Doctor',
+                          'ايزي بارك دكتور',
                           style: TextStyle(fontSize: 20),
                         ),
                       ],
@@ -83,7 +83,7 @@ class _DoctorPageState extends State<DoctorPage> {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
                               ),
-                              child: const Text('Patients')),
+                              child: const Text('المرضي')),
                         ],
                       ),
                     ),
@@ -109,7 +109,7 @@ class _DoctorPageState extends State<DoctorPage> {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
                               ),
-                              child: const Text('Test Results')),
+                              child: const Text('نتائج التجارب')),
                         ],
                       ),
                     ),
@@ -137,7 +137,7 @@ class _DoctorPageState extends State<DoctorPage> {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
                               ),
-                              child: const Text('Questionnaire')),
+                              child: const Text('الاستبيان')),
                         ],
                       ),
                     ),
