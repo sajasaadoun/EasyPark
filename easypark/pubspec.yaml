@@ -52,6 +52,7 @@ dependencies:
   firebase_messaging: ^14.4.1
   emoji_picker_flutter: ^1.5.4
   gallery_saver: ^2.3.2
+  line_awesome_flutter: ^2.0.0
   
   # consumer: ^2.3.1
 
