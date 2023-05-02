@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
           'spiral': (context) => const HandwrittingDetection(),
           'waveDetection': (context) => const WaveDetection(),
           'camera': (context) => const CameraScreen(),
-          'DoctorsInfo': (context) => DoctorInfo(model: staticModel),
+          'DoctorsInfo': (context) => DoctorInfo(),
           'OptionsScreen': (context) => MyPlansScreen(),
           'MyAlertDialog': (context) => MyAlertDialog(),
 
