@@ -357,22 +357,33 @@ List<Question> getQuestions() {
   list.add(Question(
     "2.8-Over the past week, have you usually had trouble doing your hobbies or other things that you like to do?",
     [
-      Answer("0: Normal.", true),
-      Answer("1: Slight.", true),
-      Answer("2: Mild.", true),
-      Answer("3: Moderate.", true),
-      Answer("4: Severe.", true),
+      Answer("0: Normal: Not at all (no problems).", true),
+      Answer(
+          "1: Slight: I am a bit slow but do these activities easily.", true),
+      Answer("2: Mild: I have some difficulty doing these activities.", true),
+      Answer(
+          "3: Moderate: I have major problems doing these activities, but still do most",
+          true),
+      Answer("4: Severe: I am unable to do most or all of these activities.",
+          true),
     ],
   ));
 
   list.add(Question(
     "2.9-Over the past week, do you usually have trouble turning over in bed?",
     [
-      Answer("0: Normal.", true),
-      Answer("1: Slight.", true),
-      Answer("2: Mild.", true),
-      Answer("3: Moderate.", true),
-      Answer("4: Severe.", true),
+      Answer("0: Normal: Not at all (no problems).", true),
+      Answer(
+          "1: Slight: I have a bit of trouble turning, but I do not need any help.",
+          true),
+      Answer(
+          "2: Mild I have a lot of trouble turning and need occasional help from someone else.",
+          true),
+      Answer("3: Moderate: To turn over I often need help from someone else.",
+          true),
+      Answer(
+          "4: Severe: I am unable to turn over without help from someone else.",
+          true),
     ],
   ));
 
