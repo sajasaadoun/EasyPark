@@ -14,7 +14,7 @@ List<Question> getQuestions() {
   List<Question> list = [];
 
   list.add(Question(
-    "Over the past week have you had problems remembering things, following conversations, paying attention, thinking clearly, or finding your way around the house or in town?",
+    "1.1Over the past week have you had problems remembering things, following conversations, paying attention, thinking clearly, or finding your way around the house or in town?",
     [
       Answer("0: Normal", true),
       Answer("1: Slight", true),
@@ -24,7 +24,7 @@ List<Question> getQuestions() {
     ],
   ));
   list.add(Question(
-    "Over the past week have you seen, heard, smelled, or felt things that were not really there?",
+    "1.2 Over the past week have you seen, heard, smelled, or felt things that were not really there?",
     [
       Answer("0: Normal.", true),
       Answer("1: Slight.", true),
@@ -34,18 +34,7 @@ List<Question> getQuestions() {
     ],
   ));
   list.add(Question(
-    "Over the past week have you felt low, sad, hopeless, or unable to enjoy things? If yes, was this feeling for longer than one day at a time? Did it make it difficult for you carry out your usual activities or to be with people?",
-    [
-      Answer("0: Normal.", true),
-      Answer("1: Slight.", true),
-      Answer("2: Mild.", true),
-      Answer("3: Moderate.", true),
-      Answer("4: Severe.", true),
-    ],
-  ));
-
-  list.add(Question(
-    "Over the past week have you felt nervous, worried, or tense? If yes, was this feeling for longer than one day at a time? Did it make it difficult for you to follow your usual activities or to be with other people?",
+    "1.3 Over the past week have you felt low, sad, hopeless, or unable to enjoy things? If yes, was this feeling for longer than one day at a time? Did it make it difficult for you carry out your usual activities or to be with people?",
     [
       Answer("0: Normal.", true),
       Answer("1: Slight.", true),
@@ -56,7 +45,7 @@ List<Question> getQuestions() {
   ));
 
   list.add(Question(
-    "Over the past week, have you felt indifferent to doing activitiesor being with people?",
+    "1.4 Over the past week have you felt nervous, worried, or tense? If yes, was this feeling for longer than one day at a time? Did it make it difficult for you to follow your usual activities or to be with other people?",
     [
       Answer("0: Normal.", true),
       Answer("1: Slight.", true),
@@ -67,7 +56,7 @@ List<Question> getQuestions() {
   ));
 
   list.add(Question(
-    "Over the past week, have you had unusually strong urges that are hard to control? Do you feel driven to do or think about something and find it hard to stop?",
+    "1.5 Over the past week, have you felt indifferent to doing activitiesor being with people?",
     [
       Answer("0: Normal.", true),
       Answer("1: Slight.", true),
@@ -78,7 +67,7 @@ List<Question> getQuestions() {
   ));
 
   list.add(Question(
-    "Over the past week, have you had trouble going to sleep at night or staying asleep through the night?",
+    "1.6 Over the past week, have you had unusually strong urges that are hard to control? Do you feel driven to do or think about something and find it hard to stop?",
     [
       Answer("0: Normal.", true),
       Answer("1: Slight.", true),
@@ -89,7 +78,7 @@ List<Question> getQuestions() {
   ));
 
   list.add(Question(
-    "Over the past week, have you had trouble staying awake during the daytime?",
+    "1.7 Over the past week, have you had trouble going to sleep at night or staying asleep through the night?",
     [
       Answer("0: Normal.", true),
       Answer("1: Slight.", true),
@@ -100,7 +89,7 @@ List<Question> getQuestions() {
   ));
 
   list.add(Question(
-    "Over the past week, have you had uncomfortable feelings in your body like pain, aches, tingling, or cramps?",
+    "1.8 Over the past week, have you had trouble staying awake during the daytime?",
     [
       Answer("0: Normal.", true),
       Answer("1: Slight.", true),
@@ -111,7 +100,26 @@ List<Question> getQuestions() {
   ));
 
   list.add(Question(
-    "Over the past week, have you had trouble with urine control? For example, an urgent need to urinate, a need to urinate too often, or urine accidents?",
+    "1.9 Over the past week, have you had uncomfortable feelings in your body like pain, aches, tingling, or cramps?",
+    [
+      Answer("0: Normal: No cognitive impairment", true),
+      Answer(
+          "1: Slight: Impairment appreciated by patient or caregiver with no concrete interference with the patient’s ability to carry out normal activities and social interactions",
+          true),
+      Answer(
+          "2: Mild: Clinically evident cognitive dysfunction, but only minimal interference with the patient’s ability to carry out normal activities and social interactions.",
+          true),
+      Answer(
+          "3: Moderate: Cognitive deficits interfere with but do not preclude the patient’s ability to carry out normal activities and social interactions.",
+          true),
+      Answer(
+          "4: Severe: Cognitive dysfunction precludes the patient’s ability to carry out normal activities and social interactions.",
+          true),
+    ],
+  ));
+
+  list.add(Question(
+    "1.10 Over the past week, have you had trouble with urine control? For example, an urgent need to urinate, a need to urinate too often, or urine accidents?",
     [
       Answer("0: Normal.", true),
       Answer("1: Slight.", true),
@@ -122,7 +130,7 @@ List<Question> getQuestions() {
   ));
 
   list.add(Question(
-    "Over the past week have you had constipation troubles that cause you difficulty moving your bowels?",
+    "1.11 Over the past week have you had constipation troubles that cause you difficulty moving your bowels?",
     [
       Answer("0: Normal.", true),
       Answer("1: Slight.", true),
@@ -132,7 +140,7 @@ List<Question> getQuestions() {
     ],
   ));
   list.add(Question(
-    "Over the past week, have you felt faint, dizzy, or foggy when you stand up after sitting or lying down?",
+    "1.12 Over the past week, have you felt faint, dizzy, or foggy when you stand up after sitting or lying down?",
     [
       Answer("0: Normal.", true),
       Answer("1: Slight.", true),
@@ -143,7 +151,7 @@ List<Question> getQuestions() {
   ));
 
   list.add(Question(
-    "Over the past week, have you usually felt fatigued? This feeling is not part of being sleepy or sad",
+    "1.13 Over the past week, have you usually felt fatigued? This feeling is not part of being sleepy or sad",
     [
       Answer("0: Normal.", true),
       Answer("1: Slight.", true),
