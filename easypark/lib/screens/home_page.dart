@@ -1,3 +1,4 @@
+import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/quiz_screen.dart';
 import 'package:easypark/screens/search.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +6,9 @@ import 'package:ionicons/ionicons.dart';
 import '../widgets/nearby_doctors.dart';
 import '../widgets/test_types.dart';
 import '../widgets/upcoming_card.dart';
+import '../widgets/username_show.dart';
+import 'chat_bar_screen.dart';
+import 'chat_screen.dart';
 import 'options_screen.dart';
 
 class HomePagee extends StatefulWidget {
@@ -35,13 +39,13 @@ class _HomePageeState extends State<HomePagee> {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            Text("Hi, Jane"),
-            Text(
-              "How are you feeling today?",
-              style: TextStyle(
-                fontSize: 15,
-              ),
-            ),
+            UsernameShow(),
+            // Text(
+            //   "How are you feeling today?",
+            //   style: TextStyle(
+            //     fontSize: 15,
+            //   ),
+            //),
           ],
         ),
         actions: [
@@ -116,27 +120,27 @@ class _HomePageeState extends State<HomePagee> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      if (_selectedIndex == 1) {
+      if (_selectedIndex == 0) {
         Navigator.push(
           _context,
           MaterialPageRoute(
             builder: (context) => const HomePagee(),
           ),
         );
-      } else if (_selectedIndex == 2) {
+      } else if (_selectedIndex == 1) {
         Navigator.push(
           _context,
           MaterialPageRoute(
             builder: (context) => MyPlansScreen(),
           ),
         );
-      } else if (_selectedIndex == 3) {
+      } else if (_selectedIndex == 2) {
         Navigator.push(
             _context,
             MaterialPageRoute(
-              builder: (context) => const QuizScreen(),
+              builder: (context) => ChatFirst(),
             ));
-      } else if (_selectedIndex == 4) {
+      } else if (_selectedIndex == 3) {
         Navigator.push(
             _context,
             MaterialPageRoute(
