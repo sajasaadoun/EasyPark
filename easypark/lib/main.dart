@@ -1,4 +1,3 @@
-
 import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/admin_screen.dart';
 
@@ -68,7 +67,7 @@ class MyApp extends StatelessWidget {
           'admin': (context) => AdminPanell(),
           'form': (context) => DoctorForm(),
           'doctor': (context) => const DoctorPage(),
-          'home': (context) => const HomePagee(),
+          '/home': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
           // '/': (context) => const HomePage(),
           'test': (context) => const TestPage(),
@@ -87,7 +86,7 @@ class MyApp extends StatelessWidget {
 
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
-          'ChatFirst': (context) => ChatFirst()
+          'ChatFirst': (context) => ChatFirst(),
 
           // 'splash': (context) => Splash()
           // 'test': (context) => const TestPage(),
@@ -119,7 +118,6 @@ class MyApp extends StatelessWidget {
           // 'OptionsScreen': (context) => MyPlansScreen(),
           // 'MyAlertDialog': (context) => MyAlertDialog(),
           //'splash': (context) => Splash()
-
         });
   }
 }
