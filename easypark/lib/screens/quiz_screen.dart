@@ -1,9 +1,8 @@
 import 'package:easypark/model/question_model.dart';
 import 'package:flutter/material.dart';
-//import 'package:easypark/question_model.dart';
 
 class QuizScreen extends StatefulWidget {
-  const QuizScreen({super.key});
+  const QuizScreen({Key? key}) : super(key: key);
 
   @override
   State<QuizScreen> createState() => _QuizScreenState();
@@ -19,17 +18,33 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blue[600],
-      body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-        child: Column(children: [
-          const Text(
-            "Questionnaire",
-            style: TextStyle(color: Colors.white, fontSize: 24),
+      body: SafeArea(
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                    ),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                  const SizedBox(width: 16),
+                  // const Text(
+                  //   "Questionnaire",
+                  //   style: TextStyle(color: Colors.white, fontSize: 24),
+                  // ),
+                ],
+              ),
+              _questionWidget(),
+              _answerList(),
+              _nextButton(),
+            ],
           ),
-          _questionWidget(),
-          _answerList(),
-          _nextButton(),
-        ]),
+        ),
       ),
     );
   }
@@ -60,7 +75,7 @@ class _QuizScreenState extends State<QuizScreen> {
             questionlist[currentQuestionIndex].questionText,
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 18,
+              fontSize: 15,
               fontWeight: FontWeight.w600,
             ),
           ),
