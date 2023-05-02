@@ -318,32 +318,39 @@ List<Question> getQuestions() {
   list.add(Question(
     "2.5-Over the past week, have you usually had problems dressing? For example, are you slow or do you need help with buttoning, using zippers, putting on or taking off your clothes or jewelry?",
     [
-      Answer("0: Normal.", true),
-      Answer("1: Slight.", true),
-      Answer("2: Mild.", true),
-      Answer("3: Moderate.", true),
-      Answer("4: Severe.", true),
+      Answer("0: Normal: Not at all (no problems).", true),
+      Answer("1: Slight: I am slow, but I do not need help.", true),
+      Answer(
+          "2: Mild: I am slow and need help for a few dressing tasks (buttons, bracelets).",
+          true),
+      Answer("3: Moderate: I need help for many dressing tasks.", true),
+      Answer("4: Severe: I need help for most or all dressing tasks.", true),
     ],
   ));
   list.add(Question(
     "2.6-Over the past week, have you usually been slow or do you need help with washing, bathing, shaving, brushing teeth, combing your hair, or with other personal hygiene?",
     [
-      Answer("0: Normal.", true),
-      Answer("1: Slight.", true),
-      Answer("2: Mild.", true),
-      Answer("3: Moderate.", true),
-      Answer("4: Severe.", true),
+      Answer("0: Normal: Not at all (no problems).", true),
+      Answer("1: Slight: I am slow, but I do not need any help.", true),
+      Answer("2: Mild: I need someone else to help me with some hygiene tasks.",
+          true),
+      Answer("3: Moderate: I need help for many hygiene tasks.", true),
+      Answer(
+          "4: Severe: I need help for most or all of my hygiene tasks.", true),
     ],
   ));
 
   list.add(Question(
     "2.7-Over the past week, have people usually had trouble reading your handwriting?",
     [
-      Answer("0: Normal.", true),
-      Answer("1: Slight.", true),
-      Answer("2: Mild.", true),
-      Answer("3: Moderate.", true),
-      Answer("4: Severe.", true),
+      Answer("0: Normal: Not at all (no problems).", true),
+      Answer(
+          "1: Slight: My writing is slow, clumsy or uneven, but all words are clear.",
+          true),
+      Answer("2: Mild: Some words are unclear and difficult to read.", true),
+      Answer(
+          "3: Moderate: Many words are unclear and difficult to read.", true),
+      Answer("4: Severe: Most or all words cannot be read.", true),
     ],
   ));
 
