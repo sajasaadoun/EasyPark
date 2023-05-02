@@ -254,12 +254,30 @@ Widget buildPassword() {
   );
 }
 
-Widget buildLoginBtn() {
+Widget buildLoginBtn(context) {
   return Container(
       padding: EdgeInsets.symmetric(vertical: 25),
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () => print('sign up Pressed'),
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                    title: const Text('User Privacy and Data Use Policy'),
+                    content: const Text(
+                        'Our Parkinson detection and follow up mobile application ("EasyPark") is designed to help users manage their health and wellbeing. As a provider of a medical app, we take user privacy and data use seriously. This policy outlines how we collect, store, and use user data.\nUser Privacy and Data Use Policy: We collect personal and health information to provide health recommendations, improve the app, and communicate with users. We do not share user data except with consent or for research reasons. We protect user data with encryption and monitoring. Users can access, modify, or delete their data.'),
+                    actions: [
+                      TextButton(
+                        child: const Text('Disagree'),
+                        onPressed: () {},
+                      ),
+                      TextButton(
+                        child: const Text('Agree'),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ));
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,
           textStyle: const TextStyle(
@@ -369,7 +387,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       const SizedBox(
                         height: 30,
                       ),
-                      buildLoginBtn(),
+                      buildLoginBtn(context),
                       buildSignBtn(),
                     ],
                   ),

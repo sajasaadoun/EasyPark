@@ -1,3 +1,4 @@
+import 'package:easypark/screens/homepage.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -32,7 +33,7 @@ class UpcomingCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Dr. Ruben Dorwart",
+                "Welcome Back Ruben Dorwart",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -41,48 +42,53 @@ class UpcomingCard extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               Text(
-                "Dental Specialist",
+                "We are very welcome that you come back",
                 style: Theme.of(context).textTheme.bodyText1!.copyWith(
                       color: Colors.white70,
                     ),
               ),
-              const SizedBox(height: 18),
+              const SizedBox(height: 10),
               Container(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 6,
-                  horizontal: 8.0,
-                ),
-                decoration: BoxDecoration(
-                    color: Colors.white10,
-                    borderRadius: BorderRadius.circular(10)),
+                // padding: const EdgeInsets.symmetric(
+                //   vertical: 6,
+                //   horizontal: 8.0,
+                // ),
+                // decoration: BoxDecoration(
+                //     color: Colors.white10,
+                //     borderRadius: BorderRadius.circular(10)),
                 child: Row(
-                  children: const [
-                    Icon(
-                      Ionicons.calendar_outline,
-                      size: 18,
-                      color: Colors.white,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 6, right: 14),
-                      child: Text(
-                        "Today",
-                        style: TextStyle(color: Colors.white),
+                  children: [
+                    // Icon(
+                    //   Ionicons.calendar_outline,
+                    //   size: 18,
+                    //   color: Colors.white,
+                    // ),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, "/home");
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.only(left: 15, right: 10),
+                        child: Text(
+                          "Your Results",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(right: 8),
-                      child: Icon(
-                        Ionicons.time_outline,
-                        size: 18,
-                        color: Colors.white,
-                      ),
-                    ),
-                    Text(
-                      "14:30 - 15:30 AM",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
-                    )
+                    // Padding(
+                    //   padding: EdgeInsets.only(right: 8),
+                    //   child: Icon(
+                    //     Ionicons.time_outline,
+                    //     size: 18,
+                    //     color: Colors.white,
+                    //   ),
+                    // ),
+                    // Text(
+                    //   "14:30 - 15:30 AM",
+                    //   style: TextStyle(
+                    //     color: Colors.white,
+                    //   ),
+                    // )
                   ],
                 ),
               )

@@ -19,7 +19,7 @@ class _HandwrittingDetectionState extends State<HandwrittingDetection> {
   String? message = "";
 
   uploadImage() async {
-    var url = "http://192.168.1.5:8000/upload";
+    var url = "http://192.168.1.3:8000/upload";
     final request = http.MultipartRequest("POST", Uri.parse(url));
 
     final headers = {"Content-type": "multipart/form-data"};

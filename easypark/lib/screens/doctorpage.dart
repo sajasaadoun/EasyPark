@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class DoctorPage extends StatefulWidget {
+  const DoctorPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<DoctorPage> createState() => _DoctorPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _DoctorPageState extends State<DoctorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         SizedBox(height: 8),
                         Text(
-                          'EasyPark Patient',
+                          'Doctor Alia',
                           style: TextStyle(fontSize: 20),
                         ),
                       ],
@@ -71,7 +71,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                         shape: BoxShape.circle,
                       ),
-
                       // color: Colors.deepPurple[600],
                     ),
                     const SizedBox(
@@ -83,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                       // ignore: prefer_const_literals_to_create_immutables
                       children: [
                         const Text(
-                          'How do you feel? ',
+                          'Have A Good Day',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -91,7 +90,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         const SizedBox(height: 8),
                         const Text(
-                          'Detect wether you have Parkinson disease',
+                          'You have the power to change lives!',
                           style: TextStyle(
                             fontSize: 16,
                           ),
@@ -145,7 +144,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: Row(
                         children: [
-                          Image.asset('assets/images/detection.png', height: 30),
+                          Image.asset('assets/images/detection.png',
+                              height: 30),
                           const SizedBox(
                             width: 10,
                           ),
@@ -157,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                                 backgroundColor: Colors.blue[600],
                                 elevation: 0,
                               ),
-                              child: const Text('Detect Parkinson')),
+                              child: const Text('Quetionnaire')),
                         ],
                       ),
                     ),
@@ -181,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                                 backgroundColor: Colors.blue[600],
                                 elevation: 0,
                               ),
-                              child: const Text('Severity level')),
+                              child: const Text('Messages')),
                         ],
                       ),
                     ),
@@ -196,7 +196,8 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         //  Navigator.pushNamed(context, ''),
                         children: [
-                          Image.asset('assets/images/online-survey.png', height: 30),
+                          Image.asset('assets/images/online-survey.png',
+                              height: 30),
                           const SizedBox(
                             width: 10,
                           ),
@@ -206,7 +207,7 @@ class _HomePageState extends State<HomePage> {
                                 backgroundColor: Colors.blue[600],
                                 elevation: 0,
                               ),
-                              child: const Text('Questionnaire')),
+                              child: const Text('Edit Profile')),
                         ],
                       ),
                     ),
@@ -231,7 +232,7 @@ class _HomePageState extends State<HomePage> {
                                 backgroundColor: Colors.blue[600],
                                 elevation: 0,
                               ),
-                              child: const Text('Contact Doctors')),
+                              child: const Text('Contact patients')),
                         ],
                       ),
                     ),
@@ -248,7 +249,7 @@ class _HomePageState extends State<HomePage> {
                 // ignore: prefer_const_literals_to_create_immutables
                 children: [
                   // ignore: prefer_const_constructors
-                  Text('Doctors List',
+                  Text('Your Patients List',
                       // ignore: prefer_const_constructors
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -283,15 +284,26 @@ class _HomePageState extends State<HomePage> {
                           'assets/images/doctor1.jpg',
                           height: 40,
                         ),
-                        Row(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            const Icon(Icons.star),
-                            const Text('4'),
-                          ],
+                        const Text('Ahmed Kamal'),
+                        const Text('Patient ID:A46'),
+                        const SizedBox(height: 10),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 208, 205, 214),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: TextButton(
+                            onPressed: () {
+                              // Add logic to navigate to the patient details screen
+                            },
+                            child: Text(
+                              'View Patient',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
                         ),
-                        const Text('Dr.Philip George'),
-                        const Text('6th of october , hospital '),
                       ],
                     ),
                   ),
@@ -306,22 +318,70 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       children: [
                         Image.asset(
-                          'assets/images/doctor2.jpg',
+                          'assets/images/doctor1.jpg',
                           height: 40,
                         ),
-                        Row(
-                          // ignore: prefer_const_literals_to_create_immutables
-                          children: [
-                            const Icon(Icons.star),
-                            const Text('4'),
-                          ],
+                        const Text('Noha Saeed'),
+                        const Text('Patient ID:N78'),
+                        const SizedBox(height: 10),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 208, 205, 214),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: TextButton(
+                            onPressed: () {
+                              // Add logic to navigate to the patient details screen
+                            },
+                            child: Text(
+                              'View Patient',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
                         ),
-                        const Text('Dr.Ahmed Marzoaa'),
-                        const Text('Alshrouq city , Swiss hospital '),
                       ],
                     ),
                   ),
-                )
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 25.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple[100],
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    child: Column(
+                      children: [
+                        Image.asset(
+                          'assets/images/doctor1.jpg',
+                          height: 40,
+                        ),
+                        const Text('Mary Sameer'),
+                        const Text('Patient ID: M80 '),
+                        const SizedBox(height: 10),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: Color.fromARGB(255, 208, 205, 214),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: TextButton(
+                            onPressed: () {
+                              // Add logic to navigate to the patient details screen
+                            },
+                            child: Text(
+                              'View Patient',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ))
           ],

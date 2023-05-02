@@ -16,10 +16,6 @@ class MyPlansScreen extends ConsumerStatefulWidget {
 }
 
 class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
-  //here i'm going to add a list of image url that I collected from the internet
-  //you can use the image that you want, just copy and paste their Urls here inside the list
-
-  //sometime we can face some http request erreur if the owner of the picture delted it or the url is not available
   @override
   Widget build(BuildContext context) {
     // final PlacesData = ref.watch(placesDataProvider);
@@ -30,19 +26,6 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
         appBar: AppBar(
           title: const Text('My Plans'),
           backgroundColor: Colors.blue,
-          // elevation: 0.0,
-          // backgroundColor: Color(0xFFF6F7FF),
-          // title: Row(
-          //   children: [
-          //     IconButton(
-          //       onPressed: () {},
-          //       icon: Icon(
-          //         Icons.menu,
-          //         color: Colors.black,
-          //       ),
-          //     ),
-          //   ],
-          // ),
         ),
         body: Padding(
             padding:
@@ -52,9 +35,8 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 30.0),
-                  //Now let's Add a Tabulation bar
                   DefaultTabController(
-                      length: 3,
+                      length: 2,
                       child: SingleChildScrollView(
                         child: Expanded(
                           child: Column(
@@ -72,9 +54,9 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                   Tab(
                                     text: "My Appointment",
                                   ),
-                                  Tab(
-                                    text: "My Results ",
-                                  ),
+                                  // Tab(
+                                  //   text: "My Results ",
+                                  // ),
                                 ],
                               ),
                               const SizedBox(
@@ -158,7 +140,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                                             30,
                                                                         child: Image
                                                                             .asset(
-                                                                          'assets/doctor_1.jpg',
+                                                                          'assets/images/doctor_1.jpg',
                                                                           fit: BoxFit
                                                                               .cover,
                                                                         ),
@@ -180,7 +162,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                                                 200,
                                                                             child:
                                                                                 Text(
-                                                                              '${value.docs[index].get('description ')}',
+                                                                              '${value.docs[index].get('location')}',
                                                                               style: const TextStyle(
                                                                                 fontSize: 14,
                                                                               ),
@@ -274,7 +256,11 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                               children: [
                                                                 ElevatedButton(
                                                                     onPressed:
-                                                                        () {},
+                                                                        () {
+                                                                      Navigator.pushNamed(
+                                                                          context,
+                                                                          "DoctorsInfo");
+                                                                    },
                                                                     style: ElevatedButton.styleFrom(
                                                                         backgroundColor:
                                                                             Colors
@@ -293,7 +279,11 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                                     )),
                                                                 ElevatedButton(
                                                                     onPressed:
-                                                                        () {},
+                                                                        () {
+                                                                      Navigator.pushNamed(
+                                                                          context,
+                                                                          "Know More");
+                                                                    },
                                                                     style: ElevatedButton.styleFrom(
                                                                         backgroundColor:
                                                                             Colors
@@ -303,7 +293,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                                             40)),
                                                                     child:
                                                                         const Text(
-                                                                      "Take Appointment",
+                                                                      "Consult Now ",
                                                                       style:
                                                                           TextStyle(
                                                                         fontSize:
@@ -386,7 +376,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                                                 30,
                                                                             child:
                                                                                 Image.asset(
-                                                                              'assets/doctor_1.jpg',
+                                                                              'assets/images/doctor_1.jpg',
                                                                               fit: BoxFit.cover,
                                                                             ),
                                                                           ),
@@ -557,207 +547,6 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                           //   ),
                                           // ),
                                         ),
-                                        EventData.when(
-                                          data: (value) => SafeArea(
-                                            child: Container(
-                                              height: 500.0,
-                                              child: TabBarView(
-                                                children: [
-                                                  //Now let's create our first tab page
-                                                  Container(
-                                                    child: ListView.builder(
-                                                        itemCount:
-                                                            value.docs.length,
-                                                        itemBuilder:
-                                                            (BuildContext
-                                                                    context,
-                                                                int index) {
-                                                          return Padding(
-                                                            padding:
-                                                                const EdgeInsets
-                                                                        .only(
-                                                                    left: 10.0,
-                                                                    right: 10.0,
-                                                                    top: 10.0),
-                                                            child: Card(
-                                                              margin: EdgeInsets
-                                                                  .zero,
-                                                              child: Padding(
-                                                                padding:
-                                                                    const EdgeInsets
-                                                                            .all(
-                                                                        10.0),
-                                                                child: Column(
-                                                                  children: [
-                                                                    Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceBetween,
-                                                                      children: [
-                                                                        Text(
-                                                                          '${value.docs[index].get('name')}',
-                                                                          style:
-                                                                              const TextStyle(
-                                                                            fontSize:
-                                                                                16,
-                                                                            fontWeight:
-                                                                                FontWeight.bold,
-                                                                          ),
-                                                                        ),
-                                                                        // Text(
-                                                                        //   DateFormat('dd-MM-yy').format(order.createdAt),
-                                                                        //   'Event ID: ${value.get('name')}"',
-                                                                        //   style: const TextStyle(
-                                                                        //     fontSize: 16,
-                                                                        //     fontWeight: FontWeight.bold,
-                                                                        //   ),
-                                                                        // ),
-                                                                      ],
-                                                                    ),
-                                                                    const SizedBox(
-                                                                      height:
-                                                                          10.0,
-                                                                    ),
-                                                                    ListView.builder(
-                                                                        shrinkWrap: true,
-                                                                        physics: const NeverScrollableScrollPhysics(),
-                                                                        itemCount: 1,
-                                                                        itemBuilder: (BuildContext context, int index) {
-                                                                          return Padding(
-                                                                            padding:
-                                                                                const EdgeInsets.only(bottom: 10.0),
-                                                                            child:
-                                                                                Row(
-                                                                              children: [
-                                                                                SizedBox(
-                                                                                  height: 30,
-                                                                                  width: 30,
-                                                                                  child: Image.asset(
-                                                                                    'assets/doctor_1.jpg',
-                                                                                    fit: BoxFit.cover,
-                                                                                  ),
-                                                                                ),
-                                                                                const SizedBox(
-                                                                                  width: 10,
-                                                                                ),
-                                                                                Column(
-                                                                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                                                                  children: [
-                                                                                    const SizedBox(
-                                                                                      height: 10,
-                                                                                    ),
-                                                                                    SizedBox(
-                                                                                      width: 200,
-                                                                                      child: Text(
-                                                                                        '${value.docs[index].get('location')}',
-                                                                                        style: const TextStyle(
-                                                                                          fontSize: 14,
-                                                                                        ),
-                                                                                        overflow: TextOverflow.clip,
-                                                                                        maxLines: 5,
-                                                                                      ),
-                                                                                    )
-                                                                                  ],
-                                                                                )
-                                                                              ],
-                                                                            ),
-                                                                          );
-                                                                        }),
-                                                                    const SizedBox(
-                                                                      height:
-                                                                          10.0,
-                                                                    ),
-                                                                    Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceAround,
-                                                                      children: [
-                                                                        Column(
-                                                                          children: [
-                                                                            // ignore: prefer_const_constructors
-                                                                            Text(
-                                                                              'Location:',
-                                                                              style: const TextStyle(
-                                                                                fontSize: 14,
-                                                                                fontWeight: FontWeight.bold,
-                                                                              ),
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            Text(
-                                                                              '${value.docs[index].get('location')}',
-                                                                              style: const TextStyle(
-                                                                                fontSize: 13,
-                                                                                fontWeight: FontWeight.bold,
-                                                                              ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                        Column(
-                                                                          children: [
-                                                                            // ignore: prefer_const_constructors
-                                                                            Text(
-                                                                              'Price:',
-                                                                              style: const TextStyle(
-                                                                                fontSize: 14,
-                                                                                fontWeight: FontWeight.bold,
-                                                                              ),
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            Text(
-                                                                              '${value.docs[index].get('price')} LE',
-                                                                              style: const TextStyle(
-                                                                                fontSize: 13,
-                                                                                fontWeight: FontWeight.bold,
-                                                                              ),
-                                                                            ),
-                                                                          ],
-                                                                        )
-                                                                      ],
-                                                                    ),
-                                                                    const SizedBox(
-                                                                      height:
-                                                                          10.0,
-                                                                    ),
-                                                                    Row(
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceAround,
-                                                                        children: [
-                                                                          ElevatedButton(
-                                                                              onPressed: () {},
-                                                                              style: ElevatedButton.styleFrom(backgroundColor: Colors.black, minimumSize: Size(150, 40)),
-                                                                              child: const Text(
-                                                                                "View My Results",
-                                                                                style: TextStyle(
-                                                                                  fontSize: 12,
-                                                                                ),
-                                                                              )),
-                                                                        ])
-                                                                  ],
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          );
-                                                        }),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ),
-                                          error:
-                                              (Object error, StackTrace err) {
-                                            return const Text(
-                                                "Error loading your plans");
-                                          },
-                                          loading: () {
-                                            return const Center(
-                                                child:
-                                                    CircularProgressIndicator());
-                                          },
-                                        )
                                       ],
                                     ),
                                   ),
