@@ -4,8 +4,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-class profilescreen extends StatelessWidget {
-  const profilescreen({super.key});
+class profileScreen extends StatelessWidget {
+  const profileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
