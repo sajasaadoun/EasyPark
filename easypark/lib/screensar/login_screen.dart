@@ -1,18 +1,18 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../widgets/center_widget.dart';
-import '../widgets/login_content.dart';
+import '../widgets/login_contentar.dart';
 // import 'components/center_widget/center_widget.dart';
 // import 'components/login_content.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginScreenAr extends StatefulWidget {
+  const LoginScreenAr({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScreenAr> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends State<LoginScreenAr> {
   Widget topWidget(double screenWidth) {
     return Transform.rotate(
       angle: -35 * math.pi / 180,
