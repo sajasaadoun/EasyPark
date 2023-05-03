@@ -6,13 +6,11 @@ import 'package:easypark/screens/addDoctorForm.dart';
 
 // import 'package:easypark/screens/OLDadmin_screen.dart';
 import 'package:easypark/model/chat_user.dart';
-
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
 import 'package:easypark/screens/upload-file-W.dart';
 import 'package:easypark/screens/upload-file-WS.dart';
-
 import 'package:easypark/screensar/homepage.dart';
 import 'screens/appointment_screen.dart';
 import 'package:easypark/screens/admin_screen.dart';
@@ -78,7 +76,11 @@ class MyApp extends StatelessWidget {
         routes: {
           'upload': (context) => uploadfile(),
           'report': (context) => PatientReport(),
-          'ProfileScreen': (context) => profilescreen(),
+          'ProfileScreen': (context) => profileScreen(),
+          'upload': (context) => uploadfile(),
+          'report': (context) => PatientReport(),
+          // '/profile': (context) => ProfilePage(),
+          //Profile': (context) => profile(),
           'admin': (context) => AdminPanell(),
           'form': (context) => DoctorForm(),
           'report': (context) => PatientReport(),
@@ -92,12 +94,12 @@ class MyApp extends StatelessWidget {
           'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
           'test': (context) => const TestPage(),
-          // 'speech': (context) => (),
+           'speech': (context) => SpeechPage(),
           'login': (context) => const LoginScreen(),
           'question': (context) => const QuestionsScreen(),
-          'profile': (context) => ProfilePage(),
+          // 'profile': (context) => ProfilePage(),
           'sketch': (context) => const sketchPage(),
-          'facepg': (context) => const FacePage(),
+          'facepg': (context) =>  facePage(),
           'spiral': (context) => const HandwrittingDetection(),
           'waveDetection': (context) => const WaveDetection(),
           'camera': (context) => const CameraScreen(),
