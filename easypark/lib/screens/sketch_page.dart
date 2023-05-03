@@ -5,6 +5,8 @@ import 'package:scribble/scribble.dart';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:googleapis/drive/v3.dart' as drive;
+import 'package:googleapis_auth/googleapis_auth.dart' as auth;
 
 class sketchPage extends StatefulWidget {
   const sketchPage({super.key});
@@ -113,6 +115,7 @@ class _sketchPageState extends State<sketchPage> {
     final imagePath =
         '${directory!.path}/my_image.png'; // Use the directory path from getExternalStorageDirectory()
     final imageFile = File(imagePath);
+    print('Image saved to: $imagePath');
     await imageFile.writeAsBytes(image.buffer.asUint8List());
     showDialog(
       context: context,
