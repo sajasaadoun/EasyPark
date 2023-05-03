@@ -3,6 +3,7 @@ import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
+import 'package:easypark/screensar/homepage.dart';
 import 'screens/appointment_screen.dart';
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
@@ -62,7 +63,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/ar/doctor',
+        initialRoute: 'home',
         routes: {
           'report': (context) => PatientReport(),
           'admin': (context) => const AdminPanell(),
@@ -70,10 +71,10 @@ class MyApp extends StatelessWidget {
           'doctor': (context) => const DoctorPage(),
           'home': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
-          // '/': (context) => const HomePage(),
+          '/homeDoctor': (context) => const HomePage(),
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
-          'ChatFirst': (context) => ChatFirst(),
+          'ChatFirst': (context) => const ChatFirst(),
           'test': (context) => const TestPage(),
           'speech': (context) => const SpeechPage(),
           'login': (context) => const LoginScreen(),
