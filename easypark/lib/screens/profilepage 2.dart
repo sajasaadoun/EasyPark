@@ -107,7 +107,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       Card("logout", "Details", 20, 16),
                       ElevatedButton(
                         onPressed: () {},
-                        child: Text("Edit"),
+                        child: Text("LOGOUT"),
                       )
                     ]),
               ),
