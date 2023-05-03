@@ -10,6 +10,10 @@ import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
+import 'package:easypark/screens/profilepage%202.dart';
+
+import 'package:easypark/screensar/homepage.dart';
+
 import 'screens/appointment_screen.dart';
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
@@ -75,6 +79,10 @@ class MyApp extends StatelessWidget {
           'upload': (context) => uploadfile(),
           'report': (context) => PatientReport(),
           'ProfileScreen': (context) => profileScreen(),
+          'upload': (context) => uploadfile(),
+          'report': (context) => PatientReport(),
+          // '/profile': (context) => ProfilePage(),
+          //Profile': (context) => profile(),
           'admin': (context) => AdminPanell(),
           'form': (context) => DoctorForm(),
           'report': (context) => PatientReport(),
@@ -83,14 +91,15 @@ class MyApp extends StatelessWidget {
           'doctor': (context) => const DoctorPage(),
           'home': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
+          '/homeDoctor': (context) => const HomePage(),
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
-          'ChatFirst': (context) => ChatFirst(),
+          'ChatFirst': (context) => const ChatFirst(),
           'test': (context) => const TestPage(),
            'speech': (context) => SpeechPage(),
           'login': (context) => const LoginScreen(),
           'question': (context) => const QuestionsScreen(),
-          'profile': (context) => ProfilePage(),
+          // 'profile': (context) => ProfilePage(),
           'sketch': (context) => const sketchPage(),
           'facepg': (context) =>  facePage(),
           'spiral': (context) => const HandwrittingDetection(),
