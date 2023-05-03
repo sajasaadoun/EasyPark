@@ -10,6 +10,9 @@ import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
+import 'package:easypark/screens/upload-file-W.dart';
+import 'package:easypark/screens/upload-file-WS.dart';
+
 import 'package:easypark/screensar/homepage.dart';
 import 'screens/appointment_screen.dart';
 import 'package:easypark/screens/admin_screen.dart';
@@ -71,7 +74,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'home',
+        initialRoute: 'login',
         routes: {
           'upload': (context) => uploadfile(),
           'report': (context) => PatientReport(),
@@ -81,7 +84,6 @@ class MyApp extends StatelessWidget {
           'report': (context) => PatientReport(),
           'admin': (context) => const AdminPanell(),
           'form': (context) => const DoctorForm(),
-
           'doctor': (context) => const DoctorPage(),
           'home': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
@@ -104,7 +106,11 @@ class MyApp extends StatelessWidget {
           'MyAlertDialog': (context) => MyAlertDialog(),
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
-          'ChatFirst': (context) => ChatFirst(),
+          'ChatFirst': (context) => const ChatFirst(),
+          'uploadFileWS': (context) => uploadFileWS(),
+          'uploadFileW': (context) => uploadFileW(),
+          'FacePage': (context) => FacePage(),
+
           // 'splash': (context) => Splash()
           // 'test': (context) => const TestPage(),
           'questionnaire': (context) => questionnaireScreen(),
