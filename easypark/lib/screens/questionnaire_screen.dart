@@ -1,35 +1,50 @@
-import 'package:easypark/model/question_modelar.dart';
+import 'package:easypark/model/question_model.dart';
 import 'package:flutter/material.dart';
-//import 'package:easypark/question_model.dart';
 
-class QuizScreenAr extends StatefulWidget {
-  const QuizScreenAr({super.key});
+class questionnaireScreen extends StatefulWidget {
+  const questionnaireScreen({Key? key}) : super(key: key);
 
   @override
-  State<QuizScreenAr> createState() => _QuizScreenArState();
+  State<questionnaireScreen> createState() => _questionnaireScreenState();
 }
 
-class _QuizScreenArState extends State<QuizScreenAr> {
-  List<QuestionAr> questionlist = getQuestions();
+class _questionnaireScreenState extends State<questionnaireScreen> {
+  List<Question> questionlist = getQuestions();
   int currentQuestionIndex = 0;
   int score = 0;
-  AnswerAr? selectedAnswer;
+  Answer? selectedAnswer;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue[600],
-      body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-        child: Column(children: [
-          const Text(
-            "استبيان",
-            style: TextStyle(color: Colors.white, fontSize: 24),
+      backgroundColor: Colors.white,
+      body: SafeArea(
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  IconButton(
+                    icon: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                    ),
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                  const SizedBox(width: 16),
+                  // const Text(
+                  //   "Questionnaire",
+                  //   style: TextStyle(color: Colors.white, fontSize: 24),
+                  // ),
+                ],
+              ),
+              _questionWidget(),
+              _answerList(),
+              _nextButton(),
+            ],
           ),
-          _questionWidget(),
-          _answerList(),
-          _nextButton(),
-        ]),
+        ),
       ),
     );
   }
@@ -40,9 +55,9 @@ class _QuizScreenArState extends State<QuizScreenAr> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "الاسئلة ${currentQuestionIndex + 1}/${questionlist.length.toString()}",
+          "questions ${currentQuestionIndex + 1}/${questionlist.length.toString()}",
           style: TextStyle(
-            color: Colors.white,
+            color: Colors.black,
             fontSize: 20,
             fontWeight: FontWeight.w600,
           ),
@@ -60,7 +75,7 @@ class _QuizScreenArState extends State<QuizScreenAr> {
             questionlist[currentQuestionIndex].questionText,
             style: const TextStyle(
               color: Colors.white,
-              fontSize: 18,
+              fontSize: 15,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -80,15 +95,15 @@ class _QuizScreenArState extends State<QuizScreenAr> {
     );
   }
 
-  Widget _answerButton(AnswerAr answerAr) {
-    bool isSelected = answerAr == selectedAnswer;
+  Widget _answerButton(Answer answer) {
+    bool isSelected = answer == selectedAnswer;
 
     return Container(
         width: double.infinity,
         margin: const EdgeInsets.symmetric(vertical: 8),
         height: 48,
         child: ElevatedButton(
-          child: Text(answerAr.answerText),
+          child: Text(answer.answerText),
           style: ElevatedButton.styleFrom(
             shape: const StadiumBorder(),
             primary: isSelected ? Colors.deepPurple[100] : Colors.white,
@@ -96,13 +111,13 @@ class _QuizScreenArState extends State<QuizScreenAr> {
           ),
           onPressed: () {
             if (selectedAnswer == null) {
-              if (answerAr.isCorrect) {
+              if (answer.isCorrect) {
                 score++;
               }
             }
 
             setState(() {
-              selectedAnswer = answerAr;
+              selectedAnswer = answer;
             });
           },
         ));
@@ -117,7 +132,7 @@ class _QuizScreenArState extends State<QuizScreenAr> {
         width: MediaQuery.of(context).size.width * 0.5,
         height: 48,
         child: ElevatedButton(
-          child: Text(isLastQuestion ? "انتهاء" : "التالي"),
+          child: Text(isLastQuestion ? "finish" : "next"),
           style: ElevatedButton.styleFrom(
             shape: const StadiumBorder(),
             primary: Colors.blueAccent,
