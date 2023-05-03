@@ -8,11 +8,11 @@ class HealthNeeds extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<CustomIcon> customIcons = [
-      CustomIcon(name: "Spiral", icon: 'assets/images/appointment.png'),
-      CustomIcon(name: "Wave", icon: 'assets/images/hospital.png'),
-      CustomIcon(name: "Voice", icon: 'assets/images/virus.png'),
-      CustomIcon(name: "Face", icon: 'assets/images/more.png'),
-      CustomIcon(name: "Questionnaire", icon: 'assets/images/more.png'),
+      CustomIcon(name: "Spiral", icon: 'assets/images/spiral (1).png'),
+      CustomIcon(name: "Wave", icon: 'assets/images/smoke.png'),
+      CustomIcon(name: "Voice", icon: 'assets/images/voice-recorder.png'),
+      CustomIcon(name: "Face", icon: 'assets/images/face-recognition.png'),
+      CustomIcon(name: "Questionnaire", icon: 'assets/images/test.png'),
     ];
 
     return Row(
@@ -25,11 +25,11 @@ class HealthNeeds extends StatelessWidget {
                 // Add your onTap code here for the icon at this index!
                 switch (index) {
                   case 0:
-                    Navigator.pushNamed(context, 'spiral');
+                    Navigator.pushNamed(context, 'uploadFileWS');
                     print("You tapped on ${customIcons[index].name} icon");
                     break;
                   case 1:
-                    Navigator.pushNamed(context, 'waveDetection');
+                    Navigator.pushNamed(context, 'uploadFileW');
                     print("You tapped on ${customIcons[index].name} icon");
                     break;
                   case 2:
@@ -37,7 +37,7 @@ class HealthNeeds extends StatelessWidget {
                     print("You tapped on ${customIcons[index].name} icon");
                     break;
                   case 3:
-                    Navigator.pushNamed(context, 'spiral');
+                    Navigator.pushNamed(context, 'FacePage');
                     print("You tapped on ${customIcons[index].name} icon");
                     break;
                   case 4:

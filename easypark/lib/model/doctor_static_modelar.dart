@@ -16,21 +16,21 @@ class DoctorModel {
 
 final List<DoctorModel> nearbyDoctors = [
   DoctorModel(
-    name: "ريمون ابراهيم",
+    name: "ناتالي سامح",
     position: "General Practitioner",
     averageReview: 0,
     totalReviews: 0,
     profile: "assets/images/doctor_1.jpg",
   ),
   DoctorModel(
-    name: "صوفيا هيرون",
+    name: "سجي سعدون",
     position: "General Practitioner",
     averageReview: 0,
     totalReviews: 0,
     profile: "assets/images/doctor_2.jpg",
   ),
   DoctorModel(
-    name: "لويس رياض",
+    name: "سامح سمير",
     position: "General Practitioner",
     averageReview: 2,
     totalReviews: 0,

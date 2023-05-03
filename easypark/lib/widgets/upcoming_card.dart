@@ -1,4 +1,3 @@
-
 import 'package:easypark/screens/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
@@ -24,7 +23,7 @@ class UpcomingCard extends StatelessWidget {
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Image.asset(
-              'assets/images/doctor_2.jpg',
+              "assets/images/user1.jpeg",
               width: 45,
               fit: BoxFit.cover,
             ),
@@ -34,7 +33,7 @@ class UpcomingCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Welcome Back Ruben Dorwart",
+                "Welcome Back Nathalie",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,

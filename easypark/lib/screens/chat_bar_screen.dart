@@ -70,6 +70,7 @@ class _HomeScreenState extends State<ChatFirst> {
         child: Scaffold(
           //app bar
           appBar: AppBar(
+            automaticallyImplyLeading: true,
             leading: const Icon(CupertinoIcons.home),
             title: _isSearching
                 ? TextField(
