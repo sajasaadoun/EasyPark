@@ -10,6 +10,7 @@ import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
+import 'package:easypark/screens/profilepage%202.dart';
 import 'screens/appointment_screen.dart';
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
@@ -69,10 +70,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/ProfileScreen',
+        initialRoute: '/profile',
         routes: {
           'report': (context) => PatientReport(),
-          'ProfileScreen': (context) => profilescreen(),
+          '/profile': (context) => ProfilePage(),
+          //Profile': (context) => profile(),
           'admin': (context) => AdminPanell(),
           'form': (context) => DoctorForm(),
 
