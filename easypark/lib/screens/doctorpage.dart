@@ -255,14 +255,6 @@ class _DoctorPageState extends State<DoctorPage> {
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
                       )),
-                  // Text(
-                  //   'See all',
-                  //   style: TextStyle(
-                  //     fontSize: 16,
-                  //     fontWeight: FontWeight.bold,
-                  //     color: Colors.grey[500],
-                  //   ),
-                  // )
                 ],
               ),
             ),
@@ -280,10 +272,6 @@ class _DoctorPageState extends State<DoctorPage> {
                     ),
                     child: Column(
                       children: [
-                        Image.asset(
-                          'assets/images/doctor1.jpg',
-                          height: 40,
-                        ),
                         const Text('Ahmed Kamal'),
                         const Text('Patient ID:A46'),
                         const SizedBox(height: 10),
@@ -317,10 +305,6 @@ class _DoctorPageState extends State<DoctorPage> {
                     ),
                     child: Column(
                       children: [
-                        Image.asset(
-                          'assets/images/doctor1.jpg',
-                          height: 40,
-                        ),
                         const Text('Noha Saeed'),
                         const Text('Patient ID:N78'),
                         const SizedBox(height: 10),
@@ -354,10 +338,6 @@ class _DoctorPageState extends State<DoctorPage> {
                     ),
                     child: Column(
                       children: [
-                        Image.asset(
-                          'assets/images/doctor1.jpg',
-                          height: 40,
-                        ),
                         const Text('Mary Sameer'),
                         const Text('Patient ID: M80 '),
                         const SizedBox(height: 10),

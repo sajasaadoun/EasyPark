@@ -1,8 +1,10 @@
 import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:scribble/scribble.dart';
+import 'dart:io';
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class sketchPage extends StatefulWidget {
   const sketchPage({super.key});
@@ -66,8 +68,52 @@ class _sketchPageState extends State<sketchPage> {
     );
   }
 
+  // Future<void> _saveImage(BuildContext context) async {
+  //   final image = await notifier.renderImage();
+  //   showDialog(
+  //     context: context,
+  //     builder: (context) => AlertDialog(
+  //       title: const Text("Your Image"),
+  //       content: Image.memory(image.buffer.asUint8List()),
+  //     ),
+  //   );
+  // }
+  // Future<void> _saveImage(BuildContext context) async {
+  //   final image = await notifier.renderImage();
+  //   final directory = await getApplicationDocumentsDirectory();
+  //   final imagePath = '${directory.path}/my_image.png';
+  //   final imageFile = File(imagePath);
+  //   await imageFile.writeAsBytes(image.buffer.asUint8List());
+  //   showDialog(
+  //     context: context,
+  //     builder: (context) => AlertDialog(
+  //       title: const Text("Your Image"),
+  //       content: Image.memory(image.buffer.asUint8List()),
+  //     ),
+  //   );
+  // }
+
   Future<void> _saveImage(BuildContext context) async {
+    // Request permission to access the device's external storage
+    final status = await Permission.storage.request();
+    if (status != PermissionStatus.granted) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text("Permission denied"),
+          content: const Text("Please grant permission to access storage."),
+        ),
+      );
+      return;
+    }
+
     final image = await notifier.renderImage();
+    final directory =
+        await getExternalStorageDirectory(); // Use external storage directory instead of application documents directory
+    final imagePath =
+        '${directory!.path}/my_image.png'; // Use the directory path from getExternalStorageDirectory()
+    final imageFile = File(imagePath);
+    await imageFile.writeAsBytes(image.buffer.asUint8List());
     showDialog(
       context: context,
       builder: (context) => AlertDialog(

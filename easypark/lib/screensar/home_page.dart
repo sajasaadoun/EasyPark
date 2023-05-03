@@ -1,4 +1,4 @@
-import 'package:easypark/screensar/quiz_screen.dart';
+import 'package:easypark/screensar/questionnaire_screenAR.dart';
 import 'package:easypark/screens/search.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
@@ -135,13 +135,13 @@ class _HomePageeArState extends State<HomePageeAr> {
         Navigator.push(
             _context,
             MaterialPageRoute(
-              builder: (context) => const QuizScreenAr(),
+              builder: (context) => const questionnaireScreenAr(),
             ));
       } else if (_selectedIndex == 4) {
         Navigator.push(
             _context,
             MaterialPageRoute(
-              builder: (context) => const QuizScreenAr(),
+              builder: (context) => const questionnaireScreenAr(),
             ));
       }
     });

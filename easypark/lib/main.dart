@@ -11,6 +11,9 @@ import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
 import 'package:easypark/screens/profilepage%202.dart';
+
+import 'package:easypark/screensar/homepage.dart';
+
 import 'screens/appointment_screen.dart';
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
@@ -24,10 +27,11 @@ import 'package:easypark/screens/options_screen.dart';
 import 'package:easypark/screens/register_page.dart';
 import 'package:easypark/screens/test_screen.dart';
 import 'package:easypark/screens/patientReport.dart';
-import 'package:easypark/screens/admin_screen.dart';
+import 'package:easypark/screens/uploadfiles.dart';
 import 'package:easypark/screens/wave-detection.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'model/data_doctor.dart';
 import 'screens/dialog_message.dart';
 // import 'screens/results_schedule_screen.dart';
@@ -40,9 +44,9 @@ import 'screens/sketch_page.dart';
 import 'screens/splash_screen.dart';
 import 'widgets/login_content.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:easypark/screens/quiz_screen.dart';
+import 'package:easypark/screens/questionnaire_screen.dart';
 import 'package:easypark/screensar/home_page.dart';
-import 'package:easypark/screensar/quiz_screen.dart';
+import 'package:easypark/screensar/questionnaire_screenAR.dart';
 import 'package:easypark/screensar/options_screen.dart';
 import 'package:easypark/screensar/patientReport.dart';
 import 'package:easypark/screensar/admin_screen.dart';
@@ -72,12 +76,12 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/profile',
         routes: {
+          'upload': (context) => uploadfile(),
           'report': (context) => PatientReport(),
           '/profile': (context) => ProfilePage(),
           //Profile': (context) => profile(),
           'admin': (context) => AdminPanell(),
           'form': (context) => DoctorForm(),
-
           'report': (context) => PatientReport(),
           'admin': (context) => const AdminPanell(),
           'form': (context) => const DoctorForm(),
@@ -85,12 +89,12 @@ class MyApp extends StatelessWidget {
           'doctor': (context) => const DoctorPage(),
           'home': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
-          // '/': (context) => const HomePage(),
+          '/homeDoctor': (context) => const HomePage(),
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
-          'ChatFirst': (context) => ChatFirst(),
+          'ChatFirst': (context) => const ChatFirst(),
           'test': (context) => const TestPage(),
-          'speech': (context) => const SpeechPage(),
+          // 'speech': (context) => (),
           'login': (context) => const LoginScreen(),
           'question': (context) => const QuestionsScreen(),
           'profile': (context) => ProfilePage(),
@@ -102,19 +106,15 @@ class MyApp extends StatelessWidget {
           'DoctorsInfo': (context) => DoctorInfo(),
           'OptionsScreen': (context) => MyPlansScreen(),
           'MyAlertDialog': (context) => MyAlertDialog(),
-
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => ChatFirst(),
-
           // 'splash': (context) => Splash()
           // 'test': (context) => const TestPage(),
-          // 'admin': (context) => const MyAdmin(),
-          // 'doctor': (context) => const DoctorPage(),
-          'quiz': (context) => const QuizScreen(),
+          'questionnaire': (context) => questionnaireScreen(),
           'register': (context) => const RegisterScreen(),
           '/ar/home': (context) => const HomePageeAr(),
-          '/ar/quiz': (context) => const QuizScreenAr(),
+          '/ar/quiz': (context) => const questionnaireScreenAr(),
           '/ar/OptionsScreen': (context) => MyPlansScreenAr(),
           //'/ar/doctor': (context) => const DoctorPageAr(),
           '/ar/speech': (context) => const SpeechPageAr(),
