@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 
 class facePage extends StatelessWidget {
-  static final String title = 'Firebase Upload';
+  static final String title = 'Face Image Detection';
 
   @override
   Widget build(BuildContext context) => MaterialApp(
