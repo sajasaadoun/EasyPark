@@ -83,7 +83,7 @@ class _LoginContentState extends State<LoginContent>
         onPressed: () async {
           try {
             await SignIn(emailController.text, passwordController.text);
-            Navigator.pushNamed(context, '/home');
+            Navigator.pushNamed(context, 'home');
           } on FirebaseAuthException catch (e) {
             if (e.code == 'user-not-found') {
               print('No user found for that email.');
@@ -130,7 +130,7 @@ class _LoginContentState extends State<LoginContent>
             const snackBar = SnackBar(content: Text('Submitting form'));
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
           }
-          Navigator.pushNamed(context, '/home');
+          Navigator.pushNamed(context, 'home');
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 14),
