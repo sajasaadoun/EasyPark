@@ -162,7 +162,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                                                 200,
                                                                             child:
                                                                                 Text(
-                                                                              '${value.docs[index].get('location')}',
+                                                                              '${value.docs[index].get('description')}',
                                                                               style: const TextStyle(
                                                                                 fontSize: 14,
                                                                               ),
@@ -257,9 +257,13 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                                 ElevatedButton(
                                                                     onPressed:
                                                                         () {
-                                                                      Navigator.pushNamed(
-                                                                          context,
-                                                                          "DoctorsInfo");
+                                                                      Navigator
+                                                                          .pushNamed(
+                                                                        context,
+                                                                        'DoctorsInfo',
+                                                                        arguments:
+                                                                            index,
+                                                                      );
                                                                     },
                                                                     style: ElevatedButton.styleFrom(
                                                                         backgroundColor:
@@ -394,7 +398,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                                               SizedBox(
                                                                                 width: 200,
                                                                                 child: Text(
-                                                                                  '${value.docs[index].get('city')}',
+                                                                                  '${value.docs[index].get('description')}',
                                                                                   style: const TextStyle(
                                                                                     fontSize: 14,
                                                                                   ),
