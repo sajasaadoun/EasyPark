@@ -1,9 +1,7 @@
 import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/ProfileScreen.dart';
 import 'package:easypark/screens/admin_screen.dart';
-
 import 'package:easypark/screens/addDoctorForm.dart';
-
 // import 'package:easypark/screens/OLDadmin_screen.dart';
 import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/camera_screen.dart';
@@ -94,12 +92,12 @@ class MyApp extends StatelessWidget {
           'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
           'test': (context) => const TestPage(),
-           'speech': (context) => SpeechPage(),
+          'speech': (context) => SpeechPage(),
           'login': (context) => const LoginScreen(),
           'question': (context) => const QuestionsScreen(),
           // 'profile': (context) => ProfilePage(),
           'sketch': (context) => const sketchPage(),
-          'facepg': (context) =>  facePage(),
+          'facepg': (context) => facePage(),
           'spiral': (context) => const HandwrittingDetection(),
           'waveDetection': (context) => const WaveDetection(),
           'camera': (context) => const CameraScreen(),
@@ -111,7 +109,7 @@ class MyApp extends StatelessWidget {
           'ChatFirst': (context) => const ChatFirst(),
           'uploadFileWS': (context) => uploadFileWS(),
           'uploadFileW': (context) => uploadFileW(),
-          'FacePage': (context) => FacePage(),
+          // 'FacePage': (context) => FacePage(),
 
           // 'splash': (context) => Splash()
           // 'test': (context) => const TestPage(),
