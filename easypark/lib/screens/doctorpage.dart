@@ -11,6 +11,18 @@ class _DoctorPageState extends State<DoctorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+              appBar: AppBar(
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, 'home');
+            },
+            child: const Icon(
+              Icons.arrow_back_ios,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ),
       backgroundColor: Colors.grey[200],
       body: SafeArea(
         child: Column(
@@ -282,7 +294,7 @@ class _DoctorPageState extends State<DoctorPage> {
                           ),
                           child: TextButton(
                             onPressed: () {
-                              // Add logic to navigate to the patient details screen
+                              Navigator.pushNamed(context, 'report');
                             },
                             child: Text(
                               'View Patient',
@@ -315,7 +327,7 @@ class _DoctorPageState extends State<DoctorPage> {
                           ),
                           child: TextButton(
                             onPressed: () {
-                              // Add logic to navigate to the patient details screen
+                                Navigator.pushNamed(context, 'report');
                             },
                             child: Text(
                               'View Patient',
@@ -348,7 +360,7 @@ class _DoctorPageState extends State<DoctorPage> {
                           ),
                           child: TextButton(
                             onPressed: () {
-                              // Add logic to navigate to the patient details screen
+                                Navigator.pushNamed(context, 'report');
                             },
                             child: Text(
                               'View Patient',
