@@ -24,7 +24,6 @@ class DoctorModel {
     final doctorSnapshot = await DoctorQuery.get();
 
     doctorSnapshot.reference.update({
-      'id':id,
       "name": name,
       "city": city,
       "location": location,
