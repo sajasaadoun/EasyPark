@@ -86,7 +86,7 @@ class _OpeningPageState extends State<OpeningPage> {
                           // ),
                           ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/home');
+                                Navigator.pushNamed(context, 'home');
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],

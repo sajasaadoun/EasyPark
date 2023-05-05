@@ -5,9 +5,9 @@ import 'package:ionicons/ionicons.dart';
 import '../../../utils/constants.dart';
 import '../model/login_model.dart';
 import '../utils/helper_functions.dart';
-import 'bottom_text.dart';
+import 'bottom_textar.dart';
 import 'change_screen_animation.dart';
-import 'top_text.dart';
+import 'top_textar.dart';
 
 enum Screens {
   createAccount,
@@ -83,7 +83,7 @@ class _LoginContentState extends State<LoginContent>
         onPressed: () async {
           try {
             await SignIn(emailController.text, passwordController.text);
-            Navigator.pushNamed(context, 'home');
+            Navigator.pushNamed(context, '/home');
           } on FirebaseAuthException catch (e) {
             if (e.code == 'user-not-found') {
               print('No user found for that email.');
@@ -130,7 +130,7 @@ class _LoginContentState extends State<LoginContent>
             const snackBar = SnackBar(content: Text('Submitting form'));
             ScaffoldMessenger.of(context).showSnackBar(snackBar);
           }
-          Navigator.pushNamed(context, 'home');
+          Navigator.pushNamed(context, '/home');
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 14),
@@ -164,7 +164,7 @@ class _LoginContentState extends State<LoginContent>
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Text(
-              'or',
+              'او',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.w600,
@@ -202,7 +202,7 @@ class _LoginContentState extends State<LoginContent>
       child: TextButton(
         onPressed: () {},
         child: const Text(
-          'Forgot Password?',
+          'نسيت كلمة المرور؟',
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w600,
@@ -222,21 +222,23 @@ class _LoginContentState extends State<LoginContent>
     ageController.text = '';
     phoneController.text = '';
     createAccountContent = [
-      inputField('Name', Ionicons.person_outline, nameController),
-      inputField('Email', Ionicons.mail_outline, emailController),
-      inputField('Password', Ionicons.lock_closed_outline, passwordController),
-      inputField('Age', Ionicons.calendar_clear_outline, ageController),
-      inputField('Phone Number', Ionicons.call_outline, phoneController),
-      inputField('Gender', Ionicons.female_outline, genderController),
-      SignUPP('Sign Up'),
+      inputField('الاسم', Ionicons.person_outline, nameController),
+      inputField('البريد الالكتروني', Ionicons.mail_outline, emailController),
+      inputField(
+          'كلمة المرور', Ionicons.lock_closed_outline, passwordController),
+      inputField('العمر', Ionicons.calendar_clear_outline, ageController),
+      inputField('رقم التيلفون', Ionicons.call_outline, phoneController),
+      inputField('الجنس', Ionicons.female_outline, genderController),
+      SignUPP('انشاء حساب'),
       orDivider(),
       logos(),
     ];
 
     loginContent = [
-      inputField('Email', Ionicons.mail_outline, emailController),
-      inputField('Password', Ionicons.lock_closed_outline, passwordController),
-      loginButton('Log In'),
+      inputField('البريد الالكنروني', Ionicons.mail_outline, emailController),
+      inputField(
+          'كلمة المرور', Ionicons.lock_closed_outline, passwordController),
+      loginButton('تسجيل دخول'),
       forgotPassword(),
     ];
 

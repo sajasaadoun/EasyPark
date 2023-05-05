@@ -28,6 +28,7 @@ class _sketchPageState extends State<sketchPage> {
       },
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: true,
           title: Text('Draw a spiral or a normal wave'),
           backgroundColor: Colors.deepPurple[100],
           leading: IconButton(
