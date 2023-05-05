@@ -36,6 +36,16 @@ class _MainPageState extends State<MainPage> {
       appBar: AppBar(
         title: Text(facePage.title),
         centerTitle: true,
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, 'home');
+            },
+            child: const Icon(
+              Icons.arrow_back_ios,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
       ),
       body: Container(
         child: SingleChildScrollView(

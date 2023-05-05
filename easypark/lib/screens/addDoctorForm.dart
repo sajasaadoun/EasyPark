@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:easypark/model/doctorModel.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -13,13 +14,41 @@ class DoctorForm extends StatefulWidget {
 final formkey = GlobalKey<FormState>();
 
 class _DoctorFormState extends State<DoctorForm> {
-  TextEditingController FirstNameController = TextEditingController();
-  TextEditingController LastNameController = TextEditingController();
-  TextEditingController AgeController = TextEditingController();
-  TextEditingController LocationController = TextEditingController();
+  final doctorsData = DoctorModel();
+  TextEditingController firstNameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
   TextEditingController emailController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
 
+  // List of Egyptian cities
+  final List<String> cities = [
+    'Cairo',
+    'Alexandria',
+    'Giza',
+    'Shubra El-Kheima',
+    'Port Said',
+    'Suez',
+    'Luxor',
+    'Mansoura',
+    'El-Mahalla El-Kubra',
+    'Tanta',
+    'Asyut',
+    'Ismailia',
+    'Faiyum',
+    'Zagazig',
+    'Damietta',
+    'Aswan',
+    'Minya',
+    'Damanhur',
+    'Beni Suef',
+    'Hurghada'
+  ];
+
+  // Selected city
+  String? selectedCity;
   @override
   Widget build(BuildContext context) {
     // final double height = MediaQuery.of(context).size.height;
@@ -71,14 +100,14 @@ class _DoctorFormState extends State<DoctorForm> {
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
                                 style: TextStyle(color: Colors.black),
-                                controller: FirstNameController,
+                                controller: firstNameController,
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
                                   labelText: 'Doctor First Name',
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty ||
-                                      !RegExp('[a-zA-Z]').hasMatch(value)) {
+                                      !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
                                     return "enter a correct name";
                                   } else {
                                     return null;
@@ -89,15 +118,15 @@ class _DoctorFormState extends State<DoctorForm> {
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
                                 style: TextStyle(color: Colors.black),
-                                controller: LastNameController,
+                                controller: lastNameController,
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
                                   labelText: 'Doctor Last Name ',
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty ||
-                                      !RegExp('[a-zA-Z]').hasMatch(value)) {
-                                    return "enter a correct description";
+                                      !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                                    return "enter a correct name";
                                   } else {
                                     return null;
                                   }
@@ -105,17 +134,45 @@ class _DoctorFormState extends State<DoctorForm> {
                           ),
                           Container(
                             padding: const EdgeInsets.all(10),
+                            child: DropdownButtonFormField<String>(
+                              value: selectedCity,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'Doctor\'s City',
+                              ),
+                              items: cities.map((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                              onChanged: (newValue) {
+                                setState(() {
+                                  selectedCity = newValue;
+                                });
+                              },
+                              validator: (value) {
+                                if (value == null) {
+                                  return 'Please select a city';
+                                } else {
+                                  return null;
+                                }
+                              },
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
                             child: TextFormField(
                                 style: TextStyle(color: Colors.black),
-                                controller: LocationController,
+                                controller: locationController,
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
                                   labelText: 'Doctor\'s Location',
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty ||
-                                      !RegExp('[a-zA-Z]').hasMatch(value)) {
-                                    return "enter a city";
+                                      !RegExp('^[a-zA-Z0-9 ]+\$').hasMatch(value)) {
+                                    return "enter a correct city";
                                   } else {
                                     return null;
                                   }
@@ -132,8 +189,8 @@ class _DoctorFormState extends State<DoctorForm> {
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty ||
-                                      !RegExp('.+@.+\..+').hasMatch(value)) {
-                                    return "enter a city";
+                                      !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                                    return "enter a correct email";
                                   } else {
                                     return null;
                                   }
@@ -150,7 +207,7 @@ class _DoctorFormState extends State<DoctorForm> {
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return 'Please enter a phone number';
+                                    return 'Please enter a correct phone number';
                                   } else if (!RegExp(r'^\d{10}$')
                                       .hasMatch(value)) {
                                     return 'Please enter a valid 10-digit phone number';
@@ -163,38 +220,39 @@ class _DoctorFormState extends State<DoctorForm> {
                               height: 50,
                               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                               child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor:
-                                        Theme.of(context).primaryColor,
-                                  ),
-                                  child: const Text('Submit',
-                                      style: TextStyle(color: Colors.white)),
-                                  onPressed: () {}
-                                  //async {
-                                  //   if (formkey.currentState!.validate()) {
-                                  //     await placeDAta.placeAdded(
-                                  //       name: nameController.text,
-                                  //       about: aboutController.text,
-                                  //       city: cityController.text,
-                                  //       price: priceController.text,
-                                  //       openingTime: openingTimeController.text,
-                                  //       closingTime: closingTimeController.text,
-                                  //       location: locationController.text,
-                                  //     );
-                                  //     ScaffoldMessenger.of(context).showSnackBar(
-                                  //       const SnackBar(
-                                  //           content: Text('Successfully Added')),
-                                  //     );
-                                  //     Navigator.pushNamed(context, '/admin');
-                                  //   } else {
-                                  //     ScaffoldMessenger.of(context).showSnackBar(
-                                  //       const SnackBar(
-                                  //           content: Text(
-                                  //               'Something went Wrong R-enter your data')),
-                                  //     );
-                                  //   }
-                                  // },
-                                  )),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor:
+                                      Theme.of(context).primaryColor,
+                                ),
+                                child: const Text('Submit',
+                                    style: TextStyle(color: Colors.white)),
+                                onPressed: () async {
+                                  if (formkey.currentState!.validate()) {
+                                    await doctorsData.doctorAdded(
+                                      name: firstNameController.text + ' ' +
+                                          lastNameController.text,
+                                      city:selectedCity.toString(),
+                                      email: emailController.text,
+                                      phonenumber: phoneNumberController.text,
+                                      location: locationController.text,
+                                      description: '',
+                                      password: '',
+                                      price: '',
+                                    );
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content: Text('Successfully Added')),
+                                    );
+                                    Navigator.pushNamed(context, 'admin');
+                                  } else {
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      const SnackBar(
+                                          content: Text(
+                                              'Something went Wrong R-enter your data')),
+                                    );
+                                  }
+                                },
+                              )),
                         ],
                       )))),
         ));

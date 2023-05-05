@@ -7,8 +7,13 @@ import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
+import 'package:easypark/screens/delete_doctor.dart';
+import 'package:easypark/screens/record.dart';
+import 'package:easypark/screens/profilefinal.dart';
+import 'package:easypark/screens/profilepage%202.dart';
 import 'package:easypark/screens/upload-file-W.dart';
 import 'package:easypark/screens/upload-file-WS.dart';
+
 import 'package:easypark/screensar/homepage.dart';
 import 'screens/appointment_screen.dart';
 import 'package:easypark/screens/admin_screen.dart';
@@ -70,13 +75,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'login',
+        initialRoute: 'record',
         routes: {
+          'record': (context) => recordPage(),
           'upload': (context) => uploadfile(),
           'report': (context) => PatientReport(),
-          'ProfileScreen': (context) => profileScreen(),
-          // '/profile': (context) => ProfilePage(),
-          //Profile': (context) => profile(),
+          // 'ProfileScreen': (context) => profileScreen(),
+          'deleteDr': (context) => deleteDoctor(),
+          '/profile': (context) => profilescreen(),
           'form': (context) => DoctorForm(),
           'admin': (context) => const AdminPanell(),
           'doctor': (context) => const DoctorPage(),
@@ -90,6 +96,9 @@ class MyApp extends StatelessWidget {
           'speech': (context) => SpeechPage(),
           'login': (context) => const LoginScreen(),
           'question': (context) => const QuestionsScreen(),
+
+          //'profile': (context) => ProfilePage(),
+
           'sketch': (context) => const sketchPage(),
           'facepg': (context) => facePage(),
           'spiral': (context) => const HandwrittingDetection(),
@@ -101,10 +110,9 @@ class MyApp extends StatelessWidget {
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
-          'uploadFileWS': (context) => uploadFileWS(),
+          'uploadFileS': (context) => uploadFileWS(),
           'uploadFileW': (context) => uploadFileW(),
           // 'FacePage': (context) => FacePage(),
-
           // 'splash': (context) => Splash()
           // 'test': (context) => const TestPage(),
           'questionnaire': (context) => questionnaireScreen(),
