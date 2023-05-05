@@ -268,41 +268,41 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                                     style: ElevatedButton.styleFrom(
                                                                         backgroundColor:
                                                                             Colors
-                                                                                .blue,
+                                                                                .white,
                                                                         minimumSize: Size(
                                                                             150,
                                                                             40)),
                                                                     child:
                                                                         const Text(
                                                                       "View",
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontSize:
-                                                                            12,
-                                                                      ),
+                                                                      style: TextStyle(
+                                                                          fontSize:
+                                                                              12,
+                                                                          color:
+                                                                              Colors.black),
                                                                     )),
                                                                 ElevatedButton(
                                                                     onPressed:
                                                                         () {
                                                                       Navigator.pushNamed(
                                                                           context,
-                                                                          "Know More");
+                                                                          "appoint");
                                                                     },
                                                                     style: ElevatedButton.styleFrom(
                                                                         backgroundColor:
                                                                             Colors
-                                                                                .blue,
+                                                                                .white,
                                                                         minimumSize: Size(
                                                                             150,
                                                                             40)),
                                                                     child:
                                                                         const Text(
                                                                       "Consult Now ",
-                                                                      style:
-                                                                          TextStyle(
-                                                                        fontSize:
-                                                                            12,
-                                                                      ),
+                                                                      style: TextStyle(
+                                                                          fontSize:
+                                                                              12,
+                                                                          color:
+                                                                              Colors.black),
                                                                     )),
                                                               ])
                                                         ],
@@ -493,36 +493,36 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                                           () {},
                                                                       style: ElevatedButton.styleFrom(
                                                                           backgroundColor: Colors
-                                                                              .blue,
+                                                                              .white,
                                                                           minimumSize: Size(
                                                                               150,
                                                                               40)),
                                                                       child:
                                                                           const Text(
                                                                         "Cancel",
-                                                                        style:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              12,
-                                                                        ),
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                12,
+                                                                            color:
+                                                                                Colors.black),
                                                                       )),
                                                                   ElevatedButton(
                                                                       onPressed:
                                                                           () {},
                                                                       style: ElevatedButton.styleFrom(
                                                                           backgroundColor: Colors
-                                                                              .blue,
+                                                                              .white,
                                                                           minimumSize: Size(
                                                                               150,
                                                                               40)),
                                                                       child:
                                                                           const Text(
                                                                         "Re-Schedule",
-                                                                        style:
-                                                                            TextStyle(
-                                                                          fontSize:
-                                                                              12,
-                                                                        ),
+                                                                        style: TextStyle(
+                                                                            fontSize:
+                                                                                12,
+                                                                            color:
+                                                                                Colors.black),
                                                                       )),
                                                                 ],
                                                               )

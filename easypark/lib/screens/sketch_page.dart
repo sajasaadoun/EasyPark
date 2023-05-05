@@ -70,16 +70,17 @@ class _sketchPageState extends State<sketchPage> {
     );
   }
 
-  // Future<void> _saveImage(BuildContext context) async {
-  //   final image = await notifier.renderImage();
-  //   showDialog(
-  //     context: context,
-  //     builder: (context) => AlertDialog(
-  //       title: const Text("Your Image"),
-  //       content: Image.memory(image.buffer.asUint8List()),
-  //     ),
-  //   );
-  // }
+  Future<void> _saveImage(BuildContext context) async {
+    final image = await notifier.renderImage();
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text("Your Image"),
+        content: Image.memory(image.buffer.asUint8List()),
+      ),
+    );
+  }
+
   // Future<void> _saveImage(BuildContext context) async {
   //   final image = await notifier.renderImage();
   //   final directory = await getApplicationDocumentsDirectory();
@@ -95,36 +96,98 @@ class _sketchPageState extends State<sketchPage> {
   //   );
   // }
 
-  Future<void> _saveImage(BuildContext context) async {
-    // Request permission to access the device's external storage
-    final status = await Permission.storage.request();
-    if (status != PermissionStatus.granted) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: const Text("Permission denied"),
-          content: const Text("Please grant permission to access storage."),
-        ),
-      );
-      return;
-    }
+  // Future<void> _saveImage(BuildContext context) async {
+  //   // Request permission to access the device's external storage
+  //   final status = await Permission.storage.request();
+  //   if (status != PermissionStatus.granted) {
+  //     showDialog(
+  //       context: context,
+  //       builder: (context) => AlertDialog(
+  //         title: const Text("Permission denied"),
+  //         content: const Text("Please grant permission to access storage."),
+  //       ),
+  //     );
+  //     return;
+  //   }
 
-    final image = await notifier.renderImage();
-    final directory =
-        await getExternalStorageDirectory(); // Use external storage directory instead of application documents directory
-    final imagePath =
-        '${directory!.path}/my_image.png'; // Use the directory path from getExternalStorageDirectory()
-    final imageFile = File(imagePath);
-    print('Image saved to: $imagePath');
-    await imageFile.writeAsBytes(image.buffer.asUint8List());
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text("Your Image"),
-        content: Image.memory(image.buffer.asUint8List()),
-      ),
-    );
-  }
+  //   final image = await notifier.renderImage();
+  //   final directory =
+  //       await getExternalStorageDirectory(); // Use external storage directory instead of application documents directory
+  //   final imagePath =
+  //       '${directory!.path}/my_image.png'; // Use the directory path from getExternalStorageDirectory()
+  //   final imageFile = File(imagePath);
+  //   print('Image saved to: $imagePath');
+  //   await imageFile.writeAsBytes(image.buffer.asUint8List());
+  //   showDialog(
+  //     context: context,
+  //     builder: (context) => AlertDialog(
+  //       title: const Text("Your Image"),
+  //       content: Image.memory(image.buffer.asUint8List()),
+  //     ),
+  //   );
+  // }
+
+//   Future<void> _saveImage(BuildContext context) async {
+//   // Request permission to access the device's external storage
+//   final status = await Permission.storage.request();
+//   if (status != PermissionStatus.granted) {
+//     showDialog(
+//       context: context,
+//       builder: (context) => AlertDialog(
+//         title: const Text("Permission denied"),
+//         content: const Text("Please grant permission to access storage."),
+//       ),
+//     );
+//     return;
+//   }
+
+//   final image = await notifier.renderImage();
+//   final directory =
+//       await getExternalStorageDirectory(); // Use external storage directory instead of application documents directory
+//   final imagePath =
+//       '${directory!.path}/my_image.png'; // Use the directory path from getExternalStorageDirectory()
+//   final imageFile = File(imagePath);
+//   print('Image saved to: $imagePath');
+//   await imageFile.writeAsBytes(image.buffer.asUint8List());
+
+//   try {
+//     // Authenticate with Google Drive
+//     final clientId = 'YOUR_CLIENT_ID_HERE';
+//     final clientSecret = 'YOUR_CLIENT_SECRET_HERE';
+//     final scopes = [drive.DriveApi.driveAppdataScope];
+//     final client = await auth.clientViaUserConsent(
+//       ClientId(clientId, clientSecret),
+//       scopes,
+//       prompt,
+//     );
+
+//     // Create a new file on the user's Google Drive and upload the image
+//     final driveApi = drive.DriveApi(client);
+//     final file = drive.File();
+//     file.name = 'my_image.png';
+//     file.parents = ['appDataFolder'];
+//     final media = drive.Media(imageFile.openRead(), imageFile.lengthSync());
+//     await driveApi.files.create(file, uploadMedia: media);
+
+//     // Show a dialog to confirm that the image was saved to Google Drive
+//     showDialog(
+//       context: context,
+//       builder: (context) => AlertDialog(
+//         title: const Text("Your Image"),
+//         content: const Text("Your image was saved to Google Drive."),
+//       ),
+//     );
+//   } catch (e) {
+//     print('Error saving image to Google Drive: $e');
+//     showDialog(
+//       context: context,
+//       builder: (context) => AlertDialog(
+//         title: const Text("Error"),
+//         content: const Text("An error occurred while saving your image to Google Drive."),
+//       ),
+//     );
+//   }
+// }
 
   Widget _buildStrokeToolbar(BuildContext context) {
     return StateNotifierBuilder<ScribbleState>(

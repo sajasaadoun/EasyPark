@@ -1,12 +1,20 @@
 import 'package:easypark/screens/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ionicons/ionicons.dart';
 
-class UpcomingCard extends StatelessWidget {
+import '../provider/login_provider.dart';
+
+class UpcomingCard extends StatefulWidget {
   const UpcomingCard({
     Key? key,
   }) : super(key: key);
 
+  @override
+  State<UpcomingCard> createState() => _UpcomingCardState();
+}
+
+class _UpcomingCardState extends State<UpcomingCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,11 +30,29 @@ class UpcomingCard extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
-            child: Image.asset(
-              "assets/images/user1.jpeg",
-              width: 45,
-              fit: BoxFit.cover,
+            child: Consumer(
+              builder: (_, ref, __) {
+                return ref.watch(userDataProvider).when(
+                  data: (value) {
+                    return CircleAvatar(
+                      radius: 25,
+                      backgroundImage: NetworkImage(value.get('userImage')),
+                    );
+                  },
+                  error: (Object error, StackTrace err) {
+                    return const Text("Error loading your Image");
+                  },
+                  loading: () {
+                    return const Center(child: CircularProgressIndicator());
+                  },
+                );
+              },
             ),
+            // Image.asset(
+            //   "assets/images/user1.jpeg",
+            //   width: 45,
+            //   fit: BoxFit.cover,
+            // ),
           ),
           const SizedBox(width: 14),
           Column(
