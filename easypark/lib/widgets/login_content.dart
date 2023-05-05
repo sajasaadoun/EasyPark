@@ -1,6 +1,11 @@
+import 'dart:io';
+import 'dart:math';
+
 import 'package:easypark/screens/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:ionicons/ionicons.dart';
 import '../../../utils/constants.dart';
 import '../model/login_model.dart';
@@ -33,6 +38,28 @@ class _LoginContentState extends State<LoginContent>
   final ageController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
+
+  File? _image;
+  String downloadURL = '';
+  XFile? selectedImage;
+
+  Future saveImage() async {
+    selectedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+    Reference referenceRoot = FirebaseStorage.instance.ref();
+    Reference referenceDirImage = referenceRoot.child('image');
+    String fileName =
+        '${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(100000)}.jpg';
+    Reference referenceImageToUpload = referenceDirImage.child(fileName);
+    try {
+      await referenceImageToUpload.putFile(File(selectedImage!.path));
+      downloadURL = await referenceImageToUpload.getDownloadURL();
+    } catch (e) {
+      print(e);
+    }
+    setState(() {
+      _image = File(selectedImage!.path);
+    });
+  }
 
   Widget inputField(
       String hint, IconData iconData, TextEditingController controller) {
@@ -117,6 +144,7 @@ class _LoginContentState extends State<LoginContent>
         onPressed: () async {
           await SignUp(emailController, passwordController);
           saveUser(
+              downloadURL,
               nameController.text,
               emailController.text,
               passwordController.text,
@@ -221,6 +249,7 @@ class _LoginContentState extends State<LoginContent>
     genderController.text = '';
     ageController.text = '';
     phoneController.text = '';
+
     createAccountContent = [
       inputField('Name', Ionicons.person_outline, nameController),
       inputField('Email', Ionicons.mail_outline, emailController),
@@ -277,18 +306,35 @@ class _LoginContentState extends State<LoginContent>
     return Stack(
       children: [
         const Positioned(
-          top: 136,
-          left: 24,
+          top: 84,
+          left: 30,
           child: TopText(),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 100),
+          padding: const EdgeInsets.only(top: 120),
           child: Stack(
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: createAccountContent,
+              SingleChildScrollView(
+                // add a single child scroll view
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        saveImage();
+                      },
+                      child: CircleAvatar(
+                        radius: 35,
+                        backgroundImage: _image == null
+                            ? const AssetImage('assets/images/userS.jpg')
+                            : FileImage(_image!) as ImageProvider,
+                      ),
+                    ),
+                    ...createAccountContent,
+                  ],
+                  // children: createAccountContent,
+                ),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -301,7 +347,7 @@ class _LoginContentState extends State<LoginContent>
         const Align(
           alignment: Alignment.bottomCenter,
           child: Padding(
-            padding: EdgeInsets.only(bottom: 50),
+            padding: EdgeInsets.only(bottom: 10),
             child: BottomText(),
           ),
         ),
