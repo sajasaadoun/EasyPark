@@ -9,6 +9,8 @@ import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
+import 'package:easypark/screens/delete_doctor.dart';
+import 'package:easypark/screens/record.dart';
 import 'package:easypark/screens/upload-file-W.dart';
 import 'package:easypark/screens/upload-file-WS.dart';
 import 'package:easypark/screensar/homepage.dart';
@@ -72,13 +74,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'login',
+        initialRoute: 'record',
         routes: {
+          'record': (context) => recordPage(),
           'upload': (context) => uploadfile(),
           'report': (context) => PatientReport(),
           'ProfileScreen': (context) => profileScreen(),
-          // '/profile': (context) => ProfilePage(),
-          //Profile': (context) => profile(),
+          'deleteDr': (context) => deleteDoctor(),
           'form': (context) => DoctorForm(),
           'admin': (context) => const AdminPanell(),
           'doctor': (context) => const DoctorPage(),
@@ -93,7 +95,7 @@ class MyApp extends StatelessWidget {
           'login': (context) => const LoginScreen(),
           'question': (context) => const QuestionsScreen(),
           'sketch': (context) => const sketchPage(),
-          'facepg': (context) =>  facePage(),
+          'facepg': (context) => facePage(),
           'spiral': (context) => const HandwrittingDetection(),
           'waveDetection': (context) => const WaveDetection(),
           'camera': (context) => const CameraScreen(),
@@ -103,10 +105,8 @@ class MyApp extends StatelessWidget {
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
-          'uploadFileWS': (context) => uploadFileWS(),
+          'uploadFileS': (context) => uploadFileWS(),
           'uploadFileW': (context) => uploadFileW(),
-          'FacePage': (context) => FacePage(),
-
           // 'splash': (context) => Splash()
           // 'test': (context) => const TestPage(),
           'questionnaire': (context) => questionnaireScreen(),
