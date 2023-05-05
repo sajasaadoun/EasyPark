@@ -10,6 +10,7 @@ import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
+import 'package:easypark/screens/profilefinal.dart';
 import 'package:easypark/screens/profilepage%202.dart';
 
 import 'package:easypark/screensar/homepage.dart';
@@ -78,7 +79,7 @@ class MyApp extends StatelessWidget {
         routes: {
           'upload': (context) => uploadfile(),
           'report': (context) => PatientReport(),
-          '/profile': (context) => ProfilePage(),
+          '/profile': (context) => profilescreen(),
           //Profile': (context) => profile(),
           'admin': (context) => AdminPanell(),
           'form': (context) => DoctorForm(),
@@ -97,7 +98,7 @@ class MyApp extends StatelessWidget {
           // 'speech': (context) => (),
           'login': (context) => const LoginScreen(),
           'question': (context) => const QuestionsScreen(),
-          'profile': (context) => ProfilePage(),
+          //'profile': (context) => ProfilePage(),
           'sketch': (context) => const sketchPage(),
           'facepg': (context) => const FacePage(),
           'spiral': (context) => const HandwrittingDetection(),
