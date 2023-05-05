@@ -37,7 +37,10 @@ class _MainPageState extends State<MainPage> {
 
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: true,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Navigator.of(context).pop("home"),
+        ),
         title: Text(uploadFileWS.title),
         centerTitle: true,
       ),
