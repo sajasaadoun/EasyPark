@@ -44,20 +44,36 @@ class _recordPageState extends State<recordPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-          child: ElevatedButton(
-        child: Icon(
-          recorder.isRecording ? Icons.stop : Icons.mic,
-          size: 80,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            StreamBuilder<RecordingDisposition>(
+              stream: recorder.onProgress,
+              builder: (context, snapshot) {
+                final duration =
+                    snapshot.hasData ? snapshot.data!.duration : Duration.zero;
+
+                return Text('${duration.inSeconds}s');
+              },
+            ),
+            const SizedBox(height: 32),
+            ElevatedButton(
+              child: Icon(
+                recorder.isRecording ? Icons.stop : Icons.mic,
+                size: 80,
+              ),
+              onPressed: () async { 
+                if (recorder.isRecording) {
+                  await stop();
+                } else {
+                  await record();
+                }
+                setState(() {});
+              },
+            )
+          ],
         ),
-        onPressed: () async {
-          if (recorder.isRecording) {
-            await stop();
-          } else {
-            await record();
-          }
-          setState(() {});
-        },
-      )),
+      ),
     );
   }
 }
