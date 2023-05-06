@@ -36,4 +36,11 @@ final List<DoctorModel> nearbyDoctors = [
     totalReviews: 0,
     profile: "assets/images/doctor_1.jpg",
   ),
+  DoctorModel(
+    name: "Louise Reid",
+    position: "General Practitioner",
+    averageReview: 2,
+    totalReviews: 0,
+    profile: "assets/images/doctor_1.jpg",
+  ),
 ];
