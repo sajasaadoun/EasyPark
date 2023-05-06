@@ -52,10 +52,10 @@ class _HomePageeArState extends State<HomePageeAr> {
           ),
           IconButton(
             onPressed: () {
-              showSearch(
-                context: context,
-                delegate: SearchPage(),
-              );
+              // showSearch(
+              //   context: context,
+              //   delegate: SearchPage(),
+              // );
             },
             icon: const Icon(Ionicons.search_outline),
           ),
