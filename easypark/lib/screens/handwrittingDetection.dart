@@ -77,7 +77,7 @@ class _HandwrittingDetectionState extends State<HandwrittingDetection> {
                   "upload",
                   style: TextStyle(color: Colors.white),
                 )),
-            Text('. $message'),
+            Text('$message'),
           ],
         ),
       ),
