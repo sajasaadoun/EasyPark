@@ -15,7 +15,7 @@ import 'package:easypark/screens/profilefinal.dart';
 import 'package:easypark/screens/profilepage%202.dart';
 import 'package:easypark/screens/upload-file-W.dart';
 import 'package:easypark/screens/upload-file-WS.dart';
-import 'package:easypark/screensar/homepage.dart';
+// import 'package:easypark/screensar/homepage.dart';
 import 'model/myAppointmentList.dart';
 import 'model/searchList.dart';
 import 'screens/appointment_screen.dart';
@@ -84,7 +84,6 @@ class MyApp extends StatelessWidget {
           'record': (context) => recordPage(),
           'upload': (context) => uploadfile(),
           'report': (context) => PatientReport(),
-          // 'ProfileScreen': (context) => profileScreen(),
           'deleteDr': (context) => deleteDoctor(),
           // '/profile': (context) => profilescreen(),
           'form': (context) => DoctorForm(),
@@ -92,7 +91,7 @@ class MyApp extends StatelessWidget {
           'doctor': (context) => const DoctorPage(),
           'home': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
-          '/homeDoctor': (context) => const HomePage(),
+          // '/homeDoctor': (context) => const HomePage(),
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
@@ -103,7 +102,7 @@ class MyApp extends StatelessWidget {
           //'profile': (context) => ProfilePage(),
           // 'AppointScreen': (context) => AppointScreen(),
           'sketch': (context) => const sketchPage(),
-          'facepg': (context) => facePage(),
+          'facepg': (context) => faceDetection(),
           'spiral': (context) => const HandwrittingDetection(),
           'waveDetection': (context) => const WaveDetection(),
           'camera': (context) => const CameraScreen(),

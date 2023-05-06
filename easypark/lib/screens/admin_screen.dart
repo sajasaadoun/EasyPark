@@ -17,7 +17,6 @@ class AdminPanell extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        title: Text('Admin Panel'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -48,7 +47,7 @@ class AdminPanell extends StatelessWidget {
                     icon: Icons.delete,
                     title: 'Delete Doctor',
                     onTap: () {
-                      // TODO: Implement the delete doctor functionality
+                     Navigator.pushNamed(context, 'deleteDr');
                     },
                   ),
                   // _buildListTile(

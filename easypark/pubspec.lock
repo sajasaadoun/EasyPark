@@ -19,7 +19,8 @@ packages:
     dependency: "direct main"
     description:
       name: animated_theme_switcher
-      url: "https://pub.dartlang.org"
+      sha256: a131266f7021a8a663da4c4848c53c62178949a7517c2af00b22e4c614352302
+      url: "https://pub.dev"
     source: hosted
     version: "2.0.8"
   archive:
@@ -68,6 +69,8 @@ packages:
     dependency: "direct main"
     description:
       name: camera
+      sha256: "309b823e61f15ff6b5b2e4c0ff2e1512ea661cad5355f71fc581e510ae5b26bb"
+      url: "https://pub.dev"
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.10.5"
@@ -395,7 +398,8 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_screenutil
-      url: "https://pub.dartlang.org"
+      sha256: "0a122936b450324cbdfd51be0819cc6fcebb093eb65585e9cd92263f7a1a8a39"
+      url: "https://pub.dev"
     source: hosted
     version: "5.7.0"
   flutter_sound:
@@ -468,6 +472,8 @@ packages:
     dependency: "direct main"
     description:
       name: get_it
+      sha256: d7d31d8bc11a94fe1514fa2c44e820990181277783cbb3ce873a40149ff9d52f
+      url: "https://pub.dev"
       url: "https://pub.dartlang.org"
     source: hosted
     version: "7.4.0"
@@ -643,7 +649,8 @@ packages:
     dependency: "direct main"
     description:
       name: line_awesome_flutter
-      url: "https://pub.dartlang.org"
+      sha256: "7e1beb342895d7da40d40047d193f8ecfd494355b399dc3d92912c31ccc4d808"
+      url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
   lints:

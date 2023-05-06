@@ -171,7 +171,8 @@ class _DoctorFormState extends State<DoctorForm> {
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty ||
-                                      !RegExp('^[a-zA-Z0-9 ]+\$').hasMatch(value)) {
+                                      !RegExp('^[a-zA-Z0-9 ]+\$')
+                                          .hasMatch(value)) {
                                     return "enter a correct city";
                                   } else {
                                     return null;
@@ -189,7 +190,8 @@ class _DoctorFormState extends State<DoctorForm> {
                                 ),
                                 validator: (value) {
                                   if (value!.isEmpty ||
-                                      !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+                                      !RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                                          .hasMatch(value)) {
                                     return "enter a correct email";
                                   } else {
                                     return null;
@@ -208,30 +210,31 @@ class _DoctorFormState extends State<DoctorForm> {
                                 validator: (value) {
                                   if (value!.isEmpty) {
                                     return 'Please enter a correct phone number';
-                                  } else if (!RegExp(r'^\d{10}$')
+                                  } else if (!RegExp(r'^01[0-9]{9}$')
                                       .hasMatch(value)) {
-                                    return 'Please enter a valid 10-digit phone number';
+                                    return 'Please enter a valid 11-digit phone number';
                                   } else {
                                     return null;
                                   }
                                 }),
                           ),
                           Container(
-                              height: 50,
-                              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      Theme.of(context).primaryColor,
-                                ),
-                                child: const Text('Submit',
-                                    style: TextStyle(color: Colors.white)),
-                                onPressed: () async {
-                                  if (formkey.currentState!.validate()) {
+                            height: 50,
+                            padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Theme.of(context).primaryColor,
+                              ),
+                              child: const Text('Submit',
+                                  style: TextStyle(color: Colors.white)),
+                              onPressed: () async {
+                                if (formkey.currentState!.validate()) {
+                                  try {
                                     await doctorsData.doctorAdded(
-                                      name: firstNameController.text + ' ' +
+                                      name: firstNameController.text +
+                                          ' ' +
                                           lastNameController.text,
-                                      city:selectedCity.toString(),
+                                      city: selectedCity.toString(),
                                       email: emailController.text,
                                       phonenumber: phoneNumberController.text,
                                       location: locationController.text,
@@ -244,15 +247,27 @@ class _DoctorFormState extends State<DoctorForm> {
                                           content: Text('Successfully Added')),
                                     );
                                     Navigator.pushNamed(context, 'admin');
-                                  } else {
+                                  } catch (error) {
+                                    print(
+                                        'Error: $error'); // Print the error in the terminal
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       const SnackBar(
-                                          content: Text(
-                                              'Something went Wrong R-enter your data')),
+                                        content: Text(
+                                            'Something went wrong. Please try again.'),
+                                      ),
                                     );
                                   }
-                                },
-                              )),
+                                } else {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text(
+                                          'Please correct the errors in the form.'),
+                                    ),
+                                  );
+                                }
+                              },
+                            ),
+                          ),
                         ],
                       )))),
         ));
