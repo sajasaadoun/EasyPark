@@ -4,6 +4,8 @@ import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
 // import 'package:easypark/screens/OLDadmin_screen.dart';
 import 'package:easypark/model/chat_user.dart';
+import 'package:easypark/screens/appoint_screen.dart';
+import 'package:easypark/screens/booking_screen.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
@@ -13,8 +15,9 @@ import 'package:easypark/screens/profilefinal.dart';
 import 'package:easypark/screens/profilepage%202.dart';
 import 'package:easypark/screens/upload-file-W.dart';
 import 'package:easypark/screens/upload-file-WS.dart';
-
 import 'package:easypark/screensar/homepage.dart';
+import 'model/myAppointmentList.dart';
+import 'model/searchList.dart';
 import 'screens/appointment_screen.dart';
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
@@ -36,6 +39,7 @@ import 'package:flutter/services.dart';
 import 'model/data_doctor.dart';
 import 'screens/dialog_message.dart';
 // import 'screens/results_schedule_screen.dart';
+import 'screens/my_appointments_screen.dart';
 import 'screens/speechDetection.dart';
 import 'screens/faceDetection.dart';
 import 'screens/question_model.dart';
@@ -75,14 +79,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'record',
+        initialRoute: 'home',
         routes: {
           'record': (context) => recordPage(),
           'upload': (context) => uploadfile(),
           'report': (context) => PatientReport(),
           // 'ProfileScreen': (context) => profileScreen(),
           'deleteDr': (context) => deleteDoctor(),
-          '/profile': (context) => profilescreen(),
+          // '/profile': (context) => profilescreen(),
           'form': (context) => DoctorForm(),
           'admin': (context) => const AdminPanell(),
           'doctor': (context) => const DoctorPage(),
@@ -96,9 +100,8 @@ class MyApp extends StatelessWidget {
           'speech': (context) => SpeechPage(),
           'login': (context) => const LoginScreen(),
           'question': (context) => const QuestionsScreen(),
-
           //'profile': (context) => ProfilePage(),
-
+          // 'AppointScreen': (context) => AppointScreen(),
           'sketch': (context) => const sketchPage(),
           'facepg': (context) => facePage(),
           'spiral': (context) => const HandwrittingDetection(),
@@ -110,8 +113,18 @@ class MyApp extends StatelessWidget {
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
-          'uploadFileS': (context) => uploadFileWS(),
+          'uploadFileWS': (context) => uploadFileWS(),
           'uploadFileW': (context) => uploadFileW(),
+          'BookingScreen': (context) => BookingScreen(
+                doctor: 'staticModel',
+              ),
+
+          // 'MyAppointmentList': (context) => MyAppointmentList(),
+          'profilescreen': (context) => profilescreen(),
+
+          // 'SearchList': (context) => SearchList(),
+
+          'MyAppointments': (context) => MyAppointments(),
           // 'FacePage': (context) => FacePage(),
           // 'splash': (context) => Splash()
           // 'test': (context) => const TestPage(),
@@ -128,7 +141,6 @@ class MyApp extends StatelessWidget {
           '/ar/form': (context) => const DoctorFormAr(),
           '/ar/doctor': (context) => const DoctorPageArr(),
           // 'loginn': (context) => const LoginScreen(),
-
           // 'test': (context) => const TestPage(),
           // 'speech': (context) => const SpeechPage(),
           // 'face': (context) => const FacePage(),
