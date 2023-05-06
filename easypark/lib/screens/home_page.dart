@@ -1,4 +1,5 @@
 import 'package:easypark/model/chat_user.dart';
+import 'package:easypark/screens/profilefinal.dart';
 import 'package:easypark/screens/questionnaire_screen.dart';
 import 'package:easypark/screens/search.dart';
 import 'package:flutter/material.dart';
@@ -143,7 +144,7 @@ class _HomePageeState extends State<HomePagee> {
         Navigator.push(
             _context,
             MaterialPageRoute(
-              builder: (context) => const questionnaireScreen(),
+              builder: (context) => profilescreen(),
             ));
       }
     });
