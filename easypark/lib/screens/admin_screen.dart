@@ -17,7 +17,6 @@ class AdminPanell extends StatelessWidget {
             color: Colors.white,
           ),
         ),
-        title: Text('Admin Panel'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
