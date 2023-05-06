@@ -3,6 +3,7 @@ import 'package:easypark/screens/questionnaire_screen.dart';
 import 'package:easypark/screens/search.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import '../model/searchList.dart';
 import '../widgets/nearby_doctors.dart';
 import '../widgets/test_types.dart';
 import '../widgets/upcoming_card.dart';
@@ -20,6 +21,7 @@ class HomePagee extends StatefulWidget {
 
 class _HomePageeState extends State<HomePagee> {
   int _selectedIndex = 0;
+  String search = '';
 
   late BuildContext _context; // declare a variable to store context
 
@@ -55,10 +57,7 @@ class _HomePageeState extends State<HomePagee> {
           ),
           IconButton(
             onPressed: () {
-              showSearch(
-                context: context,
-                delegate: SearchPage(),
-              );
+              // Navigator.push(context, SearchList);
             },
             icon: const Icon(Ionicons.search_outline),
           ),
