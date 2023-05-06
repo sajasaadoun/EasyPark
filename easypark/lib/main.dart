@@ -75,7 +75,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'record',
+        initialRoute: 'facepg',
         routes: {
           'record': (context) => recordPage(),
           'upload': (context) => uploadfile(),
@@ -95,11 +95,8 @@ class MyApp extends StatelessWidget {
           'speech': (context) => SpeechPage(),
           'login': (context) => const LoginScreen(),
           'question': (context) => const QuestionsScreen(),
-
-          //'profile': (context) => ProfilePage(),
-
           'sketch': (context) => const sketchPage(),
-          'facepg': (context) => facePage(),
+          'facepg': (context) => faceDetection(),
           'spiral': (context) => const HandwrittingDetection(),
           'waveDetection': (context) => const WaveDetection(),
           'camera': (context) => const CameraScreen(),
@@ -126,25 +123,6 @@ class MyApp extends StatelessWidget {
           '/ar/admin': (context) => const AdminPanellAr(),
           '/ar/form': (context) => const DoctorFormAr(),
           '/ar/doctor': (context) => const DoctorPageArr(),
-          // 'loginn': (context) => const LoginScreen(),
-
-          // 'test': (context) => const TestPage(),
-          // 'speech': (context) => const SpeechPage(),
-          // 'face': (context) => const FacePage(),
-          // 'login': (context) => const LoginScreen(),
-          // 'question': (context) => const QuestionsScreen(),
-          // 'doctor': (context) => const DoctorPage(),
-          // 'profile': (context) => ProfilePage(),
-          // 'sketch': (context) => const sketchPage(),
-          // 'admin': (context) => const MyAdmin(),
-          // 'facepg': (context) => const FacePage(),
-          // 'spiral': (context) => const HandwrittingDetection(),
-          // 'waveDetection': (context) => const WaveDetection(),
-          // 'camera': (context) => const CameraScreen(),
-          // 'DoctorsInfo': (context) => DoctorInfo(model: staticModel),
-          // 'OptionsScreen': (context) => MyPlansScreen(),
-          // 'MyAlertDialog': (context) => MyAlertDialog(),
-          //'splash': (context) => Splash()
         });
   }
 }
