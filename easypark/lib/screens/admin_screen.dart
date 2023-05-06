@@ -48,7 +48,7 @@ class AdminPanell extends StatelessWidget {
                     icon: Icons.delete,
                     title: 'Delete Doctor',
                     onTap: () {
-                      // TODO: Implement the delete doctor functionality
+                     Navigator.pushNamed(context, 'deleteDr');
                     },
                   ),
                   // _buildListTile(
