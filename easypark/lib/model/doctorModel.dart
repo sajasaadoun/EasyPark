@@ -29,7 +29,7 @@ class DoctorModel {
       "location": location,
       'email ': email,
       'phone': phonenumber,
-      'price': '100',
+      'price': price,
       'password': '12345',
       'description': 'Specialist in Parkinson disease',
     });
