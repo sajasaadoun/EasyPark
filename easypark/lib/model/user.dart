@@ -4,6 +4,7 @@ class User {
   final String email;
   final String password;
   final String about;
+
   final bool isDarkMode;
 
   const User({
@@ -14,9 +15,6 @@ class User {
     required this.about,
     required this.isDarkMode,
   });
-}
 
-// class CurrentUser {
-//   String userId;
-//   CurrentUser({required this.userId});
-// }
+  get age => null;
+}

@@ -7,6 +7,7 @@ import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
+import 'package:easypark/screens/edit_profile_page.dart';
 import 'package:easypark/screens/profilefinal.dart';
 import 'package:easypark/screens/profilepage%202.dart';
 
@@ -74,11 +75,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'login',
+        initialRoute: 'question',
         routes: {
           'upload': (context) => uploadfile(),
           'report': (context) => PatientReport(),
+          'dr': (context) => DoctorForm(),
 
+          'edit': (context) => EditProfilePage(),
           '/profile': (context) => profilescreen(),
 
           // '/profile': (context) => ProfilePage(),
