@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:easypark/model/qs_Model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
+import '../model/qs_Model.dart';
 
 class AddQuestions extends StatefulWidget {
   const AddQuestions({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class AddQuestions extends StatefulWidget {
 final formkey = GlobalKey<FormState>();
 
 class _AddQuestionsState extends State<AddQuestions> {
-  final questionData = quesModel();
+  final questionData = QuesModel();
   TextEditingController question = TextEditingController();
   TextEditingController option1 = TextEditingController();
   TextEditingController option5 = TextEditingController();
