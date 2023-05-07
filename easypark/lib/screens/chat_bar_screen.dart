@@ -224,7 +224,7 @@ class _HomeScreenState extends State<ChatFirst> {
                     color: Colors.blue,
                     size: 28,
                   ),
-                  Text('  Add User')
+                  Text('Add User')
                 ],
               ),
 
