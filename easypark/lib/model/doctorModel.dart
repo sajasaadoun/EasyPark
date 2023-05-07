@@ -9,14 +9,14 @@ class DoctorModel {
 
   Future updateDoctorDetails(
     String id,
-     String name,
-     String email,
-     String city,
-     String location,
-     String phonenumber,
-     String price,
-     String description,
-     String password,
+    String name,
+    String email,
+    String city,
+    String location,
+    String phonenumber,
+    String price,
+    String description,
+    String password,
   ) async {
     final doctorRef = FirebaseFirestore.instance.collection('doctors');
     final DoctorQuery = doctorRef.doc(id);
