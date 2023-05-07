@@ -1,5 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
+import 'package:easypark/model/spiral_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
@@ -14,9 +18,35 @@ class HandwrittingDetection extends StatefulWidget {
   State<HandwrittingDetection> createState() => _HandwrittingDetectionState();
 }
 
+final user = FirebaseAuth.instance.currentUser!;
+String userId = user.uid;
+
 class _HandwrittingDetectionState extends State<HandwrittingDetection> {
   File? selectedImage;
   String? message = "";
+  final SpiralData = SpiralModel();
+
+  File? _image;
+  String downloadURL = '';
+  // XFile? selecteImage;
+
+  Future saveImageSpiral() async {
+    // selecteImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+    Reference referenceRoot = FirebaseStorage.instance.ref();
+    Reference referenceDirImage = referenceRoot.child('image');
+    String fileName =
+        '${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(100000)}.jpg';
+    Reference referenceImageToUpload = referenceDirImage.child(fileName);
+    try {
+      await referenceImageToUpload.putFile(File(selectedImage!.path));
+      downloadURL = await referenceImageToUpload.getDownloadURL();
+    } catch (e) {
+      print(e);
+    }
+    setState(() {
+      _image = File(selectedImage!.path);
+    });
+  }
 
   uploadImage() async {
     var url = "http://192.168.1.3:8000/upload";
@@ -66,8 +96,10 @@ class _HandwrittingDetectionState extends State<HandwrittingDetection> {
                 style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all(Colors.blue[600])),
-                onPressed: () {
-                  uploadImage();
+                onPressed: () async {
+                  await uploadImage();
+                  await saveImageSpiral();
+                  SpiralData.addUserResults(userId, downloadURL, message!);
                 },
                 icon: const Icon(
                   Icons.upload_file,
@@ -78,6 +110,8 @@ class _HandwrittingDetectionState extends State<HandwrittingDetection> {
                   style: TextStyle(color: Colors.white),
                 )),
             Text('$message'),
+
+            // SpiralData.addUserResults(userId, downloadURL, message!);
           ],
         ),
       ),
