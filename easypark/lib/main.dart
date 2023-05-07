@@ -57,8 +57,13 @@ import 'package:easypark/screensar/patientReport.dart';
 import 'package:easypark/screensar/admin_screen.dart';
 import 'package:easypark/screensar/addDoctorForm.dart';
 import 'package:easypark/screensar/doctorpage.dart';
+import 'package:easypark/screensar/question_model.dart';
+import 'package:easypark/screensar/doctor_info_screen.dart';
 import 'screensar/doctor_page.dart';
 import 'screensar/speechDetection.dart';
+import 'package:easypark/screensar/faceDetection.dart';
+import 'package:easypark/screensar/upload-file-W.dart';
+import 'package:easypark/screensar/upload-file-WS.dart';
 import 'package:easypark/screensar/handwrittingDetection.dart';
 import 'package:easypark/opening.dart';
 
@@ -79,7 +84,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'home',
+        initialRoute: 'deleteDr',
         routes: {
           'record': (context) => recordPage(),
           'upload': (context) => uploadfile(),
@@ -131,14 +136,19 @@ class MyApp extends StatelessWidget {
           'register': (context) => const RegisterScreen(),
           '/ar/home': (context) => const HomePageeAr(),
           '/ar/quiz': (context) => const questionnaireScreenAr(),
+          '/ar/question': (context) => const QuestionsScreenAr(),
           '/ar/OptionsScreen': (context) => MyPlansScreenAr(),
           //'/ar/doctor': (context) => const DoctorPageAr(),
           '/ar/speech': (context) => const SpeechPageAr(),
+          '/ar/facepg': (context) => const faceDetectionAr(),
           '/ar/spiral': (context) => const HandwrittingDetectionAr(),
           '/ar/report': (context) => PatientReportAr(),
           '/ar/admin': (context) => const AdminPanellAr(),
           '/ar/form': (context) => const DoctorFormAr(),
           '/ar/doctor': (context) => const DoctorPageArr(),
+          '/ar/uploadFileWS': (context) => uploadFileWSAr(),
+          '/ar/uploadFileW': (context) => uploadFileWAr(),
+          '/ar/DoctorsInfo': (context) => DoctorInfoAr(),
           // 'loginn': (context) => const LoginScreen(),
           // 'test': (context) => const TestPage(),
           // 'speech': (context) => const SpeechPage(),
