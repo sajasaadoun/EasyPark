@@ -1,137 +1,139 @@
+import 'dart:convert';
+import 'dart:io';
+import 'package:photo_view/photo_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:file_picker/file_picker.dart';
+import 'package:http/http.dart' as http;
 
-class FacePage extends StatefulWidget {
-  const FacePage({super.key});
+class faceDetectionAr extends StatefulWidget {
+  const faceDetectionAr({super.key});
 
   @override
-  State<FacePage> createState() => _FacePageState();
+  State<faceDetectionAr> createState() => _faceDetectionState();
 }
 
-class _FacePageState extends State<FacePage> {
-  // File? selectedImage;
-  // String? message = "";
+class _faceDetectionState extends State<faceDetectionAr> {
+  File? selectedImage;
+  String? message = "";
 
-  // Future getImage() async {
-  //   final pickedImage =
-  //       await ImagePicker().getImage(source: ImageSource.gallery);
-  //   selectedImage = File(pickedImage!.path);
-  //   setState(() {});
-  // }
+  uploadImage() async {
+    var url = "http://192.168.1.3:8000/upload";
+    final request = http.MultipartRequest("POST", Uri.parse(url));
 
-  List<String> str = [
-    "Click on the Upload button",
-    "Choose the photo of your drawing ",
-  ];
+    final headers = {"Content-type": "multipart/form-data"};
+
+    request.files.add(http.MultipartFile('image',
+        selectedImage!.readAsBytes().asStream(), selectedImage!.lengthSync(),
+        filename: selectedImage!.path.split("/").last));
+
+    request.headers.addAll(headers);
+    final response = await request.send();
+    http.Response res = await http.Response.fromStream(response);
+    if (response.statusCode == 200) {
+      final resJson = jsonDecode(res.body);
+      message = resJson['message'].toString();
+      setState(() {});
+      print('here');
+    } else {
+      print('Failed ${response.statusCode}');
+      message = 'failed';
+    }
+  }
+
+  Future getImage() async {
+    final pickedImage =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    selectedImage = File(pickedImage!.path);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-      // ignore: prefer_const_literals_to_create_immutables
-      bottomNavigationBar: BottomNavigationBar(items: [
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: '',
+      appBar: AppBar(
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, '/ar/home');
+          },
+          child: const Icon(
+            Icons.arrow_back_ios,
+            size: 20,
+            color: Colors.white,
+          ),
         ),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.message),
-          label: '',
+        title: const Text("تحميل صور الوجه"),
+      ),
+      body: Center(
+        child: Container(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              _buildImagePicker(
+                'اختر صورة مبتسمة لك',
+                Icons.tag_faces,
+                () => getImage(),
+              ),
+              const SizedBox(height: 16.0),
+              _buildImagePicker(
+                'اختر صورة وجه مقرف لك',
+                Icons.sentiment_very_dissatisfied,
+                () => getImage(),
+              ),
+              const SizedBox(height: 16.0),
+              _buildImagePicker(
+                'اختر صورة وجه مفاجأة لك',
+                Icons.sentiment_very_satisfied,
+                () => getImage(),
+              ),
+            ],
+          ),
         ),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.arrow_circle_left),
-          label: '',
-        )
-      ]),
-      body: SafeArea(
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: getImage,
+        child: const Icon(Icons.add_a_photo),
+      ),
+    );
+  }
+
+  Widget _buildImagePicker(
+      String title, IconData icon, VoidCallback onPressed) {
+    return Card(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              // ignore: prefer_const_literals_to_create_immutables
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Padding(
-                        padding: EdgeInsets.only(top: 17.0),
-                        child: Text(
-                          'Hello,',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                      SizedBox(height: 8),
-                      Text(
-                        'EasyPark Patient',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple[100],
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Icon(Icons.person),
-                  )
-                ],
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 18.0,
+                fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Upload Image'),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5),
-              child: Row(
-                // ignore: prefer_const_literals_to_create_immutables
-                children: [
-                  const Text(
-                    'Instructions',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  )
-                ],
+            const SizedBox(height: 16.0),
+            ElevatedButton.icon(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.blue[600]),
+              ),
+              onPressed: onPressed,
+              icon: Icon(
+                icon,
+                color: Colors.white,
+              ),
+              label: const Text(
+                'تحميل',
+                style: TextStyle(color: Colors.white),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(vertical: 25),
-              decoration: BoxDecoration(
-                  color: Colors.pink[100],
-                  borderRadius: BorderRadius.circular(20)),
-              child: Column(
-                children: str.map((strone) {
-                  return Row(children: [
-                    const Text(
-                      "\u2022",
-                      style: TextStyle(fontSize: 15),
-                    ), //bullet text
-                    const SizedBox(
-                      width: 10,
-                    ), //space between bullet and text
-                    Expanded(
-                      child: Text(
-                        strone,
-                        style: const TextStyle(fontSize: 15),
-                      ), //text
-                    )
-                  ]);
-                }).toList(),
-              ),
-            ),
+            const SizedBox(height: 8.0),
+            Text('. $message'),
           ],
         ),
       ),
     );
   }
 }
-
-//elevated button in container?  

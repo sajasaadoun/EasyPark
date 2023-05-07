@@ -11,8 +11,8 @@ import 'package:easypark/widgets/profile_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-class profilescreen extends StatelessWidget {
-  profilescreen({super.key});
+class profilescreenAr extends StatelessWidget {
+  profilescreenAr({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class profilescreen extends StatelessWidget {
         Container(
           height: kSpacingUnit.w * 10,
           width: kSpacingUnit.w * 10,
-          margin: EdgeInsets.only(top: kSpacingUnit.w * 3),
+          //margin: EdgeInsets.only(top: kSpacingUnit.w * 3),
           child: Stack(
             children: [
               CircleAvatar(
@@ -53,11 +53,11 @@ class profilescreen extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
-          height: kSpacingUnit.w * 2,
-        ),
+        // SizedBox(
+        //   height: kSpacingUnit.w * 2,
+        // ),
         Text(
-          'Nicolas Adams',
+          'نيكولاس ادامز',
           style: kTitleTextStyle,
         ),
         SizedBox(height: kSpacingUnit.w * 0.5),
@@ -83,7 +83,7 @@ class profilescreen extends StatelessWidget {
                 ),
                 child: Center(
                   child: Text(
-                    'Edit Info',
+                    'تحرير المعلومات',
                     style: kButtonTextStyle,
                   ),
                 ),
@@ -94,19 +94,23 @@ class profilescreen extends StatelessWidget {
             ),
             Row(
               children: [
+                SizedBox(
+                  width: 260,
+                ),
                 Text(
-                  'About',
+                  'عن',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    // fontWeight: FontWeight.bold,
                     fontSize: ScreenUtil().setSp(kSpacingUnit.w * 3),
                     color: kDarkPrimaryColor,
                   ),
                 ),
                 SizedBox(width: kSpacingUnit.w * 2),
-                Text(
-                  'A MIU CS students',
-                  style: kTitleTextStyle,
-                ),
+                // Text(
+                //   'A MIU CS students',
+                //   style: kTitleTextStyle,
+                // ),
               ],
             ),
           ],
@@ -140,11 +144,11 @@ class profilescreen extends StatelessWidget {
         children: const <Widget>[
           ProfileListItem(
             icon: LineAwesomeIcons.user_shield,
-            text: 'privacy',
+            text: 'الخصوصية',
           ),
           ProfileListItem(
             icon: LineAwesomeIcons.alternate_sign_out,
-            text: 'Logout',
+            text: 'تسجيل الخروج',
           )
         ],
       ))

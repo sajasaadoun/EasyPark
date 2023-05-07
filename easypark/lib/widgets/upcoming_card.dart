@@ -89,15 +89,36 @@ class _UpcomingCardState extends State<UpcomingCard> {
                     //   size: 18,
                     //   color: Colors.white,
                     // ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushNamed(context, "/home");
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 15, right: 10),
-                        child: Text(
-                          "Your Results",
-                          style: TextStyle(color: Colors.white),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        right: 7,
+                        top: 6,
+                      ),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, "report");
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 15, right: 10),
+                          child: Text(
+                            "Results",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 6, right: 10),
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, "MyAppointments");
+                        },
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 15, right: 10),
+                          child: Text(
+                            "Appointment",
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
                       ),
                     ),

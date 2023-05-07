@@ -71,16 +71,12 @@ class _HomeScreenState extends State<ChatFirst> {
           //app bar
           appBar: AppBar(
             automaticallyImplyLeading: true,
-            leading: IconButton(
-              icon: Icon(Icons.home),
-              onPressed: () {
-                Navigator.pushNamed(context, 'home');
-              },
-            ),
+            leading: const Icon(CupertinoIcons.home),
             title: _isSearching
                 ? TextField(
                     decoration: const InputDecoration(
-                        border: InputBorder.none, hintText: 'Name, Email, ...'),
+                        border: InputBorder.none,
+                        hintText: 'الاسم, البريد الالكتروني , ...'),
                     autofocus: true,
                     style: const TextStyle(fontSize: 17, letterSpacing: 0.5),
                     //when search text changes then updated search list
@@ -99,7 +95,7 @@ class _HomeScreenState extends State<ChatFirst> {
                       }
                     },
                   )
-                : const Text('We Chat'),
+                : const Text('محادثاتي'),
             actions: [
               //search user button
               IconButton(
@@ -188,7 +184,7 @@ class _HomeScreenState extends State<ChatFirst> {
                                 });
                           } else {
                             return const Center(
-                              child: Text('No Connections Found!',
+                              child: Text('لا يوجد محادثات!',
                                   style: TextStyle(fontSize: 20)),
                             );
                           }
@@ -224,7 +220,7 @@ class _HomeScreenState extends State<ChatFirst> {
                     color: Colors.blue,
                     size: 28,
                   ),
-                  Text('  Add User')
+                  Text('اضف مستخدم')
                 ],
               ),
 
@@ -233,7 +229,7 @@ class _HomeScreenState extends State<ChatFirst> {
                 maxLines: null,
                 onChanged: (value) => email = value,
                 decoration: InputDecoration(
-                    hintText: 'Email Id',
+                    hintText: 'البريد الالكتروني',
                     prefixIcon: const Icon(Icons.email, color: Colors.blue),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15))),
@@ -247,7 +243,7 @@ class _HomeScreenState extends State<ChatFirst> {
                       //hide alert dialog
                       Navigator.pop(context);
                     },
-                    child: const Text('Cancel',
+                    child: const Text('الغاء',
                         style: TextStyle(color: Colors.blue, fontSize: 16))),
 
                 //add button
@@ -265,7 +261,7 @@ class _HomeScreenState extends State<ChatFirst> {
                       }
                     },
                     child: const Text(
-                      'Add',
+                      'اضف',
                       style: TextStyle(color: Colors.blue, fontSize: 16),
                     ))
               ],

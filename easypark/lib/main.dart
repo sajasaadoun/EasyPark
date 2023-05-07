@@ -5,6 +5,8 @@ import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
 // import 'package:easypark/screens/OLDadmin_screen.dart';
 import 'package:easypark/model/chat_user.dart';
+import 'package:easypark/screens/appoint_screen.dart';
+import 'package:easypark/screens/booking_screen.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
@@ -15,6 +17,9 @@ import 'package:easypark/screens/profilefinal.dart';
 import 'package:easypark/screens/profilepage%202.dart';
 import 'package:easypark/screens/upload-file-W.dart';
 import 'package:easypark/screens/upload-file-WS.dart';
+// import 'package:easypark/screensar/homepage.dart';
+import 'model/myAppointmentList.dart';
+import 'model/searchList.dart';
 import 'screens/appointment_screen.dart';
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
@@ -36,6 +41,7 @@ import 'package:flutter/services.dart';
 import 'model/data_doctor.dart';
 import 'screens/dialog_message.dart';
 // import 'screens/results_schedule_screen.dart';
+import 'screens/my_appointments_screen.dart';
 import 'screens/speechDetection.dart';
 import 'screens/faceDetection.dart';
 import 'model/question_DB.dart';
@@ -53,8 +59,13 @@ import 'package:easypark/screensar/patientReport.dart';
 import 'package:easypark/screensar/admin_screen.dart';
 import 'package:easypark/screensar/addDoctorForm.dart';
 import 'package:easypark/screensar/doctorpage.dart';
+import 'package:easypark/screensar/question_model.dart';
+import 'package:easypark/screensar/doctor_info_screen.dart';
 import 'screensar/doctor_page.dart';
 import 'screensar/speechDetection.dart';
+import 'package:easypark/screensar/faceDetection.dart';
+import 'package:easypark/screensar/upload-file-W.dart';
+import 'package:easypark/screensar/upload-file-WS.dart';
 import 'package:easypark/screensar/handwrittingDetection.dart';
 import 'package:easypark/opening.dart';
 
@@ -75,7 +86,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'quest',
+        initialRoute: 'deleteDr',
         routes: {
           'quest': (context) => AddQuestions(),
           'record': (context) => recordPage(),
@@ -88,6 +99,7 @@ class MyApp extends StatelessWidget {
           // 'doctor': (context) => const DoctorPage(),
           'home': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
+          // '/homeDoctor': (context) => const HomePage(),
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
@@ -95,6 +107,8 @@ class MyApp extends StatelessWidget {
           'speech': (context) => SpeechPage(),
           'login': (context) => const LoginScreen(),
           'question': (context) => const QuestionsScreen(),
+          //'profile': (context) => ProfilePage(),
+          // 'AppointScreen': (context) => AppointScreen(),
           'sketch': (context) => const sketchPage(),
           'facepg': (context) => faceDetection(),
           'spiral': (context) => const HandwrittingDetection(),
@@ -106,8 +120,18 @@ class MyApp extends StatelessWidget {
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
-          'uploadFileS': (context) => uploadFileWS(),
+          'uploadFileWS': (context) => uploadFileWS(),
           'uploadFileW': (context) => uploadFileW(),
+          'BookingScreen': (context) => BookingScreen(
+                doctor: 'staticModel',
+              ),
+
+          // 'MyAppointmentList': (context) => MyAppointmentList(),
+          'profilescreen': (context) => profilescreen(),
+
+          // 'SearchList': (context) => SearchList(),
+
+          'MyAppointments': (context) => MyAppointments(),
           // 'FacePage': (context) => FacePage(),
           // 'splash': (context) => Splash()
           // 'test': (context) => const TestPage(),
@@ -115,14 +139,37 @@ class MyApp extends StatelessWidget {
           'register': (context) => const RegisterScreen(),
           '/ar/home': (context) => const HomePageeAr(),
           '/ar/quiz': (context) => const questionnaireScreenAr(),
+          '/ar/question': (context) => const QuestionsScreenAr(),
           '/ar/OptionsScreen': (context) => MyPlansScreenAr(),
           //'/ar/doctor': (context) => const DoctorPageAr(),
           '/ar/speech': (context) => const SpeechPageAr(),
+          '/ar/facepg': (context) => const faceDetectionAr(),
           '/ar/spiral': (context) => const HandwrittingDetectionAr(),
           '/ar/report': (context) => PatientReportAr(),
           '/ar/admin': (context) => const AdminPanellAr(),
           '/ar/form': (context) => const DoctorFormAr(),
           '/ar/doctor': (context) => const DoctorPageArr(),
+          '/ar/uploadFileWS': (context) => uploadFileWSAr(),
+          '/ar/uploadFileW': (context) => uploadFileWAr(),
+          '/ar/DoctorsInfo': (context) => DoctorInfoAr(),
+          // 'loginn': (context) => const LoginScreen(),
+          // 'test': (context) => const TestPage(),
+          // 'speech': (context) => const SpeechPage(),
+          // 'face': (context) => const FacePage(),
+          // 'login': (context) => const LoginScreen(),
+          // 'question': (context) => const QuestionsScreen(),
+          // 'doctor': (context) => const DoctorPage(),
+          // 'profile': (context) => ProfilePage(),
+          // 'sketch': (context) => const sketchPage(),
+          // 'admin': (context) => const MyAdmin(),
+          // 'facepg': (context) => const FacePage(),
+          // 'spiral': (context) => const HandwrittingDetection(),
+          // 'waveDetection': (context) => const WaveDetection(),
+          // 'camera': (context) => const CameraScreen(),
+          // 'DoctorsInfo': (context) => DoctorInfo(model: staticModel),
+          // 'OptionsScreen': (context) => MyPlansScreen(),
+          // 'MyAlertDialog': (context) => MyAlertDialog(),
+          //'splash': (context) => Splash()
         });
   }
 }
