@@ -1,4 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+final user = FirebaseAuth.instance.currentUser!;
+String userId = user.uid;
 
 class patientInfoModel {
   Stream<QuerySnapshot> patientInfoDetails() {
@@ -8,28 +12,33 @@ class patientInfoModel {
   Future updatepatientInfoDetails(
     String id,
     String name,
-    String email,
-    String city,
-    String location,
+    String age,
+    String medications,
     String phonenumber,
-    String price,
-    String description,
-    String password,
   ) async {
-    final doctorRef = FirebaseFirestore.instance.collection('doctors');
+    final doctorRef = FirebaseFirestore.instance.collection('patientsinfo');
     final DoctorQuery = doctorRef.doc(id);
     // final eventQuery = eventRef.where('name', isEqualTo: name);
     final doctorSnapshot = await DoctorQuery.get();
 
     doctorSnapshot.reference.update({
       "name": name,
-      "city": city,
-      "location": location,
-      'email ': email,
+      "age": age,
       'phone': phonenumber,
-      'price': '100',
-      'password': '12345',
-      'description': 'Specialist in Parkinson disease',
+      'medications': medications,
     });
   }
+
+  Future editUserDetails(
+      String userName, String userEmail, String userPassword) async {
+    await FirebaseFirestore.instance.collection('users').doc(userId).update({
+      'Name': userName,
+      'Email': userEmail,
+      'Password': userPassword,
+    });
+  }
+
+  // Future addPatientInfo( String userId, String name,
+
+  // )
 }
