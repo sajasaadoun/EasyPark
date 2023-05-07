@@ -2,6 +2,15 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'dart:io';
+import 'package:easypark/apis/uploadfile_api.dart';
+import 'package:easypark/widgets/uploadbutton_widget.dart';
+import 'package:file_picker/file_picker.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
+import 'package:path/path.dart';
+import 'package:easypark/screens/uploadfiles.dart';
 
 class SpeechPageAr extends StatefulWidget {
   const SpeechPageAr({super.key});
@@ -11,11 +20,57 @@ class SpeechPageAr extends StatefulWidget {
 }
 
 class _SpeechPageState extends State<SpeechPageAr> {
+  UploadTask? task;
+  File? file;
   List<String> str = [
     "اضغط علي زر التسجيل",
     "تحدث لمدة 30 ثانية",
     "اضغط مجددا على زر التشغيل للايقاف",
   ];
+  Future selectFile() async {
+    final result = await FilePicker.platform.pickFiles(allowMultiple: false);
+
+    if (result == null) return;
+    final path = result.files.single.path!;
+
+    setState(() => file = File(path));
+  }
+
+  Future uploadFile() async {
+    if (file == null) return;
+
+    final fileName = basename(file!.path);
+    final destination = 'files/$fileName';
+
+    task = UploadFileApi.uploadFile(destination, file!);
+    setState(() {});
+
+    if (task == null) return;
+
+    final snapshot = await task!.whenComplete(() {});
+    final urlDownload = await snapshot.ref.getDownloadURL();
+
+    print('Download-Link: $urlDownload');
+  }
+
+  Widget buildUploadStatus(UploadTask task) => StreamBuilder<TaskSnapshot>(
+        stream: task.snapshotEvents,
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final snap = snapshot.data!;
+            final progress = snap.bytesTransferred / snap.totalBytes;
+            final percentage = (progress * 100).toStringAsFixed(2);
+
+            return Text(
+              '$percentage %',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            );
+          } else {
+            return Container();
+          }
+        },
+      );
+
   final recorder = FlutterSoundRecorder();
   bool isRecorderReady = false;
   @override
@@ -59,23 +114,25 @@ class _SpeechPageState extends State<SpeechPageAr> {
 
   @override
   Widget build(BuildContext context) {
+    final fileName =
+        file != null ? basename(file!.path) : 'لم يتم اختيار اي ملف';
     return Scaffold(
       backgroundColor: Colors.grey[200],
       // ignore: prefer_const_literals_to_create_immutables
-      bottomNavigationBar: BottomNavigationBar(items: [
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: '',
-        ),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.message),
-          label: '',
-        ),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.arrow_circle_left),
-          label: '',
-        )
-      ]),
+      // bottomNavigationBar: BottomNavigationBar(items: [
+      //   const BottomNavigationBarItem(
+      //     icon: Icon(Icons.home),
+      //     label: '',
+      //   ),
+      //   const BottomNavigationBarItem(
+      //     icon: Icon(Icons.message),
+      //     label: '',
+      //   ),
+      //   const BottomNavigationBarItem(
+      //     icon: Icon(Icons.arrow_circle_left),
+      //     label: '',
+      //   )
+      // ]),
       body: SafeArea(
         child: Column(
           children: [
@@ -227,6 +284,49 @@ class _SpeechPageState extends State<SpeechPageAr> {
                       )
                     ]);
                   }).toList(),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5),
+              child: Row(
+                children: [
+                  const Text(
+                    'أو قم بتحميل سجل من جهازك',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(32),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    UploadButtonWidget(
+                      text: 'اختر الملف الصوتي',
+                      icon: Icons.attach_file,
+                      onClicked: selectFile,
+                    ),
+                    SizedBox(height: 8),
+                    Text(
+                      fileName,
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(height: 48),
+                    // UploadButtonWidget(
+                    //   text: 'Upload File',
+                    //   icon: Icons.cloud_upload_outlined,
+                    //   onClicked: uploadFile,
+                    // ),
+                    SizedBox(height: 20),
+                    task != null ? buildUploadStatus(task!) : Container(),
+                  ],
                 ),
               ),
             ),
