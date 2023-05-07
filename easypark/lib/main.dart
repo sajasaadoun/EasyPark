@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/ProfileScreen.dart';
 import 'package:easypark/screens/admin_screen.dart';
@@ -8,13 +9,12 @@ import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
 import 'package:easypark/screens/delete_doctor.dart';
+import 'package:easypark/screens/Addquestionsss.dart';
 import 'package:easypark/screens/record.dart';
 import 'package:easypark/screens/profilefinal.dart';
 import 'package:easypark/screens/profilepage%202.dart';
 import 'package:easypark/screens/upload-file-W.dart';
 import 'package:easypark/screens/upload-file-WS.dart';
-
-import 'package:easypark/screensar/homepage.dart';
 import 'screens/appointment_screen.dart';
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
@@ -38,7 +38,7 @@ import 'screens/dialog_message.dart';
 // import 'screens/results_schedule_screen.dart';
 import 'screens/speechDetection.dart';
 import 'screens/faceDetection.dart';
-import 'screens/question_model.dart';
+import 'model/question_DB.dart';
 // import 'screens/OLDdoctor_page.dart';
 import 'screens/profile_page.dart';
 import 'screens/sketch_page.dart';
@@ -75,19 +75,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'facepg',
+        initialRoute: 'quest',
         routes: {
+          'quest': (context) => AddQuestions(),
           'record': (context) => recordPage(),
           'upload': (context) => uploadfile(),
-          'report': (context) => PatientReport(),
+          // 'report': (context) => PatientReport(),
           'deleteDr': (context) => deleteDoctor(),
           // '/profile': (context) => profilescreen(),
           'form': (context) => DoctorForm(),
           'admin': (context) => const AdminPanell(),
-          'doctor': (context) => const DoctorPage(),
+          // 'doctor': (context) => const DoctorPage(),
           'home': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
-          '/homeDoctor': (context) => const HomePage(),
           'appoint': (context) => ReserveScreen(),
           'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
