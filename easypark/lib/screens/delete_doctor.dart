@@ -164,29 +164,6 @@ class _CrudPlaceState extends ConsumerState<deleteDoctor> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceAround,
                                   children: [
-                                    // ElevatedButton(
-                                    //     onPressed: () {},
-                                    //     // async {
-                                    //     //   Navigator.push(
-                                    //     //       context,
-                                    //     //       MaterialPageRoute(
-                                    //     //           builder: (context) =>
-                                    //     //               EditPlacePage(
-                                    //     //                   value.docs[index])));
-                                    //     // },
-                                    //     style: ElevatedButton.styleFrom(
-                                    //         backgroundColor:
-                                    //             // ignore: prefer_const_constructors
-                                    //             Color.fromARGB(
-                                    //                 255, 28, 128, 150),
-                                    //         minimumSize: Size(150, 40)),
-                                    //     // ignore: prefer_const_constructors
-                                    //     child: Text(
-                                    //       "EDIT",
-                                    //       style: const TextStyle(
-                                    //         fontSize: 12,
-                                    //       ),
-                                    //     )),
                                     ElevatedButton(
                                         onPressed: () {
                                           showDialog(
