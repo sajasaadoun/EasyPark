@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:easypark/model/question_model.dart';
+import 'package:easypark/model/questionnaire_questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -39,7 +39,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "questions ${currentQuestionIndex + 1}/${questionlist.length.toString()}",
+          "Severity Level Questionnaire ${currentQuestionIndex + 1}/${questionlist.length.toString()}",
           style: TextStyle(
             color: Colors.black,
             fontSize: 20,

@@ -1,68 +1,64 @@
+import 'package:easypark/provider/patientInfo_provider.dart';
+import 'package:easypark/screens/patientReport.dart';
 import 'package:flutter/material.dart';
-
-class DoctorPage extends StatefulWidget {
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+class DoctorPage extends ConsumerStatefulWidget {
   const DoctorPage({super.key});
 
   @override
-  State<DoctorPage> createState() => _DoctorPageState();
+  ConsumerState<DoctorPage> createState() => _DoctorPageState();
 }
 
-class _DoctorPageState extends State<DoctorPage> {
+class _DoctorPageState extends ConsumerState<DoctorPage> {
   @override
   Widget build(BuildContext context) {
+     final plcRead = ref.watch(patientInfoProvider);
     return Scaffold(
-              appBar: AppBar(
-          leading: GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, 'home');
-            },
-            child: const Icon(
-              Icons.arrow_back_ios,
-              size: 20,
-              color: Colors.black,
-            ),
+      appBar: AppBar(
+        title: Text('Welcome Back',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            )),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, 'home');
+          },
+          child: const Icon(
+            Icons.arrow_back_ios,
+            size: 20,
+            color: Colors.black,
           ),
         ),
+      ),
       backgroundColor: Colors.grey[200],
-      body: SafeArea(
+      body: plcRead.when(
+        data: (value) => SafeArea(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25.0),
-              // ignore: prefer_const_literals_to_create_immutables
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 17.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          'Hello,',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
+            Expanded(
+                              child: ListView.builder(
+                    itemCount: value.docs.length,
+                    itemBuilder: (BuildContext context, int index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                // ignore: prefer_const_literals_to_create_immutables
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 17.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Doctor Alia',
+                            style: TextStyle(fontSize: 20),
                           ),
-                        ),
-                        SizedBox(height: 8),
-                        Text(
-                          'Doctor Alia',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple[100],
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: const Icon(Icons.person),
-                  )
-                ],
-              ),
-            ),
+                  
             const SizedBox(height: 25),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 25.0),
@@ -284,8 +280,8 @@ class _DoctorPageState extends State<DoctorPage> {
                     ),
                     child: Column(
                       children: [
-                        const Text('Ahmed Kamal'),
-                        const Text('Patient ID:A46'),
+                         Text( '${value.docs[index].get('name')}'),
+                         Text('${value.docs[index].get('age')}'),
                         const SizedBox(height: 10),
                         Container(
                           decoration: BoxDecoration(
@@ -293,75 +289,14 @@ class _DoctorPageState extends State<DoctorPage> {
                             borderRadius: BorderRadius.circular(5),
                           ),
                           child: TextButton(
-                            onPressed: () {
-                              Navigator.pushNamed(context, 'report');
-                            },
-                            child: Text(
-                              'View Patient',
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple[100],
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Column(
-                      children: [
-                        const Text('Noha Saeed'),
-                        const Text('Patient ID:N78'),
-                        const SizedBox(height: 10),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 208, 205, 214),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: TextButton(
-                            onPressed: () {
-                                Navigator.pushNamed(context, 'report');
-                            },
-                            child: Text(
-                              'View Patient',
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 25.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple[100],
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Column(
-                      children: [
-                        const Text('Mary Sameer'),
-                        const Text('Patient ID: M80 '),
-                        const SizedBox(height: 10),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 208, 205, 214),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: TextButton(
-                            onPressed: () {
-                                Navigator.pushNamed(context, 'report');
-                            },
+                               onPressed: () async {
+                                          Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      PatientReport(
+                                                          value.docs[index])));
+                                        },
                             child: Text(
                               'View Patient',
                               style: TextStyle(
@@ -375,10 +310,19 @@ class _DoctorPageState extends State<DoctorPage> {
                   ),
                 ),
               ],
-            ))
-          ],
-        ),
-      ),
-    );
+              ),
+              ),
+          ]),
+                );
   }
-}
+  )
+  )
+  ])), 
+         error: (Object error, StackTrace err) {
+          return const Text("Error loading your list");
+        },
+        loading: () {
+          return const Center(child: CircularProgressIndicator());
+        },
+  ));
+  }}
