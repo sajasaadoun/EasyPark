@@ -63,10 +63,13 @@ import 'package:easypark/screensar/question_model.dart';
 import 'package:easypark/screensar/doctor_info_screen.dart';
 import 'screensar/doctor_page.dart';
 import 'screensar/speechDetection.dart';
+import 'package:easypark/screensar/login_screen.dart';
 import 'package:easypark/screensar/faceDetection.dart';
 import 'package:easypark/screensar/upload-file-W.dart';
 import 'package:easypark/screensar/upload-file-WS.dart';
 import 'package:easypark/screensar/handwrittingDetection.dart';
+import 'package:easypark/screensar/booking_screen.dart';
+import 'package:easypark/screensar/my_appointments_screen.dart';
 import 'package:easypark/opening.dart';
 
 Future<void> main() async {
@@ -86,7 +89,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'deleteDr',
+        initialRoute: 'home',
         routes: {
           'quest': (context) => AddQuestions(),
           'record': (context) => recordPage(),
@@ -137,11 +140,11 @@ class MyApp extends StatelessWidget {
           // 'test': (context) => const TestPage(),
           'questionnaire': (context) => questionnaireScreen(),
           'register': (context) => const RegisterScreen(),
+
           '/ar/home': (context) => const HomePageeAr(),
           '/ar/quiz': (context) => const questionnaireScreenAr(),
           '/ar/question': (context) => const QuestionsScreenAr(),
           '/ar/OptionsScreen': (context) => MyPlansScreenAr(),
-          //'/ar/doctor': (context) => const DoctorPageAr(),
           '/ar/speech': (context) => const SpeechPageAr(),
           '/ar/facepg': (context) => const faceDetectionAr(),
           '/ar/spiral': (context) => const HandwrittingDetectionAr(),
@@ -152,6 +155,11 @@ class MyApp extends StatelessWidget {
           '/ar/uploadFileWS': (context) => uploadFileWSAr(),
           '/ar/uploadFileW': (context) => uploadFileWAr(),
           '/ar/DoctorsInfo': (context) => DoctorInfoAr(),
+          '/ar/login': (context) => const LoginScreenAr(),
+          '/ar/BookingScreen': (context) =>
+              const BookingScreenAr(doctor: 'staticModel'),
+          '/ar/MyAppointments': (context) => MyAppointmentsAr(),
+
           // 'loginn': (context) => const LoginScreen(),
           // 'test': (context) => const TestPage(),
           // 'speech': (context) => const SpeechPage(),
