@@ -38,23 +38,23 @@ class AdminPanellAr extends StatelessWidget {
                     icon: Icons.delete,
                     title: 'حذف طبيب',
                     onTap: () {
-                      // TODO: Implement the delete doctor functionality
+                      Navigator.pushNamed(context, '/ar/deleteDr');
                     },
                   ),
-                  _buildListTile(
-                    icon: Icons.add,
-                    title: 'اضافة مريض',
-                    onTap: () {
-                      // TODO: Implement the add patient functionality
-                    },
-                  ),
-                  _buildListTile(
-                    icon: Icons.delete,
-                    title: 'حذف مريض',
-                    onTap: () {
-                      // TODO: Implement the delete patient functionality
-                    },
-                  ),
+                  // _buildListTile(
+                  //   icon: Icons.add,
+                  //   title: 'اضافة مريض',
+                  //   onTap: () {
+                  //     // TODO: Implement the add patient functionality
+                  //   },
+                  // ),
+                  // _buildListTile(
+                  //   icon: Icons.delete,
+                  //   title: 'حذف مريض',
+                  //   onTap: () {
+                  //     // TODO: Implement the delete patient functionality
+                  //   },
+                  // ),
                   _buildListTile(
                     icon: Icons.edit,
                     title: 'تعديل الاستبيان',
