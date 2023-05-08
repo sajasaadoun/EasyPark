@@ -41,12 +41,16 @@ class DoctorModel {
 
   Future doctorAdded({
     required String name,
+    required String nameAr,
     required String email,
     required String city,
+    required String cityAr,
     required String location,
+    required String locationAr,
     required String phonenumber,
     required String price,
     required String description,
+    required String descriptionAr,
     required String password,
   }) async {
     //create a document to get its ID
@@ -56,13 +60,17 @@ class DoctorModel {
         .doc(newDocument.id)
         .set({
       "name": name,
+      "nameAr": nameAr,
       "city": city,
+      "cityAr": cityAr,
       "location": location,
+      "locationAr": locationAr,
       'email ': email,
       'phone': phonenumber,
       'price': '100',
       'password': '12345',
       'description': 'Specialist in Parkinson disease',
+      'descriptionAr': 'متخصص في مرض باركنسون',
     });
   }
 }
