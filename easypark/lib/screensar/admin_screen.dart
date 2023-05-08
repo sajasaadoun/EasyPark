@@ -59,7 +59,7 @@ class AdminPanellAr extends StatelessWidget {
                     icon: Icons.edit,
                     title: 'تعديل الاستبيان',
                     onTap: () {
-                      // TODO: Implement the edit questionnaire functionality
+                      Navigator.pushNamed(context, '/ar/addQuestions');
                     },
                   ),
                   _buildListTile(
