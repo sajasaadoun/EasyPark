@@ -16,11 +16,15 @@ final formkey = GlobalKey<FormState>();
 class _DoctorFormState extends State<DoctorForm> {
   final doctorsData = DoctorModel();
   TextEditingController firstNameController = TextEditingController();
+  TextEditingController firstNameControllerAr = TextEditingController();
   TextEditingController lastNameController = TextEditingController();
+  TextEditingController lastNameControllerAr = TextEditingController();
   TextEditingController ageController = TextEditingController();
   TextEditingController locationController = TextEditingController();
+  TextEditingController locationControllerAr = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController cityController = TextEditingController();
+  TextEditingController cityControllerAr = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
 
   // List of Egyptian cities
@@ -47,8 +51,31 @@ class _DoctorFormState extends State<DoctorForm> {
     'Hurghada'
   ];
 
+  final List<String> citiesAr = [
+    'القاهرة',
+    'الاسكندرية',
+    'الجيزة',
+    'شبرا الخيمة',
+    'بورسعيد',
+    'السويس',
+    'الاقصر',
+    'المنصورة',
+    'المحلة الكبرى',
+    'طنطا',
+    'أسيوط',
+    'اسماعيلية',
+    'فيوم',
+    'زقازيق',
+    'دمياط',
+    'أسوان',
+    'المنيا',
+    'دمنهور',
+    'بني سويف',
+    'الغردقة'
+  ];
   // Selected city
   String? selectedCity;
+  String? selectedCityAr;
   @override
   Widget build(BuildContext context) {
     // final double height = MediaQuery.of(context).size.height;
@@ -118,6 +145,24 @@ class _DoctorFormState extends State<DoctorForm> {
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
                                 style: TextStyle(color: Colors.black),
+                                controller: firstNameControllerAr,
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  labelText: 'Doctor First Name in Arabic',
+                                ),
+                                validator: (value) {
+                                  // if (value!.isEmpty ||
+                                  //     !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                                  //   return "enter a correct name";
+                                  // } else {
+                                  //   return null;
+                                  // }
+                                }),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            child: TextFormField(
+                                style: TextStyle(color: Colors.black),
                                 controller: lastNameController,
                                 decoration: const InputDecoration(
                                   border: OutlineInputBorder(),
@@ -130,6 +175,24 @@ class _DoctorFormState extends State<DoctorForm> {
                                   } else {
                                     return null;
                                   }
+                                }),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            child: TextFormField(
+                                style: TextStyle(color: Colors.black),
+                                controller: lastNameControllerAr,
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  labelText: 'Doctor Last Name in Arabic',
+                                ),
+                                validator: (value) {
+                                  // if (value!.isEmpty ||
+                                  //     !RegExp(r'^[a-zA-Z]+$').hasMatch(value)) {
+                                  //   return "enter a correct name";
+                                  // } else {
+                                  //   return null;
+                                  // }
                                 }),
                           ),
                           Container(
@@ -162,6 +225,34 @@ class _DoctorFormState extends State<DoctorForm> {
                           ),
                           Container(
                             padding: const EdgeInsets.all(10),
+                            child: DropdownButtonFormField<String>(
+                              value: selectedCityAr,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'Doctor\'s City in Arabic',
+                              ),
+                              items: citiesAr.map((String value) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                              onChanged: (newValue) {
+                                setState(() {
+                                  selectedCityAr = newValue;
+                                });
+                              },
+                              validator: (value) {
+                                // if (value == null) {
+                                //   return 'Please select a city';
+                                // } else {
+                                //   return null;
+                                // }
+                              },
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
                             child: TextFormField(
                                 style: TextStyle(color: Colors.black),
                                 controller: locationController,
@@ -177,6 +268,25 @@ class _DoctorFormState extends State<DoctorForm> {
                                   } else {
                                     return null;
                                   }
+                                }),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            child: TextFormField(
+                                style: TextStyle(color: Colors.black),
+                                controller: locationControllerAr,
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(),
+                                  labelText: 'Doctor\'s Location in Arabic',
+                                ),
+                                validator: (value) {
+                                  // if (value!.isEmpty ||
+                                  //     !RegExp('^[a-zA-Z0-9 ]+\$')
+                                  //         .hasMatch(value)) {
+                                  //   return "enter a correct city";
+                                  // } else {
+                                  //   return null;
+                                  // }
                                 }),
                           ),
                           Container(
@@ -234,11 +344,17 @@ class _DoctorFormState extends State<DoctorForm> {
                                       name: firstNameController.text +
                                           ' ' +
                                           lastNameController.text,
+                                      nameAr: firstNameControllerAr.text +
+                                          ' ' +
+                                          lastNameControllerAr.text,
                                       city: selectedCity.toString(),
+                                      cityAr: selectedCityAr.toString(),
                                       email: emailController.text,
                                       phonenumber: phoneNumberController.text,
                                       location: locationController.text,
+                                      locationAr: locationControllerAr.text,
                                       description: '',
+                                      descriptionAr: '',
                                       password: '',
                                       price: '',
                                     );
