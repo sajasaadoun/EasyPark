@@ -70,6 +70,7 @@ import 'package:easypark/screensar/upload-file-WS.dart';
 import 'package:easypark/screensar/handwrittingDetection.dart';
 import 'package:easypark/screensar/booking_screen.dart';
 import 'package:easypark/screensar/my_appointments_screen.dart';
+import 'package:easypark/screensar/delete_doctor.dart';
 import 'package:easypark/opening.dart';
 
 Future<void> main() async {
@@ -89,7 +90,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: '/ar/admin',
         routes: {
           'quest': (context) => AddQuestions(),
           'record': (context) => recordPage(),
@@ -159,6 +160,7 @@ class MyApp extends StatelessWidget {
           '/ar/BookingScreen': (context) =>
               const BookingScreenAr(doctor: 'staticModel'),
           '/ar/MyAppointments': (context) => MyAppointmentsAr(),
+          '/ar/deleteDr': (context) => deleteDoctorAr(),
 
           // 'loginn': (context) => const LoginScreen(),
           // 'test': (context) => const TestPage(),
