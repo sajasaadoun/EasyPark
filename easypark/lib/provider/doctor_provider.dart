@@ -1,10 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../model/doctor_model.dart';
+import '../model/doctorModel.dart';
 
 //---------------------EventsProvider------------------------//
 
 //provider byklm almodel
-Stream doctorsData = DoctorsModel().doctorsDetails();
+Stream doctorsData = DoctorModel().doctorsDetails();
 final doctorsDataProviderRepository =
     StateProvider<Stream>((ref) => doctorsData);
 //gets the data from the model

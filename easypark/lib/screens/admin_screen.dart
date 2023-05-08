@@ -7,21 +7,20 @@ class AdminPanell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-           leading: GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, 'home');
-            },
-            child: const Icon(
-              Icons.arrow_back_ios,
-              size: 20,
-              color: Colors.black,
-            ),),
-        title: Text('Admin Panel'),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, 'home');
+          },
+          child: const Icon(
+            Icons.arrow_back_ios,
+            size: 20,
+            color: Colors.white,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
@@ -33,7 +32,6 @@ class AdminPanell extends StatelessWidget {
               ' What would you like to do today?',
               style: TextStyle(fontSize: 18),
             ),
-            
             SizedBox(height: 16.0),
             Expanded(
               child: ListView(
@@ -49,7 +47,7 @@ class AdminPanell extends StatelessWidget {
                     icon: Icons.delete,
                     title: 'Delete Doctor',
                     onTap: () {
-                      // TODO: Implement the delete doctor functionality
+                     Navigator.pushNamed(context, 'deleteDr');
                     },
                   ),
                   // _buildListTile(

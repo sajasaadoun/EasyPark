@@ -27,7 +27,7 @@ class profilescreen extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: kSpacingUnit.w * 5,
-                backgroundImage: AssetImage('assets/doc.jpg'),
+                backgroundImage: AssetImage('assets/images/doc.jpg'),
               ),
               Align(
                 alignment: Alignment.bottomRight,
@@ -114,15 +114,21 @@ class profilescreen extends StatelessWidget {
       ]),
     );
     var header = Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Icon(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        IconButton(
+          icon: Icon(
             LineAwesomeIcons.arrow_left,
             size: ScreenUtil().setSp(kSpacingUnit.w * 3),
           ),
-          profileinfo
-        ]);
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        profileinfo
+      ],
+    );
     return Scaffold(
         body: Column(children: <Widget>[
       SizedBox(
@@ -131,7 +137,7 @@ class profilescreen extends StatelessWidget {
       header,
       Expanded(
           child: ListView(
-        children: <Widget>[
+        children: const <Widget>[
           ProfileListItem(
             icon: LineAwesomeIcons.user_shield,
             text: 'privacy',

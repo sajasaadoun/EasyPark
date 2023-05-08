@@ -116,15 +116,15 @@ class _LoginContentState extends State<LoginContent>
       child: ElevatedButton(
         onPressed: () async {
           await SignUp(emailController, passwordController);
-          saveUser(
-              nameController.text,
-              emailController.text,
-              passwordController.text,
-              genderController.text,
-              phoneController.text,
-              '1',
-              ageController.text,
-              'user');
+          // saveUser(
+          //     nameController.text,
+          //     emailController.text,
+          //     passwordController.text,
+          //     genderController.text,
+          //     phoneController.text,
+          //     '1',
+          //     ageController.text,
+          //     'user');
           //controller lazm yet7ol text
           if (formKey.currentState!.validate()) {
             const snackBar = SnackBar(content: Text('Submitting form'));

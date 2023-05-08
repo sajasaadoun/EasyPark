@@ -8,11 +8,11 @@ class HealthNeeds extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<CustomIcon> customIcons = [
-      CustomIcon(name: "رسم دائري", icon: 'assets/images/appointment.png'),
-      CustomIcon(name: "رسم تموجات", icon: 'assets/images/hospital.png'),
-      CustomIcon(name: "صوت", icon: 'assets/images/virus.png'),
-      CustomIcon(name: "وجه", icon: 'assets/images/more.png'),
-      CustomIcon(name: "استبيان", icon: 'assets/images/more.png'),
+      CustomIcon(name: "رسم دائري", icon: 'assets/images/spiral (1).png'),
+      CustomIcon(name: "رسم تموجات", icon: 'assets/images/smoke.png'),
+      CustomIcon(name: "صوت", icon: 'assets/images/voice-recorder.png'),
+      CustomIcon(name: "وجه", icon: 'assets/images/face-recognition.png'),
+      CustomIcon(name: "استبيان", icon: 'assets/images/test.png'),
     ];
 
     return Row(
@@ -25,11 +25,11 @@ class HealthNeeds extends StatelessWidget {
                 // Add your onTap code here for the icon at this index!
                 switch (index) {
                   case 0:
-                    Navigator.pushNamed(context, '/ar/spiral');
+                    Navigator.pushNamed(context, '/ar/uploadFileWS');
                     print("You tapped on ${customIcons[index].name} icon");
                     break;
                   case 1:
-                    Navigator.pushNamed(context, '/ar/spiral');
+                    Navigator.pushNamed(context, '/ar/uploadFileW');
                     print("You tapped on ${customIcons[index].name} icon");
                     break;
                   case 2:
@@ -37,11 +37,11 @@ class HealthNeeds extends StatelessWidget {
                     print("You tapped on ${customIcons[index].name} icon");
                     break;
                   case 3:
-                    Navigator.pushNamed(context, '/ar/spiral');
+                    Navigator.pushNamed(context, '/ar/facepg');
                     print("You tapped on ${customIcons[index].name} icon");
                     break;
                   case 4:
-                    Navigator.pushNamed(context, '/ar/spiral');
+                    Navigator.pushNamed(context, '/ar/question');
                     print("You tapped on ${customIcons[index].name} icon");
                     break;
                   default:

@@ -71,7 +71,12 @@ class _HomeScreenState extends State<ChatFirst> {
           //app bar
           appBar: AppBar(
             automaticallyImplyLeading: true,
-            leading: const Icon(CupertinoIcons.home),
+            leading: IconButton(
+              icon: Icon(Icons.home),
+              onPressed: () {
+                Navigator.pushNamed(context, 'home');
+              },
+            ),
             title: _isSearching
                 ? TextField(
                     decoration: const InputDecoration(
@@ -219,7 +224,7 @@ class _HomeScreenState extends State<ChatFirst> {
                     color: Colors.blue,
                     size: 28,
                   ),
-                  Text('  Add User')
+                  Text('Add User')
                 ],
               ),
 

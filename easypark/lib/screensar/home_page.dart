@@ -1,11 +1,15 @@
+import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screensar/questionnaire_screenAR.dart';
 import 'package:easypark/screens/search.dart';
+import 'package:easypark/screensar/profilefinal.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-
 import '../widgets/nearby_doctorsar.dart';
 import '../widgets/test_typesar.dart';
 import '../widgets/upcoming_cardar.dart';
+import '../widgets/username_showar.dart';
+import 'chat_bar_screen.dart';
+import 'chat_screen.dart';
 import 'options_screen.dart';
 
 class HomePageeAr extends StatefulWidget {
@@ -36,13 +40,14 @@ class _HomePageeArState extends State<HomePageeAr> {
         title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: const [
-            Text("مرحباَ , أمير"),
-            Text(
-              "كيف تشعر اليوم؟",
-              style: TextStyle(
-                fontSize: 15,
-              ),
-            ),
+            UsernameShow(),
+            // Text("مرحباَ , أمير"),
+            // Text(
+            //   "كيف تشعر اليوم؟",
+            //   style: TextStyle(
+            //     fontSize: 15,
+            //   ),
+            // ),
           ],
         ),
         actions: [
@@ -52,10 +57,10 @@ class _HomePageeArState extends State<HomePageeAr> {
           ),
           IconButton(
             onPressed: () {
-              showSearch(
-                context: context,
-                delegate: SearchPage(),
-              );
+              // showSearch(
+              //   context: context,
+              //   delegate: SearchPage(),
+              // );
             },
             icon: const Icon(Ionicons.search_outline),
           ),
@@ -117,31 +122,31 @@ class _HomePageeArState extends State<HomePageeAr> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      if (_selectedIndex == 1) {
+      if (_selectedIndex == 0) {
         Navigator.push(
           _context,
           MaterialPageRoute(
             builder: (context) => const HomePageeAr(),
           ),
         );
-      } else if (_selectedIndex == 2) {
+      } else if (_selectedIndex == 1) {
         Navigator.push(
           _context,
           MaterialPageRoute(
             builder: (context) => MyPlansScreenAr(),
           ),
         );
+      } else if (_selectedIndex == 2) {
+        Navigator.push(
+            _context,
+            MaterialPageRoute(
+              builder: (context) => const ChatFirst(),
+            ));
       } else if (_selectedIndex == 3) {
         Navigator.push(
             _context,
             MaterialPageRoute(
-              builder: (context) => const questionnaireScreenAr(),
-            ));
-      } else if (_selectedIndex == 4) {
-        Navigator.push(
-            _context,
-            MaterialPageRoute(
-              builder: (context) => const questionnaireScreenAr(),
+              builder: (context) => profilescreenAr(),
             ));
       }
     });

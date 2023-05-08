@@ -44,6 +44,7 @@ List<Question> getQuestions() {
       Answer("3: Moderate: Formed hallucinations with loss of insight.", true),
       Answer("4: Severe: Patient has delusions or paranoia", true),
     ],
+    
   ));
   list.add(Question(
     "1.3 Over the past week have you felt low, sad, hopeless, or unable to enjoy things? If yes, was this feeling for longer than one day at a time? Did it make it difficult for you carry out your usual activities or to be with people?",
