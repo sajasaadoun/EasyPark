@@ -71,6 +71,7 @@ import 'package:easypark/screensar/handwrittingDetection.dart';
 import 'package:easypark/screensar/booking_screen.dart';
 import 'package:easypark/screensar/my_appointments_screen.dart';
 import 'package:easypark/screensar/delete_doctor.dart';
+import 'package:easypark/screensar/Addquestionsss.dart';
 import 'package:easypark/opening.dart';
 
 Future<void> main() async {
@@ -161,6 +162,7 @@ class MyApp extends StatelessWidget {
               const BookingScreenAr(doctor: 'staticModel'),
           '/ar/MyAppointments': (context) => MyAppointmentsAr(),
           '/ar/deleteDr': (context) => deleteDoctorAr(),
+          '/ar/addQuestions': (context) => const AddQuestionsAr(),
 
           // 'loginn': (context) => const LoginScreen(),
           // 'test': (context) => const TestPage(),
