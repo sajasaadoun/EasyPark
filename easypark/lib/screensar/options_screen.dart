@@ -82,7 +82,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreenAr> {
                                                                       .spaceBetween,
                                                               children: [
                                                                 Text(
-                                                                  '${value.docs[index].get('name')}',
+                                                                  '${value.docs[index].get('nameAr')}',
                                                                   style:
                                                                       const TextStyle(
                                                                     fontSize:
@@ -148,7 +148,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreenAr> {
                                                                             SizedBox(
                                                                               width: 200,
                                                                               child: Text(
-                                                                                '${value.docs[index].get('description')}',
+                                                                                '${value.docs[index].get('descriptionAr')}',
                                                                                 style: const TextStyle(
                                                                                   fontSize: 14,
                                                                                 ),
@@ -188,7 +188,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreenAr> {
                                                                           10,
                                                                     ),
                                                                     Text(
-                                                                      '${value.docs[index].get('location')}',
+                                                                      '${value.docs[index].get('locationAr')}',
                                                                       style:
                                                                           const TextStyle(
                                                                         fontSize:
@@ -244,7 +244,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreenAr> {
                                                                         Navigator
                                                                             .pushNamed(
                                                                           context,
-                                                                          'DoctorsInfo',
+                                                                          '/ar/DoctorsInfo',
                                                                           arguments:
                                                                               index,
                                                                         );
@@ -269,7 +269,7 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreenAr> {
                                                                           () {
                                                                         Navigator.pushNamed(
                                                                             context,
-                                                                            "BookingScreen");
+                                                                            "/ar/BookingScreen");
                                                                       },
                                                                       style: ElevatedButton.styleFrom(
                                                                           backgroundColor: Colors
