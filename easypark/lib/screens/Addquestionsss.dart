@@ -2,8 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-
-import '../model/qs_Model.dart';
+import '../model/ques_model.dart';
 
 class AddQuestions extends StatefulWidget {
   const AddQuestions({Key? key}) : super(key: key);
