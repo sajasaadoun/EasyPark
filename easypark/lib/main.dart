@@ -76,6 +76,7 @@ import 'package:easypark/screensar/my_appointments_screen.dart';
 import 'package:easypark/screensar/delete_doctor.dart';
 import 'package:easypark/screensar/Addquestionsss.dart';
 import 'package:easypark/screensar/questionnaire_firebase.dart';
+import 'package:easypark/model/insert_question_dataAr.dart';
 import 'package:easypark/opening.dart';
 
 Future<void> main() async {
@@ -95,7 +96,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/ar/home',
+        initialRoute: '/ar/insertQuestions',
         routes: {
           'quest': (context) => AddQuestions(),
           'record': (context) => recordPage(),
@@ -174,6 +175,7 @@ class MyApp extends StatelessWidget {
           '/ar/deleteDr': (context) => deleteDoctorAr(),
           '/ar/addQuestions': (context) => const AddQuestionsAr(),
           '/ar/questionTest': (context) => const QuestionnaireDbAr(),
+          '/ar/insertQuestions': (context) => const InsertData(),
 
           // 'loginn': (context) => const LoginScreen(),
           // 'test': (context) => const TestPage(),
