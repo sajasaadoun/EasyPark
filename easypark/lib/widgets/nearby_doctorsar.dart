@@ -1,13 +1,11 @@
-import 'package:easypark/model/data_doctorar.dart';
+import 'package:easypark/model/data_doctor.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-
+import '../model/doctor_static_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../provider/doctor_provider.dart';
-
-import '../model/doctor_static_modelar.dart';
 // import '../screens/doctor_info.dart';
-import '../screensar/doctor_info_screen.dart';
+import '../provider/doctor_provider.dart';
+import '../screens/doctor_info_screen.dart';
 
 class NearbyDoctors extends ConsumerStatefulWidget {
   const NearbyDoctors({Key? key}) : super(key: key);
@@ -53,13 +51,13 @@ class _NearbyDoctorsScreenState extends ConsumerState<NearbyDoctors> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "دكنور. ${value.docs[index].get('name')}",
+                                  "دكتور. ${value.docs[index].get('nameAr')}",
                                   style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 const SizedBox(height: 8),
-                                Text("${value.docs[index].get('location')}"),
+                                Text("${value.docs[index].get('locationAr')}"),
                                 const SizedBox(height: 16),
                                 Row(
                                   children: [
@@ -77,7 +75,7 @@ class _NearbyDoctorsScreenState extends ConsumerState<NearbyDoctors> {
                                             fontWeight: FontWeight.bold),
                                       ),
                                     ),
-                                    const Text("195 المراجعات")
+                                    const Text("195 مراجعات")
                                   ],
                                 )
                               ],

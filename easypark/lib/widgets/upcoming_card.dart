@@ -20,7 +20,7 @@ class _UpcomingCardState extends State<UpcomingCard> {
     return Container(
       width: double.maxFinite,
       height: 150,
-      padding: const EdgeInsets.symmetric(vertical: 22, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 14),
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor.withOpacity(0.8),
         borderRadius: BorderRadius.circular(20),

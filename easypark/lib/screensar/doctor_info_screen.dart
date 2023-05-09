@@ -93,7 +93,7 @@ class _DoctorInfoState extends ConsumerState<DoctorInfoAr> {
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Text(
-                                      "${value.docs[index].get('name')}",
+                                      "${value.docs[index].get('nameAr')}",
                                       style: titleStyle,
                                     ),
                                     const SizedBox(
@@ -109,7 +109,7 @@ class _DoctorInfoState extends ConsumerState<DoctorInfoAr> {
                                   ],
                                 ),
                                 subtitle: Text(
-                                  "${value.docs[index].get('location')}",
+                                  "${value.docs[index].get('locationAr')}",
                                   style: TextStyles.bodySm.subTitleColor.bold,
                                 ),
                               ),
@@ -154,7 +154,7 @@ class _DoctorInfoState extends ConsumerState<DoctorInfoAr> {
                               ),
                               Text("عن الدكتور", style: titleStyle).vP16,
                               Text(
-                                "${value.docs[index].get('location')}",
+                                "${value.docs[index].get('locationAr')}",
                                 style: TextStyles.body.subTitleColor,
                               ),
                               Row(
