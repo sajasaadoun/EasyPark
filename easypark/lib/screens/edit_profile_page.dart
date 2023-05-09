@@ -52,6 +52,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your email';
+                  } else if (!value.contains('@') || !value.contains('.')) {
+                    return 'Please enter a valid email address';
                   }
                   return null;
                 },
@@ -59,14 +61,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
               ),
               const SizedBox(height: 24),
               TextFormField(
-                initialValue: '11',
+                initialValue: '123456',
                 decoration: InputDecoration(
-                  labelText: 'password',
+                  labelText: 'Password',
                 ),
-                validator: (initialValue) {
-                  if (initialValue == null || initialValue.isEmpty) {
-                    print('Please enter your password');
-                  } else if (initialValue.length < 8) {
+                obscureText: true,
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter your password';
+                  } else if (value.length < 8) {
                     return 'Password must be at least 8 characters long';
                   }
                   return null;
@@ -79,9 +82,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                 decoration: InputDecoration(
                   labelText: 'Age',
                 ),
+                keyboardType: TextInputType.number,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your age';
+                  } else if (int.tryParse(value) == null) {
+                    return 'Please enter a valid age';
                   }
                   return null;
                 },
@@ -89,17 +95,29 @@ class _EditProfilePageState extends State<EditProfilePage> {
               ),
               const SizedBox(height: 24),
               TextFormField(
-                initialValue: "0111111111",
+                initialValue: '01223456789',
                 decoration: InputDecoration(
                   labelText: 'Phone Number',
                 ),
+                keyboardType: TextInputType.phone,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter your phone number';
+                  } else if (int.tryParse(value) == null) {
+                    return 'Please enter a valid phone number';
                   }
                   return null;
                 },
                 onChanged: (value) {},
+              ),
+              const SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    // Save the user's edited profile here
+                  }
+                },
+                child: Text('Edit'),
               ),
             ],
           ),
