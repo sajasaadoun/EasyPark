@@ -41,7 +41,7 @@ class HealthNeeds extends StatelessWidget {
                     print("You tapped on ${customIcons[index].name} icon");
                     break;
                   case 4:
-                    Navigator.pushNamed(context, '/ar/question');
+                    Navigator.pushNamed(context, '/ar/questionTest');
                     print("You tapped on ${customIcons[index].name} icon");
                     break;
                   default:
