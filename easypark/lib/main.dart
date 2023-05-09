@@ -89,7 +89,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'edit',
+        initialRoute: 'question',
         routes: {
           'quest': (context) => AddQuestions(),
           'record': (context) => recordPage(),
