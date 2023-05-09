@@ -1,4 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+final user = FirebaseAuth.instance.currentUser!;
+String userId = user.uid;
 
 class patientInfoModel {
   Stream<QuerySnapshot> patientInfoDetails() {
@@ -24,4 +28,17 @@ class patientInfoModel {
       'diagnosis': diagnosis,
     });
   }
+
+  Future editUserDetails(
+      String userName, String userEmail, String userPassword) async {
+    await FirebaseFirestore.instance.collection('users').doc(userId).update({
+      'Name': userName,
+      'Email': userEmail,
+      'Password': userPassword,
+    });
+  }
+
+  // Future addPatientInfo( String userId, String name,
+
+  // )
 }

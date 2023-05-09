@@ -86,7 +86,7 @@ class _OpeningPageState extends State<OpeningPage> {
                           // ),
                           ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, 'home');
+                                Navigator.pushNamed(context, 'login');
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
@@ -114,7 +114,7 @@ class _OpeningPageState extends State<OpeningPage> {
                           // ),
                           ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/ar/home');
+                                Navigator.pushNamed(context, '/ar/login');
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],

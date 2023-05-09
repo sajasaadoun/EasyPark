@@ -4,6 +4,7 @@ import 'package:easypark/screens/search.dart';
 import 'package:easypark/screensar/profilefinal.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import '../model/searchList.dart';
 import '../widgets/nearby_doctorsar.dart';
 import '../widgets/test_typesar.dart';
 import '../widgets/upcoming_cardar.dart';
