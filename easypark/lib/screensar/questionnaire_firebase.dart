@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import '../constants.dart';
+// import '../constants.dart';
 import '../model/question_model.dart'; // our question model
 import '../widgets/question_widget.dart'; // the question widget
 import '../widgets/next_button.dart';
 import '../widgets/option_card.dart';
 import '../widgets/result_box.dart';
-import '../model/db_connect.dart';
+import '../model/db_connectAr.dart';
 
 // create the HomeScreen widget
 // I'm taking the Stateful widget because it's going to be our parent widget and all the functions and variables will be in this widget so we will need to change state of our widget.
@@ -150,42 +150,44 @@ class _HomeScreenState extends State<QuestionnaireDbAr> {
                   ),
                 ],
               ),
-              body: Container(
-                width: double.infinity,
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                child: Column(
-                  children: [
-                    // add the questionWIdget here
-                    QuestionWidget(
-                      indexAction: index, // currently at 0.
-                      question: extractedData[index]
-                          .title, // means the first question in the list.
-                      totalQuestions:
-                          extractedData.length, // total length of the list
-                    ),
-                    const Divider(color: Colors.white),
-                    // add some space
-                    const SizedBox(height: 25.0),
-                    for (int i = 0;
-                        i < extractedData[index].options.length;
-                        i++)
-                      GestureDetector(
-                        onTap: () => checkAnswerAndUpdate(
-                            extractedData[index].options.values.toList()[i]),
-                        child: OptionCard(
-                          option: extractedData[index].options.keys.toList()[i],
-                          color: isPressed
-                              ? extractedData[index]
-                                          .options
-                                          .values
-                                          .toList()[i] ==
-                                      extractedData[index]
-                                  ? Colors.green
-                                  : Colors.grey
-                              : Colors.white,
-                        ),
+              body: Center(
+                child: SingleChildScrollView(
+                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 100),
+                  child: Column(
+                    children: [
+                      // add the questionWIdget here
+                      QuestionWidget(
+                        indexAction: index, // currently at 0.
+                        question: extractedData[index]
+                            .title, // means the first question in the list.
+                        totalQuestions:
+                            extractedData.length, // total length of the list
                       ),
-                  ],
+                      const Divider(color: Colors.white),
+                      // add some space
+                      const SizedBox(height: 25.0),
+                      for (int i = 0;
+                          i < extractedData[index].options.length;
+                          i++)
+                        GestureDetector(
+                          onTap: () => checkAnswerAndUpdate(
+                              extractedData[index].options.values.toList()[i]),
+                          child: OptionCard(
+                            option:
+                                extractedData[index].options.keys.toList()[i],
+                            color: isPressed
+                                ? extractedData[index]
+                                            .options
+                                            .values
+                                            .toList()[i] ==
+                                        extractedData[index]
+                                    ? Colors.green
+                                    : Colors.grey
+                                : Colors.white,
+                          ),
+                        ),
+                    ],
+                  ),
                 ),
               ),
 
