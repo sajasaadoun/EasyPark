@@ -75,6 +75,7 @@ import 'package:easypark/screensar/booking_screen.dart';
 import 'package:easypark/screensar/my_appointments_screen.dart';
 import 'package:easypark/screensar/delete_doctor.dart';
 import 'package:easypark/screensar/Addquestionsss.dart';
+import 'package:easypark/screensar/questionnaire_firebase.dart';
 import 'package:easypark/opening.dart';
 
 Future<void> main() async {
@@ -94,7 +95,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'uploadFileW',
+        initialRoute: '/ar/home',
         routes: {
           'quest': (context) => AddQuestions(),
           'record': (context) => recordPage(),
@@ -172,6 +173,7 @@ class MyApp extends StatelessWidget {
           '/ar/MyAppointments': (context) => MyAppointmentsAr(),
           '/ar/deleteDr': (context) => deleteDoctorAr(),
           '/ar/addQuestions': (context) => const AddQuestionsAr(),
+          '/ar/questionTest': (context) => const QuestionnaireDbAr(),
 
           // 'loginn': (context) => const LoginScreen(),
           // 'test': (context) => const TestPage(),
