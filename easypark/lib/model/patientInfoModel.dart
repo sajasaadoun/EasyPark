@@ -8,9 +8,9 @@ class patientInfoModel {
   Future updatepatientInfoDetails(
     String id,
     String name,
-    String age,
+    String Age,
     String medications,
-    String phonenumber,
+    String diagnosis,
   ) async {
     final doctorRef = FirebaseFirestore.instance.collection('patientsinfo');
     final DoctorQuery = doctorRef.doc(id);
@@ -19,9 +19,9 @@ class patientInfoModel {
 
     doctorSnapshot.reference.update({
       "name": name,
-      "age": age,
-      'phone': phonenumber,
+      "Age": Age,
       'medications': medications,
+      'diagnosis': diagnosis,
     });
   }
 }
