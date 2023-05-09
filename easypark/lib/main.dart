@@ -86,7 +86,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'deleteDr',
+        initialRoute: 'uploadFileW',
         routes: {
           'quest': (context) => AddQuestions(),
           'record': (context) => recordPage(),
@@ -96,7 +96,7 @@ class MyApp extends StatelessWidget {
           // '/profile': (context) => profilescreen(),
           'form': (context) => DoctorForm(),
           'admin': (context) => const AdminPanell(),
-          // 'doctor': (context) => const DoctorPage(),
+          'doctor': (context) => const DoctorPage(),
           'home': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
           // '/homeDoctor': (context) => const HomePage(),
@@ -110,7 +110,7 @@ class MyApp extends StatelessWidget {
           //'profile': (context) => ProfilePage(),
           // 'AppointScreen': (context) => AppointScreen(),
           'sketch': (context) => const sketchPage(),
-          'facepg': (context) => faceDetection(),
+          // 'facepg': (context) => faceDetection(),
           'spiral': (context) => const HandwrittingDetection(),
           'waveDetection': (context) => const WaveDetection(),
           'camera': (context) => const CameraScreen(),
@@ -122,19 +122,13 @@ class MyApp extends StatelessWidget {
           'ChatFirst': (context) => const ChatFirst(),
           'uploadFileWS': (context) => uploadFileWS(),
           'uploadFileW': (context) => uploadFileW(),
-          'BookingScreen': (context) => BookingScreen(
-                doctor: 'staticModel',
-              ),
-
+          // 'BookingScreen': (context) => BookingScreen(
+          //       doctor: 'staticModel',
+          //     ),
           // 'MyAppointmentList': (context) => MyAppointmentList(),
           'profilescreen': (context) => profilescreen(),
-
           // 'SearchList': (context) => SearchList(),
-
-          'MyAppointments': (context) => MyAppointments(),
-          // 'FacePage': (context) => FacePage(),
-          // 'splash': (context) => Splash()
-          // 'test': (context) => const TestPage(),
+          // 'MyAppointments': (context) => MyAppointments(),
           'questionnaire': (context) => questionnaireScreen(),
           'register': (context) => const RegisterScreen(),
           '/ar/home': (context) => const HomePageeAr(),
