@@ -141,24 +141,41 @@ class _LoginContentState extends State<LoginContent>
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 135, vertical: 16),
       child: ElevatedButton(
-        onPressed: () async {
-          await SignUp(emailController, passwordController);
-          saveUser(
-              downloadURL,
-              nameController.text,
-              emailController.text,
-              passwordController.text,
-              genderController.text,
-              phoneController.text,
-              '1',
-              ageController.text,
-              'user');
-          //controller lazm yet7ol text
-          if (formKey.currentState!.validate()) {
-            const snackBar = SnackBar(content: Text('Submitting form'));
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          }
-          Navigator.pushNamed(context, '/ar/home');
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                    title:
+                        const Text('سياسة خصوصية المستخدم واستخدام البيانات'),
+                    content: const Text(
+                        'تم تصميم تطبيق الهاتف المحمول الخاص بنا لاكتشاف مرض باركنسون ومتابعته ("EasyPark") لمساعدة المستخدمين على إدارة صحتهم وعافيتهم. بصفتنا مقدمًا لتطبيق طبي ، فإننا نأخذ خصوصية المستخدم واستخدام البيانات على محمل الجد. توضح هذه السياسة كيفية جمع بيانات المستخدم وتخزينها واستخدامها.\nسياسة خصوصية المستخدم واستخدام البيانات: نقوم بجمع المعلومات الشخصية والصحية لتقديم توصيات صحية ، وتحسين التطبيق ، والتواصل مع المستخدمين. نحن لا نشارك بيانات المستخدم إلا بموافقة أو لأسباب بحثية. نحمي بيانات المستخدم بالتشفير والمراقبة. يمكن للمستخدمين الوصول إلى بياناتهم أو تعديلها أو حذفها.'),
+                    actions: [
+                      TextButton(
+                        child: const Text('Agreed'),
+                        onPressed: () async {
+                          await SignUp(emailController, passwordController);
+                          saveUser(
+                              downloadURL,
+                              nameController.text,
+                              emailController.text,
+                              passwordController.text,
+                              genderController.text,
+                              phoneController.text,
+                              '1',
+                              ageController.text,
+                              'user');
+                          //controller lazm yet7ol text
+                          if (formKey.currentState!.validate()) {
+                            const snackBar =
+                                SnackBar(content: Text('Submitting form'));
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                          }
+                          Navigator.pushNamed(context, '/ar/home');
+                        },
+                      ),
+                    ],
+                  ));
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 14),
