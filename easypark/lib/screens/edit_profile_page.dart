@@ -181,9 +181,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
         ),
       );
 }
-//           final userId = user?.uid;
 
-//           // Delete the user's data from Firebase
 //          await FirebaseFirestore.instance.collection('users').doc(userId).delete();
 
 //           // Navigate to the login screen
