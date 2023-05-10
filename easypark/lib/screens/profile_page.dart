@@ -1,18 +1,3 @@
-
-// class _ProfilePageState extends State<ProfilePage> {
-//   @override
-//   Widget build(BuildContext context) {
-//     final user = UserPreferences.myUser;
-
-//     return Scaffold(
-//         appBar: buildAppBar(context),
-//         body: ListView(
-//           physics: BouncingScrollPhysics(),
-//           children: [
-//             ProfileWidget(
-//               imagePath: user.imagePath,
-//               onClicked: () {
-//                 Navigator.of(context).push(
 //                   MaterialPageRoute(builder: (context) => EditProfilePage()),
 //                 );
 //               },
