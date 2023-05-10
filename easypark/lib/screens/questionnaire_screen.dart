@@ -33,10 +33,6 @@ class _questionnaireScreenState extends State<questionnaireScreen> {
                     onPressed: () => Navigator.of(context).pop(),
                   ),
                   const SizedBox(width: 16),
-                  // const Text(
-                  //   "Questionnaire",
-                  //   style: TextStyle(color: Colors.white, fontSize: 24),
-                  // ),
                 ],
               ),
               _questionWidget(),
