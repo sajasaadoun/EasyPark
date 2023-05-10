@@ -83,23 +83,23 @@ class _HomeScreenState extends State<QuestionnaireDbAr> {
   }
 
   // create a function for changing color
-  void checkAnswerAndUpdate(int value) {
+  void checkAnswerAndUpdate(String value) {
     if (isAlreadySelected) {
       return;
     } else {
-      if (value == 0) {
+      if (value == "0A") {
         score += 0;
       }
-      if (value == 1) {
+      if (value == "1A") {
         score += 1;
       }
-      if (value == 2) {
+      if (value == "2A") {
         score += 2;
       }
-      if (value == 3) {
+      if (value == "3A") {
         score += 3;
       }
-      if (value == 4) {
+      if (value == "4A") {
         score += 4;
       }
       setState(() {
@@ -171,14 +171,15 @@ class _HomeScreenState extends State<QuestionnaireDbAr> {
                           i++)
                         GestureDetector(
                           onTap: () => checkAnswerAndUpdate(
-                              extractedData[index].options.values.toList()[i]),
+                              extractedData[index].options.keys.toList()[i]),
                           child: OptionCard(
                             option:
-                                extractedData[index].options.keys.toList()[i],
+                                extractedData[index].options.values.toList()[i],
                             color: isPressed
+                                // ignore: unrelated_type_equality_checks
                                 ? extractedData[index]
                                             .options
-                                            .values
+                                            .keys
                                             .toList()[i] ==
                                         extractedData[index]
                                     ? Colors.green
