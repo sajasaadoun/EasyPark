@@ -48,9 +48,9 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     ref.putFile(file);
   }
 
-//******************end-upload************** */
+//*****************end-upload************* */
 
-//***************Select picture************** */
+//**************Select picture************* */
   Future selectFile() async {
     final result = await FilePicker.platform.pickFiles();
     if (result == null) return;
@@ -59,7 +59,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
     });
   }
 
-//*****************end-select******************* */
+//****************end-select****************** */
   @override
   Widget build(BuildContext context) => Scaffold(
         //appBar: buildAppBar(context),
@@ -182,9 +182,6 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
       );
 }
 
-//  onPressed: ()async {
-//                 await FirebaseAuth.instance.signOut();
-
 //           // Get the current user's ID
 //           final user = FirebaseAuth.instance.currentUser;
 //           final userId = user?.uid;
@@ -194,4 +191,4 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
 
 //           // Navigate to the login screen
 //           Navigator.of(context).pushReplacementNamed('/h');
-//               }
+//               }
