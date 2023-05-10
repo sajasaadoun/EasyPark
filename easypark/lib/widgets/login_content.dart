@@ -141,24 +141,44 @@ class _LoginContentState extends State<LoginContent>
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 135, vertical: 16),
       child: ElevatedButton(
-        onPressed: () async {
-          await SignUp(emailController, passwordController);
-          saveUser(
-              downloadURL,
-              nameController.text,
-              emailController.text,
-              passwordController.text,
-              genderController.text,
-              phoneController.text,
-              '1',
-              ageController.text,
-              'user');
-          //controller lazm yet7ol text
-          if (formKey.currentState!.validate()) {
-            const snackBar = SnackBar(content: Text('Submitting form'));
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          }
-          Navigator.pushNamed(context, 'home');
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                    title: const Text('User Privacy and Data Use Policy'),
+                    content: const Text(
+                        'Our Parkinson detection and follow up mobile application ("EasyPark") is designed to help users manage their health and wellbeing. As a provider of a medical app, we take user privacy and data use seriously. This policy outlines how we collect, store, and use user data.\nUser Privacy and Data Use Policy: We collect personal and health information to provide health recommendations, improve the app, and communicate with users. We do not share user data except with consent or for research reasons. We protect user data with encryption and monitoring. Users can access, modify, or delete their data.'),
+                    actions: [
+                      TextButton(
+                        child: const Text('Disagree'),
+                        onPressed: () {},
+                      ),
+                      TextButton(
+                        child: const Text('Agree'),
+                        onPressed: () async {
+                          await SignUp(emailController, passwordController);
+                          saveUser(
+                              downloadURL,
+                              nameController.text,
+                              emailController.text,
+                              passwordController.text,
+                              genderController.text,
+                              phoneController.text,
+                              '1',
+                              ageController.text,
+                              'user');
+                          //controller lazm yet7ol text
+                          if (formKey.currentState!.validate()) {
+                            const snackBar =
+                                SnackBar(content: Text('Submitting form'));
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                          }
+                          Navigator.pushNamed(context, 'home');
+                        },
+                      ),
+                    ],
+                  ));
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 14),
