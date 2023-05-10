@@ -182,8 +182,6 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
       );
 }
 
-//          await FirebaseFirestore.instance.collection('users').doc(userId).delete();
-
 //           // Navigate to the login screen
 //           Navigator.of(context).pushReplacementNamed('/h');
 //               }
