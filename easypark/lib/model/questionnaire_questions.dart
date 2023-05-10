@@ -377,7 +377,7 @@ List<Question> getQuestions() {
           "1: Slight: I have a bit of trouble turning, but I do not need any help.",
           true),
       Answer(
-          "2: Mild I have a lot of trouble turning and need occasional help from someone else.",
+          "2: Mild: I have a lot of trouble turning and need occasional help from someone else.",
           true),
       Answer("3: Moderate: To turn over I often need help from someone else.",
           true),
