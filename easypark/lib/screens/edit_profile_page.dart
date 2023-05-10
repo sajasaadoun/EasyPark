@@ -181,9 +181,6 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
         ),
       );
 }
-
-//           // Get the current user's ID
-//           final user = FirebaseAuth.instance.currentUser;
 //           final userId = user?.uid;
 
 //           // Delete the user's data from Firebase
