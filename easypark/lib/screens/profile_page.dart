@@ -1,14 +1,3 @@
-// import 'package:flutter/material.dart';
-// import 'package:easypark/model/user.dart';
-// import 'package:easypark/screens/edit_profile_page.dart';
-// import 'package:easypark/utils/user_preferences.dart';
-// import 'package:easypark/widgets/appbar_widget.dart';
-// import 'package:easypark/widgets/profile_widget.dart';
-
-// class ProfilePage extends StatefulWidget {
-//   @override
-//   _ProfilePageState createState() => _ProfilePageState();
-// }
 
 // class _ProfilePageState extends State<ProfilePage> {
 //   @override
