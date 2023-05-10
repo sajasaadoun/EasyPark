@@ -206,21 +206,21 @@ class _InsertDataState extends State<InsertData> {
                 onPressed: () {
                   Map<dynamic, dynamic> questionsAr = {
                     'options': {
-                      option0ControllerAr.text: 0,
-                      option1ControllerAr.text: 1,
-                      option2ControllerAr.text: 2,
-                      option3ControllerAr.text: 3,
-                      option4ControllerAr.text: 4
+                      "0A": option0ControllerAr.text,
+                      "1A": option1ControllerAr.text,
+                      "2A": option2ControllerAr.text,
+                      "3A": option3ControllerAr.text,
+                      "4A": option4ControllerAr.text
                     },
                     'title': questionControllerAr.text
                   };
                   Map<dynamic, dynamic> questions = {
                     'options': {
-                      option0Controller.text: 0,
-                      option1Controller.text: 1,
-                      option2Controller.text: 2,
-                      option3Controller.text: 3,
-                      option4Controller.text: 4
+                      "0A": option0Controller.text,
+                      "1A": option1Controller.text,
+                      "2A": option2Controller.text,
+                      "3A": option3Controller.text,
+                      "4A": option4Controller.text
                     },
                     'title': questionController.text
                   };
