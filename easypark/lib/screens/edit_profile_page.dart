@@ -230,22 +230,22 @@ class _EditProfilePageState extends State<EditProfilePage> {
                     //#######################end-update#######################
 
                     //##############################delete########################
-                    Container(
-                      height: 50,
-                      padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                      child: ElevatedButton(
-                        child: const Text("Delete My account"),
-                        onPressed: () {
-                          final docUser = FirebaseFirestore.instance
-                              .collection('users')
-                              .doc(userID);
+                    // Container(
+                    //   height: 50,
+                    //   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    //   child: ElevatedButton(
+                    //     child: const Text("Delete My account"),
+                    //     onPressed: () {
+                    //       final docUser = FirebaseFirestore.instance
+                    //           .collection('users')
+                    //           .doc(userID);
 
-                          docUser.delete();
-                          FirebaseAuth.instance.signOut();
-                          Navigator.pushNamed(context, 'login');
-                        },
-                      ),
-                    ),
+                    //       docUser.delete();
+                    //       FirebaseAuth.instance.signOut();
+                    //       Navigator.pushNamed(context, 'login');
+                    //     },
+                    //   ),
+                    // ),
                   ],
                 )),
           ),
