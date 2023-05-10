@@ -1,14 +1,3 @@
-//                   MaterialPageRoute(builder: (context) => EditProfilePage()),
-//                 );
-//               },
-//             ),
-//             const SizedBox(height: 24),
-//             buildName(user),
-//             const SizedBox(height: 48),
-//             buildAbout(user),
-//           ],
-//         ));
-//   }
 
 //   Widget buildName(User user) => Column(
 //         children: [
