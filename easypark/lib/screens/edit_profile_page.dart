@@ -90,42 +90,7 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
             // ),
             // ElevatedButton(
             //     onPressed: uploadFile, child: const Text("upload image")),
-            // ######################update################################
-            ElevatedButton(
-              child: Text("Update"),
-              onPressed: (() {
-                userData.updateUserDetails(
-                    nameController.text,
-                    emailController.text,
-                    passwordController.text,
-                    ageController.text,
-                    phoneController.text);
-              }),
-            ),
-            //#######################end-update#######################
 
-            //##############################delete########################
-            ElevatedButton(
-              child: const Text("Delete My account"),
-              onPressed: () {
-                final docUser =
-                    FirebaseFirestore.instance.collection('users').doc(userID);
-
-                docUser.update({
-                  'firstname': FieldValue.delete(),
-                  'lastname': FieldValue.delete(),
-                  'email': FieldValue.delete(),
-                  'nationality': FieldValue.delete(),
-                  'password': FieldValue.delete(),
-                  'DateOfBirth': FieldValue.delete(),
-                  'role': FieldValue.delete(),
-                  'phoneNum': FieldValue.delete(),
-                  'id': FieldValue.delete(),
-                });
-                FirebaseAuth.instance.signOut();
-              },
-            ),
-            //#################################end-delete#############################
             const SizedBox(height: 24),
             TextField(
               controller: nameController,
@@ -177,6 +142,42 @@ class _EditProfilePageState extends ConsumerState<EditProfilePage> {
               ),
             ),
             const SizedBox(height: 24),
+            // ######################update################################
+            ElevatedButton(
+              child: Text("Update"),
+              onPressed: (() {
+                userData.updateUserDetails(
+                    nameController.text,
+                    emailController.text,
+                    passwordController.text,
+                    ageController.text,
+                    phoneController.text);
+              }),
+            ),
+            //#######################end-update#######################
+
+            //##############################delete########################
+            ElevatedButton(
+              child: const Text("Delete My account"),
+              onPressed: () {
+                final docUser =
+                    FirebaseFirestore.instance.collection('users').doc(userID);
+
+                docUser.update({
+                  'firstname': FieldValue.delete(),
+                  'lastname': FieldValue.delete(),
+                  'email': FieldValue.delete(),
+                  'nationality': FieldValue.delete(),
+                  'password': FieldValue.delete(),
+                  'DateOfBirth': FieldValue.delete(),
+                  'role': FieldValue.delete(),
+                  'phoneNum': FieldValue.delete(),
+                  'id': FieldValue.delete(),
+                });
+                FirebaseAuth.instance.signOut();
+              },
+            ),
+            //#################################end-delete#############################
           ],
         ),
       );
