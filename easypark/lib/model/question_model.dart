@@ -1,7 +1,7 @@
 class Question {
   final String id;
   final String title;
-  final Map<String, int> options;
+  final Map<String, String> options;
 
   // create a constructor
   Question({
