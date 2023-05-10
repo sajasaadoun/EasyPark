@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/ar/home',
+        initialRoute: 'edit',
         routes: {
           '/ar/home': (context) => const HomePageeAr(),
           '/ar/question': (context) => const QuestionsScreenAr(),
