@@ -320,11 +320,11 @@ class _SpeechPageState extends State<SpeechPage> {
                             fontSize: 16, fontWeight: FontWeight.w500),
                       ),
                       SizedBox(height: 48),
-                      // UploadButtonWidget(
-                      //   text: 'Upload File',
-                      //   icon: Icons.cloud_upload_outlined,
-                      //   onClicked: uploadFile,
-                      // ),
+                      UploadButtonWidget(
+                        text: 'Upload File',
+                        icon: Icons.cloud_upload_outlined,
+                        onClicked: uploadFile,
+                      ),
                       SizedBox(height: 20),
                       task != null ? buildUploadStatus(task!) : Container(),
                     ],
