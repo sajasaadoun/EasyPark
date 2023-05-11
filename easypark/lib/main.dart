@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/ar/home',
         routes: {
-          '/ar/home': (context) => const HomePageeAr(),
+          //'/ar/home': (context) => const HomePageeAr(),
           //'record': (context) => PatientReport(),
           '/ar/question': (context) => const QuestionsScreenAr(),
           '/ar/OptionsScreen': (context) => MyPlansScreenAr(),
