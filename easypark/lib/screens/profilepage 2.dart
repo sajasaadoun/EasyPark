@@ -1,21 +1,3 @@
-
-//       appBar: AppBar(
-//         title: Text(
-//           "Profile",
-//           style: TextStyle(color: Colors.black),
-//         ),
-//         centerTitle: true,
-//         elevation: 0,
-//         backgroundColor: Colors.white,
-//       ),
-//       body: Container(
-//           decoration: BoxDecoration(
-//               image: DecorationImage(
-//             image: AssetImage('assets/doctor.png'),
-//             colorFilter: new ColorFilter.mode(
-//                 Colors.black.withOpacity(0.2), BlendMode.dstATop),
-//             fit: BoxFit.fill,
-//           )),
 //           child: ListView(
 //             children: [
 //               SizedBox(
