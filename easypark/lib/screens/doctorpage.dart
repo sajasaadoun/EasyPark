@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../provider/patientInfo_provider.dart';
+import '../widgets/nearbyPatients.dart';
+import '../widgets/nearby_doctors.dart';
 
 class DoctorPage extends ConsumerStatefulWidget {
   const DoctorPage({super.key});
@@ -271,138 +273,7 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
               ),
             ),
             const SizedBox(height: 25),
-            Expanded(
-                child: PatientInfo.when(
-                    data: (value) => SafeArea(
-                          child: ListView(
-                            scrollDirection: Axis.horizontal,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(left: 25.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.deepPurple[100],
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      Image.asset(
-                                        'assets/images/doctor1.jpg',
-                                        height: 40,
-                                      ),
-                                      const Text('Ahmed Kamal'),
-                                      const Text('Patient ID:A46'),
-                                      const SizedBox(height: 10),
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          color: Color.fromARGB(
-                                              255, 208, 205, 214),
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                        ),
-                                        child: TextButton(
-                                          onPressed: () {
-                                            // Add logic to navigate to the patient details screen
-                                          },
-                                          child: const Text(
-                                            'View Patient',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 25.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.deepPurple[100],
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      Image.asset(
-                                        'assets/images/doctor1.jpg',
-                                        height: 40,
-                                      ),
-                                      Row(
-                                          // ignore: prefer_const_literals_to_create_immutables
-                                          // children: [
-                                          //   const Icon(Icons.star),
-                                          //   const Text('4'),
-                                          // ],
-                                          ),
-                                      const Text('Noha Saeed'),
-                                      const Text('Patient ID:N78'),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 25.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.deepPurple[100],
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      Image.asset(
-                                        'assets/images/doctor1.jpg',
-                                        height: 40,
-                                      ),
-                                      Row(
-                                          // ignore: prefer_const_literals_to_create_immutables
-                                          // children: [
-                                          //   const Icon(Icons.star),
-                                          //   const Text('4'),
-                                          // ],
-                                          ),
-                                      const Text('Mary Sameer'),
-                                      const Text('Patient ID: M80 '),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 25.0),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.deepPurple[100],
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  child: Column(
-                                    children: [
-                                      Image.asset(
-                                        'assets/images/doctor2.jpg',
-                                        height: 40,
-                                      ),
-                                      Row(
-                                          // ignore: prefer_const_literals_to_create_immutables
-                                          // children: [
-                                          //   const Icon(Icons.star),
-                                          //   const Text('4'),
-                                          // ],
-                                          ),
-                                      const Text('Ahmed Marzoaa'),
-                                      const Text('Patient ID:K12'),
-                                    ],
-                                  ),
-                                ),
-                              )
-                            ],
-                          ),
-                        ),
-                    error: (Object error, StackTrace stackTrace) {
-                      return const Text("Error loading your plans");
-                    },
-                    loading: () {
-                      return const Center(child: CircularProgressIndicator());
-                    }))
+            Expanded(child: SingleChildScrollView(child: NearbyPatients())),
           ],
         ),
       ),
