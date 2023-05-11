@@ -131,7 +131,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                               if (value == null || value.isEmpty) {
                                 return 'please enter your Email';
                               } else if (!value.contains('@') ||
-                                  value.contains('.')) {
+                                  !value.contains('.')) {
                                 return 'please enter a valid Email';
                               }
                               return null;
