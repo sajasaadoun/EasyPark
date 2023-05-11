@@ -30,7 +30,11 @@ class ResultBox extends StatelessWidget {
             const SizedBox(height: 20.0),
             CircleAvatar(
               child: Text(
-                ' Level $result',
+                result <= 1
+                    ? 'Mild' // when the result is half of the questions
+                    : result > 3
+                        ? 'Severe' // when the result is less than half
+                        : 'Moderate ',
                 style: const TextStyle(fontSize: 30.0),
               ),
               radius: 70.0,
