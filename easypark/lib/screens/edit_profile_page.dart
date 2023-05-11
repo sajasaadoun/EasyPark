@@ -158,6 +158,14 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           labelText: 'Password',
                           hintText: 'Enter your password',
                         ),
+                        validator: ((value) {
+                          if (value == null || value.isEmpty) {
+                            return 'please enter your password';
+                          } else if (value.length < 8) {
+                            return 'password must be at least 8 characters';
+                          }
+                          return null;
+                        }),
                       ),
                     ),
                     Container(
