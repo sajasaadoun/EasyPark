@@ -186,7 +186,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             labelText: 'Phone',
                             hintText: 'Enter your phone number',
                           ),
-                          validator: (value) {}),
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter your phone number';
+                            } else if (!RegExp(r'^\d{11}$').hasMatch(value)) {
+                              return 'Your phone number should be 11 number';
+                            } else {
+                              return null;
+                            }
+                          }),
                     ),
                     // ######################update################################
                     Container(
