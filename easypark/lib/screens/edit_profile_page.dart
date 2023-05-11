@@ -118,24 +118,24 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           }),
                     ),
                     Container(
-                      padding: const EdgeInsets.all(10),
-                      child: TextFormField(
-                          controller: emailController,
-                          keyboardType: TextInputType.text,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Email',
-                            hintText: 'Enter your email',
-                          ),
-                          validator: (value) {
-                            if (value!.isEmpty ||
-                                !RegExp('.+@.+\..+').hasMatch(value)) {
-                              return "enter a city";
-                            } else {
+                        padding: const EdgeInsets.all(10),
+                        child: TextFormField(
+                            controller: emailController,
+                            keyboardType: TextInputType.text,
+                            decoration: const InputDecoration(
+                              border: OutlineInputBorder(),
+                              labelText: 'Email',
+                              hintText: 'Enter your email',
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'please enter your Email';
+                              } else if (!value.contains('@') ||
+                                  value.contains('.')) {
+                                return 'please enter a valid Email';
+                              }
                               return null;
-                            }
-                          }),
-                    ),
+                            })),
                     Container(
                       padding: const EdgeInsets.all(10),
                       child: TextFormField(
