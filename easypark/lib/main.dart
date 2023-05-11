@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/ar/insertQuestions',
+        initialRoute: 'insertQuestions',
         routes: {
           //'/ar/home': (context) => const HomePageeAr(),
           //'record': (context) => PatientReport(),
