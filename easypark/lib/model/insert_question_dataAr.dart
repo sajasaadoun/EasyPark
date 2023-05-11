@@ -264,8 +264,8 @@ class _InsertDataState extends State<InsertData> {
                           ));
                 },
                 child: const Text('Submit / اضف السؤال'),
-                color: Colors.blue,
-                textColor: Colors.white,
+                color: Colors.white,
+                textColor: Colors.blue,
                 minWidth: 300,
                 height: 40,
               ),
