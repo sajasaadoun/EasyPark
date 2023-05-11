@@ -13,6 +13,7 @@ import 'package:easypark/screens/record.dart';
 import 'package:easypark/screens/profilefinal.dart';
 import 'package:easypark/screens/upload-file-W.dart';
 import 'package:easypark/screens/upload-file-WS.dart';
+import 'package:easypark/screensar/profilepageEN.dart';
 import 'model/myAppointmentList.dart';
 import 'screens/appointment_screen.dart';
 import 'package:easypark/screens/doctor_info_screen.dart';
@@ -71,7 +72,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/',
+        initialRoute: 'profile',
         routes: {
           //'/ar/home': (context) => const HomePageeAr(),
           //'record': (context) => PatientReport(),
@@ -86,6 +87,7 @@ class MyApp extends StatelessWidget {
           '/ar/doctor': (context) => const DoctorPageArr(),
           '/ar/uploadFileWS': (context) => uploadFileWSAr(),
           '/ar/uploadFileW': (context) => uploadFileWAr(),
+          'profile': (context) => profilescreenEN(),
           '/ar/DoctorsInfo': (context) => DoctorInfoAr(),
           '/ar/login': (context) => const LoginScreenAr(),
           // '/ar/BookingScreen': (context) => const BookingScreenAr(doctor: 'staticModel'),
