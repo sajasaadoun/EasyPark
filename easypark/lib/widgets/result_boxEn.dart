@@ -24,17 +24,17 @@ class ResultBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              ' مستوى الخطورة',
+              'Result',
               style: TextStyle(color: Colors.white, fontSize: 22.0),
             ),
             const SizedBox(height: 20.0),
             CircleAvatar(
               child: Text(
                 result <= 1
-                    ? 'خفيف' // when the result is half of the questions
+                    ? 'Mild' // when the result is half of the questions
                     : result > 3
-                        ? 'شديد' // when the result is less than half
-                        : 'متوسط',
+                        ? 'Severe' // when the result is less than half
+                        : 'Moderate ',
                 style: const TextStyle(fontSize: 30.0),
               ),
               radius: 70.0,
@@ -47,21 +47,21 @@ class ResultBox extends StatelessWidget {
             const SizedBox(height: 20.0),
             Text(
               result == 0
-                  ? 'نتيجة مبشره' // when the result is half of the questions
-                  : result > 3
-                      ? 'برجاء التوجه الى طبيب' // when the result is less than half
-                      : 'برجاء التوجه الى طبيب', // when the result is more than half
+                  ? 'No worries results' // when the result is half of the questions
+                  : result < 3
+                      ? 'No worries, Should follow up with Doctor' // when the result is less than half
+                      : 'Should see doctor Immediately ', // when the result is more than half
               style: const TextStyle(color: Colors.white),
             ),
             const SizedBox(height: 25.0),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, '/ar/home');
+                  Navigator.pushNamed(context, 'home');
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue[600],
                 ),
-                child: const Text('انتهاء')),
+                child: const Text('Finish')),
           ],
         ),
       ),

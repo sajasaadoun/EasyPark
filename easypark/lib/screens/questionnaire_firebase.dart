@@ -2,21 +2,21 @@ import 'package:flutter/material.dart';
 // import '../constants.dart';
 import '../model/question_model.dart'; // our question model
 import '../widgets/question_widget.dart'; // the question widget
-import '../widgets/next_button.dart';
+import '../widgets/next_buttonEn.dart';
 import '../widgets/option_card.dart';
-import '../widgets/result_box.dart';
-import '../model/db_connectAr.dart';
+import '../widgets/result_boxEn.dart';
+import '../model/db_connect.dart';
 
 // create the HomeScreen widget
 // I'm taking the Stateful widget because it's going to be our parent widget and all the functions and variables will be in this widget so we will need to change state of our widget.
-class QuestionnaireDbAr extends StatefulWidget {
-  const QuestionnaireDbAr({Key? key}) : super(key: key);
+class QuestionnaireDb extends StatefulWidget {
+  const QuestionnaireDb({Key? key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<QuestionnaireDbAr> {
+class _HomeScreenState extends State<QuestionnaireDb> {
   // create an object for Dbconnect
   var db = DBconnect();
   // List<Question> _questions = [
@@ -137,14 +137,14 @@ class _HomeScreenState extends State<QuestionnaireDbAr> {
               // change the background
               backgroundColor: Colors.blue,
               appBar: AppBar(
-                title: const Text('استبيان'),
+                title: const Text('Questionnaire'),
                 backgroundColor: Colors.blue,
                 shadowColor: Colors.transparent,
                 actions: [
                   Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Text(
-                      'نتيجة: $score',
+                      'Score: $score',
                       style: const TextStyle(fontSize: 15.0),
                     ),
                   ),
@@ -214,7 +214,7 @@ class _HomeScreenState extends State<QuestionnaireDbAr> {
                 const CircularProgressIndicator(),
                 const SizedBox(height: 20.0),
                 Text(
-                  'يرجى الانتظار حتى يتم تحميل الأسئلة..',
+                  'Please wait while the questions load...',
                   style: TextStyle(
                     color: Theme.of(context).primaryColor,
                     decoration: TextDecoration.none,
@@ -227,7 +227,7 @@ class _HomeScreenState extends State<QuestionnaireDbAr> {
         }
 
         return const Center(
-          child: Text('لايوجد بيانات'),
+          child: Text('No Data '),
         );
       },
     );

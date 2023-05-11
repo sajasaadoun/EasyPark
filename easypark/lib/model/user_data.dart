@@ -1,18 +1,3 @@
-// import 'package:easypark/model/user.dart';
-// import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-// class UserPreferences {
-//   static const myUser = User(
-//     imagePath: 'https://cdn-icons-png.flaticon.com/512/146/146007.png',
-//     name: 'Amir',
-//     email: 'amir1912710@miuegypt.edu.eg',
-//     password: '123456',
-//     about:
-//         'A MIU Computer science students works on EasyPark Graduation project acts as Patient in this application.',
-//     isDarkMode: false,
-//   );
-// }
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -45,17 +30,16 @@ class UserData {
     return documentSnapshot;
   }
 
-  Future updateUserDetails(String userName, String userEmail, String password,
-      String age, String phone) async {
+  Future updateUserDetails(
+      String userName, String userEmail, String password, String ln) async {
     final updateUser =
         FirebaseFirestore.instance.collection('users').doc(userID);
     updateUser.update(
       {
-        'name': userName.trim(),
+        'firstname': userName.trim(),
         'email': userEmail.trim(),
         'password': password.trim(),
-        'age': age.trim(),
-        'phone': phone.trim(),
+        'lastname': ln.trim(),
       },
     );
   }

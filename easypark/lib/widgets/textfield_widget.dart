@@ -12,6 +12,7 @@ class TextFieldWidget extends StatefulWidget {
     required this.label,
     required this.text,
     required this.onChanged,
+    required TextEditingController controller,
   }) : super(key: key);
 
   @override
