@@ -130,43 +130,61 @@ class profilescreen extends StatelessWidget {
       ],
     );
     return Scaffold(
-        body: Column(children: <Widget>[
-      SizedBox(
-        height: kSpacingUnit.w * 5,
+      body: Column(
+        children: <Widget>[
+          SizedBox(
+            height: kSpacingUnit.w * 5,
+          ),
+          header,
+          SizedBox(height: 200),
+          Expanded(
+            child: ListView(
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('User Privacy and Data Use Policy'),
+                          content: Text(
+                              'Our Parkinson detection and follow up mobile application ("EasyPark") is designed to help users manage their health and wellbeing. As a provider of a medical app, we take user privacy and data use seriously. This policy outlines how we collect, store, and use user data.\nUser Privacy and Data Use Policy: We collect personal and health information to provide health recommendations, improve the app, and communicate with users. We do not share user data except with consent or for research reasons. We protect user data with encryption and monitoring. Users can access, modify, or delete their data.'),
+                          actions: [
+                            TextButton(
+                              child: Text('OK'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: ProfileListItem(
+                    icon: LineAwesomeIcons.user_shield,
+                    text: 'privacy',
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: 16), // add some spacing between the buttons
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => EditProfilePage()),
+              );
+            },
+            child: ProfileListItem(
+              icon: LineAwesomeIcons.alternate_sign_out,
+              text: 'Logout',
+            ),
+          ),
+        ],
       ),
-      header,
-      Expanded(
-        child: ListView(
-          children: <Widget>[
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => EditProfilePage()),
-                );
-              },
-              child: ProfileListItem(
-                icon: LineAwesomeIcons.user_shield,
-                text: 'privacy',
-              ),
-            ),
-            SizedBox(height: 16), // add some spacing between the buttons
-            GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => EditProfilePage()),
-                );
-              },
-              child: ProfileListItem(
-                icon: LineAwesomeIcons.alternate_sign_out,
-                text: 'Logout',
-              ),
-            ),
-          ],
-        ),
-      )
-    ]));
+    );
   }
 }
 
