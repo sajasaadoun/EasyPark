@@ -27,7 +27,25 @@ class _AddQuestionsState extends State<AddQuestions> {
     // final double height = MediaQuery.of(context).size.height;
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
-        key: scaffoldKey,
+         key: scaffoldKey,
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0,
+          title: Text(
+      'Add A New Question to the questionnaire',
+      style: TextStyle(fontSize: 15, color: Theme.of(context).primaryColor),
+    ),
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, 'admin');
+            },
+            child: const Icon(
+              Icons.arrow_back_ios,
+              size: 20,
+              color: Colors.black,
+            ),
+          ),
+        ),
         body: Container(
           child: SingleChildScrollView(
               child: Padding(
@@ -36,6 +54,13 @@ class _AddQuestionsState extends State<AddQuestions> {
                       key: formkey,
                       child: Column(
                         children: [
+                            Container(
+                              alignment: Alignment.center,
+                              padding: const EdgeInsets.all(10),
+                              child: const Text(
+                                'Enter the question with its five options ',
+                                style: TextStyle(fontSize: 20),
+                              )),
                           Container(
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
@@ -43,7 +68,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                               controller: question,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'question',
+                                labelText: 'Question',
                               ),
                             ),
                           ),
@@ -54,7 +79,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                               controller: option1,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'option1 ',
+                                labelText: 'Option 1 ',
                               ),
                             ),
                           ),
@@ -65,7 +90,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                               controller: option2,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'option2 ',
+                                labelText: 'Option 2 ',
                               ),
                             ),
                           ),
@@ -76,7 +101,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                               controller: option3,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'option3',
+                                labelText: 'Option 3',
                               ),
                             ),
                           ),
@@ -87,7 +112,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                               controller: option4,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'option4',
+                                labelText: 'Option 4',
                               ),
                             ),
                           ),
@@ -98,7 +123,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                               controller: option5,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'option5 ',
+                                labelText: 'Option 5 ',
                               ),
                             ),
                           ),
