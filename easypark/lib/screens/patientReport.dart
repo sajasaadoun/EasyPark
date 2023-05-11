@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class PatientReport extends ConsumerStatefulWidget {
-final DocumentSnapshot document;
-PatientReport(this.document);
+  // final DocumentSnapshot document;
+  // PatientReport(this.document);
   @override
- ConsumerState<PatientReport> createState() => _PatientReportState();
+  ConsumerState<PatientReport> createState() => _PatientReportState();
 }
 
 class _PatientReportState extends ConsumerState<PatientReport> {
@@ -19,8 +19,13 @@ class _PatientReportState extends ConsumerState<PatientReport> {
   void _savePatientReport() {
     // Save the data entered by the user to a database or file.
     print('Patient Name: $_patientName');
-    print('Diagnosis: $_diagnosis');
     print('Age: $_age');
+    print('Diagnosis: $_diagnosis');
+    print('Severity Level: $_age');
+    print('Spiral Test Result: $_age');
+    print('Wave Test Result: $_age');
+    print('Face Test Result: $_age');
+    print('Voice Test Result: $_age');
     print('Medications: ${_medicationsController.text}');
   }
 
@@ -81,6 +86,66 @@ class _PatientReportState extends ConsumerState<PatientReport> {
                 SizedBox(height: 16.0),
                 Text(
                   'Diagnosis:',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8.0),
+                Text(
+                  _diagnosis,
+                  style: TextStyle(fontSize: 16.0),
+                ),
+                SizedBox(height: 16.0),
+                Text(
+                  'Severity Level:',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8.0),
+                Text(
+                  _diagnosis,
+                  style: TextStyle(fontSize: 16.0),
+                ),
+                SizedBox(height: 16.0),
+                Text(
+                  'Spiral Test Result:',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8.0),
+                Text(
+                  _diagnosis,
+                  style: TextStyle(fontSize: 16.0),
+                ),
+                SizedBox(height: 16.0),
+                Text(
+                  'Wave Test Result:',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8.0),
+                Text(
+                  _diagnosis,
+                  style: TextStyle(fontSize: 16.0),
+                ),
+                SizedBox(height: 16.0),
+                Text(
+                  'Face Test Result:',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 8.0),
+                Text(
+                  _diagnosis,
+                  style: TextStyle(fontSize: 16.0),
+                ),
+                SizedBox(height: 16.0),
+                Text(
+                  'Voice Test Result:',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),

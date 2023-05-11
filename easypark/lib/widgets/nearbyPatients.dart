@@ -5,20 +5,21 @@ import '../model/doctor_static_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 // import '../screens/doctor_info.dart';
 import '../provider/doctor_provider.dart';
+import '../provider/patientInfo_provider.dart';
 import '../screens/doctor_info_screen.dart';
 
-class NearbyDoctors extends ConsumerStatefulWidget {
-  const NearbyDoctors({Key? key}) : super(key: key);
+class NearbyPatients extends ConsumerStatefulWidget {
+  const NearbyPatients({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<NearbyDoctors> createState() => _NearbyDoctorsScreenState();
+  ConsumerState<NearbyPatients> createState() => _NearbyPatientsScreenState();
 }
 
-class _NearbyDoctorsScreenState extends ConsumerState<NearbyDoctors> {
+class _NearbyPatientsScreenState extends ConsumerState<NearbyPatients> {
   @override
   Widget build(BuildContext context) {
-    final Doctors = ref.watch(doctorsDataProvider);
-    return Doctors.when(
+    final Patients = ref.watch(patientInfoProvider);
+    return Patients.when(
         data: (value) => SafeArea(
               child: Column(
                 children: List.generate(value.docs.length, (index) {
@@ -39,10 +40,10 @@ class _NearbyDoctorsScreenState extends ConsumerState<NearbyDoctors> {
                             height: 100,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
-                              image: DecorationImage(
-                                image: AssetImage(nearbyDoctors[index].profile),
-                                fit: BoxFit.cover,
-                              ),
+                              // image: DecorationImage(
+                              //   // image: AssetImage(NearbyPatients[index].profile),
+                              //   fit: BoxFit.cover,
+                              // ),
                             ),
                           ),
                           const SizedBox(width: 10),
@@ -51,13 +52,14 @@ class _NearbyDoctorsScreenState extends ConsumerState<NearbyDoctors> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Dr. ${value.docs[index].get('name')}",
+                                  "${value.docs[index].get('name')}",
                                   style: const TextStyle(
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 const SizedBox(height: 8),
-                                Text("${value.docs[index].get('location')}"),
+                                Text(
+                                    "${value.docs[index].get('Age')} Years Old"),
                                 const SizedBox(height: 16),
                                 Row(
                                   children: [
@@ -70,12 +72,12 @@ class _NearbyDoctorsScreenState extends ConsumerState<NearbyDoctors> {
                                       padding:
                                           EdgeInsets.only(left: 4, right: 6),
                                       child: Text(
-                                        "4.0",
+                                        "",
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold),
                                       ),
                                     ),
-                                    const Text("195 Reviews")
+                                    // const Text("195 Reviews")
                                   ],
                                 )
                               ],
@@ -106,7 +108,6 @@ class _NearbyDoctorsScreenState extends ConsumerState<NearbyDoctors> {
         },
         loading: () {
           return const Center(child: CircularProgressIndicator());
-        }
-        );
+        });
   }
 }

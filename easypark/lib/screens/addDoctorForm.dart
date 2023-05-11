@@ -102,13 +102,6 @@ class _DoctorFormState extends State<DoctorForm> {
           ),
         ),
         body: Container(
-          // ignore: prefer_const_constructors
-          decoration: BoxDecoration(
-              // image: DecorationImage(
-              //   image: const AssetImage("assets/desert.jpg"),
-              //   fit: BoxFit.cover,
-              // ),
-              ),
           child: SingleChildScrollView(
               child: Padding(
                   padding: const EdgeInsets.all(10),

@@ -40,7 +40,7 @@ class AdminPanell extends StatelessWidget {
                     icon: Icons.add,
                     title: 'Add Doctor',
                     onTap: () {
-                      Navigator.pushNamed(context, 'form');
+                      Navigator.pushNamed(context, 'addDrEng');
                     },
                   ),
                   _buildListTile(
@@ -50,20 +50,6 @@ class AdminPanell extends StatelessWidget {
                      Navigator.pushNamed(context, 'deleteDr');
                     },
                   ),
-                  // _buildListTile(
-                  //   icon: Icons.add,
-                  //   title: 'Add Patient',
-                  //   onTap: () {
-                  //     // TODO: Implement the add patient functionality
-                  //   },
-                  // ),
-                  // _buildListTile(
-                  //   icon: Icons.delete,
-                  //   title: 'Delete Patient',
-                  //   onTap: () {
-                  //     // TODO: Implement the delete patient functionality
-                  //   },
-                  // ),
                   _buildListTile(
                     icon: Icons.edit,
                     title: 'Edit Questionnaire',
