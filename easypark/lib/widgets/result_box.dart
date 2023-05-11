@@ -24,13 +24,17 @@ class ResultBox extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Result',
+              ' مستوى الخطورة',
               style: TextStyle(color: Colors.white, fontSize: 22.0),
             ),
             const SizedBox(height: 20.0),
             CircleAvatar(
               child: Text(
-                ' المستوي $result',
+                result <= 1
+                    ? 'خفيف' // when the result is half of the questions
+                    : result > 3
+                        ? 'شديد' // when the result is less than half
+                        : 'متوسط',
                 style: const TextStyle(fontSize: 30.0),
               ),
               radius: 70.0,
@@ -57,7 +61,7 @@ class ResultBox extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue[600],
                 ),
-                child: const Text('Finish')),
+                child: const Text('انتهاء')),
           ],
         ),
       ),
