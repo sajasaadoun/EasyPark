@@ -59,7 +59,7 @@ class _UpcomingCardState extends State<UpcomingCard> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Welcome Back Nathalie",
+                "Welcome Back",
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
