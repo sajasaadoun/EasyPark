@@ -93,7 +93,7 @@ class MyApp extends StatelessWidget {
           '/ar/deleteDr': (context) => deleteDoctorAr(),
           '/ar/addQuestions': (context) => const AddQuestionsAr(),
           '/ar/questionTest': (context) => const QuestionnaireDbAr(),
-          // '/ar/insertQuestions': (context) => const InsertData(),
+          '/ar/insertQuestions': (context) => const InsertData(),
 
           'questionTest': (context) => const QuestionnaireDb(),
 
@@ -112,6 +112,8 @@ class MyApp extends StatelessWidget {
           'register': (context) => const RegisterScreen(),
 
           'addquestion': (context) => AddQuestions(),
+          'insertQuestions': (context) => const InsertData(),
+
           'record': (context) => recordPage(),
           'addDrEng': (context) => DoctorForm(),
           'edit': (context) => EditProfilePage(),
