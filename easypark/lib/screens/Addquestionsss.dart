@@ -27,14 +27,15 @@ class _AddQuestionsState extends State<AddQuestions> {
     // final double height = MediaQuery.of(context).size.height;
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
-         key: scaffoldKey,
+        key: scaffoldKey,
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 0,
           title: Text(
-      'Add A New Question to the questionnaire',
-      style: TextStyle(fontSize: 15, color: Theme.of(context).primaryColor),
-    ),
+            'Add A New Question to the questionnaire',
+            style:
+                TextStyle(fontSize: 15, color: Theme.of(context).primaryColor),
+          ),
           leading: GestureDetector(
             onTap: () {
               Navigator.pushNamed(context, 'admin');
@@ -54,7 +55,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                       key: formkey,
                       child: Column(
                         children: [
-                            Container(
+                          Container(
                               alignment: Alignment.center,
                               padding: const EdgeInsets.all(10),
                               child: const Text(

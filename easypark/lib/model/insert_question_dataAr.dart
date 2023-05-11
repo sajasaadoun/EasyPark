@@ -37,7 +37,22 @@ class _InsertDataState extends State<InsertData> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Insert Question / اضف سؤال'),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Text(
+          'Add A New Question / أضف سؤال جديد',
+          style: TextStyle(fontSize: 15, color: Theme.of(context).primaryColor),
+        ),
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pushNamed(context, 'admin');
+          },
+          child: const Icon(
+            Icons.arrow_back_ios,
+            size: 20,
+            color: Colors.black,
+          ),
+        ),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -249,8 +264,8 @@ class _InsertDataState extends State<InsertData> {
                           ));
                 },
                 child: const Text('Submit / اضف السؤال'),
-                color: Colors.blue,
-                textColor: Colors.white,
+                color: Colors.white,
+                textColor: Colors.blue,
                 minWidth: 300,
                 height: 40,
               ),

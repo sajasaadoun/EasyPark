@@ -98,6 +98,7 @@ class MyApp extends StatelessWidget {
           '/ar/insertQuestions': (context) => const InsertData(),
 
           'questionTest': (context) => const QuestionnaireDb(),
+          'insertQuestions': (context) => const InsertData(),
 
           'DoctorsInfo': (context) => DoctorInfo(),
           'OptionsScreen': (context) => MyPlansScreen(),
