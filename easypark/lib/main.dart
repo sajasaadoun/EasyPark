@@ -91,7 +91,7 @@ class MyApp extends StatelessWidget {
           '/ar/deleteDr': (context) => deleteDoctorAr(),
           '/ar/addQuestions': (context) => const AddQuestionsAr(),
           '/ar/questionTest': (context) => const QuestionnaireDbAr(),
-          '/ar/insertQuestions': (context) => const InsertData(),
+          // '/ar/insertQuestions': (context) => const InsertData(),
 
           'DoctorsInfo': (context) => DoctorInfo(),
           'OptionsScreen': (context) => MyPlansScreen(),
