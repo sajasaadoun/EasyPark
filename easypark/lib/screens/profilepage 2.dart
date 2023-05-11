@@ -1,26 +1,3 @@
-//           child: ListView(
-//             children: [
-//               SizedBox(
-//                 height: 30,
-//               ),
-//               Container(
-//                 margin: const EdgeInsets.fromLTRB(25, 15, 25, 15),
-//                 // padding: EdgeInsets.all(8.0),
-//                 child:
-//                     Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-//                   CircleAvatar(
-//                     radius: 55,
-//                     // child: Align(
-//                     // alignment: Alignment.bottomRight,
-//                     // child: Icon(Icons.change_circle_outlined,color: Colors.blueAccent,size: 30,)),
-//                     backgroundImage: AssetImage("doc.jpg"),
-//                   ),
-//                   SizedBox(
-//                     width: 36,
-//                   ),
-//                   Card("USER1", "patient", 25, 19),
-//                 ]),
-//               ),
 //               Container(
 //                 decoration: BoxDecoration(
 //                     border: Border.all(color: Colors.orangeAccent),
