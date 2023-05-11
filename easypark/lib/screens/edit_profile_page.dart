@@ -110,9 +110,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                             hintText: 'please Enter your name',
                           ),
                           validator: (value) {
-                            if (value!.isEmpty ||
-                                !RegExp('[a-zA-Z]').hasMatch(value)) {
-                              return "enter a correct name";
+                            if (value == null || value.isEmpty) {
+                              return "enter a your name";
                             } else {
                               return null;
                             }
