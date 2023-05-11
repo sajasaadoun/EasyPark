@@ -136,18 +136,36 @@ class profilescreen extends StatelessWidget {
       ),
       header,
       Expanded(
-          child: ListView(
-        children: const <Widget>[
-          ProfileListItem(
-            icon: LineAwesomeIcons.user_shield,
-            text: 'privacy',
-          ),
-          ProfileListItem(
-            icon: LineAwesomeIcons.alternate_sign_out,
-            text: 'Logout',
-          )
-        ],
-      ))
+        child: ListView(
+          children: <Widget>[
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EditProfilePage()),
+                );
+              },
+              child: ProfileListItem(
+                icon: LineAwesomeIcons.user_shield,
+                text: 'privacy',
+              ),
+            ),
+            SizedBox(height: 16), // add some spacing between the buttons
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EditProfilePage()),
+                );
+              },
+              child: ProfileListItem(
+                icon: LineAwesomeIcons.alternate_sign_out,
+                text: 'Logout',
+              ),
+            ),
+          ],
+        ),
+      )
     ]));
   }
 }
