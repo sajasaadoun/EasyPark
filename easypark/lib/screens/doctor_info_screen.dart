@@ -177,9 +177,9 @@ class _DoctorInfoState extends ConsumerState<DoctorInfo> {
                                           context: context,
                                           builder: (BuildContext context) {
                                             return AlertDialog(
-                                              title: Text('Test'),
+                                              title: Text('DR Phone'),
                                               content: Text(
-                                                  "${value.docs[index].get('email')}"),
+                                                  "${value.docs[index].get('phone')}"),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () {
@@ -225,7 +225,7 @@ class _DoctorInfoState extends ConsumerState<DoctorInfo> {
                                             return AlertDialog(
                                               title: Text('DR Email'),
                                               content: Text(
-                                                  "${value.docs[index].get('phone')}"),
+                                                  "${value.docs[index].get('name')}@gmail.com"),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () {
