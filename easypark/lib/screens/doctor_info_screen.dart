@@ -173,7 +173,24 @@ class _DoctorInfoState extends ConsumerState<DoctorInfo> {
                                     ),
                                     child: ElevatedButton(
                                       onPressed: () {
-                                        // Handle the button press event
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: Text('Test'),
+                                              content: Text(
+                                                  "${value.docs[index].get('email')}"),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Text('OK'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
                                       },
                                       style: ElevatedButton.styleFrom(
                                         primary: Colors.transparent,
@@ -196,15 +213,36 @@ class _DoctorInfoState extends ConsumerState<DoctorInfo> {
                                     height: 45,
                                     width: 45,
                                     decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: LightColor.grey.withAlpha(150)),
-                                    child: const Icon(
-                                      Icons.chat_bubble,
-                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: LightColor.grey.withAlpha(150),
                                     ),
-                                  ).ripple(
-                                    () {},
-                                    borderRadius: BorderRadius.circular(10),
+                                    child: InkWell(
+                                      borderRadius: BorderRadius.circular(10),
+                                      onTap: () {
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: Text('DR Email'),
+                                              content: Text(
+                                                  "${value.docs[index].get('phone')}"),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Text('OK'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      },
+                                      child: Icon(
+                                        Icons.chat_bubble,
+                                        color: Colors.white,
+                                      ),
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 10,
