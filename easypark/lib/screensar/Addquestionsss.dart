@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:easypark/model/ques_model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-import '../model/qs_Model.dart';
 
 class AddQuestionsAr extends StatefulWidget {
   const AddQuestionsAr({Key? key}) : super(key: key);
