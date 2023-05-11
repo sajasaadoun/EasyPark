@@ -146,6 +146,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           labelText: 'Age',
                           hintText: 'Enter your age',
                         ),
+                        validator: (value) => {
+                          if(value==null||value.isEmpty){
+                            return'please enter your age ';
+
+                          }
+                        },
                       ),
                     ),
                     Container(
