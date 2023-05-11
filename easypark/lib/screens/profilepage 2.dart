@@ -1,31 +1,3 @@
-              ),
-              Container(
-                // decoration: BoxDecoration(color: Colors.white.withOpacity(0.5)),
-                margin: const EdgeInsets.fromLTRB(25, 15, 25, 15),
-                // padding: EdgeInsets.all(20.0),
-                child: Column(
-                    // margin: const EdgeInsets.fromLTRB(25,15,25,15),
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Card("Edit Profile", "Details", 20, 16),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text("Edit"),
-                      ),
-                      SizedBox(height: 20),
-                      Card("about", "Details", 20, 16),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text("view"),
-                      ),
-                      SizedBox(height: 20),
-                      Card("logout", "Details", 20, 16),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text("LOGOUT"),
-                      )
-                    ]),
-              ),
               // Container(
               //   margin: const EdgeInsets.fromLTRB(25, 15, 25, 15),
               //   // padding: EdgeInsets.all(20.0),
