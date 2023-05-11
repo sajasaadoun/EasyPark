@@ -107,7 +107,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           decoration: const InputDecoration(
                             border: OutlineInputBorder(),
                             labelText: 'Name',
-                            hintText: 'Enter your name',
+                            hintText: 'please Enter your name',
                           ),
                           validator: (value) {
                             if (value!.isEmpty ||
