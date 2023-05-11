@@ -92,6 +92,7 @@ class MyApp extends StatelessWidget {
           '/ar/login': (context) => const LoginScreenAr(),
           // '/ar/BookingScreen': (context) => const BookingScreenAr(doctor: 'staticModel'),
           '/ar/MyAppointments': (context) => MyAppointmentsAr(),
+          'myappoinment': (context) => MyAppointments(),
           '/ar/deleteDr': (context) => deleteDoctorAr(),
           '/ar/addQuestions': (context) => const AddQuestionsAr(),
           '/ar/questionTest': (context) => const QuestionnaireDbAr(),
