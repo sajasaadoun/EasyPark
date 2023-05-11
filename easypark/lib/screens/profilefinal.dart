@@ -1,6 +1,8 @@
 import 'dart:ffi';
 
 import 'package:easypark/constants.dart';
+import 'package:easypark/screens/login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:easypark/model/user.dart';
@@ -169,13 +171,20 @@ class profilescreen extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(height: 16), // add some spacing between the buttons
+          // add some spacing between the buttons
           GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => EditProfilePage()),
-              );
+            onTap: () async {
+              try {
+                await FirebaseAuth.instance.signOut();
+                print("looging out done");
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  (route) => false,
+                );
+              } catch (e) {
+                print('Error logging out: $e');
+              }
             },
             child: ProfileListItem(
               icon: LineAwesomeIcons.alternate_sign_out,
