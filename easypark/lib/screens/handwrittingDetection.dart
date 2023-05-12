@@ -61,6 +61,7 @@ class _HandwrittingDetectionState extends State<HandwrittingDetection> {
     request.headers.addAll(headers);
     final response = await request.send();
     http.Response res = await http.Response.fromStream(response);
+
     if (response.statusCode == 200) {
       final resJson = jsonDecode(res.body);
       message = resJson['message'].toString();
