@@ -72,7 +72,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/ar/admin',
+        initialRoute: 'report',
         routes: {
           '/ar/home': (context) => const HomePageeAr(),
           'report': (context) => PatientReport(),
@@ -97,10 +97,8 @@ class MyApp extends StatelessWidget {
           '/ar/addQuestions': (context) => const AddQuestionsAr(),
           '/ar/questionTest': (context) => const QuestionnaireDbAr(),
           '/ar/insertQuestions': (context) => const InsertData(),
-
           'questionTest': (context) => const QuestionnaireDb(),
           'insertQuestions': (context) => const InsertData(),
-
           'DoctorsInfo': (context) => DoctorInfo(),
           'OptionsScreen': (context) => MyPlansScreen(),
           'MyAlertDialog': (context) => MyAlertDialog(),
@@ -114,16 +112,13 @@ class MyApp extends StatelessWidget {
           // 'SearchList': (context) => SearchList(),
           'MyAppointments': (context) => MyAppointments(),
           'register': (context) => const RegisterScreen(),
-
           'addquestion': (context) => AddQuestions(),
           'insertQuestions': (context) => const InsertData(),
-
           'record': (context) => recordPage(),
           'addDrEng': (context) => DoctorForm(),
           'edit': (context) => EditProfilePage(),
           'profile': (context) => profilescreen(),
           'deleteDr': (context) => deleteDoctor(),
-
           'admin': (context) => const AdminPanell(),
           'doctor': (context) => const DoctorPage(),
           'home': (context) => const HomePagee(),
@@ -140,64 +135,6 @@ class MyApp extends StatelessWidget {
           'spiral': (context) => const HandwrittingDetection(),
           'waveDetection': (context) => const WaveDetection(),
           'camera': (context) => const CameraScreen(),
-          // 'DoctorsInfo': (context) => DoctorInfo(),
-          // 'OptionsScreen': (context) => MyPlansScreen(),
-          // 'MyAlertDialog': (context) => MyAlertDialog(),
-          // 'appoint': (context) => ReserveScreen(),
-          // 'ChatScreen': (context) => ChatScreen(user: staticUser),
-          // 'ChatFirst': (context) => const ChatFirst(),
-          // 'uploadFileWS': (context) => uploadFileWS(),
-          // 'uploadFileW': (context) => uploadFileW(),
-          // 'BookingScreen': (context) => BookingScreen(
-          //       doctor: 'staticModel',
-          //     ),
-          // 'MyAppointmentList': (context) => MyAppointmentList(),
-          // 'profilescreen': (context) => profilescreen(),
-          // // 'SearchList': (context) => SearchList(),
-          // 'MyAppointments': (context) => MyAppointments(),
-          // 'questionnaire': (context) => questionnaireScreen(),
-          // 'register': (context) => const RegisterScreen(),
-
-          // '/ar/home': (context) => const HomePageeAr(),
-          // '/ar/quiz': (context) => const questionnaireScreenAr(),
-          // '/ar/question': (context) => const QuestionsScreenAr(),
-          // '/ar/OptionsScreen': (context) => MyPlansScreenAr(),
-          // '/ar/speech': (context) => const SpeechPageAr(),
-          // '/ar/facepg': (context) => const faceDetectionAr(),
-          // '/ar/spiral': (context) => const HandwrittingDetectionAr(),
-          // '/ar/report': (context) => PatientReportAr(),
-          // '/ar/admin': (context) => const AdminPanellAr(),
-          // '/ar/form': (context) => const DoctorFormAr(),
-          // '/ar/doctor': (context) => const DoctorPageArr(),
-          // '/ar/uploadFileWS': (context) => uploadFileWSAr(),
-          // '/ar/uploadFileW': (context) => uploadFileWAr(),
-          // '/ar/DoctorsInfo': (context) => DoctorInfoAr(),
-          // '/ar/login': (context) => const LoginScreenAr(),
-          // // '/ar/BookingScreen': (context) => const BookingScreenAr(doctor: 'staticModel'),
-          // '/ar/MyAppointments': (context) => MyAppointmentsAr(),
-          // '/ar/deleteDr': (context) => deleteDoctorAr(),
-          // '/ar/addQuestions': (context) => const AddQuestionsAr(),
-
-          //////'report': (context) => PatientReport(),
-
-          // 'loginn': (context) => const LoginScreen(),
-          // 'test': (context) => const TestPage(),
-          // 'speech': (context) => const SpeechPage(),
-          // 'face': (context) => const FacePage(),
-          // 'login': (context) => const LoginScreen(),
-          // 'question': (context) => const QuestionsScreen(),
-          // 'doctor': (context) => const DoctorPage(),
-          // 'profile': (context) => ProfilePage(),
-          // 'sketch': (context) => const sketchPage(),
-          // 'admin': (context) => const MyAdmin(),
-          // 'facepg': (context) => const FacePage(),
-          // 'spiral': (context) => const HandwrittingDetection(),
-          // 'waveDetection': (context) => const WaveDetection(),
-          // 'camera': (context) => const CameraScreen(),
-          // 'DoctorsInfo': (context) => DoctorInfo(model: staticModel),
-          // 'OptionsScreen': (context) => MyPlansScreen(),
-          // 'MyAlertDialog': (context) => MyAlertDialog(),
-          //'splash': (context) => Splash()
         });
   }
 }
