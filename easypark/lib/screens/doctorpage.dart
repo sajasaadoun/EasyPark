@@ -159,13 +159,13 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
                           ),
                           ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/test');
+                                Navigator.pushNamed(context, 'insertQuestions');
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
                                 elevation: 0,
                               ),
-                              child: const Text('Quetionnaire')),
+                              child: const Text('Add Question')),
                         ],
                       ),
                     ),
