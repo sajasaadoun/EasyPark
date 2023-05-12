@@ -1,12 +1,19 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter_state_notifier/flutter_state_notifier.dart';
+import 'package:gallery_saver/files.dart';
+import 'package:get/get_connect/http/src/response/response.dart';
+import 'package:http/http.dart' as http;
+
+import 'package:image_picker/image_picker.dart';
 import 'package:scribble/scribble.dart';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:googleapis/drive/v3.dart' as drive;
 import 'package:googleapis_auth/googleapis_auth.dart' as auth;
+import 'dart:convert';
+import 'dart:io';
 
 class sketchPage extends StatefulWidget {
   const sketchPage({super.key});
@@ -16,6 +23,13 @@ class sketchPage extends StatefulWidget {
 
 class _sketchPageState extends State<sketchPage> {
   late ScribbleNotifier notifier;
+  File? selectedImage;
+  String? message = "";
+
+  // final WaveData = WaveModel();
+
+  File? _image;
+  String downloadURL = '';
 
   @override
   void initState() {
@@ -32,12 +46,15 @@ class _sketchPageState extends State<sketchPage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Draw a spiral or a normal wave'),
+          title: const Text('Draw a spiral or a normal wave'),
           backgroundColor: Colors.deepPurple[100],
           leading: IconButton(
             icon: const Icon(Icons.save),
             tooltip: "Save to Image",
-            onPressed: () => _saveImage(context),
+            onPressed: () {
+              // getImage();
+              uploadImage();
+            },
           ),
         ),
         body: SingleChildScrollView(
@@ -66,6 +83,10 @@ class _sketchPageState extends State<sketchPage> {
             ),
           ),
         ),
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: getImage,
+        //   child: const Icon(Icons.add_a_photo),
+        // ),
       ),
     );
   }
@@ -81,113 +102,29 @@ class _sketchPageState extends State<sketchPage> {
     );
   }
 
-  // Future<void> _saveImage(BuildContext context) async {
-  //   final image = await notifier.renderImage();
-  //   final directory = await getApplicationDocumentsDirectory();
-  //   final imagePath = '${directory.path}/my_image.png';
-  //   final imageFile = File(imagePath);
-  //   await imageFile.writeAsBytes(image.buffer.asUint8List());
-  //   showDialog(
-  //     context: context,
-  //     builder: (context) => AlertDialog(
-  //       title: const Text("Your Image"),
-  //       content: Image.memory(image.buffer.asUint8List()),
-  //     ),
-  //   );
-  // }
+  uploadImage() async {
+    var url = "http://192.168.1.3:8000/upload";
+    final request = http.MultipartRequest("POST", Uri.parse(url));
 
-  // Future<void> _saveImage(BuildContext context) async {
-  //   // Request permission to access the device's external storage
-  //   final status = await Permission.storage.request();
-  //   if (status != PermissionStatus.granted) {
-  //     showDialog(
-  //       context: context,
-  //       builder: (context) => AlertDialog(
-  //         title: const Text("Permission denied"),
-  //         content: const Text("Please grant permission to access storage."),
-  //       ),
-  //     );
-  //     return;
-  //   }
+    final headers = {"Content-type": "multipart/form-data"};
 
-  //   final image = await notifier.renderImage();
-  //   final directory =
-  //       await getExternalStorageDirectory(); // Use external storage directory instead of application documents directory
-  //   final imagePath =
-  //       '${directory!.path}/my_image.png'; // Use the directory path from getExternalStorageDirectory()
-  //   final imageFile = File(imagePath);
-  //   print('Image saved to: $imagePath');
-  //   await imageFile.writeAsBytes(image.buffer.asUint8List());
-  //   showDialog(
-  //     context: context,
-  //     builder: (context) => AlertDialog(
-  //       title: const Text("Your Image"),
-  //       content: Image.memory(image.buffer.asUint8List()),
-  //     ),
-  //   );
-  // }
+    request.files.add(http.MultipartFile('image',
+        selectedImage!.readAsBytes().asStream(), selectedImage!.lengthSync(),
+        filename: selectedImage!.path.split("/").last));
 
-//   Future<void> _saveImage(BuildContext context) async {
-//   // Request permission to access the device's external storage
-//   final status = await Permission.storage.request();
-//   if (status != PermissionStatus.granted) {
-//     showDialog(
-//       context: context,
-//       builder: (context) => AlertDialog(
-//         title: const Text("Permission denied"),
-//         content: const Text("Please grant permission to access storage."),
-//       ),
-//     );
-//     return;
-//   }
-
-//   final image = await notifier.renderImage();
-//   final directory =
-//       await getExternalStorageDirectory(); // Use external storage directory instead of application documents directory
-//   final imagePath =
-//       '${directory!.path}/my_image.png'; // Use the directory path from getExternalStorageDirectory()
-//   final imageFile = File(imagePath);
-//   print('Image saved to: $imagePath');
-//   await imageFile.writeAsBytes(image.buffer.asUint8List());
-
-//   try {
-//     // Authenticate with Google Drive
-//     final clientId = 'YOUR_CLIENT_ID_HERE';
-//     final clientSecret = 'YOUR_CLIENT_SECRET_HERE';
-//     final scopes = [drive.DriveApi.driveAppdataScope];
-//     final client = await auth.clientViaUserConsent(
-//       ClientId(clientId, clientSecret),
-//       scopes,
-//       prompt,
-//     );
-
-//     // Create a new file on the user's Google Drive and upload the image
-//     final driveApi = drive.DriveApi(client);
-//     final file = drive.File();
-//     file.name = 'my_image.png';
-//     file.parents = ['appDataFolder'];
-//     final media = drive.Media(imageFile.openRead(), imageFile.lengthSync());
-//     await driveApi.files.create(file, uploadMedia: media);
-
-//     // Show a dialog to confirm that the image was saved to Google Drive
-//     showDialog(
-//       context: context,
-//       builder: (context) => AlertDialog(
-//         title: const Text("Your Image"),
-//         content: const Text("Your image was saved to Google Drive."),
-//       ),
-//     );
-//   } catch (e) {
-//     print('Error saving image to Google Drive: $e');
-//     showDialog(
-//       context: context,
-//       builder: (context) => AlertDialog(
-//         title: const Text("Error"),
-//         content: const Text("An error occurred while saving your image to Google Drive."),
-//       ),
-//     );
-//   }
-// }
+    request.headers.addAll(headers);
+    final response = await request.send();
+    http.Response res = await http.Response.fromStream(response);
+    if (response.statusCode == 200) {
+      final resJson = jsonDecode(res.body);
+      message = resJson['message'].toString();
+      setState(() {});
+      print('here');
+    } else {
+      print('Failed ${response.statusCode}');
+      message = 'failed';
+    }
+  }
 
   Widget _buildStrokeToolbar(BuildContext context) {
     return StateNotifierBuilder<ScribbleState>(
