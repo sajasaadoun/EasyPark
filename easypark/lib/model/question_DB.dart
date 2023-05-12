@@ -18,17 +18,19 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-        child: Column(children: [
-          const Text(
-            "Questionnaire",
-            style: TextStyle(color: Colors.black, fontSize: 24),
-          ),
-          _questionWidget(),
-          _answerList(),
-          _nextButton(),
-        ]),
+      body: SingleChildScrollView(
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+          child: Column(children: [
+            const Text(
+              "Questionnaire",
+              style: TextStyle(color: Colors.black, fontSize: 24),
+            ),
+            _questionWidget(),
+            _answerList(),
+            _nextButton(),
+          ]),
+        ),
       ),
     );
   }
