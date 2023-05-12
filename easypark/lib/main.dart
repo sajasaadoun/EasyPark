@@ -1,7 +1,6 @@
 import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
-import 'package:easypark/screens/audio.dart';
 import 'package:easypark/screens/booking_screen.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
@@ -9,12 +8,9 @@ import 'package:easypark/screens/chat_screen.dart';
 import 'package:easypark/screens/edit_profile_page.dart';
 import 'package:easypark/screens/delete_doctor.dart';
 import 'package:easypark/screens/Addquestionsss.dart';
-import 'package:easypark/screens/face2.dart';
 import 'package:easypark/screens/patientReport.dart';
-import 'package:easypark/screens/profilefinal.dart';
-import 'package:easypark/screens/questionnaire_screen.dart';
 import 'package:easypark/screens/record.dart';
-import 'package:easypark/screens/test_screen.dart';
+import 'package:easypark/screens/profilefinal.dart';
 import 'package:easypark/screens/upload-file-W.dart';
 import 'package:easypark/screens/upload-file-WS.dart';
 import 'package:easypark/screensar/profilepageEN.dart';
@@ -58,6 +54,7 @@ import 'package:easypark/screensar/questionnaire_firebase.dart';
 import 'package:easypark/model/insert_question_dataAr.dart';
 import 'package:easypark/screens/questionnaire_firebase.dart';
 import 'package:easypark/opening.dart';
+import 'package:easypark/screens/voice_ui.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -78,57 +75,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: 'voiceUI',
         routes: {
-          'face': (context) => Face(),
-          'audio': (context) => AudioPage(),
-          'quest': (context) => AddQuestions(),
-          'record': (context) => recordPage(),
-          // 'upload': (context) => uploadfile(),
-          // 'report': (context) => PatientReport(),
-          'deleteDr': (context) => deleteDoctor(),
-          // '/profile': (context) => profilescreen(),
-          'form': (context) => DoctorForm(),
-          'admin': (context) => const AdminPanell(),
-          'doctor': (context) => const DoctorPage(),
-          'home': (context) => const HomePagee(),
-          '/': (context) => const OpeningPage(),
-          // '/homeDoctor': (context) => const HomePage(),
-          'appoint': (context) => ReserveScreen(),
-          'ChatScreen': (context) => ChatScreen(user: staticUser),
-          'ChatFirst': (context) => const ChatFirst(),
-          'test': (context) => const TestPage(),
-          'speech': (context) => SpeechPage(),
-          'login': (context) => const LoginScreen(),
-          'question': (context) => const QuestionsScreenAr(),
-          //'profile': (context) => ProfilePage(),
-          // 'AppointScreen': (context) => AppointScreen(),
-          'sketch': (context) => const sketchPage(),
-          // 'facepg': (context) => faceDetection(),
-          'spiral': (context) => const HandwrittingDetection(),
-          'waveDetection': (context) => const WaveDetection(),
-          'camera': (context) => const CameraScreen(),
-          'DoctorsInfo': (context) => DoctorInfo(),
-          'OptionsScreen': (context) => MyPlansScreen(),
-          'MyAlertDialog': (context) => MyAlertDialog(),
-          'appoint': (context) => ReserveScreen(),
-          'ChatScreen': (context) => ChatScreen(user: staticUser),
-          'ChatFirst': (context) => const ChatFirst(),
-          'uploadFileWS': (context) => uploadFileWS(),
-          'uploadFileW': (context) => uploadFileW(),
-          // 'BookingScreen': (context) => BookingScreen(
-          //       doctor: 'staticModel',
-          //     ),
+          'voiceUI': (context) => const AudioPage(),
 
-          // 'MyAppointmentList': (context) => MyAppointmentList(),
-          'profilescreen': (context) => profilescreen(),
-
-          // 'SearchList': (context) => SearchList(),
-
-          'MyAppointments': (context) => MyAppointments(),
-          // 'FacePage': (context) => FacePage(),
-          // 'splash': (context) => Splash()
-          // 'test': (context) => const TestPage(),
-          'questionnaire': (context) => questionnaireScreen(),
-          'register': (context) => const RegisterScreen(),
           '/ar/home': (context) => const HomePageeAr(),
           'report': (context) => PatientReport(),
           '/ar/question': (context) => const QuestionsScreenAr(),
@@ -151,10 +99,10 @@ class MyApp extends StatelessWidget {
           '/ar/deleteDr': (context) => deleteDoctorAr(),
           '/ar/addQuestions': (context) => const AddQuestionsAr(),
           '/ar/questionTest': (context) => const QuestionnaireDbAr(),
-          // '/ar/insertQuestions': (context) => const InsertData(),
+          '/ar/insertQuestions': (context) => const InsertData(),
 
           'questionTest': (context) => const QuestionnaireDb(),
-          // 'insertQuestions': (context) => const InsertData(),
+          'insertQuestions': (context) => const InsertData(),
 
           'DoctorsInfo': (context) => DoctorInfo(),
           'OptionsScreen': (context) => MyPlansScreen(),
@@ -164,14 +112,14 @@ class MyApp extends StatelessWidget {
           'ChatFirst': (context) => const ChatFirst(),
           'uploadFileWS': (context) => uploadFileWS(),
           'uploadFileW': (context) => uploadFileW(),
-          // 'BookingScreen': (context) => BookingScreen(doctor: 'staticModel'),
+          'BookingScreen': (context) => BookingScreen(doctor: 'staticModel'),
           'MyAppointmentList': (context) => MyAppointmentList(),
           // 'SearchList': (context) => SearchList(),
           'MyAppointments': (context) => MyAppointments(),
           'register': (context) => const RegisterScreen(),
 
           'addquestion': (context) => AddQuestions(),
-          // 'insertQuestions': (context) => const InsertData(),
+          'insertQuestions': (context) => const InsertData(),
 
           'record': (context) => recordPage(),
           'addDrEng': (context) => DoctorForm(),
