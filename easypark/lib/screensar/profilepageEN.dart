@@ -11,8 +11,8 @@ import 'package:easypark/widgets/profile_widget.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
-class profilescreen extends StatelessWidget {
-  profilescreen({super.key});
+class profilescreenEN extends StatelessWidget {
+  profilescreenEN({super.key});
 
   @override
   Widget build(BuildContext context) {

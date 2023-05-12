@@ -1,6 +1,11 @@
+import 'dart:io';
+import 'dart:math';
+
 import 'package:easypark/screens/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:ionicons/ionicons.dart';
 import '../../../utils/constants.dart';
 import '../model/login_model.dart';
@@ -33,6 +38,28 @@ class _LoginContentState extends State<LoginContent>
   final ageController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
+
+  File? _image;
+  String downloadURL = '';
+  XFile? selectedImage;
+
+  Future saveImage() async {
+    selectedImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+    Reference referenceRoot = FirebaseStorage.instance.ref();
+    Reference referenceDirImage = referenceRoot.child('image');
+    String fileName =
+        '${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(100000)}.jpg';
+    Reference referenceImageToUpload = referenceDirImage.child(fileName);
+    try {
+      await referenceImageToUpload.putFile(File(selectedImage!.path));
+      downloadURL = await referenceImageToUpload.getDownloadURL();
+    } catch (e) {
+      print(e);
+    }
+    setState(() {
+      _image = File(selectedImage!.path);
+    });
+  }
 
   Widget inputField(
       String hint, IconData iconData, TextEditingController controller) {
@@ -83,7 +110,7 @@ class _LoginContentState extends State<LoginContent>
         onPressed: () async {
           try {
             await SignIn(emailController.text, passwordController.text);
-            Navigator.pushNamed(context, '/home');
+            Navigator.pushNamed(context, '/ar/home');
           } on FirebaseAuthException catch (e) {
             if (e.code == 'user-not-found') {
               print('No user found for that email.');
@@ -114,23 +141,41 @@ class _LoginContentState extends State<LoginContent>
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 135, vertical: 16),
       child: ElevatedButton(
-        onPressed: () async {
-          await SignUp(emailController, passwordController);
-          // saveUser(
-          //     nameController.text,
-          //     emailController.text,
-          //     passwordController.text,
-          //     genderController.text,
-          //     phoneController.text,
-          //     '1',
-          //     ageController.text,
-          //     'user');
-          //controller lazm yet7ol text
-          if (formKey.currentState!.validate()) {
-            const snackBar = SnackBar(content: Text('Submitting form'));
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-          }
-          Navigator.pushNamed(context, '/home');
+        onPressed: () {
+          showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                    title:
+                        const Text('سياسة خصوصية المستخدم واستخدام البيانات'),
+                    content: const Text(
+                        'تم تصميم تطبيق الهاتف المحمول الخاص بنا لاكتشاف مرض باركنسون ومتابعته ("EasyPark") لمساعدة المستخدمين على إدارة صحتهم وعافيتهم. بصفتنا مقدمًا لتطبيق طبي ، فإننا نأخذ خصوصية المستخدم واستخدام البيانات على محمل الجد. توضح هذه السياسة كيفية جمع بيانات المستخدم وتخزينها واستخدامها.\nسياسة خصوصية المستخدم واستخدام البيانات: نقوم بجمع المعلومات الشخصية والصحية لتقديم توصيات صحية ، وتحسين التطبيق ، والتواصل مع المستخدمين. نحن لا نشارك بيانات المستخدم إلا بموافقة أو لأسباب بحثية. نحمي بيانات المستخدم بالتشفير والمراقبة. يمكن للمستخدمين الوصول إلى بياناتهم أو تعديلها أو حذفها.'),
+                    actions: [
+                      TextButton(
+                        child: const Text('Agreed'),
+                        onPressed: () async {
+                          await SignUp(emailController, passwordController);
+                          saveUser(
+                              downloadURL,
+                              nameController.text,
+                              emailController.text,
+                              passwordController.text,
+                              genderController.text,
+                              phoneController.text,
+                              '1',
+                              ageController.text,
+                              'user');
+                          //controller lazm yet7ol text
+                          if (formKey.currentState!.validate()) {
+                            const snackBar =
+                                SnackBar(content: Text('Submitting form'));
+                            ScaffoldMessenger.of(context)
+                                .showSnackBar(snackBar);
+                          }
+                          Navigator.pushNamed(context, '/ar/home');
+                        },
+                      ),
+                    ],
+                  ));
         },
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 14),
@@ -279,18 +324,35 @@ class _LoginContentState extends State<LoginContent>
     return Stack(
       children: [
         const Positioned(
-          top: 136,
-          left: 24,
+          top: 45,
+          left: 30,
           child: TopText(),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 100),
           child: Stack(
             children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: createAccountContent,
+              SingleChildScrollView(
+                // add a single child scroll view
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        saveImage();
+                      },
+                      child: CircleAvatar(
+                        radius: 35,
+                        backgroundImage: _image == null
+                            ? const AssetImage('assets/images/userS.jpg')
+                            : FileImage(_image!) as ImageProvider,
+                      ),
+                    ),
+                    ...createAccountContent,
+                  ],
+                  // children: createAccountContent,
+                ),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,

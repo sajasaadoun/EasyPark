@@ -1,19 +1,20 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:easypark/model/ques_model.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import '../model/ques_model.dart';
 
-class AddQuestions extends StatefulWidget {
-  const AddQuestions({Key? key}) : super(key: key);
+
+class AddQuestionsAr extends StatefulWidget {
+  const AddQuestionsAr({Key? key}) : super(key: key);
 
   @override
-  State<AddQuestions> createState() => _AddQuestionsState();
+  State<AddQuestionsAr> createState() => _AddQuestionsState();
 }
 
 final formkey = GlobalKey<FormState>();
 
-class _AddQuestionsState extends State<AddQuestions> {
+class _AddQuestionsState extends State<AddQuestionsAr> {
   final questionData = QuesModel();
   TextEditingController question = TextEditingController();
   TextEditingController option1 = TextEditingController();
@@ -21,6 +22,12 @@ class _AddQuestionsState extends State<AddQuestions> {
   TextEditingController option3 = TextEditingController();
   TextEditingController option4 = TextEditingController();
   TextEditingController option2 = TextEditingController();
+  TextEditingController questionAr = TextEditingController();
+  TextEditingController option1Ar = TextEditingController();
+  TextEditingController option5Ar = TextEditingController();
+  TextEditingController option3Ar = TextEditingController();
+  TextEditingController option4Ar = TextEditingController();
+  TextEditingController option2Ar = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -28,25 +35,6 @@ class _AddQuestionsState extends State<AddQuestions> {
     final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
         key: scaffoldKey,
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          elevation: 0,
-          title: Text(
-            'Add A New Question to the questionnaire',
-            style:
-                TextStyle(fontSize: 15, color: Theme.of(context).primaryColor),
-          ),
-          leading: GestureDetector(
-            onTap: () {
-              Navigator.pushNamed(context, 'admin');
-            },
-            child: const Icon(
-              Icons.arrow_back_ios,
-              size: 20,
-              color: Colors.black,
-            ),
-          ),
-        ),
         body: Container(
           child: SingleChildScrollView(
               child: Padding(
@@ -55,13 +43,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                       key: formkey,
                       child: Column(
                         children: [
-                          Container(
-                              alignment: Alignment.center,
-                              padding: const EdgeInsets.all(10),
-                              child: const Text(
-                                'Enter the question with its five options ',
-                                style: TextStyle(fontSize: 20),
-                              )),
+                          SizedBox(height: 50),
                           Container(
                             padding: const EdgeInsets.all(10),
                             child: TextFormField(
@@ -69,7 +51,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                               controller: question,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'Question',
+                                labelText: 'السؤال بالانجليزية',
                               ),
                             ),
                           ),
@@ -80,7 +62,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                               controller: option1,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'Option 1 ',
+                                labelText: 'الاجابة 1 بالانجليزية ',
                               ),
                             ),
                           ),
@@ -91,7 +73,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                               controller: option2,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'Option 2 ',
+                                labelText: 'الاجابة 2 بالانجليزية ',
                               ),
                             ),
                           ),
@@ -102,7 +84,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                               controller: option3,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'Option 3',
+                                labelText: 'الاجابة 3 بالانجليزية',
                               ),
                             ),
                           ),
@@ -113,7 +95,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                               controller: option4,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'Option 4',
+                                labelText: 'الاجابة 4 بالانجليزي',
                               ),
                             ),
                           ),
@@ -124,7 +106,73 @@ class _AddQuestionsState extends State<AddQuestions> {
                               controller: option5,
                               decoration: const InputDecoration(
                                 border: OutlineInputBorder(),
-                                labelText: 'Option 5 ',
+                                labelText: 'الاجابة 5 بالانجليزي ',
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            child: TextFormField(
+                              style: TextStyle(color: Colors.black),
+                              controller: questionAr,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'السؤال بالعربي',
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            child: TextFormField(
+                              style: TextStyle(color: Colors.black),
+                              controller: option1Ar,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'الاجابة 1 بالعربي ',
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            child: TextFormField(
+                              style: TextStyle(color: Colors.black),
+                              controller: option2Ar,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'الاجابة 2 بالعربي ',
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            child: TextFormField(
+                              style: TextStyle(color: Colors.black),
+                              controller: option3Ar,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'الاجابة 3 بالعربي',
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            child: TextFormField(
+                              style: TextStyle(color: Colors.black),
+                              controller: option4Ar,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'الاجابة 4 بالعربي',
+                              ),
+                            ),
+                          ),
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            child: TextFormField(
+                              style: TextStyle(color: Colors.black),
+                              controller: option5Ar,
+                              decoration: const InputDecoration(
+                                border: OutlineInputBorder(),
+                                labelText: 'الاجابة 5 بالعربي ',
                               ),
                             ),
                           ),
@@ -135,7 +183,7 @@ class _AddQuestionsState extends State<AddQuestions> {
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Theme.of(context).primaryColor,
                               ),
-                              child: const Text('Submit',
+                              child: const Text('تقديم',
                                   style: TextStyle(color: Colors.white)),
                               onPressed: () async {
                                 if (formkey.currentState!.validate()) {

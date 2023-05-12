@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../model/qs_model.dart';
+import '../model/ques_model.dart';
 
 //---------------------EventsProvider------------------------//
 

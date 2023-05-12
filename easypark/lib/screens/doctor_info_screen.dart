@@ -1,5 +1,7 @@
 import 'package:easypark/model/doctor_static_model.dart';
 import 'package:easypark/provider/doctor_provider.dart';
+import 'package:easypark/screens/appointment_screen.dart';
+import 'package:easypark/screens/my_appointments_screen.dart';
 import 'package:easypark/utils/extention.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -165,15 +167,44 @@ class _DoctorInfoState extends ConsumerState<DoctorInfo> {
                                     height: 45,
                                     width: 45,
                                     decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: LightColor.grey.withAlpha(150)),
-                                    child: const Icon(
-                                      Icons.call,
-                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                      color:
+                                          LightColor.lightBlue.withAlpha(150),
                                     ),
-                                  ).ripple(
-                                    () {},
-                                    borderRadius: BorderRadius.circular(10),
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: Text('DR Phone'),
+                                              content: Text(
+                                                  "${value.docs[index].get('phone')}"),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Text('OK'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        primary: Colors.transparent,
+                                        elevation: 0,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                      ),
+                                      child: Icon(
+                                        Icons.call,
+                                        color: Colors.white,
+                                      ),
+                                    ),
                                   ),
                                   const SizedBox(
                                     width: 10,
@@ -182,21 +213,49 @@ class _DoctorInfoState extends ConsumerState<DoctorInfo> {
                                     height: 45,
                                     width: 45,
                                     decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(10),
-                                        color: LightColor.grey.withAlpha(150)),
-                                    child: const Icon(
-                                      Icons.chat_bubble,
-                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: LightColor.grey.withAlpha(150),
                                     ),
-                                  ).ripple(
-                                    () {},
-                                    borderRadius: BorderRadius.circular(10),
+                                    child: InkWell(
+                                      borderRadius: BorderRadius.circular(10),
+                                      onTap: () {
+                                        showDialog(
+                                          context: context,
+                                          builder: (BuildContext context) {
+                                            return AlertDialog(
+                                              title: Text('DR Email'),
+                                              content: Text(
+                                                  "${value.docs[index].get('name')}@gmail.com"),
+                                              actions: [
+                                                TextButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  child: Text('OK'),
+                                                ),
+                                              ],
+                                            );
+                                          },
+                                        );
+                                      },
+                                      child: Icon(
+                                        Icons.chat_bubble,
+                                        color: Colors.white,
+                                      ),
+                                    ),
                                   ),
                                   SizedBox(
                                     width: 10,
                                   ),
                                   ElevatedButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                MyAppointments()),
+                                      );
+                                    },
                                     style: ElevatedButton.styleFrom(
                                       primary: Theme.of(context).primaryColor,
                                       shape: RoundedRectangleBorder(

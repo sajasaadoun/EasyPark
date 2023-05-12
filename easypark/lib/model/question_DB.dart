@@ -1,21 +1,75 @@
 import 'package:flutter/material.dart';
-import 'package:easypark/model/questionnaire_questions.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+class QuestionnaireScreen extends StatefulWidget {
+  const QuestionnaireScreen({Key? key}) : super(key: key);
 
   @override
-  State<QuestionsScreen> createState() => _QuestionsScreenState();
+  _QuestionnaireScreenState createState() => _QuestionnaireScreenState();
 }
 
-class _QuestionsScreenState extends State<QuestionsScreen> {
-  List<Question> questionlist = getQuestions();
+class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
   int currentQuestionIndex = 0;
   int score = 0;
-  Answer? selectedAnswer;
+  List<Map<String, dynamic>> questions = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _getQuestionsFromFirestore();
+  }
+
+  Future<void> _getQuestionsFromFirestore() async {
+    final snapshot =
+        await FirebaseFirestore.instance.collection('questionnaire').get();
+
+    setState(() {
+      questions = snapshot.docs.map((doc) => doc.data()).toList();
+    });
+  }
+
+  void handleAnswer(int index) {
+    bool isCorrect =
+        questions[currentQuestionIndex]['options'][index]['isCorrect'];
+    if (isCorrect) {
+      score++;
+    }
+    if (currentQuestionIndex < questions.length - 1) {
+      setState(() {
+        currentQuestionIndex++;
+      });
+    } else {
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Quiz Results'),
+            content: Text('You scored $score out of ${questions.length}!'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    if (questions.isEmpty) {
+      return Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: Colors.grey[200],
       body: SingleChildScrollView(
@@ -33,106 +87,5 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         ),
       ),
     );
-  }
-
-  _questionWidget() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          "Severity Level Questionnaire ${currentQuestionIndex + 1}/${questionlist.length.toString()}",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        const SizedBox(height: 20),
-        Container(
-          alignment: Alignment.center,
-          width: double.infinity,
-          padding: const EdgeInsets.all(32),
-          decoration: BoxDecoration(
-            color: Colors.blue[600],
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Text(
-            questionlist[currentQuestionIndex].questionText,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
-        )
-      ],
-    );
-  }
-
-  _answerList() {
-    return Column(
-      children: questionlist[currentQuestionIndex]
-          .answerList
-          .map(
-            (e) => _answerButton(e),
-          )
-          .toList(),
-    );
-  }
-
-  Widget _answerButton(Answer answer) {
-    bool isSelected = answer == selectedAnswer;
-
-    return Container(
-        width: double.infinity,
-        margin: const EdgeInsets.symmetric(vertical: 8),
-        height: 48,
-        child: ElevatedButton(
-          child: Text(answer.answerText),
-          style: ElevatedButton.styleFrom(
-            shape: StadiumBorder(),
-            primary: isSelected ? Colors.blue[600] : Colors.white,
-            onPrimary: isSelected ? Colors.white : Colors.black,
-          ),
-          onPressed: () {
-            if (selectedAnswer == null) {
-              if (answer.isCorrect) {
-                score++;
-              }
-            }
-
-            setState(() {
-              selectedAnswer = answer;
-            });
-          },
-        ));
-  }
-
-  _nextButton() {
-    bool isLastQuestion = false;
-    if (currentQuestionIndex == questionlist.length - 1) {
-      isLastQuestion = true;
-    }
-    return Container(
-        width: MediaQuery.of(context).size.width * 0.5,
-        height: 48,
-        child: ElevatedButton(
-          child: Text(isLastQuestion ? "finish" : "next"),
-          style: ElevatedButton.styleFrom(
-            shape: const StadiumBorder(),
-            primary: Colors.blueAccent,
-            onPrimary: Colors.white,
-          ),
-          onPressed: () {
-            if (isLastQuestion) {
-            } else {
-              setState(() {
-                selectedAnswer = null;
-                currentQuestionIndex++;
-              });
-            }
-          },
-        ));
   }
 }

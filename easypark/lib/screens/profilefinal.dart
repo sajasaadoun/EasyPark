@@ -1,6 +1,8 @@
 import 'dart:ffi';
 
 import 'package:easypark/constants.dart';
+import 'package:easypark/screens/login_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:easypark/model/user.dart';
@@ -130,25 +132,68 @@ class profilescreen extends StatelessWidget {
       ],
     );
     return Scaffold(
-        body: Column(children: <Widget>[
-      SizedBox(
-        height: kSpacingUnit.w * 5,
-      ),
-      header,
-      Expanded(
-          child: ListView(
-        children: const <Widget>[
-          ProfileListItem(
-            icon: LineAwesomeIcons.user_shield,
-            text: 'privacy',
+      body: Column(
+        children: <Widget>[
+          SizedBox(
+            height: kSpacingUnit.w * 5,
           ),
-          ProfileListItem(
-            icon: LineAwesomeIcons.alternate_sign_out,
-            text: 'Logout',
-          )
+          header,
+          SizedBox(height: 200),
+          Expanded(
+            child: ListView(
+              children: <Widget>[
+                GestureDetector(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('User Privacy and Data Use Policy'),
+                          content: Text(
+                              'Our Parkinson detection and follow up mobile application ("EasyPark") is designed to help users manage their health and wellbeing. As a provider of a medical app, we take user privacy and data use seriously. This policy outlines how we collect, store, and use user data.\nUser Privacy and Data Use Policy: We collect personal and health information to provide health recommendations, improve the app, and communicate with users. We do not share user data except with consent or for research reasons. We protect user data with encryption and monitoring. Users can access, modify, or delete their data.'),
+                          actions: [
+                            TextButton(
+                              child: Text('OK'),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  child: ProfileListItem(
+                    icon: LineAwesomeIcons.user_shield,
+                    text: 'privacy',
+                  ),
+                ),
+              ],
+            ),
+          ),
+          // add some spacing between the buttons
+          GestureDetector(
+            onTap: () async {
+              try {
+                await FirebaseAuth.instance.signOut();
+                print("looging out done");
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                  (route) => false,
+                );
+              } catch (e) {
+                print('Error logging out: $e');
+              }
+            },
+            child: ProfileListItem(
+              icon: LineAwesomeIcons.alternate_sign_out,
+              text: 'Logout',
+            ),
+          ),
         ],
-      ))
-    ]));
+      ),
+    );
   }
 }
 
