@@ -1,10 +1,15 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:http/http.dart' as http;
+
+import '../model/wave_model.dart';
 
 class WaveDetection extends StatefulWidget {
   const WaveDetection({super.key});
@@ -13,9 +18,36 @@ class WaveDetection extends StatefulWidget {
   State<WaveDetection> createState() => _WaveDetectionState();
 }
 
+final user = FirebaseAuth.instance.currentUser!;
+String userId = user.uid;
+
 class _WaveDetectionState extends State<WaveDetection> {
   File? selectedImage;
   String? message = "";
+
+  final WaveData = WaveModel();
+
+  File? _image;
+  String downloadURL = '';
+  // XFile? selecteImage;
+
+  Future saveImageWave() async {
+    // selecteImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+    Reference referenceRoot = FirebaseStorage.instance.ref();
+    Reference referenceDirImage = referenceRoot.child('image');
+    String fileName =
+        '${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(100000)}.jpg';
+    Reference referenceImageToUpload = referenceDirImage.child(fileName);
+    try {
+      await referenceImageToUpload.putFile(File(selectedImage!.path));
+      downloadURL = await referenceImageToUpload.getDownloadURL();
+    } catch (e) {
+      print(e);
+    }
+    setState(() {
+      _image = File(selectedImage!.path);
+    });
+  }
 
   uploadImage() async {
     var url = "http://192.168.1.3:8000/upload";
@@ -65,8 +97,10 @@ class _WaveDetectionState extends State<WaveDetection> {
                 style: ButtonStyle(
                     backgroundColor:
                         MaterialStateProperty.all(Colors.blue[600])),
-                onPressed: () {
-                  uploadImage();
+                onPressed: () async {
+                  await uploadImage();
+                  await saveImageWave();
+                  WaveData.addUserResults(userId, downloadURL, message!);
                 },
                 icon: const Icon(
                   Icons.upload_file,

@@ -19,8 +19,8 @@ class _UpcomingCardState extends State<UpcomingCard> {
   Widget build(BuildContext context) {
     return Container(
       width: double.maxFinite,
-      height: 150,
-      padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 14),
+      height: 170,
+      padding: const EdgeInsets.symmetric(vertical: 22, horizontal: 20),
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor.withOpacity(0.8),
         borderRadius: BorderRadius.circular(20),
@@ -58,20 +58,41 @@ class _UpcomingCardState extends State<UpcomingCard> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "Welcome Back Nathalie",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.onPrimary,
-                ),
-              ),
-              const SizedBox(height: 5),
-              Text(
-                "We are very welcome that you come back",
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
-                      color: Colors.white70,
-                    ),
+              Consumer(
+                builder: (_, ref, __) {
+                  return ref.watch(userDataProvider).when(
+                    data: (value) {
+                      final name = value.get('name');
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Welcome Back $name",
+                            style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Theme.of(context).colorScheme.onPrimary,
+                            ),
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            "We are very welcome\n that you come back",
+                            style:
+                                Theme.of(context).textTheme.bodyText1!.copyWith(
+                                      color: Colors.white70,
+                                    ),
+                          ),
+                        ],
+                      );
+                    },
+                    error: (Object error, StackTrace err) {
+                      return const Text("Error loading your name");
+                    },
+                    loading: () {
+                      return const Text("Loading...");
+                    },
+                  );
+                },
               ),
               const SizedBox(height: 10),
               Container(
@@ -101,7 +122,7 @@ class _UpcomingCardState extends State<UpcomingCard> {
                         child: const Padding(
                           padding: EdgeInsets.only(left: 15, right: 10),
                           child: Text(
-                            "Results",
+                            "Result",
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
@@ -116,7 +137,7 @@ class _UpcomingCardState extends State<UpcomingCard> {
                         child: const Padding(
                           padding: EdgeInsets.only(left: 15, right: 10),
                           child: Text(
-                            "Appointment",
+                            "Appoint",
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
