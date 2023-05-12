@@ -1,10 +1,6 @@
 import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
-// import 'package:easypark/screens/OLDadmin_screen.dart';
-import 'package:easypark/model/chat_user.dart';
-import 'package:easypark/screens/appoint_screen.dart';
-import 'package:easypark/screens/audio.dart';
 import 'package:easypark/screens/booking_screen.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
@@ -12,7 +8,10 @@ import 'package:easypark/screens/chat_screen.dart';
 import 'package:easypark/screens/edit_profile_page.dart';
 import 'package:easypark/screens/delete_doctor.dart';
 import 'package:easypark/screens/Addquestionsss.dart';
-import 'package:easypark/screens/face2.dart';
+import 'package:easypark/screens/patientReport.dart';
+import 'package:easypark/screens/record.dart';
+import 'package:easypark/screens/profilefinal.dart';
+import 'package:easypark/screens/upload-file-W.dart';
 import 'package:easypark/screens/upload-file-WS.dart';
 import 'package:easypark/screensar/profilepageEN.dart';
 import 'model/myAppointmentList.dart';
@@ -73,59 +72,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'home',
+        initialRoute: 'voiceUI',
         routes: {
-          'face': (context) => Face(),
-          'audio': (context) => AudioPage(),
-          'quest': (context) => AddQuestions(),
-          'record': (context) => recordPage(),
-          'upload': (context) => uploadfile(),
-          // 'report': (context) => PatientReport(),
-          'deleteDr': (context) => deleteDoctor(),
-          // '/profile': (context) => profilescreen(),
-          'form': (context) => DoctorForm(),
-          'admin': (context) => const AdminPanell(),
-          'doctor': (context) => const DoctorPage(),
-          'home': (context) => const HomePagee(),
-          '/': (context) => const OpeningPage(),
-          // '/homeDoctor': (context) => const HomePage(),
-          'appoint': (context) => ReserveScreen(),
-          'ChatScreen': (context) => ChatScreen(user: staticUser),
-          'ChatFirst': (context) => const ChatFirst(),
-          'test': (context) => const TestPage(),
-          'speech': (context) => SpeechPage(),
-          'login': (context) => const LoginScreen(),
-          'question': (context) => const QuestionsScreen(),
-          //'profile': (context) => ProfilePage(),
-          // 'AppointScreen': (context) => AppointScreen(),
-          'sketch': (context) => const sketchPage(),
-          // 'facepg': (context) => faceDetection(),
-          'spiral': (context) => const HandwrittingDetection(),
-          'waveDetection': (context) => const WaveDetection(),
-          'camera': (context) => const CameraScreen(),
-          'DoctorsInfo': (context) => DoctorInfo(),
-          'OptionsScreen': (context) => MyPlansScreen(),
-          'MyAlertDialog': (context) => MyAlertDialog(),
-          'appoint': (context) => ReserveScreen(),
-          'ChatScreen': (context) => ChatScreen(user: staticUser),
-          'ChatFirst': (context) => const ChatFirst(),
-          'uploadFileWS': (context) => uploadFileWS(),
-          'uploadFileW': (context) => uploadFileW(),
-          'BookingScreen': (context) => BookingScreen(
-                doctor: 'staticModel',
-              ),
-
-          // 'MyAppointmentList': (context) => MyAppointmentList(),
-          'profilescreen': (context) => profilescreen(),
-
-          // 'SearchList': (context) => SearchList(),
-
-          'MyAppointments': (context) => MyAppointments(),
-          // 'FacePage': (context) => FacePage(),
-          // 'splash': (context) => Splash()
-          // 'test': (context) => const TestPage(),
-          'questionnaire': (context) => questionnaireScreen(),
-          'register': (context) => const RegisterScreen(),
           '/ar/home': (context) => const HomePageeAr(),
           'report': (context) => PatientReport(),
           '/ar/question': (context) => const QuestionsScreenAr(),
