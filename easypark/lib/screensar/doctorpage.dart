@@ -151,13 +151,13 @@ class _DoctorPageState extends State<DoctorPageArr> {
                           ),
                           ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/test');
+                                Navigator.pushNamed(context, 'DRInsertDataAR');
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
                                 elevation: 0,
                               ),
-                              child: const Text('الاستبيان')),
+                              child: const Text('اضافة سؤال للاستبيان')),
                         ],
                       ),
                     ),
