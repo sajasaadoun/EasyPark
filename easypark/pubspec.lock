@@ -86,7 +86,7 @@ packages:
       name: camera
       sha256: "309b823e61f15ff6b5b2e4c0ff2e1512ea661cad5355f71fc581e510ae5b26bb"
       url: "https://pub.dev"
-      url: "https://pub.dartlang.org"
+     
     source: hosted
     version: "0.10.5"
   camera_android:
