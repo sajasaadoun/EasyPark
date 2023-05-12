@@ -52,9 +52,9 @@ class AdminPanell extends StatelessWidget {
                   ),
                   _buildListTile(
                     icon: Icons.edit,
-                    title: 'Edit Questionnaire',
+                    title: 'Add A Question',
                     onTap: () {
-                      // TODO: Implement the edit questionnaire functionality
+                        Navigator.pushNamed(context, 'insertQuestions');
                     },
                   ),
                   _buildListTile(
