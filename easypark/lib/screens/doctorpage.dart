@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../provider/patientInfo_provider.dart';
-import '../widgets/DRusername_show.dart';
-import '../widgets/nearbyPatients.dart';
+import '../widgets/PatientsList.dart';
 import '../widgets/nearby_doctors.dart';
 import '../widgets/username_show.dart';
 
@@ -46,7 +45,7 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
                           'Doctor ',
                           style: TextStyle(fontSize: 20),
                         ),
-                        //  DRUsernameShow(),
+                        //  UsernameShow(),
                       ],
                     ),
                   ),
@@ -263,20 +262,12 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 20,
-                      )),
-                  Text(
-                    'See all',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.grey[500],
-                    ),
-                  )
+                      ))
                 ],
               ),
             ),
             const SizedBox(height: 25),
-            const Expanded(child: SingleChildScrollView(child: NearbyPatients())),
+            const Expanded(child: SingleChildScrollView(child: PatientsList())),
           ],
         ),
       ),
