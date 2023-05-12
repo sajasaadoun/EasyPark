@@ -13,7 +13,7 @@ class _PatientReportState extends ConsumerState<PatientReport> {
   TextEditingController _medicationsController = TextEditingController();
 
   String _patientName = 'Amgad Besheer';
-  String _age = '65';
+  String _age = '56';
   String _diagnosis = 'Has Parkinson disease';
 
   void _savePatientReport() {
