@@ -1,6 +1,9 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:easypark/provider/login_provider.dart';
 import 'package:easypark/screens/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -9,6 +12,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:ionicons/ionicons.dart';
 import '../../../utils/constants.dart';
 import '../model/login_model.dart';
+import '../model/loginAdmin_model.dart';
+import '../model/user_data.dart';
 import '../utils/helper_functions.dart';
 import 'bottom_text.dart';
 import 'change_screen_animation.dart';
@@ -19,14 +24,14 @@ enum Screens {
   welcomeBack,
 }
 
-class LoginContent extends StatefulWidget {
+class LoginContent extends ConsumerStatefulWidget {
   const LoginContent({Key? key}) : super(key: key);
 
   @override
-  State<LoginContent> createState() => _LoginContentState();
+  ConsumerState<LoginContent> createState() => _LoginContentState();
 }
 
-class _LoginContentState extends State<LoginContent>
+class _LoginContentState extends ConsumerState<LoginContent>
     with TickerProviderStateMixin {
   late final List<Widget> createAccountContent;
   late final List<Widget> loginContent;
@@ -36,8 +41,10 @@ class _LoginContentState extends State<LoginContent>
   final genderController = TextEditingController();
   final phoneController = TextEditingController();
   final ageController = TextEditingController();
+//  final DatabaseReference ref = FirebaseDatabase.instance.reference();
 
   final formKey = GlobalKey<FormState>();
+  final userData = UserData();
 
   File? _image;
   String downloadURL = '';
@@ -110,8 +117,43 @@ class _LoginContentState extends State<LoginContent>
         onPressed: () async {
           try {
             await SignIn(emailController.text, passwordController.text);
-            Navigator.pushNamed(context, 'home');
-          } on FirebaseAuthException catch (e) {
+            // // ref.read(userRoleProviderRepository.notifier).state =
+            // //     userRole.getUserRole();
+            ref.read(userRoleProviderRepository.notifier).state =
+                userData.getUserRole();
+            final value = await ref.read(userRoleProviderRepository);
+            String userRole = value.get('role');
+            print(userRole);
+            if (userRole == 'admin') {
+              //return homePageManager = const AdminPanel();
+              Navigator.pushNamed(context, 'admin');
+            } else if (userRole == 'user') {
+              //return homePageManager = ProfilePage();
+              Navigator.pushNamed(context, 'home');
+            }
+            // ignore: use_build_context_synchronously
+            //Navigator.pushNamed(context, 'home');
+          }
+          // try {
+          //   await FirebaseAuth.instance.signInWithEmailAndPassword(
+          //     email: emailController.text,
+          //     password: passwordController.text,
+          //   );
+          //   ref.read(userRoleProviderRepository.notifier).state =
+          //       userData.getUserRole();
+          //   final value = await ref.read(userRoleProviderRepository);
+          //   String userRole = value.get('role');
+          //   print(userRole);
+          //   if (userRole == 'admin') {
+          //     print('inside admin');
+          //     Navigator.pushNamed(context, 'admin');
+          //   } else if (userRole == 'user') {
+          //     Navigator.pushNamed(context, 'home');
+          //   }
+          //   // pop the loading circle
+          //   Navigator.pop(context);
+          // }
+          on FirebaseAuthException catch (e) {
             if (e.code == 'user-not-found') {
               print('No user found for that email.');
             } else if (e.code == 'wrong-password') {

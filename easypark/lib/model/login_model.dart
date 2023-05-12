@@ -14,6 +14,16 @@ Future SignIn(String email, String password) async {
   userId = user!.uid;
 }
 
+class Userdata {
+  Future<Object> getUserRole() async {
+    final user = FirebaseAuth.instance.currentUser!;
+    String userIds = user.uid;
+    final DocumentSnapshot documentSnapshot =
+        await FirebaseFirestore.instance.collection('users').doc(userIds).get();
+    return documentSnapshot;
+  }
+}
+
 Future SignUp(
     TextEditingController email, TextEditingController password) async {
   final User? newuser = (await FirebaseAuth.instance
