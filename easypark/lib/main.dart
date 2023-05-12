@@ -73,7 +73,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'report',
+        initialRoute: 'doctor',
         routes: {
           'voiceUI': (context) => const AudioPage(),
 
