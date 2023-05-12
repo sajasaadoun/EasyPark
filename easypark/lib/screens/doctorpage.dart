@@ -1,5 +1,8 @@
+import 'package:easypark/screens/chat_bar_screen.dart';
+import 'package:easypark/screens/profilefinal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:ionicons/ionicons.dart';
 
 import '../provider/patientInfo_provider.dart';
 import '../widgets/PatientsList.dart';
@@ -13,7 +16,9 @@ class DoctorPage extends ConsumerStatefulWidget {
   ConsumerState<DoctorPage> createState() => _DoctorPageState();
 }
 
-class _DoctorPageState extends ConsumerState<DoctorPage> {
+class _DoctorPageState extends ConsumerState<DoctorPage> { 
+  int _selectedIndex = 0;
+  late BuildContext _context;
   @override
   Widget build(BuildContext context) {
     final PatientInfo = ref.watch(patientInfoProvider);
@@ -269,8 +274,60 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
             const SizedBox(height: 25),
             const Expanded(child: SingleChildScrollView(child: PatientsList())),
           ],
+                
         ),
+        
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        showUnselectedLabels: false,
+        showSelectedLabels: false,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Ionicons.home_outline),
+            activeIcon: Icon(Ionicons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Ionicons.calendar_outline),
+            activeIcon: Icon(Ionicons.calendar),
+            label: "Calendar",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Ionicons.chatbubble_ellipses_outline),
+            label: "Chat",
+            activeIcon: Icon(Ionicons.chatbubble_ellipses),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Ionicons.person_outline),
+            activeIcon: Icon(Ionicons.person),
+            label: "Profile",
+          ),
+        ],
       ),
     );
   }
+    void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      if (_selectedIndex == 0) {
+        Navigator.push(
+          _context,
+          MaterialPageRoute(
+            builder: (context) => const ChatFirst(),
+          ),
+        );
+      } else if (_selectedIndex == 1) {
+        Navigator.push(
+          _context,
+          MaterialPageRoute(
+            builder: (context) => profilescreen(),
+          ),
+        );
+      } 
+    });
+  }
 }
+
