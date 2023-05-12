@@ -54,6 +54,7 @@ import 'package:easypark/screensar/questionnaire_firebase.dart';
 import 'package:easypark/model/insert_question_dataAr.dart';
 import 'package:easypark/screens/questionnaire_firebase.dart';
 import 'package:easypark/opening.dart';
+import 'package:easypark/screens/voice_ui.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -74,6 +75,8 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: 'report',
         routes: {
+          'voiceUI': (context) => const AudioPage(),
+
           '/ar/home': (context) => const HomePageeAr(),
           'report': (context) => PatientReport(),
           '/ar/question': (context) => const QuestionsScreenAr(),

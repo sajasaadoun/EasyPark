@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../provider/doctor_provider.dart';
+import 'booking_screen.dart';
 
 class MyPlansScreen extends ConsumerStatefulWidget {
   MyPlansScreen({Key? key});
@@ -265,27 +266,39 @@ class _MyPlansScreenState extends ConsumerState<MyPlansScreen> {
                                                                                 Colors.black),
                                                                       )),
                                                                   ElevatedButton(
-                                                                      onPressed:
-                                                                          () {
-                                                                        Navigator.pushNamed(
-                                                                            context,
-                                                                            "BookingScreen");
-                                                                      },
-                                                                      style: ElevatedButton.styleFrom(
-                                                                          backgroundColor: Colors
+                                                                    onPressed:
+                                                                        () {
+                                                                      Navigator
+                                                                          .push(
+                                                                        context,
+                                                                        MaterialPageRoute(
+                                                                          builder: (context) =>
+                                                                              BookingScreen(doctor: '${value.docs[index].get('name')}'),
+                                                                        ),
+                                                                      );
+                                                                    },
+                                                                    style: ElevatedButton
+                                                                        .styleFrom(
+                                                                      backgroundColor:
+                                                                          Colors
                                                                               .white,
-                                                                          minimumSize: Size(
+                                                                      minimumSize:
+                                                                          Size(
                                                                               150,
-                                                                              40)),
-                                                                      child:
-                                                                          const Text(
-                                                                        "Consult Now ",
-                                                                        style: TextStyle(
-                                                                            fontSize:
-                                                                                12,
-                                                                            color:
-                                                                                Colors.black),
-                                                                      )),
+                                                                              40),
+                                                                    ),
+                                                                    child:
+                                                                        const Text(
+                                                                      "Consult Now",
+                                                                      style:
+                                                                          TextStyle(
+                                                                        fontSize:
+                                                                            12,
+                                                                        color: Colors
+                                                                            .black,
+                                                                      ),
+                                                                    ),
+                                                                  ),
                                                                 ])
                                                           ],
                                                         ),

@@ -106,7 +106,6 @@ class _NearbyDoctorsScreenState extends ConsumerState<NearbyDoctors> {
         },
         loading: () {
           return const Center(child: CircularProgressIndicator());
-        }
-        );
+        });
   }
 }
