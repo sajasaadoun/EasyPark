@@ -8,6 +8,7 @@ import 'package:easypark/screens/chat_screen.dart';
 import 'package:easypark/screens/edit_profile_page.dart';
 import 'package:easypark/screens/delete_doctor.dart';
 import 'package:easypark/screens/Addquestionsss.dart';
+import 'package:easypark/screens/face2.dart';
 import 'package:easypark/screens/patientReport.dart';
 import 'package:easypark/screens/record.dart';
 import 'package:easypark/screens/profilefinal.dart';
@@ -73,12 +74,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'home',
+        initialRoute: 'face',
         routes: {
           'voiceUI': (context) => const AudioPage(),
-
           '/ar/home': (context) => const HomePageeAr(),
           'report': (context) => PatientReport(),
+          'face': (context) => Face(),
           '/ar/question': (context) => const QuestionsScreenAr(),
           '/ar/OptionsScreen': (context) => MyPlansScreenAr(),
           '/ar/speech': (context) => const SpeechPageAr(),
@@ -99,40 +100,35 @@ class MyApp extends StatelessWidget {
           '/ar/deleteDr': (context) => deleteDoctorAr(),
           '/ar/addQuestions': (context) => const AddQuestionsAr(),
           '/ar/questionTest': (context) => const QuestionnaireDbAr(),
-          '/ar/insertQuestions': (context) => const InsertData(),
-
+          // '/ar/insertQuestions': (context) => const InsertData(),
           'questionTest': (context) => const QuestionnaireDb(),
-          'insertQuestions': (context) => const InsertData(),
-
+          // 'insertQuestions': (context) => const InsertData(),
           'DoctorsInfo': (context) => DoctorInfo(),
           'OptionsScreen': (context) => MyPlansScreen(),
           'MyAlertDialog': (context) => MyAlertDialog(),
           'appoint': (context) => ReserveScreen(),
-          'ChatScreen': (context) => ChatScreen(user: staticUser),
+          //'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
           'uploadFileWS': (context) => uploadFileWS(),
           'uploadFileW': (context) => uploadFileW(),
-          'BookingScreen': (context) => BookingScreen(doctor: 'staticModel'),
+          // 'BookingScreen': (context) => BookingScreen(doctor: 'staticModel'),
           'MyAppointmentList': (context) => MyAppointmentList(),
           // 'SearchList': (context) => SearchList(),
           'MyAppointments': (context) => MyAppointments(),
           'register': (context) => const RegisterScreen(),
-
           'addquestion': (context) => AddQuestions(),
-          'insertQuestions': (context) => const InsertData(),
-
+          // 'insertQuestions': (context) => const InsertData(),
           'record': (context) => recordPage(),
           'addDrEng': (context) => DoctorForm(),
           'edit': (context) => EditProfilePage(),
           'profile': (context) => profilescreen(),
           'deleteDr': (context) => deleteDoctor(),
-
           'admin': (context) => const AdminPanell(),
           'doctor': (context) => const DoctorPage(),
           'home': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
           'appoint': (context) => ReserveScreen(),
-          'ChatScreen': (context) => ChatScreen(user: staticUser),
+          //'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
           'speech': (context) => SpeechPage(),
           'login': (context) => const LoginScreen(),
@@ -180,9 +176,7 @@ class MyApp extends StatelessWidget {
           // '/ar/MyAppointments': (context) => MyAppointmentsAr(),
           // '/ar/deleteDr': (context) => deleteDoctorAr(),
           // '/ar/addQuestions': (context) => const AddQuestionsAr(),
-
           //////'report': (context) => PatientReport(),
-
           // 'loginn': (context) => const LoginScreen(),
           // 'test': (context) => const TestPage(),
           // 'speech': (context) => const SpeechPage(),
