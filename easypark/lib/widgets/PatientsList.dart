@@ -29,7 +29,7 @@ class _NearbyPatientsScreenState extends ConsumerState<PatientsList> {
                       onTap: () {
                         Navigator.pushNamed(
                           context,
-                          'DoctorsInfo',
+                          'doctor',
                           arguments: index,
                         );
                       },
@@ -66,7 +66,7 @@ class _NearbyPatientsScreenState extends ConsumerState<PatientsList> {
                           ),
                           TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, 'DoctorsInfo',
+                              Navigator.pushNamed(context, 'report',
                                   arguments: index);
                             },
                             child: Text(
