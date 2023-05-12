@@ -76,7 +76,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'voiceUI',
+        initialRoute: 'home',
         routes: {
           'face': (context) => Face(),
           'audio': (context) => AudioPage(),
