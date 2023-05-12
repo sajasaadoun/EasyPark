@@ -1,14 +1,14 @@
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
-class InsertData extends StatefulWidget {
-  const InsertData({Key? key}) : super(key: key);
+class DRInsertData extends StatefulWidget {
+  const DRInsertData({Key? key}) : super(key: key);
 
   @override
-  State<InsertData> createState() => _InsertDataState();
+  State<DRInsertData> createState() => _DRInsertDataState();
 }
 
-class _InsertDataState extends State<InsertData> {
+class _DRInsertDataState extends State<DRInsertData> {
   final questionController = TextEditingController();
   final option0Controller = TextEditingController();
   final option1Controller = TextEditingController();
@@ -59,92 +59,6 @@ class _InsertDataState extends State<InsertData> {
           padding: EdgeInsets.all(10),
           child: Column(
             children: [
-              // const SizedBox(
-              //   height: 10,
-              // ),
-              // const Text(
-              //   'Inserting data in Firebase Realtime Database',
-              //   style: TextStyle(
-              //     fontSize: 24,
-              //     fontWeight: FontWeight.w500,
-              //   ),
-              //   textAlign: TextAlign.center,
-              // ),
-              // const SizedBox(
-              //   height: 30,
-              // ),
-              TextField(
-                controller: questionControllerAr,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'السؤال',
-                  hintText: 'اكتب سؤالك هنا',
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextField(
-                controller: option0ControllerAr,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'الاجابة الاولى',
-                  hintText: 'اضف الاجابة الاولى',
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextField(
-                controller: option1ControllerAr,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'الاجابة الثانية',
-                  hintText: 'اضف الاجابة الثانية',
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextField(
-                controller: option2ControllerAr,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'الاجابة الثالثة',
-                  hintText: 'اضف الاجابة الثالثة',
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextField(
-                controller: option3ControllerAr,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'الاجابة الرابعة',
-                  hintText: 'اضف الاجابة الرابعة',
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              TextField(
-                controller: option4ControllerAr,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'الاجابة الخامسة',
-                  hintText: 'اضف الاجابة الخامسة',
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
               TextField(
                 controller: questionController,
                 keyboardType: TextInputType.text,
@@ -214,6 +128,93 @@ class _InsertDataState extends State<InsertData> {
                   hintText: 'Enter your fifth answer option',
                 ),
               ),
+              // const SizedBox(
+              //   height: 10,
+              // ),
+              // const Text(
+              //   'Inserting data in Firebase Realtime Database',
+              //   style: TextStyle(
+              //     fontSize: 24,
+              //     fontWeight: FontWeight.w500,
+              //   ),
+              //   textAlign: TextAlign.center,
+              // ),
+              // const SizedBox(
+              //   height: 30,
+              // ),
+                             const SizedBox(
+                height: 30,
+              ),
+              TextField(
+                controller: questionControllerAr,
+                keyboardType: TextInputType.text,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'السؤال',
+                  hintText: 'اكتب سؤالك هنا',
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              TextField(
+                controller: option0ControllerAr,
+                keyboardType: TextInputType.text,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'الاجابة الاولى',
+                  hintText: 'اضف الاجابة الاولى',
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              TextField(
+                controller: option1ControllerAr,
+                keyboardType: TextInputType.text,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'الاجابة الثانية',
+                  hintText: 'اضف الاجابة الثانية',
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              TextField(
+                controller: option2ControllerAr,
+                keyboardType: TextInputType.text,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'الاجابة الثالثة',
+                  hintText: 'اضف الاجابة الثالثة',
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              TextField(
+                controller: option3ControllerAr,
+                keyboardType: TextInputType.text,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'الاجابة الرابعة',
+                  hintText: 'اضف الاجابة الرابعة',
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              TextField(
+                controller: option4ControllerAr,
+                keyboardType: TextInputType.text,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'الاجابة الخامسة',
+                  hintText: 'اضف الاجابة الخامسة',
+                ),
+              ),
+             
               const SizedBox(
                 height: 30,
               ),

@@ -8,18 +8,18 @@ import '../provider/doctor_provider.dart';
 import '../provider/patientInfo_provider.dart';
 import '../screens/doctor_info_screen.dart';
 
-class NearbyPatients extends ConsumerStatefulWidget {
-  const NearbyPatients({Key? key}) : super(key: key);
+class PatientsList extends ConsumerStatefulWidget {
+  const PatientsList({Key? key}) : super(key: key);
 
   @override
-  ConsumerState<NearbyPatients> createState() => _NearbyPatientsScreenState();
+  ConsumerState<PatientsList> createState() => _NearbyPatientsScreenState();
 }
 
-class _NearbyPatientsScreenState extends ConsumerState<NearbyPatients> {
+class _NearbyPatientsScreenState extends ConsumerState<PatientsList> {
   @override
   Widget build(BuildContext context) {
-    final Patients = ref.watch(patientInfoProvider);
-    return Patients.when(
+    final patients = ref.watch(patientInfoProvider);
+    return patients.when(
         data: (value) => SafeArea(
               child: Column(
                 children: List.generate(value.docs.length, (index) {
@@ -36,14 +36,14 @@ class _NearbyPatientsScreenState extends ConsumerState<NearbyPatients> {
                       child: Row(
                         children: [
                           Container(
-                            width: 100,
-                            height: 100,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              // image: DecorationImage(
-                              //   // image: AssetImage(NearbyPatients[index].profile),
-                              //   fit: BoxFit.cover,
-                              // ),
+                            width: 40,
+                            height: 40,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/images/user (3).png'),
+                                fit: BoxFit.fill,
+                              ),
+                              shape: BoxShape.rectangle,
                             ),
                           ),
                           const SizedBox(width: 10),
@@ -61,25 +61,6 @@ class _NearbyPatientsScreenState extends ConsumerState<NearbyPatients> {
                                 Text(
                                     "${value.docs[index].get('Age')} Years Old"),
                                 const SizedBox(height: 16),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Ionicons.star,
-                                      color: Colors.yellow[700],
-                                      size: 18,
-                                    ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.only(left: 4, right: 6),
-                                      child: Text(
-                                        "",
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ),
-                                    // const Text("195 Reviews")
-                                  ],
-                                )
                               ],
                             ),
                           ),

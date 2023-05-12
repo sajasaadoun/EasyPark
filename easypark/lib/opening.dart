@@ -63,96 +63,100 @@ class _OpeningPageState extends State<OpeningPage> {
             const SizedBox(height: 150),
             Container(
               height: 350,
-              width: 900,
-              child: ListView(
-                scrollDirection: Axis.vertical,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(70, 0, 70, 15),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Colors.blue[600],
-                      ),
-                      child: Row(
-                        children: [
-                          const SizedBox(
-                            width: 90,
-                          ),
-                          // Image.asset('assets/images/detection.png',
-                          //     height: 30),
-                          // const SizedBox(
-                          //   width: 25,
-                          // ),
-                          ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, 'login');
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blue[600],
-                              ),
-                              child: const Text('English')),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(70, 0, 70, 15),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Colors.blue[600],
-                      ),
-                      child: Row(
-                        children: [
-                          const SizedBox(
-                            width: 90,
-                          ),
-                          // Image.asset('assets/images/severity.png', height: 30),
-                          // const SizedBox(
-                          //   width: 25,
-                          // ),
-                          ElevatedButton(
-                              onPressed: () {
-                                Navigator.pushNamed(context, '/ar/login');
-                              },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blue[600],
-                              ),
-                              child: const Text('Arabic')),
-                        ],
+              width: MediaQuery.of(context).size.width,
+              child: Expanded(
+                child: ListView(
+                  shrinkWrap: true,
+                  physics: const ClampingScrollPhysics(),
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(70, 0, 70, 15),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.blue[600],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(
+                              width: 90,
+                            ),
+                            // Image.asset('assets/images/detection.png',
+                            //     height: 30),
+                            // const SizedBox(
+                            //   width: 25,
+                            // ),
+                            ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, 'login');
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.blue[600],
+                                ),
+                                child: const Text('English')),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                  // Padding(
-                  //   padding: const EdgeInsets.fromLTRB(70, 0, 70, 15),
-                  //   child: Container(
-                  //     decoration: BoxDecoration(
-                  //       borderRadius: BorderRadius.circular(12),
-                  //       color: Colors.blue[600],
-                  //     ),
-                  //     child: Row(
-                  //       //  Navigator.pushNamed(context, ''),
-                  //       children: [
-                  //         const SizedBox(
-                  //           width: 25,
-                  //         ),
-                  //         Image.asset('assets/images/online-survey.png',
-                  //             height: 30),
-                  //         const SizedBox(
-                  //           width: 25,
-                  //         ),
-                  //         ElevatedButton(
-                  //             onPressed: () {},
-                  //             style: ElevatedButton.styleFrom(
-                  //               backgroundColor: Colors.blue[600],
-                  //             ),
-                  //             child: const Text('Questionnaire')),
-                  //       ],
-                  //     ),
-                  //   ),
-                  // ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(70, 0, 70, 15),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: Colors.blue[600],
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(
+                              width: 90,
+                            ),
+                            // Image.asset('assets/images/severity.png', height: 30),
+                            // const SizedBox(
+                            //   width: 25,
+                            // ),
+                            ElevatedButton(
+                                onPressed: () {
+                                  Navigator.pushNamed(context, '/ar/login');
+                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.blue[600],
+                                ),
+                                child: const Text('Arabic')),
+                          ],
+                        ),
+                      ),
+                    ),
+                    // Padding(
+                    //   padding: const EdgeInsets.fromLTRB(70, 0, 70, 15),
+                    //   child: Container(
+                    //     decoration: BoxDecoration(
+                    //       borderRadius: BorderRadius.circular(12),
+                    //       color: Colors.blue[600],
+                    //     ),
+                    //     child: Row(
+                    //       //  Navigator.pushNamed(context, ''),
+                    //       children: [
+                    //         const SizedBox(
+                    //           width: 25,
+                    //         ),
+                    //         Image.asset('assets/images/online-survey.png',
+                    //             height: 30),
+                    //         const SizedBox(
+                    //           width: 25,
+                    //         ),
+                    //         ElevatedButton(
+                    //             onPressed: () {},
+                    //             style: ElevatedButton.styleFrom(
+                    //               backgroundColor: Colors.blue[600],
+                    //             ),
+                    //             child: const Text('Questionnaire')),
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
+                  ],
+                ),
               ),
             ),
             // ignore: prefer_const_constructors

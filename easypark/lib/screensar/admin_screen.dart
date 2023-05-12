@@ -57,7 +57,7 @@ class AdminPanellAr extends StatelessWidget {
                   // ),
                   _buildListTile(
                     icon: Icons.edit,
-                    title: 'تعديل الاستبيان',
+                    title: 'اضافة سؤال للالاستبيان',
                     onTap: () {
                       Navigator.pushNamed(context, '/ar/insertQuestions');
                     },

@@ -1,4 +1,5 @@
 import 'package:easypark/model/chat_user.dart';
+import 'package:easypark/screens/DRinsert_question.dart';
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
 import 'package:easypark/screens/booking_screen.dart';
@@ -7,13 +8,14 @@ import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
 import 'package:easypark/screens/edit_profile_page.dart';
 import 'package:easypark/screens/delete_doctor.dart';
-import 'package:easypark/screens/Addquestionsss.dart';
+
 import 'package:easypark/screens/face2.dart';
 import 'package:easypark/screens/patientReport.dart';
 import 'package:easypark/screens/record.dart';
 import 'package:easypark/screens/profilefinal.dart';
 import 'package:easypark/screens/upload-file-W.dart';
 import 'package:easypark/screens/upload-file-WS.dart';
+import 'package:easypark/screensar/DRinsert_questionAR.dart';
 import 'package:easypark/screensar/profilepageEN.dart';
 import 'model/myAppointmentList.dart';
 import 'screens/appointment_screen.dart';
@@ -28,6 +30,7 @@ import 'package:easypark/screens/wave-detection.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'screens/dialog_message.dart';
+import 'screens/insert_question.dart';
 import 'screens/results_schedule_screen.dart';
 import 'screens/my_appointments_screen.dart';
 import 'screens/speechDetection.dart';
@@ -52,7 +55,7 @@ import 'package:easypark/screensar/my_appointments_screen.dart';
 import 'package:easypark/screensar/delete_doctor.dart';
 import 'package:easypark/screensar/Addquestionsss.dart';
 import 'package:easypark/screensar/questionnaire_firebase.dart';
-import 'package:easypark/model/insert_question_dataAr.dart';
+import 'package:easypark/screensar/insert_questionAR.dart';
 import 'package:easypark/screens/questionnaire_firebase.dart';
 import 'package:easypark/opening.dart';
 import 'package:easypark/screens/voice_ui.dart';
@@ -100,26 +103,32 @@ class MyApp extends StatelessWidget {
           '/ar/deleteDr': (context) => deleteDoctorAr(),
           '/ar/addQuestions': (context) => const AddQuestionsAr(),
           '/ar/questionTest': (context) => const QuestionnaireDbAr(),
+
           // '/ar/insertQuestions': (context) => const InsertData(),
           'questionTest': (context) => const QuestionnaireDb(),
           // 'insertQuestions': (context) => const InsertData(),
-          'DoctorsInfo': (context) => DoctorInfo(),
-          'OptionsScreen': (context) => MyPlansScreen(),
-          'MyAlertDialog': (context) => MyAlertDialog(),
-          'appoint': (context) => ReserveScreen(),
+          'questionTest': (context) => const QuestionnaireDb(),
+          '/ar/insertQuestions': (context) => const InsertDataAR(),
+          'insertQuestions': (context) => const InsertData(),
           //'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
           'uploadFileWS': (context) => uploadFileWS(),
           'uploadFileW': (context) => uploadFileW(),
+
           // 'BookingScreen': (context) => BookingScreen(doctor: 'staticModel'),
+
+          'BookingScreen': (context) =>
+              const BookingScreen(doctor: 'staticModel'),
           'MyAppointmentList': (context) => MyAppointmentList(),
-          // 'SearchList': (context) => SearchList(),
-          'MyAppointments': (context) => MyAppointments(),
-          'register': (context) => const RegisterScreen(),
-          'addquestion': (context) => AddQuestions(),
+
+          // 'addquestion': (context) => AddQuestions(),
           // 'insertQuestions': (context) => const InsertData(),
           'record': (context) => recordPage(),
           'addDrEng': (context) => DoctorForm(),
+
+          'record': (context) => const recordPage(),
+          'addDrEng': (context) => const DoctorForm(),
+
           'edit': (context) => EditProfilePage(),
           'profile': (context) => profilescreen(),
           'deleteDr': (context) => deleteDoctor(),
@@ -130,7 +139,7 @@ class MyApp extends StatelessWidget {
           'appoint': (context) => ReserveScreen(),
           //'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
-          'speech': (context) => SpeechPage(),
+          'speech': (context) => const SpeechPage(),
           'login': (context) => const LoginScreen(),
           'question': (context) => const QuestionnaireScreen(),
           //  'AppointScreen': (context) => AppointScreen(),

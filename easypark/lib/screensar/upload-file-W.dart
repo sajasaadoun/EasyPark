@@ -1,15 +1,10 @@
 import 'dart:io';
-import 'package:easypark/apis/uploadfile_api.dart';
-import 'package:easypark/screens/handwrittingDetection.dart';
 import 'package:easypark/screens/wave-detection.dart';
-import 'package:easypark/widgets/uploadbutton_widget.dart';
-import 'package:file_picker/file_picker.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 
-import '../screensar/sketch_page.dart';
+import 'sketch_page.dart';
 
 class uploadFileWAr extends StatelessWidget {
   static final String title = 'يمكنك اختيار أي نوع تريده';

@@ -8,7 +8,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 
-import '../screensar/sketch_page.dart';
+import 'sketch_page.dart';
 
 class uploadFileWSAr extends StatelessWidget {
   static final String title = 'يمكنك اختيار أي نوع تريده';
