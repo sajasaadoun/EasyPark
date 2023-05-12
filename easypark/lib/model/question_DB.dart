@@ -71,20 +71,26 @@ class _QuestionnaireScreenState extends State<QuestionnaireScreen> {
     }
 
     return Scaffold(
-      backgroundColor: Colors.grey[200],
-      body: SingleChildScrollView(
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-          child: Column(children: [
-            const Text(
-              "Questionnaire",
-              style: TextStyle(color: Colors.black, fontSize: 24),
+      appBar: AppBar(
+        title: Text('Questionnaire'),
+        backgroundColor: Colors.blue[600],
+        elevation: 0,
+      ),
+      body: Container(
+        color: Colors.white,
+        padding: EdgeInsets.all(16),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          Text(
+            'Question ${currentQuestionIndex + 1} of ${questions.length}',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
             ),
-            // _questionWidget(),
-            // _answerList(),
-            // _nextButton(),
-          ]),
-        ),
+          ),
+          // _questionWidget(),
+          // _answerList(),
+          // _nextButton(),
+        ]),
       ),
     );
   }

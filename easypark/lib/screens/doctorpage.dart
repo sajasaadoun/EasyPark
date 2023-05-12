@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import '../provider/patientInfo_provider.dart';
 import '../widgets/nearbyPatients.dart';
 import '../widgets/nearby_doctors.dart';
