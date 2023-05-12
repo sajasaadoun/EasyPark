@@ -18,31 +18,33 @@ class _questionnaireScreenState extends State<questionnaireScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  IconButton(
-                    icon: Icon(
-                      Icons.arrow_back,
-                      color: Colors.white,
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 32),
+            child: Column(
+              children: [
+                Row(
+                  children: [
+                    IconButton(
+                      icon: Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                      ),
+                      onPressed: () => Navigator.of(context).pop(),
                     ),
-                    onPressed: () => Navigator.of(context).pop(),
-                  ),
-                  const SizedBox(width: 16),
-                  // const Text(
-                  //   "Questionnaire",
-                  //   style: TextStyle(color: Colors.white, fontSize: 24),
-                  // ),
-                ],
-              ),
-              _questionWidget(),
-              _answerList(),
-              _nextButton(),
-            ],
+                    const SizedBox(width: 16),
+                    // const Text(
+                    //   "Questionnaire",
+                    //   style: TextStyle(color: Colors.white, fontSize: 24),
+                    // ),
+                  ],
+                ),
+                _questionWidget(),
+                _answerList(),
+                _nextButton(),
+              ],
+            ),
           ),
         ),
       ),
