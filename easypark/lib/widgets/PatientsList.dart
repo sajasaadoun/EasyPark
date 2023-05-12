@@ -18,8 +18,8 @@ class PatientsList extends ConsumerStatefulWidget {
 class _NearbyPatientsScreenState extends ConsumerState<PatientsList> {
   @override
   Widget build(BuildContext context) {
-    final Patients = ref.watch(patientInfoProvider);
-    return Patients.when(
+    final patients = ref.watch(patientInfoProvider);
+    return patients.when(
         data: (value) => SafeArea(
               child: Column(
                 children: List.generate(value.docs.length, (index) {
