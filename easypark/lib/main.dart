@@ -6,12 +6,14 @@ import 'package:easypark/screens/addDoctorForm.dart';
 // import 'package:easypark/screens/OLDadmin_screen.dart';
 import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/appoint_screen.dart';
+import 'package:easypark/screens/audio.dart';
 import 'package:easypark/screens/booking_screen.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
 import 'package:easypark/screens/delete_doctor.dart';
 import 'package:easypark/screens/Addquestionsss.dart';
+import 'package:easypark/screens/face2.dart';
 import 'package:easypark/screens/record.dart';
 import 'package:easypark/screens/profilefinal.dart';
 import 'package:easypark/screens/profilepage%202.dart';
@@ -86,8 +88,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'deleteDr',
+        initialRoute: 'home',
         routes: {
+          'face': (context) => Face(),
+          'audio': (context) => AudioPage(),
           'quest': (context) => AddQuestions(),
           'record': (context) => recordPage(),
           'upload': (context) => uploadfile(),
@@ -96,7 +100,7 @@ class MyApp extends StatelessWidget {
           // '/profile': (context) => profilescreen(),
           'form': (context) => DoctorForm(),
           'admin': (context) => const AdminPanell(),
-          // 'doctor': (context) => const DoctorPage(),
+          'doctor': (context) => const DoctorPage(),
           'home': (context) => const HomePagee(),
           '/': (context) => const OpeningPage(),
           // '/homeDoctor': (context) => const HomePage(),
@@ -110,7 +114,7 @@ class MyApp extends StatelessWidget {
           //'profile': (context) => ProfilePage(),
           // 'AppointScreen': (context) => AppointScreen(),
           'sketch': (context) => const sketchPage(),
-          'facepg': (context) => faceDetection(),
+          // 'facepg': (context) => faceDetection(),
           'spiral': (context) => const HandwrittingDetection(),
           'waveDetection': (context) => const WaveDetection(),
           'camera': (context) => const CameraScreen(),
