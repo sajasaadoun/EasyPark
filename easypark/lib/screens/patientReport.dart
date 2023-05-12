@@ -12,7 +12,7 @@ class PatientReport extends ConsumerStatefulWidget {
 class _PatientReportState extends ConsumerState<PatientReport> {
   TextEditingController _medicationsController = TextEditingController();
 
-  String _patientName = 'Ahmed Kamal';
+  String _patientName = 'Amgad Besheer';
   String _age = '65';
   String _diagnosis = 'Has Parkinson disease';
 
