@@ -1,32 +1,61 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:photo_view/photo_view.dart';
+import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:http/http.dart' as http;
 
-class faceDetection extends StatefulWidget {
-  const faceDetection({super.key});
+// import '../model/wave_model.dart';
 
+class Face extends StatefulWidget {
+  const Face({Key? key}) : super(key: key);
   @override
-  State<faceDetection> createState() => _faceDetectionState();
+  State<Face> createState() => _FaceState();
 }
 
-class _faceDetectionState extends State<faceDetection> {
-  File? selectedImage;
+final user = FirebaseAuth.instance.currentUser!;
+String userId = user.uid;
+
+class _FaceState extends State<Face> {
+  List<File?> selectedImages = List.filled(3, null);
   String? message = "";
 
-  uploadImage() async {
+  // final WaveData = WaveModel();
+
+  List<File?> _images = List.filled(3, null);
+  List<String> downloadURLs = [];
+
+  Future saveImageWave(File? selectedImage) async {
+    Reference referenceRoot = FirebaseStorage.instance.ref();
+    Reference referenceDirImage = referenceRoot.child('image');
+    String fileName =
+        '${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(100000)}.jpg';
+    Reference referenceImageToUpload = referenceDirImage.child(fileName);
+    try {
+      await referenceImageToUpload.putFile(File(selectedImage!.path));
+      downloadURLs.add(await referenceImageToUpload.getDownloadURL());
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  uploadImages() async {
     var url = "http://192.168.1.3:8000/upload";
     final request = http.MultipartRequest("POST", Uri.parse(url));
 
     final headers = {"Content-type": "multipart/form-data"};
 
-    request.files.add(http.MultipartFile('image',
-        selectedImage!.readAsBytes().asStream(), selectedImage!.lengthSync(),
-        filename: selectedImage!.path.split("/").last));
+    for (var i = 0; i < 3; i++) {
+      if (selectedImages[i] != null) {
+        request.files.add(http.MultipartFile(
+            'image$i',
+            selectedImages[i]!.readAsBytes().asStream(),
+            selectedImages[i]!.lengthSync(),
+            filename: selectedImages[i]!.path.split("/").last));
+      }
+    }
 
     request.headers.addAll(headers);
     final response = await request.send();
@@ -42,10 +71,14 @@ class _faceDetectionState extends State<faceDetection> {
     }
   }
 
-  Future getImage() async {
-    final pickedImage =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
-    selectedImage = File(pickedImage!.path);
+  Future getImages() async {
+    List<File?> pickedImages = [];
+    for (var i = 0; i < 3; i++) {
+      final pickedImage =
+          await ImagePicker().pickImage(source: ImageSource.gallery);
+      pickedImages.add(File(pickedImage!.path));
+    }
+    selectedImages = pickedImages;
     setState(() {});
   }
 
@@ -53,84 +86,49 @@ class _faceDetectionState extends State<faceDetection> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pushNamed(context, 'home');
-          },
-          child: const Icon(
-            Icons.arrow_back_ios,
-            size: 20,
-            color: Colors.white,
-          ),
-        ),
-        title: const Text("Upload The Face Images"),
+        title: const Text("Upload The Wave Images"),
       ),
       body: Center(
-        child: Container(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              _buildImagePicker(
-                'Pick a smiling image of you',
-                Icons.tag_faces,
-                () => getImage(),
-              ),
-              const SizedBox(height: 16.0),
-              _buildImagePicker(
-                'Pick a disgusted face image of you',
-                Icons.sentiment_very_dissatisfied,
-                () => getImage(),
-              ),
-              const SizedBox(height: 16.0),
-              _buildImagePicker(
-                'Pick a surprised face image of you',
-                Icons.sentiment_very_satisfied,
-                () => getImage(),
-              ),
-            ],
-          ),
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: getImage,
-        child: const Icon(Icons.add_a_photo),
-      ),
-    );
-  }
-
-  Widget _buildImagePicker(
-      String title, IconData icon, VoidCallback onPressed) {
-    return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-              ),
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            selectedImages[0] == null &&
+                    selectedImages[1] == null &&
+                    selectedImages[2] == null
+                ? const Text("Please pick 3 images to upload")
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      selectedImages[0] != null
+                          ? Image.file(selectedImages[0]!)
+                          : SizedBox(),
+                      selectedImages[1] != null
+                          ? Image.file(selectedImages[1]!)
+                          : SizedBox(),
+                      selectedImages[2] != null
+                          ? Image.file(selectedImages[2]!)
+                          : SizedBox(),
+                    ],
+                  ),
+            SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: getImages,
+              child: const Text("Pick Images"),
             ),
-            const SizedBox(height: 16.0),
-            ElevatedButton.icon(
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.blue[600]),
-              ),
-              onPressed: onPressed,
-              icon: Icon(
-                icon,
-                color: Colors.white,
-              ),
-              label: const Text(
-                'Upload',
-                style: TextStyle(color: Colors.white),
-              ),
+            SizedBox(height: 30),
+            ElevatedButton(
+              onPressed: () async {
+                for (var i = 0; i < 3; i++) {
+                  if (selectedImages[i] != null) {
+                    await saveImageWave(selectedImages[i]);
+                  }
+                }
+                await uploadImages();
+              },
+              child: const Text("Upload Images"),
             ),
-            const SizedBox(height: 8.0),
-            Text('. $message'),
+            SizedBox(height: 30),
+            message != null ? Text(message!) : SizedBox(),
           ],
         ),
       ),
