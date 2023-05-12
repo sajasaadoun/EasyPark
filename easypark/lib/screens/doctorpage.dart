@@ -16,11 +16,18 @@ class DoctorPage extends ConsumerStatefulWidget {
   ConsumerState<DoctorPage> createState() => _DoctorPageState();
 }
 
-class _DoctorPageState extends ConsumerState<DoctorPage> { 
+class _DoctorPageState extends ConsumerState<DoctorPage> {
+  late BuildContext _context; // declare a variable to store context
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   int _selectedIndex = 0;
-  late BuildContext _context;
   @override
   Widget build(BuildContext context) {
+    _context = context; // store context in the variable
     final PatientInfo = ref.watch(patientInfoProvider);
     return Scaffold(
       backgroundColor: Colors.grey[200],
@@ -164,7 +171,7 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
                           ),
                           ElevatedButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, 'insertQuestions');
+                                Navigator.pushNamed(context, 'DRInsertData');
                               },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
@@ -179,73 +186,25 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
                     padding: const EdgeInsets.only(left: 25.0),
                     child: Container(
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(7),
                         color: Colors.blue[600],
                       ),
                       child: Row(
                         children: [
-                          Image.asset('assets/images/severity.png', height: 30),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blue[600],
-                                elevation: 0,
-                              ),
-                              child: const Text('Messages')),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Colors.blue[600],
-                      ),
-                      child: Row(
-                        //  Navigator.pushNamed(context, ''),
-                        children: [
-                          Image.asset('assets/images/online-survey.png',
+                          Image.asset('assets/images/detection.png',
                               height: 30),
                           const SizedBox(
                             width: 10,
                           ),
                           ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushNamed(context, 'DRInsertData');
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: Colors.blue[600],
                                 elevation: 0,
                               ),
-                              child: const Text('Edit Profile')),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 25.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Colors.blue[600],
-                      ),
-                      child: Row(
-                        children: [
-                          Image.asset('assets/images/contact.png', height: 30),
-                          // ignore: prefer_const_constructors
-                          SizedBox(
-                            width: 10,
-                          ),
-                          ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.blue[600],
-                                elevation: 0,
-                              ),
-                              child: const Text('Contact patients')),
+                              child: const Text('Delete Question')),
                         ],
                       ),
                     ),
@@ -274,9 +233,7 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
             const SizedBox(height: 25),
             const Expanded(child: SingleChildScrollView(child: PatientsList())),
           ],
-                
         ),
-        
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -289,11 +246,6 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
             icon: Icon(Ionicons.home_outline),
             activeIcon: Icon(Ionicons.home),
             label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Ionicons.calendar_outline),
-            activeIcon: Icon(Ionicons.calendar),
-            label: "Calendar",
           ),
           BottomNavigationBarItem(
             icon: Icon(Ionicons.chatbubble_ellipses_outline),
@@ -309,25 +261,32 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
       ),
     );
   }
-    void _onItemTapped(int index) {
+
+  void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
       if (_selectedIndex == 0) {
         Navigator.push(
           _context,
           MaterialPageRoute(
-            builder: (context) => const ChatFirst(),
+            builder: (context) => const DoctorPage(),
           ),
         );
       } else if (_selectedIndex == 1) {
         Navigator.push(
           _context,
           MaterialPageRoute(
+            builder: (context) => const ChatFirst(),
+          ),
+        );
+      } else if (_selectedIndex == 2) {
+        Navigator.push(
+          _context,
+          MaterialPageRoute(
             builder: (context) => profilescreen(),
           ),
         );
-      } 
+      }
     });
   }
 }
-
