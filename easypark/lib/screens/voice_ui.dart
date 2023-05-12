@@ -119,7 +119,7 @@ class _AudioPageState extends State<AudioPage> {
     // final file = File(audioFilePath);
     final fileBytes = await audioFilePath.readAsBytes();
     final base64Audio = base64Encode(fileBytes);
-    var url = "http://10.1.0.41:8000/upload";
+    var url = "http://192.168.1.2:8000/upload";
     final response = await http.post(
       Uri.parse(url),
       body: {'audio': base64Audio},
@@ -130,6 +130,9 @@ class _AudioPageState extends State<AudioPage> {
     if (httpResponse.statusCode == 200) {
       print('success!!!!!!!!!!!!!!!!');
       final json = jsonDecode(httpResponse.body);
+      message = json['message'].toString();
+      setState(() {});
+      print(json);
       return json;
     } else {
       throw Exception('Failed to load data from API');
