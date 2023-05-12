@@ -334,23 +334,23 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
                                                   borderRadius:
                                                       BorderRadius.circular(5),
                                                 ),
-                                                child: TextButton(
-                                                  onPressed: () async {
-                                                    Navigator.push(
-                                                        context,
-                                                        MaterialPageRoute(
-                                                            builder: (context) =>
-                                                                PatientReport(
-                                                                    value.docs[
-                                                                        index])));
-                                                  },
-                                                  child: Text(
-                                                    'View Patient',
-                                                    style: TextStyle(
-                                                      color: Colors.white,
-                                                    ),
-                                                  ),
-                                                ),
+                                                // child: TextButton(
+                                                //   onPressed: () async {
+                                                //     Navigator.push(
+                                                //         context,
+                                                //         MaterialPageRoute(
+                                                //             builder: (context) =>
+                                                //                 PatientReport(
+                                                //                     value.docs[
+                                                //                         index])));
+                                                //   },
+                                                //   child: Text(
+                                                //     'View Patient',
+                                                //     style: TextStyle(
+                                                //       color: Colors.white,
+                                                //     ),
+                                                //   ),
+                                                // ),
                                               ),
                                             ],
                                           ),
