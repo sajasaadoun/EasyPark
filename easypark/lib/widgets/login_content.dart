@@ -123,13 +123,17 @@ class _LoginContentState extends ConsumerState<LoginContent>
                 userData.getUserRole();
             final value = await ref.read(userRoleProviderRepository);
             String userRole = value.get('role');
+            // ignore: avoid_print
             print(userRole);
             if (userRole == 'admin') {
-              //return homePageManager = const AdminPanel();
+              // ignore: use_build_context_synchronously
               Navigator.pushNamed(context, 'admin');
             } else if (userRole == 'user') {
-              //return homePageManager = ProfilePage();
+              // ignore: use_build_context_synchronously
               Navigator.pushNamed(context, 'home');
+            } else if (userRole == 'doctor') {
+              // ignore: use_build_context_synchronously
+              Navigator.pushNamed(context, 'doctor');
             }
             // ignore: use_build_context_synchronously
             //Navigator.pushNamed(context, 'home');
