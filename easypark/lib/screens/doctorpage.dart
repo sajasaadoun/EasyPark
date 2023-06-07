@@ -54,7 +54,7 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
                         ),
                         SizedBox(height: 8),
                         Text(
-                          'Doctor ',
+                          'Doctor Alia',
                           style: TextStyle(fontSize: 20),
                         ),
                         //  UsernameShow(),
