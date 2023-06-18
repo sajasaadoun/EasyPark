@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:187993497288:android:fd7ba719ca9009bd4e0ffd",
         "android_client_info": {
-          "package_name": "com.example.easypark"
+          "package_name": "parkinson.easypark"
         }
       },
       "oauth_client": [
