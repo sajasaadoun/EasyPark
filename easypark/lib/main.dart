@@ -10,7 +10,7 @@ import 'package:easypark/screens/edit_profile_page.dart';
 import 'package:easypark/screens/delete_doctor.dart';
 
 import 'package:easypark/screens/face2.dart';
-import 'package:easypark/screens/facetest.dart';
+// import 'package:easypark/screens/facetest.dart';
 import 'package:easypark/screens/patientReport.dart';
 import 'package:easypark/screens/record.dart';
 import 'package:easypark/screens/profilefinal.dart';
