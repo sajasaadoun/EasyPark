@@ -36,7 +36,7 @@ class _PatientReportState extends ConsumerState<PatientReport> {
         title: Text('Patient Report'),
         leading: GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, 'doctor');
+            Navigator.pushNamed(context, 'home');
           },
           child: const Icon(
             Icons.arrow_back_ios,
