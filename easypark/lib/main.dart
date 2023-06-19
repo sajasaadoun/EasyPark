@@ -10,6 +10,7 @@ import 'package:easypark/screens/edit_profile_page.dart';
 import 'package:easypark/screens/delete_doctor.dart';
 
 import 'package:easypark/screens/face2.dart';
+import 'package:easypark/screens/facetest.dart';
 import 'package:easypark/screens/patientReport.dart';
 import 'package:easypark/screens/record.dart';
 import 'package:easypark/screens/profilefinal.dart';
@@ -77,12 +78,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'face',
+        initialRoute: 'home',
         routes: {
           'voiceUI': (context) => const AudioPage(),
           '/ar/home': (context) => const HomePageeAr(),
           'report': (context) => PatientReport(),
           'face': (context) => Face(),
+          // 'face': (context) => FaceTest(),
           '/ar/question': (context) => const QuestionsScreenAr(),
           '/ar/OptionsScreen': (context) => MyPlansScreenAr(),
           '/ar/speech': (context) => const SpeechPageAr(),
@@ -148,7 +150,7 @@ class MyApp extends StatelessWidget {
           'spiral': (context) => const HandwrittingDetection(),
           'waveDetection': (context) => const WaveDetection(),
           'camera': (context) => const CameraScreen(),
-          // 'DoctorsInfo': (context) => DoctorInfo(),
+          'DoctorsInfo': (context) => DoctorInfo(),
           // 'OptionsScreen': (context) => MyPlansScreen(),
           // 'MyAlertDialog': (context) => MyAlertDialog(),
           // 'appoint': (context) => ReserveScreen(),
@@ -162,7 +164,7 @@ class MyApp extends StatelessWidget {
           // 'MyAppointmentList': (context) => MyAppointmentList(),
           // 'profilescreen': (context) => profilescreen(),
           // // 'SearchList': (context) => SearchList(),
-          // 'MyAppointments': (context) => MyAppointments(),
+          'MyAppointments': (context) => MyAppointments(),
           // 'questionnaire': (context) => questionnaireScreen(),
           // 'register': (context) => const RegisterScreen(),
 
