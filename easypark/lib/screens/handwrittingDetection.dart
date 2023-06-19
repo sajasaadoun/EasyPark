@@ -49,7 +49,8 @@ class _HandwrittingDetectionState extends State<HandwrittingDetection> {
   }
 
   uploadImage() async {
-    var url = "http://192.168.1.3:8000/upload";
+    // var url = "http://192.168.1.3:8000/upload";
+    var url = "https://easyparkbackend-production.up.railway.app/uploadSpiral";
     final request = http.MultipartRequest("POST", Uri.parse(url));
 
     final headers = {"Content-type": "multipart/form-data"};
