@@ -8,7 +8,6 @@ import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
 import 'package:easypark/screens/edit_profile_page.dart';
 import 'package:easypark/screens/delete_doctor.dart';
-
 import 'package:easypark/screens/face2.dart';
 // import 'package:easypark/screens/facetest.dart';
 import 'package:easypark/screens/patientReport.dart';
