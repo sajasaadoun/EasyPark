@@ -78,7 +78,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'home',
+        initialRoute: 'login',
         routes: {
           'voiceUI': (context) => const AudioPage(),
           '/ar/home': (context) => const HomePageeAr(),
@@ -112,13 +112,22 @@ class MyApp extends StatelessWidget {
           'questionTest': (context) => const QuestionnaireDb(),
           '/ar/insertQuestions': (context) => const InsertDataAR(),
           'insertQuestions': (context) => const InsertData(),
+          'DRInsertDataAR': (context) => const DRInsertDataAR(),
+          'DRInsertData': (context) => const DRInsertData(),
+          'DoctorsInfo': (context) => DoctorInfo(),
+          'OptionsScreen': (context) => MyPlansScreen(),
+          'MyAlertDialog': (context) => MyAlertDialog(),
+          'appoint': (context) => ReserveScreen(),
+          'ChatScreen': (context) => ChatScreen(user: staticUser),
+          'ChatFirst': (context) => const ChatFirst(),
+          'uploadFileWS': (context) => uploadFileWS(),
+          'uploadFileW': (context) => uploadFileW(),
           //'ChatScreen': (context) => ChatScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
           'uploadFileWS': (context) => uploadFileWS(),
           'uploadFileW': (context) => uploadFileW(),
 
           // 'BookingScreen': (context) => BookingScreen(doctor: 'staticModel'),
-
           'BookingScreen': (context) =>
               const BookingScreen(doctor: 'staticModel'),
           'MyAppointmentList': (context) => MyAppointmentList(),

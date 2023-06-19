@@ -45,7 +45,7 @@ class _InsertDataARState extends State<InsertDataAR> {
         ),
         leading: GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, '/ar/doctor');
+            Navigator.pushNamed(context, '/ar/admin');
           },
           child: const Icon(
             Icons.arrow_back_ios,

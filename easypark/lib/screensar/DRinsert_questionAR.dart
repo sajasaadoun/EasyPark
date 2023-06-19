@@ -45,7 +45,7 @@ class _DRInsertDataARState extends State<DRInsertDataAR> {
         ),
         leading: GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, 'doctor');
+            Navigator.pushNamed(context, '/ar/doctor');
           },
           child: const Icon(
             Icons.arrow_back_ios,
