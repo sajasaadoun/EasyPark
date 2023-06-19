@@ -16,7 +16,7 @@ class DoctorPage extends ConsumerStatefulWidget {
   ConsumerState<DoctorPage> createState() => _DoctorPageState();
 }
 
-class _DoctorPageState extends ConsumerState<DoctorPage> { 
+class _DoctorPageState extends ConsumerState<DoctorPage> {
   int _selectedIndex = 0;
   late BuildContext _context;
   @override
@@ -274,9 +274,7 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
             const SizedBox(height: 25),
             const Expanded(child: SingleChildScrollView(child: PatientsList())),
           ],
-                
         ),
-        
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
@@ -309,7 +307,8 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
       ),
     );
   }
-    void _onItemTapped(int index) {
+
+  void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
       if (_selectedIndex == 0) {
@@ -326,8 +325,7 @@ class _DoctorPageState extends ConsumerState<DoctorPage> {
             builder: (context) => profilescreen(),
           ),
         );
-      } 
+      }
     });
   }
 }
-
