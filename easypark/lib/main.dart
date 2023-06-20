@@ -31,6 +31,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'screens/dialog_message.dart';
 import 'screens/insert_question.dart';
+import 'screens/questionnaire_screen.dart';
 import 'screens/results_schedule_screen.dart';
 import 'screens/my_appointments_screen.dart';
 import 'screens/speechDetection.dart';
@@ -173,7 +174,7 @@ class MyApp extends StatelessWidget {
           // 'profilescreen': (context) => profilescreen(),
           // // 'SearchList': (context) => SearchList(),
           'MyAppointments': (context) => MyAppointments(),
-          // 'questionnaire': (context) => questionnaireScreen(),
+          'questionnaire': (context) => questionnaireScreen(),
           // 'register': (context) => const RegisterScreen(),
 
           // '/ar/home': (context) => const HomePageeAr(),
