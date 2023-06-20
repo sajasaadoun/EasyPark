@@ -8,8 +8,8 @@ import 'package:easypark/screens/chat_bar_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
 import 'package:easypark/screens/edit_profile_page.dart';
 import 'package:easypark/screens/delete_doctor.dart';
-
 import 'package:easypark/screens/face2.dart';
+// import 'package:easypark/screens/facetest.dart';
 import 'package:easypark/screens/patientReport.dart';
 import 'package:easypark/screens/record.dart';
 import 'package:easypark/screens/profilefinal.dart';
@@ -31,6 +31,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'screens/dialog_message.dart';
 import 'screens/insert_question.dart';
+import 'screens/questionnaire_screen.dart';
 import 'screens/results_schedule_screen.dart';
 import 'screens/my_appointments_screen.dart';
 import 'screens/speechDetection.dart';
@@ -83,6 +84,7 @@ class MyApp extends StatelessWidget {
           '/ar/home': (context) => const HomePageeAr(),
           'report': (context) => PatientReport(),
           'face': (context) => Face(),
+          // 'face': (context) => FaceTest(),
           '/ar/question': (context) => const QuestionsScreenAr(),
           '/ar/OptionsScreen': (context) => MyPlansScreenAr(),
           '/ar/speech': (context) => const SpeechPageAr(),
@@ -157,7 +159,7 @@ class MyApp extends StatelessWidget {
           'spiral': (context) => const HandwrittingDetection(),
           'waveDetection': (context) => const WaveDetection(),
           'camera': (context) => const CameraScreen(),
-          // 'DoctorsInfo': (context) => DoctorInfo(),
+          'DoctorsInfo': (context) => DoctorInfo(),
           // 'OptionsScreen': (context) => MyPlansScreen(),
           // 'MyAlertDialog': (context) => MyAlertDialog(),
           // 'appoint': (context) => ReserveScreen(),
@@ -171,8 +173,8 @@ class MyApp extends StatelessWidget {
           // 'MyAppointmentList': (context) => MyAppointmentList(),
           // 'profilescreen': (context) => profilescreen(),
           // // 'SearchList': (context) => SearchList(),
-          // 'MyAppointments': (context) => MyAppointments(),
-          // 'questionnaire': (context) => questionnaireScreen(),
+          'MyAppointments': (context) => MyAppointments(),
+          'questionnaire': (context) => questionnaireScreen(),
           // 'register': (context) => const RegisterScreen(),
 
           // '/ar/home': (context) => const HomePageeAr(),

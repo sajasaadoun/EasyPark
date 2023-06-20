@@ -391,10 +391,27 @@ class _LoginContentState extends ConsumerState<LoginContent>
                         saveImage();
                       },
                       child: CircleAvatar(
-                        radius: 35,
+                        radius: 40,
                         backgroundImage: _image == null
                             ? const AssetImage('assets/images/userS.jpg')
                             : FileImage(_image!) as ImageProvider,
+                        child: ClipOval(
+                          child: SizedBox(
+                            width: 80, // Specify the desired width
+                            height: 80, // Specify the desired height
+                            child: _image == null
+                                ? Image.asset(
+                                    'assets/images/userS.jpg',
+                                    fit: BoxFit
+                                        .cover, // Adjust the image's aspect ratio to fit the specified dimensions
+                                  )
+                                : Image.file(
+                                    _image!,
+                                    fit: BoxFit
+                                        .cover, // Adjust the image's aspect ratio to fit the specified dimensions
+                                  ),
+                          ),
+                        ),
                       ),
                     ),
                     ...createAccountContent,

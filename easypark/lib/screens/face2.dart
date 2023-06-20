@@ -7,6 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
+import '../model/face_model.dart';
 import '../model/wave_model.dart';
 
 class Face extends StatefulWidget {
@@ -20,23 +21,108 @@ String userId = user.uid;
 
 class _FaceState extends State<Face> {
   List<File?> selectedImages = List.filled(3, null);
+  File? selectedImage;
   String? message = "";
 
-  final WaveData = WaveModel();
+  final facedata = FaceModel();
 
-  List<File?> _images = List.filled(3, null);
-  List<String> downloadURLs = [];
+  // List<File?> _images = List.filled(3, null);
+  // List<String> downloadURLs = [];
+  String downloadURL1 = '';
+  String downloadURL2 = '';
+  String downloadURL3 = '';
+  // File? imageFile;
+  File? _image;
 
-  Future<void> saveImageWave(File? imageFile) async {
+  // Future saveImage() async {
+  //   print('SAVE IMAGEEEEEEEEEEE');
+  //   // selecteImage = await ImagePicker().pickImage(source: ImageSource.gallery);
+  //   Reference referenceRoot = FirebaseStorage.instance.ref();
+  //   Reference referenceDirImage = referenceRoot.child('face');
+  //   String fileName =
+  //       '${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(100000)}.jpg';
+  //   Reference referenceImageToUpload = referenceDirImage.child(fileName);
+  //   try {
+  //     await referenceImageToUpload.putFile(File(selectedImages[0]!.path));
+  //     print(selectedImages[0]!.path);
+  //     downloadURL1 = await referenceImageToUpload.getDownloadURL();
+  //     print(downloadURL1);
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  //   // setState(() {
+  //   //   _image = File(selectedImage!.path);
+  //   // });
+  // }
+  // Future<void> saveImageFace(
+  //     File? imageFile, File? imageFile2, File? imageFile3) async {
+  //   Reference referenceRoot = FirebaseStorage.instance.ref();
+  //   Reference referenceDirImage = referenceRoot.child('face');
+  //   String fileName1 =
+  //       '${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(100000)}.jpg';
+  //   Reference referenceImageToUpload1 = referenceDirImage.child(fileName1);
+  //   String fileName2 =
+  //       '${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(10000)}.jpg';
+  //   Reference referenceImageToUpload2 = referenceDirImage.child(fileName2);
+  //   String fileName3 =
+  //       '${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(1000)}.jpg';
+  //   Reference referenceImageToUpload3 = referenceDirImage.child(fileName3);
+
+  //   try {
+  //     // Upload a dummy file to create the 'face' folder
+  //     await referenceDirImage.child('dummy.txt').putString('');
+  //   } catch (e) {
+  //     print(e);
+  //   }
+
+  //   try {
+  //     await referenceImageToUpload1.putFile(imageFile!);
+  //     downloadURL1 = await referenceImageToUpload1.getDownloadURL();
+  //     // downloadURLs.add(downloadURL);
+  //     await referenceImageToUpload2.putFile(imageFile2!);
+  //     downloadURL2 = await referenceImageToUpload2.getDownloadURL();
+  //     // downloadURLs.add(downloadURL);
+  //     await referenceImageToUpload3.putFile(imageFile3!);
+  //     downloadURL3 = await referenceImageToUpload3.getDownloadURL();
+  //     // downloadURLs.add(downloadURL);
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  // }
+//------------------------------------------------------------------------//
+  Future<void> saveImageFace(
+      File? imageFile, File? imageFile2, File? imageFile3) async {
     Reference referenceRoot = FirebaseStorage.instance.ref();
-    Reference referenceDirImage = referenceRoot.child('image');
-    String fileName =
+    Reference referenceDirImage = referenceRoot.child('face');
+    String fileName1 =
         '${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(100000)}.jpg';
-    Reference referenceImageToUpload = referenceDirImage.child(fileName);
+    Reference referenceImageToUpload1 = referenceDirImage.child(fileName1);
+
+    String fileName2 =
+        '${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(10000)}.jpg';
+    Reference referenceImageToUpload2 = referenceDirImage.child(fileName2);
+
+    String fileName3 =
+        '${DateTime.now().millisecondsSinceEpoch}-${Random().nextInt(1000)}.jpg';
+    Reference referenceImageToUpload3 = referenceDirImage.child(fileName3);
     try {
-      await referenceImageToUpload.putFile(imageFile!);
-      String downloadURL = await referenceImageToUpload.getDownloadURL();
-      downloadURLs.add(downloadURL);
+      await referenceImageToUpload1.putFile(imageFile!);
+      downloadURL1 = await referenceImageToUpload1.getDownloadURL();
+      // downloadURLs.add(downloadURL);
+    } catch (e) {
+      print(e);
+    }
+    try {
+      await referenceImageToUpload2.putFile(imageFile2!);
+      downloadURL2 = await referenceImageToUpload2.getDownloadURL();
+      // downloadURLs.add(downloadURL);
+    } catch (e) {
+      print(e);
+    }
+    try {
+      await referenceImageToUpload3.putFile(imageFile3!);
+      downloadURL3 = await referenceImageToUpload3.getDownloadURL();
+      // downloadURLs.add(downloadURL);
     } catch (e) {
       print(e);
     }
@@ -77,7 +163,7 @@ class _FaceState extends State<Face> {
   // }
 
   Future<void> uploadImages() async {
-    var url = "http://192.168.1.3:8000/upload";
+    var url = "http://192.168.1.5:8000/upload";
     final request = http.MultipartRequest("POST", Uri.parse(url));
 
     final headers = {"Content-type": "multipart/form-data"};
@@ -103,6 +189,14 @@ class _FaceState extends State<Face> {
         // Request successful
         final responseString = await response.stream.bytesToString();
         print(responseString);
+        setState(() {
+          message = json.decode(responseString)['message'];
+          if (message == '1') {
+            message = 'Parkinson';
+          } else {
+            message = 'Healthy';
+          }
+        });
       } else {
         // Request failed
         print('Request failed with status: ${response.statusCode}');
@@ -196,10 +290,18 @@ class _FaceState extends State<Face> {
                         selectedImages[1] != null &&
                         selectedImages[2] != null
                     ? () async {
-                        for (int i = 0; i < 3; i++) {
-                          await saveImageWave(selectedImages[i]);
-                        }
+                        // for (int i = 0; i < 3; i++) {
+                        await saveImageFace(selectedImages[0],
+                            selectedImages[1], selectedImages[2]);
+                        // }
+                        print('HELLLOOOOOO IAM HEREEEEEE');
+
                         await uploadImages();
+                        // await saveImageFace();
+                        facedata.addUserResults(userId, downloadURL1,
+                            downloadURL2, downloadURL3, message!);
+                        // facedata.addUserResults(
+                        //     userId, downloadURL1, '', '', message!);
                       }
                     : null,
                 child: const Text("Upload Images"),

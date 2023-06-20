@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
+import 'package:easypark/model/voice_model.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -23,10 +24,11 @@ class _AudioPageState extends State<AudioPage> {
   File? selectedAudio;
   String? message = "";
 
-  //final WaveData = WaveModel();
+  final voiceData = VoiceModel();
 
   List<File?> _audios = List.filled(1, null);
-  List<String> downloadURLs = [];
+  // List<String> downloadURLs = [];
+  String downloadURL = '';
 
   // Future<void> saveAudioWave(File? audioFile) async {
   //   Reference referenceRoot = FirebaseStorage.instance.ref();
@@ -42,6 +44,21 @@ class _AudioPageState extends State<AudioPage> {
   //     print(e);
   //   }
   // }
+
+  Future<String> uploadAudio(File selectedAudio) async {
+    String fileName = basename(selectedAudio.path);
+    Reference storageReference =
+        FirebaseStorage.instance.ref().child('audio').child(fileName);
+
+    try {
+      await storageReference.putFile(selectedAudio);
+      downloadURL = await storageReference.getDownloadURL();
+      return downloadURL;
+    } catch (e) {
+      print('Error uploading audio: $e');
+      return '';
+    }
+  }
 
   // uploadAudio() async {
   //   var url = "http://10.1.0.41:8000/upload";
@@ -119,7 +136,7 @@ class _AudioPageState extends State<AudioPage> {
     // final file = File(audioFilePath);
     final fileBytes = await audioFilePath.readAsBytes();
     final base64Audio = base64Encode(fileBytes);
-    var url = "http://192.168.1.2:8000/upload";
+    var url = "http://192.168.1.5:8000/upload";
     final response = await http.post(
       Uri.parse(url),
       body: {'audio': base64Audio},
@@ -184,8 +201,9 @@ class _AudioPageState extends State<AudioPage> {
               ElevatedButton(
                 onPressed: selectedAudio != null
                     ? () async {
-                        //await saveAudioWave(selectedAudio);
+                        await uploadAudio(selectedAudio!);
                         await sendAudioToBackend(selectedAudio!);
+                        voiceData.addUserResults(userId, downloadURL, message!);
                       }
                     : null,
                 child: const Text("Upload Audio"),
