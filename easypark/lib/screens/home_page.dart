@@ -74,6 +74,19 @@ class _HomePageeState extends State<HomePagee> {
             "Tests",
             style: Theme.of(context).textTheme.headline6,
           ),
+          ElevatedButton(
+            onPressed: () {
+              // Handle the button press
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Colors.blue,
+              onPrimary: Colors.black,
+              side: BorderSide(color: Colors.black),
+              minimumSize:
+                  const Size(10, 40), // Adjust the width and height as needed
+            ),
+            child: const Text("Start Test"),
+          ),
           const SizedBox(height: 15),
           const HealthNeeds(),
           const SizedBox(height: 25),
