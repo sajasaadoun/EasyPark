@@ -1,5 +1,6 @@
 import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/DRinsert_question.dart';
+import 'package:easypark/screens/FinalResult.dart';
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
 import 'package:easypark/screens/booking_screen.dart';
@@ -76,8 +77,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'face',
+        initialRoute: 'report',
         routes: {
+          // 'ResultPage': (context) =>  ResultPage(),
           'voiceUI': (context) => const AudioPage(),
           '/ar/home': (context) => const HomePageeAr(),
           'report': (context) => PatientReport(),
