@@ -1,4 +1,7 @@
+import 'package:easypark/screens/upload-file-W.dart';
 import 'package:flutter/material.dart';
+
+import 'upload-file-WS.dart';
 
 class TestSelectionScreen extends StatelessWidget {
   @override
@@ -21,16 +24,20 @@ class TestSelectionScreen extends StatelessWidget {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Handle Spiral Test button press
-                // Navigate to the Spiral Test screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => uploadFileW()),
+                );
               },
               child: Text('Spiral Test'),
             ),
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                // Handle Wave Test button press
-                // Navigate to the Wave Test screen
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => uploadFileWS()),
+                );
               },
               child: Text('Wave Test'),
             ),
