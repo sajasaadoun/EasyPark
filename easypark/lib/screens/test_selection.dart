@@ -26,7 +26,7 @@ class TestSelectionScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => uploadFileW()),
+                  MaterialPageRoute(builder: (context) => uploadFileWS()),
                 );
               },
               child: Text('Spiral Test'),
@@ -36,7 +36,7 @@ class TestSelectionScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => uploadFileWS()),
+                  MaterialPageRoute(builder: (context) => uploadFileW()),
                 );
               },
               child: Text('Wave Test'),
