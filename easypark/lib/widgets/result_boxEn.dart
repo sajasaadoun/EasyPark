@@ -34,7 +34,7 @@ class ResultBox extends StatelessWidget {
                     ? 'Mild' // when the result is half of the questions
                     : result > 3
                         ? 'Severe' // when the result is less than half
-                        : 'Moderate ',
+                        : 'Moderate',
                 style: const TextStyle(fontSize: 30.0),
               ),
               radius: 70.0,
