@@ -79,7 +79,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'TestSelectionScreen',
+        initialRoute: 'home',
         routes: {
           'home': (context) => HomePagee(),
           // 'ResultPage': (context) => ResultPage(
