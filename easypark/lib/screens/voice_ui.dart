@@ -136,7 +136,7 @@ class _AudioPageState extends State<AudioPage> {
     // final file = File(audioFilePath);
     final fileBytes = await audioFilePath.readAsBytes();
     final base64Audio = base64Encode(fileBytes);
-    var url = "http://192.168.1.5:8000/upload";
+    var url = "http://192.168.1.2:8000/upload";
     final response = await http.post(
       Uri.parse(url),
       body: {'audio': base64Audio},
@@ -208,7 +208,15 @@ class _AudioPageState extends State<AudioPage> {
                     : null,
                 child: const Text("Upload Audio"),
               ),
-              if (message != null) Text(message!),
+              ElevatedButton(
+                onPressed: (message != '')
+                    ? () async {
+                        Navigator.pushNamed(context, 'uploadFileWS');
+                      }
+                    : null,
+                child: const Text("next"),
+              ),
+              //if (message != null) Text(message!),
             ],
           ),
         ),
