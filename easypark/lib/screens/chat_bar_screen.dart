@@ -10,7 +10,8 @@ import '../widgets/dialogs.dart';
 
 //home screen -- where all available contacts are shown
 class ChatFirst extends StatefulWidget {
-  const ChatFirst({super.key});
+  // const ChatFirst({super.key});
+  const ChatFirst({Key? key}) : super(key: key);
 
   @override
   State<ChatFirst> createState() => _HomeScreenState();
