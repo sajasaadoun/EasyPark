@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
 import 'package:easypark/model/spiral_model.dart';
+import 'package:easypark/screens/voice_ui.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:photo_view/photo_view.dart';
@@ -10,6 +11,8 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
+
+import '../screensar/audioUI.dart';
 
 class HandwrittingDetection extends StatefulWidget {
   const HandwrittingDetection({super.key});
@@ -49,8 +52,8 @@ class _HandwrittingDetectionState extends State<HandwrittingDetection> {
   }
 
   uploadImage() async {
-    // var url = "http://192.168.1.3:8000/upload";
-    var url = "https://easyparkbackend-production.up.railway.app/uploadSpiral";
+    var url = "http://192.168.1.3:8000/uploadSpiral";
+    // var url = "https://easyparkbackend-production.up.railway.app/uploadSpiral";
     final request = http.MultipartRequest("POST", Uri.parse(url));
 
     final headers = {"Content-type": "multipart/form-data"};
@@ -114,12 +117,18 @@ class _HandwrittingDetectionState extends State<HandwrittingDetection> {
             ElevatedButton(
               onPressed: (message != '')
                   ? () async {
-                      Navigator.pushNamed(context, 'uploadFileW');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AudioPage(
+                                  result1: message!,
+                                )),
+                      );
                     }
                   : null,
               child: const Text("next"),
             ),
-            //Text('$message'),
+            Text('$message'),
 
             // SpiralData.addUserResults(userId, downloadURL, message!);
           ],
