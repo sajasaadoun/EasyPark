@@ -2,6 +2,7 @@ import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/profilefinal.dart';
 import 'package:easypark/screens/questionnaire_screen.dart';
 import 'package:easypark/screens/search.dart';
+import 'package:easypark/screens/test_selection.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import '../model/searchList.dart';
@@ -76,12 +77,15 @@ class _HomePageeState extends State<HomePagee> {
           ),
           ElevatedButton(
             onPressed: () {
-              // Handle the button press
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => TestSelectionScreen()),
+              );
             },
             style: ElevatedButton.styleFrom(
               primary: Colors.blue,
-              onPrimary: Colors.black,
-              side: BorderSide(color: Colors.black),
+              onPrimary: Colors.white,
+              side: BorderSide(color: Colors.transparent),
               minimumSize:
                   const Size(10, 40), // Adjust the width and height as needed
             ),
