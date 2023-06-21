@@ -11,6 +11,7 @@ import '../utils/text_style.dart';
 import '../utils/theme.dart';
 import '../widgets/progress_widget.dart';
 import '../widgets/rating_start.dart';
+import 'booking_screen.dart';
 
 class DoctorInfo extends ConsumerStatefulWidget {
   // final DoctorModel model;
@@ -252,8 +253,10 @@ class _DoctorInfoState extends ConsumerState<DoctorInfo> {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) =>
-                                                MyAppointments()),
+                                          builder: (context) => BookingScreen(
+                                              doctor:
+                                                  '${value.docs[index].get('name')}'),
+                                        ),
                                       );
                                     },
                                     style: ElevatedButton.styleFrom(

@@ -8,6 +8,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import '../screensar/sketch_page.dart';
+import 'home_page.dart';
 
 class uploadFileWS extends StatelessWidget {
   static final String title = 'You Can Choose Any Type You Want';
@@ -36,9 +37,12 @@ class _MainPageState extends State<MainPage> {
 
     return Scaffold(
       appBar: AppBar(
+        // automaticallyImplyLeading: false,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () => Navigator.of(context).pop("home"),
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
         title: Text(uploadFileWS.title),
         centerTitle: true,
