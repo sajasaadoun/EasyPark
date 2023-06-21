@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
+import 'package:easypark/screens/voice_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -10,6 +11,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:http/http.dart' as http;
 
 import '../model/wave_model.dart';
+import 'audio.dart';
 
 class WaveDetection extends StatefulWidget {
   const WaveDetection({super.key});
@@ -50,7 +52,7 @@ class _WaveDetectionState extends State<WaveDetection> {
   }
 
   uploadImage() async {
-    var url = "http://192.168.1.5:8000/uploadWave";
+    var url = "http://192.168.1.3:8000/uploadWave";
     // var url = "https://easyparkbackend-production.up.railway.app/uploadWave";
     final request = http.MultipartRequest("POST", Uri.parse(url));
 
@@ -114,12 +116,18 @@ class _WaveDetectionState extends State<WaveDetection> {
             ElevatedButton(
               onPressed: (message != '')
                   ? () async {
-                      Navigator.pushNamed(context, 'uploadFileW');
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => AudioPage(
+                                  result1: message!,
+                                )),
+                      );
                     }
                   : null,
               child: const Text("next"),
             ),
-            //Text('. $message'),
+            Text('$message'),
           ],
         ),
       ),
