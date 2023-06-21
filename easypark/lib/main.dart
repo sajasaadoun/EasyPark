@@ -78,9 +78,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: '/home',
+        initialRoute: 'home',
         routes: {
-          // 'ResultPage': (context) =>  ResultPage(),
+          'home': (context) => HomePagee(),
+          // 'ResultPage': (context) => ResultPage(
+          //       resultText1: 'p',
+          //       resultText2: 'p',
+          //       resultText3: 'p',
+          //     ),
           'voiceUI': (context) => const AudioPage(),
           '/ar/home': (context) => const HomePageeAr(),
           'report': (context) => PatientReport(),
