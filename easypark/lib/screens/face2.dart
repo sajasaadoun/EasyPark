@@ -9,9 +9,13 @@ import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
 import '../model/face_model.dart';
 import '../model/wave_model.dart';
+import 'FinalResult.dart';
 
 class Face extends StatefulWidget {
-  const Face({Key? key}) : super(key: key);
+  final String? result1;
+  final String? result2;
+  const Face({Key? key, this.result1, this.result2}) : super(key: key);
+  // const Face({Key? key}) : super(key: key);
   @override
   State<Face> createState() => _FaceState();
 }
@@ -163,7 +167,7 @@ class _FaceState extends State<Face> {
   // }
 
   Future<void> uploadImages() async {
-    var url = "http://192.168.1.5:8000/upload";
+    var url = "http://192.168.1.3:8000/uploadFace";
     final request = http.MultipartRequest("POST", Uri.parse(url));
 
     final headers = {"Content-type": "multipart/form-data"};
@@ -306,35 +310,52 @@ class _FaceState extends State<Face> {
                     : null,
                 child: const Text("Upload Images"),
               ),
+              // ElevatedButton(
+              //   onPressed: (message != '')
+              //       ? () {
+              //           showDialog(
+              //               context: context,
+              //               builder: (context) => AlertDialog(
+              //                     title: const Text('Result'),
+              //                     content: const Text('Text result here!!'),
+              //                     actions: [
+              //                       TextButton(
+              //                         child: const Text('Severity'),
+              //                         onPressed: () async {
+              //                           Navigator.pushNamed(
+              //                               context, 'questionTest');
+              //                         },
+              //                       ),
+              //                       TextButton(
+              //                         child: const Text('DONE'),
+              //                         onPressed: () async {
+              //                           Navigator.pushNamed(context, 'home');
+              //                         },
+              //                       ),
+              //                     ],
+              //                   ));
+              //         }
+              //       : null,
+              //   child: const Text("next"),
+              // ),
               ElevatedButton(
                 onPressed: (message != '')
                     ? () {
-                        showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                                  title: const Text('Result'),
-                                  content: const Text('Text result here!!'),
-                                  actions: [
-                                    TextButton(
-                                      child: const Text('Severity'),
-                                      onPressed: () async {
-                                        Navigator.pushNamed(
-                                            context, 'questionTest');
-                                      },
-                                    ),
-                                    TextButton(
-                                      child: const Text('DONE'),
-                                      onPressed: () async {
-                                        Navigator.pushNamed(context, 'home');
-                                      },
-                                    ),
-                                  ],
-                                ));
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ResultPage(
+                                    resultText1: widget.result1!,
+                                    resultText2: widget.result2!,
+                                    resultText3: message!,
+                                  )),
+                        );
                       }
                     : null,
-                child: const Text("next"),
+                child: const Text("Next"),
               ),
-              //if (message != null) Text(message!),
+
+              if (message != null) Text(message!),
             ],
           ),
         ),
