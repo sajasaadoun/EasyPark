@@ -111,7 +111,15 @@ class _WaveDetectionState extends State<WaveDetection> {
                   "upload",
                   style: TextStyle(color: Colors.white),
                 )),
-            Text('. $message'),
+            ElevatedButton(
+              onPressed: (message != '')
+                  ? () async {
+                      Navigator.pushNamed(context, 'uploadFileW');
+                    }
+                  : null,
+              child: const Text("next"),
+            ),
+            //Text('. $message'),
           ],
         ),
       ),

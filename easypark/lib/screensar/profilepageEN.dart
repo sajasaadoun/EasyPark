@@ -40,7 +40,7 @@ class profilescreenEN extends StatelessWidget {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Theme.of(context).accentColor,
+                    // primary: Theme.of(context).accentColor,
                     shape: CircleBorder(),
                   ),
                   child: Icon(
