@@ -13,7 +13,8 @@ class ResultPage extends StatelessWidget {
 
   String getResultText() {
     final results = [resultText1, resultText2, resultText3];
-    final parkinsonCount = results.where((result) => result == 'Parkinson').length;
+    final parkinsonCount =
+        results.where((result) => result == 'Parkinson').length;
     final healthyCount = results.where((result) => result == 'Healthy').length;
 
     if (parkinsonCount == 3) {
