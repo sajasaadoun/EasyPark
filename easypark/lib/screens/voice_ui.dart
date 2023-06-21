@@ -8,10 +8,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:path/path.dart';
+
+import 'face2.dart';
 //import '../model/wave_model.dart';
 
 class AudioPage extends StatefulWidget {
-  const AudioPage({Key? key}) : super(key: key);
+  final String? result1;
+
+  const AudioPage({Key? key, this.result1}) : super(key: key);
 
   @override
   State<AudioPage> createState() => _AudioPageState();
@@ -136,7 +140,7 @@ class _AudioPageState extends State<AudioPage> {
     // final file = File(audioFilePath);
     final fileBytes = await audioFilePath.readAsBytes();
     final base64Audio = base64Encode(fileBytes);
-    var url = "http://192.168.1.2:8000/upload";
+    var url = "http://192.168.1.3:8000/process_audio";
     final response = await http.post(
       Uri.parse(url),
       body: {'audio': base64Audio},
@@ -185,13 +189,13 @@ class _AudioPageState extends State<AudioPage> {
                       width: 150,
                       height: 150,
                       margin: const EdgeInsets.all(10),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.rectangle,
-                        // image: DecorationImage(
-                        //   fit: BoxFit.cover,
-                        //   // You can use an audio icon/image here
-                        //   //image: AssetImage('/assets/images/audio_icon.png'),
-                        // ),
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          // You can use an audio icon/image here
+                          image: AssetImage('/assets/images/voice.png'),
+                        ),
                       ),
                     ),
               ElevatedButton(
@@ -208,15 +212,23 @@ class _AudioPageState extends State<AudioPage> {
                     : null,
                 child: const Text("Upload Audio"),
               ),
+              const SizedBox(
+                height: 50,
+              ),
               ElevatedButton(
                 onPressed: (message != '')
                     ? () async {
-                        Navigator.pushNamed(context, 'uploadFileWS');
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Face(
+                                  result1: widget.result1, result2: message)),
+                        );
                       }
                     : null,
                 child: const Text("next"),
               ),
-              //if (message != null) Text(message!),
+              if (message != null) Text(message!),
             ],
           ),
         ),
