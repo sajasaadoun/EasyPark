@@ -1,5 +1,6 @@
 import 'package:easypark/model/chat_user.dart';
 import 'package:easypark/screens/DRinsert_question.dart';
+import 'package:easypark/screens/FinalResult.dart';
 import 'package:easypark/screens/admin_screen.dart';
 import 'package:easypark/screens/addDoctorForm.dart';
 import 'package:easypark/screens/booking_screen.dart';
@@ -79,7 +80,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         initialRoute: '/home',
         routes: {
-          '/home': (context) => const HomePagee(),
+          // 'ResultPage': (context) =>  ResultPage(),
           'voiceUI': (context) => const AudioPage(),
           '/ar/home': (context) => const HomePageeAr(),
           'report': (context) => PatientReport(),
@@ -157,7 +158,7 @@ class MyApp extends StatelessWidget {
           // 'OptionsScreen': (context) => MyPlansScreen(),
           // 'MyAlertDialog': (context) => MyAlertDialog(),
           // 'appoint': (context) => ReserveScreen(),
-          'ChatScreen': (context) => ChatScreen(user: staticUser),
+          // 'ChatScreen': (context) => ChatScreen(user: staticUser),
           // 'ChatFirst': (context) => const ChatFirst(),
           // 'uploadFileWS': (context) => uploadFileWS(),
           // 'uploadFileW': (context) => uploadFileW(),
