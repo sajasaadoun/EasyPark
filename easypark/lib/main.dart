@@ -6,6 +6,7 @@ import 'package:easypark/screens/addDoctorForm.dart';
 import 'package:easypark/screens/booking_screen.dart';
 import 'package:easypark/screens/camera_screen.dart';
 import 'package:easypark/screens/chat_bar_screen.dart';
+import 'package:easypark/screens/chat_home_screen.dart';
 import 'package:easypark/screens/chat_screen.dart';
 import 'package:easypark/screens/edit_profile_page.dart';
 import 'package:easypark/screens/delete_doctor.dart';
@@ -117,7 +118,8 @@ class MyApp extends StatelessWidget {
           'OptionsScreen': (context) => MyPlansScreen(),
           'MyAlertDialog': (context) => MyAlertDialog(),
           'appoint': (context) => ReserveScreen(),
-          'ChatScreen': (context) => ChatScreen(user: staticUser),
+          // 'ChatScreen': (context) => ChatScreen(user: staticUser),
+          // 'ChatScreen2': (context) => ChatHomeScreen(user: staticUser),
           'ChatFirst': (context) => const ChatFirst(),
           'uploadFileWS': (context) => uploadFileWS(),
           'uploadFileW': (context) => uploadFileW(),
