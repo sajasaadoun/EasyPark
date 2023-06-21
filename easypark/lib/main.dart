@@ -25,14 +25,12 @@ import 'package:easypark/screens/home_page.dart';
 import 'package:easypark/screens/doctorpage.dart';
 import 'package:easypark/screens/login_screen.dart';
 import 'package:easypark/screens/options_screen.dart';
-import 'package:easypark/screens/register_page.dart';
 import 'package:easypark/screens/wave-detection.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'screens/dialog_message.dart';
 import 'screens/insert_question.dart';
 import 'screens/questionnaire_screen.dart';
-import 'screens/results_schedule_screen.dart';
 import 'screens/my_appointments_screen.dart';
 import 'screens/speechDetection.dart';
 import 'model/question_DB.dart';
@@ -78,7 +76,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'login',
+        initialRoute: 'face',
         routes: {
           'voiceUI': (context) => const AudioPage(),
           '/ar/home': (context) => const HomePageeAr(),
@@ -109,7 +107,6 @@ class MyApp extends StatelessWidget {
           // '/ar/insertQuestions': (context) => const InsertData(),
           'questionTest': (context) => const QuestionnaireDb(),
           // 'insertQuestions': (context) => const InsertData(),
-          'questionTest': (context) => const QuestionnaireDb(),
           '/ar/insertQuestions': (context) => const InsertDataAR(),
           'insertQuestions': (context) => const InsertData(),
           'DRInsertDataAR': (context) => const DRInsertDataAR(),
@@ -123,9 +120,6 @@ class MyApp extends StatelessWidget {
           'uploadFileWS': (context) => uploadFileWS(),
           'uploadFileW': (context) => uploadFileW(),
           //'ChatScreen': (context) => ChatScreen(user: staticUser),
-          'ChatFirst': (context) => const ChatFirst(),
-          'uploadFileWS': (context) => uploadFileWS(),
-          'uploadFileW': (context) => uploadFileW(),
 
           // 'BookingScreen': (context) => BookingScreen(doctor: 'staticModel'),
           'BookingScreen': (context) =>
@@ -136,9 +130,6 @@ class MyApp extends StatelessWidget {
           // 'insertQuestions': (context) => const InsertData(),
           'record': (context) => recordPage(),
           'addDrEng': (context) => DoctorForm(),
-
-          'record': (context) => const recordPage(),
-          'addDrEng': (context) => const DoctorForm(),
 
           'edit': (context) => EditProfilePage(),
           'profile': (context) => profilescreen(),
