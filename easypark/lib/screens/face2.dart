@@ -306,7 +306,35 @@ class _FaceState extends State<Face> {
                     : null,
                 child: const Text("Upload Images"),
               ),
-              if (message != null) Text(message!),
+              ElevatedButton(
+                onPressed: (message != '')
+                    ? () {
+                        showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                                  title: const Text('Result'),
+                                  content: const Text('Text result here!!'),
+                                  actions: [
+                                    TextButton(
+                                      child: const Text('Severity'),
+                                      onPressed: () async {
+                                        Navigator.pushNamed(
+                                            context, 'questionTest');
+                                      },
+                                    ),
+                                    TextButton(
+                                      child: const Text('DONE'),
+                                      onPressed: () async {
+                                        Navigator.pushNamed(context, 'home');
+                                      },
+                                    ),
+                                  ],
+                                ));
+                      }
+                    : null,
+                child: const Text("next"),
+              ),
+              //if (message != null) Text(message!),
             ],
           ),
         ),
