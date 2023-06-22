@@ -37,6 +37,7 @@ class _UpcomingCardState extends State<UpcomingCard> {
                     return CircleAvatar(
                       radius: 25,
                       backgroundImage: NetworkImage(value.get('userImage')),
+                      // backgroundImage: Image(image: ),
                     );
                   },
                   error: (Object error, StackTrace err) {
@@ -68,6 +69,7 @@ class _UpcomingCardState extends State<UpcomingCard> {
                         children: [
                           Text(
                             "Welcome Back $name",
+                            // 'Welcome Back Sameh ',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
