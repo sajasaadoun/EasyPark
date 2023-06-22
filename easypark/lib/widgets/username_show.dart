@@ -20,6 +20,7 @@ class UsernameShow extends StatelessWidget {
         return Center(
           child: Text(
             'Welcome, ${value.get('name')}',
+            // 'Welcome Sameh',
             style: const TextStyle(
               backgroundColor: Colors.transparent,
               fontSize: 20.0,
