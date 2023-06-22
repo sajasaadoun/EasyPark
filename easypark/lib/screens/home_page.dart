@@ -1,4 +1,5 @@
 import 'package:easypark/model/chat_user.dart';
+import 'package:easypark/screens/instructionsPage.dart';
 import 'package:easypark/screens/profilefinal.dart';
 import 'package:easypark/screens/questionnaire_screen.dart';
 import 'package:easypark/screens/search.dart';
@@ -79,7 +80,7 @@ class _HomePageeState extends State<HomePagee> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => TestSelectionScreen()),
+                MaterialPageRoute(builder: (context) => InstructionsPage()),
               );
             },
             style: ElevatedButton.styleFrom(
