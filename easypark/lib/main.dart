@@ -11,6 +11,7 @@ import 'package:easypark/screens/chat_screen.dart';
 import 'package:easypark/screens/edit_profile_page.dart';
 import 'package:easypark/screens/delete_doctor.dart';
 import 'package:easypark/screens/face2.dart';
+import 'package:easypark/screens/instructionsPage.dart';
 // import 'package:easypark/screens/facetest.dart';
 import 'package:easypark/screens/patientReport.dart';
 import 'package:easypark/screens/record.dart';
@@ -78,8 +79,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'login',
+        initialRoute: 'instrction',
         routes: {
+          'instrction':(context) =>  InstructionsPage(),
           // 'ResultPage': (context) =>  ResultPage(),
           'voiceUI': (context) => const AudioPage(),
           '/ar/home': (context) => const HomePageeAr(),
