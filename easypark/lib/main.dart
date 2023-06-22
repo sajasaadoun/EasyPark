@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        initialRoute: 'instrction',
+        initialRoute: 'home',
         routes: {
           'instrction':(context) =>  InstructionsPage(),
           // 'ResultPage': (context) =>  ResultPage(),
