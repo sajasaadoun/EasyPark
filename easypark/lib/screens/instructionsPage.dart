@@ -19,6 +19,12 @@ class _InstructionsPageState extends State<InstructionsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Test Instructions'),
+          leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
