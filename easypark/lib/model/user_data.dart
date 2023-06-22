@@ -45,6 +45,19 @@ class UserData {
   }
 }
 
+// Future<void> updateDiagnosedField(bool diagnosed) async {
+//   final updateUser = FirebaseFirestore.instance.collection('users').doc(userID);
+//   await updateUser.update({
+//     'diagnosed': diagnosed,
+//   });
+// }
+Future<void> updateDiagnosedField(String diagnosis) async {
+  final updateUser = FirebaseFirestore.instance.collection('users').doc(userID);
+  await updateUser.update({
+    'diagnosed': diagnosis,
+  });
+}
+
 class User {
   final String imagePath;
   final String name;
