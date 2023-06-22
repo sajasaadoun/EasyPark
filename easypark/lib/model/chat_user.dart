@@ -53,7 +53,7 @@ class ChatUser {
 ChatUser staticUser = ChatUser(
   image: 'https://example.com/profile.png',
   about: 'Hi, I am a static user!',
-  name: 'Static User',
+  name: 'saja',
   createdAt: '2022-01-01',
   isOnline: true,
   id: '123456',
