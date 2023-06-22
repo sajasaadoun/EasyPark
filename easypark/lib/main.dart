@@ -47,6 +47,7 @@ import 'package:easypark/screensar/addDoctorForm.dart';
 import 'package:easypark/screensar/doctorpage.dart';
 import 'package:easypark/screensar/question_model.dart';
 import 'package:easypark/screensar/doctor_info_screen.dart';
+import 'screens/test_selection.dart';
 import 'screensar/speechDetection.dart';
 import 'package:easypark/screensar/login_screen.dart';
 import 'package:easypark/screensar/faceDetection.dart';
@@ -83,8 +84,17 @@ class MyApp extends StatelessWidget {
         routes: {
           'instrction':(context) =>  InstructionsPage(),
           // 'ResultPage': (context) =>  ResultPage(),
+
+          'home': (context) => HomePagee(),
+          // 'ResultPage': (context) => ResultPage(
+          //       resultText1: 'p',
+          //       resultText2: 'p',
+          //       resultText3: 'p',
+          //     ),
           'voiceUI': (context) => const AudioPage(),
           '/ar/home': (context) => const HomePageeAr(),
+          'TestSelectionScreen': (context) => TestSelectionScreen(),
+
           'report': (context) => PatientReport(),
           'face': (context) => Face(),
           // 'face': (context) => FaceTest(),
